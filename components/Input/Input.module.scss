@@ -1,0 +1,11 @@
+@import url('styles/colors');
+
+.input {
+  &__label {
+    color: $smoky-black;
+  }
+
+  &__error {
+    color: $dark-red;
+  }
+}

@@ -1,0 +1,38 @@
+@import 'styles/colors';
+
+.language-switch {
+  display: flex;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  width: 150px;
+
+  &::after {
+    align-items: center;
+    background: $grey;
+    bottom: 0;
+    content: '\25BC';
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.2s all ease;
+    width: 30px;
+  }
+
+  &:hover::after {
+    color: $white;
+  }
+
+  &__select {
+    align-items: center;
+    background: $smoky-black;
+    color: $white;
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    padding: 6px 8px;
+  }
+}

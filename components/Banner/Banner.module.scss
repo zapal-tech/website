@@ -1,0 +1,29 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.banner {
+  align-items: center;
+  background-color: $red-orange;
+  color: $white;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+
+  &__text {
+    font-weight: 700;
+    padding-right: 35px;
+    position: relative;
+
+    &::after {
+      @include pseudo();
+
+      background: linear-gradient(to bottom, #0057b7 50%, #ffd700 50%);
+      border-radius: 50%;
+      height: 25px;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 25px;
+    }
+  }
+}
