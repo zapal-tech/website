@@ -1,0 +1,32 @@
+{
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "importOrder": [
+    "^(^configs$)|(^configs/(.*)$)$",
+    "^(^hooks$)|(^hooks/(.*)$)$",
+    "^(^utils$)|(^utils/(.*)$)$",
+    "^(^router$)|(^router/(.*)$)$",
+    "^(^store$)|(^store/(.*)$)$",
+    "^(^components$)|(^components/(.*)$)$",
+    "^(^layouts$)|(^layouts/(.*)$)$",
+    "^(^pages$)|(^pages/(.*)$)$",
+    "^(App|i18n|serviceWorkerRegistration|service-worker|serviceWorkerRegistration|reportWebVitals)$",
+    "^\\.\\./.*((?<!(\\.css)|(\\.scss)))$",
+    "^\\./.*((?<!(\\.css)|(\\.scss)))$",
+    "^styles/(.*\\.module\\.(css|scss))$",
+    "^styles/(.*\\.(css|scss))$",
+    "^\\.\\./(.*\\.module\\.(css|scss))$",
+    "^\\.\\./(.*\\.(css|scss))$",
+    "^\\./(.*\\.module\\.(css|scss))$",
+    "^\\./(.*\\.(css|scss))$"
+  ],
+  "importOrderSeparation": true,
+  "printWidth": 120,
+  "proseWrap": "always",
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "useTabs": false
+}
