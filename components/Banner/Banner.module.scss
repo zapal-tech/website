@@ -10,7 +10,10 @@
   justify-content: center;
 
   &__text {
-    font-weight: 700;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
     padding-right: 35px;
     position: relative;
 
@@ -19,11 +22,25 @@
 
       background: linear-gradient(to bottom, #0057b7 50%, #ffd700 50%);
       border-radius: 50%;
-      height: 25px;
+      height: 16px;
       right: 0;
       top: 50%;
       transform: translateY(-50%);
-      width: 25px;
+      width: 16px;
+    }
+  }
+}
+@media screen and (min-width: 520px) {
+  .banner {
+    &__text {
+      font-family: 'Gilroy', sans-serif;
+      font-size: 26px; //20px
+      font-style: normal;
+      font-weight: 600;
+      &::after {
+        height: 21px;
+        width: 21px;
+      }
     }
   }
 }
