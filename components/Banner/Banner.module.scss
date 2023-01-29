@@ -1,15 +1,15 @@
 @import 'styles/colors';
 @import 'styles/mixins';
 
-.banner {
+.Banner {
   align-items: center;
-  background-color: $red-orange;
+  background-color: $orioles-orange;
   color: $white;
   display: flex;
   height: 40px;
   justify-content: center;
 
-  &__text {
+  &__Text {
     font-weight: 700;
     padding-right: 35px;
     position: relative;
@@ -17,7 +17,7 @@
     &::after {
       @include pseudo();
 
-      background: linear-gradient(to bottom, #0057b7 50%, #ffd700 50%);
+      background: linear-gradient(to bottom, $ukraine-blue 50%, $ukraine-yellow 50%);
       border-radius: 50%;
       height: 25px;
       right: 0;

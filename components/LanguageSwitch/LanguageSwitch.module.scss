@@ -1,6 +1,6 @@
 @import 'styles/colors';
 
-.language-switch {
+.LanguageSwitch {
   display: flex;
   height: 40px;
   overflow: hidden;
@@ -9,7 +9,7 @@
 
   &::after {
     align-items: center;
-    background: $grey;
+    background: $sonic-silver;
     bottom: 0;
     content: '\25BC';
     display: flex;
@@ -26,9 +26,9 @@
     color: $white;
   }
 
-  &__select {
+  &__Select {
     align-items: center;
-    background: $smoky-black;
+    background: $jet-black;
     color: $white;
     cursor: pointer;
     display: flex;

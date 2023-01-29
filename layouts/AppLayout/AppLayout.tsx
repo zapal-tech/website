@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Footer, Banner, Header } from 'components';
 
-import './AppLayout.scss';
+import styles from './AppLayout.module.scss';
 
 export interface AppLayoutProps {
   children: React.ReactNode;
@@ -10,11 +10,11 @@ export interface AppLayoutProps {
 
 export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   return (
-    <div className="app-layout">
+    <div className={styles['app-layout']}>
       <Banner />
       <Header />
 
-      <main className="app-layout__main">{children}</main>
+      <main className={styles['app-layout__main']}>{children}</main>
 
       <Footer />
     </div>
