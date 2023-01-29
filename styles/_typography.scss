@@ -22,6 +22,14 @@
     url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-Medium.woff') format('woff');
 }
 
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gilroy-Regular'),
+    url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-Regular.woff') format('woff');
+}
+
 * {
   font-family: Gilroy, 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 500;
