@@ -1,11 +1,7 @@
 import { combineReducers, configureStore, Middleware } from '@reduxjs/toolkit';
 import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux';
 
-import i18n from './i18nSlice';
-
-const rootReducer = combineReducers({
-  i18n,
-});
+const rootReducer = combineReducers({});
 
 const middlewares: Middleware[] = [];
 

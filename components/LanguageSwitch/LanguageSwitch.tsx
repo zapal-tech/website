@@ -1,25 +1,23 @@
-// import { useTranslation } from 'react-i18next';
-import { useAppDispatch, useAppSelector } from 'store';
-import { changeLanguage, selectCurrentLanguage } from 'store/i18nSlice';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
-import { Language } from 'i18n';
+import { Language, Namespace } from 'i18n';
 
 import styles from './LanguageSwitch.module.scss';
 
 export const LanguageSwitch = () => {
-  // const { t } = useTranslation(Namespace.Languages);
-  const dispatch = useAppDispatch();
-  const currentLanguage = useAppSelector(selectCurrentLanguage);
+  const { t, i18n } = useTranslation(Namespace.Languages);
+  const router = useRouter();
 
   return (
-    <div className={styles['language-switch']}>
+    <div className={styles.LanguageSwitch}>
       <select
-        className={styles['language-switch__select']}
-        value={currentLanguage}
-        onChange={({ target }) => dispatch(changeLanguage(target.value as Language))}
+        className={styles.LanguageSwitch__Select}
+        value={i18n.language}
+        onChange={({ target }) => router.push(router.pathname, undefined, { locale: target.value })}
       >
-        <option value={Language.English}>{'en'}</option>
-        <option value={Language.Ukrainian}>{'uk'}</option>
+        <option value={Language.English}>{t('en')}</option>
+        <option value={Language.Ukrainian}>{t('uk')}</option>
       </select>
     </div>
   );

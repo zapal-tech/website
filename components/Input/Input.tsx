@@ -21,12 +21,16 @@ const TextField: React.FC<InputProps | LabelInputProps> = ({ name, id, label, co
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => field.onChange(evt.target.value);
 
   return (
-    <div className={styles.input}>
-      {id || (label && <label htmlFor={id}>{label}</label>)}
+    <div className={styles.Input}>
+      {id && label && (
+        <label className={styles.Input__Label} htmlFor={id}>
+          {label}
+        </label>
+      )}
 
-      <input {...field} autoComplete={autoComplete} onChange={handleChange} />
+      <input {...field} id={id} autoComplete={autoComplete} onChange={handleChange} />
 
-      {fieldState.error && <span className={styles.input__error}>{fieldState.error?.message}</span>}
+      {fieldState.error && <span className={styles.Input__Error}>{fieldState.error?.message}</span>}
     </div>
   );
 };

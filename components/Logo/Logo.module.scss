@@ -1,12 +1,12 @@
 @import 'styles/colors';
 
-.logo {
+.Logo {
   display: block;
   height: 40px;
   width: 40px;
 
-  &__svg {
-    fill: $red-orange;
+  &__Svg {
+    fill: $orioles-orange;
     filter: brightness(0);
     transition: all ease 0.2s;
 

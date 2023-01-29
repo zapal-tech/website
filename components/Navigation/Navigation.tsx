@@ -1,9 +1,10 @@
 import clsx from 'clsx';
+import { useTranslation } from 'next-i18next';
 
-// import { useTranslation } from 'react-i18next';
-// import { NavLink } from 'react-router-dom';
-// import { Path } from 'router/path';
-// import { Namespace } from 'i18n';
+import { Text } from 'components';
+
+import { Namespace } from 'i18n';
+
 import styles from './Navigation.module.scss';
 
 export interface NavigationProps {
@@ -11,15 +12,15 @@ export interface NavigationProps {
 }
 
 export const Navigation: React.FC<NavigationProps> = ({ className }) => {
-  // const { t } = useTranslation(Namespace.Navigation);
+  const { t } = useTranslation(Namespace.Navigation);
 
   const navLinks = [
     {
-      title: 'home.title',
+      title: t('home.title'),
       path: '/',
     },
     {
-      title: 'about.title',
+      title: t('about.title'),
       path: '/about',
     },
   ];
@@ -29,7 +30,9 @@ export const Navigation: React.FC<NavigationProps> = ({ className }) => {
       <ul className={styles.navigation__list}>
         {navLinks.map((navEl) => (
           <li key={navEl.path} className={styles['navigation__list-item']}>
-            <a href={navEl.path}>{navEl.title}</a>
+            <a href={navEl.path}>
+              <Text>{navEl.title}</Text>
+            </a>
           </li>
         ))}
       </ul>
