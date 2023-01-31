@@ -1,0 +1,6 @@
+@import './media';
+
+:export {
+  breakpointLaptop: $breakpoint-laptop;
+  breakpointTablet: $breakpoint-tablet;
+}
