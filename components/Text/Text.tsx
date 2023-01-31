@@ -1,12 +1,12 @@
-import clsx from 'clsx';
+import clsx, { ClassValue } from 'clsx';
 import React from 'react';
 
 import styles from './Text.module.scss';
 
-type TextProps = {
+export type TextProps = {
   type?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
   size?: 'heading1' | 'heading2' | 'heading3' | 'default' | 'small' | 'tiny';
-  className?: string;
+  className?: ClassValue | ClassValue[];
   children: React.ReactNode;
 };
 

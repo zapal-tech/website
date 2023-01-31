@@ -1,7 +1,9 @@
+import { Button } from 'components';
+
 import { AppLayout } from 'layouts';
 
 export const HomePage = () => (
   <AppLayout>
-    <div className="eee">Okay</div>
+    <Button>Okay</Button>
   </AppLayout>
 );
