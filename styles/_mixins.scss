@@ -1,5 +1,28 @@
+@use 'sass:list';
+@import './media';
+
 @mixin pseudo($display: block, $position: absolute, $content: '') {
   content: $content;
   display: $display;
   position: $position;
+}
+
+@mixin media($breakpoint) {
+  $valid-breakpoint-names: tablet, laptop;
+
+  @if not list.index($valid-breakpoint-names, $breakpoint) {
+    @error "#{$breakpoint} is not a valid breakpoint name. Expected one of #{$valid-breakpoint-names}.";
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: $breakpoint-tablet) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == laptop {
+    @media only screen and (min-width: $breakpoint-laptop) {
+      @content;
+    }
+  }
 }

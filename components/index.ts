@@ -6,3 +6,4 @@ export * from './LanguageSwitch/LanguageSwitch';
 export * from './Loader/Loader';
 export * from './Logo/Logo';
 export * from './Navigation/Navigation';
+export * from './Text/Text';

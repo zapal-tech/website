@@ -2,6 +2,6 @@ import { AppLayout } from 'layouts';
 
 export const HomePage = () => (
   <AppLayout>
-    <p>text</p>
+    <div className="eee">Okay</div>
   </AppLayout>
 );

@@ -1,0 +1,14 @@
+{
+  "home": {
+    "title": "Головна"
+  },
+  "about": {
+    "title": "Про нас"
+  },
+  "portfolio": {
+    "title": "Портфоліо"
+  },
+  "contacts": {
+    "title": "Контакти"
+  }
+}

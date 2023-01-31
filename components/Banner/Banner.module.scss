@@ -1,43 +1,37 @@
 @import 'styles/colors';
 @import 'styles/mixins';
 
-.banner {
+.Banner {
   align-items: center;
-  background-color: $red-orange;
+  background-color: $orioles-orange;
   color: $white;
   display: flex;
   height: 40px;
   justify-content: center;
 
-  &__text {
+  &__Text {
     font-family: 'Gilroy', sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    padding-right: 35px;
+    padding-right: 15px;
     position: relative;
+    @include media(laptop) {
+      padding-right: 35px;
+    }
 
     &::after {
       @include pseudo();
 
-      background: linear-gradient(to bottom, #0057b7 50%, #ffd700 50%);
+      background: linear-gradient(to bottom, $ukraine-blue 50%, $ukraine-yellow 50%);
       border-radius: 50%;
       height: 16px;
       right: 0;
       top: 50%;
       transform: translateY(-50%);
       width: 16px;
-    }
-  }
-}
-@media screen and (min-width: 520px) {
-  .banner {
-    &__text {
-      font-family: 'Gilroy', sans-serif;
-      font-size: 26px; //20px
-      font-style: normal;
-      font-weight: 600;
-      &::after {
+
+      @include media(laptop) {
         height: 21px;
         width: 21px;
       }

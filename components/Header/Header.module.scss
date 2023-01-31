@@ -1,6 +1,4 @@
-@import 'styles/colors';
-
-.header {
+.Header {
   align-items: center;
   display: flex;
   height: 60px;
@@ -8,7 +6,7 @@
   padding: 10px;
   width: 100%;
 
-  &__navigation {
+  &__Navigation {
     margin-left: auto;
   }
 }

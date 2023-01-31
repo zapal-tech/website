@@ -1,0 +1,7 @@
+// We use mobile-first, so device-screen-width < 768px is default
+
+// Landscape phone and tablets
+$breakpoint-tablet: 576px;
+
+// Small laptops
+$breakpoint-laptop: 1200px;
