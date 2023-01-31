@@ -10,11 +10,11 @@ export interface AppLayoutProps {
 
 export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   return (
-    <div className={styles['app-layout']}>
+    <div className={styles.AppLayout}>
       <Banner />
       <Header />
 
-      <main className={styles['app-layout__main']}>{children}</main>
+      <main className={styles.AppLayout__Main}>{children}</main>
 
       <Footer />
     </div>

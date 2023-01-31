@@ -10,20 +10,28 @@
   justify-content: center;
 
   &__Text {
-    font-weight: 700;
-    padding-right: 35px;
+    padding-right: 15px;
     position: relative;
+
+    @include media(laptop) {
+      padding-right: 35px;
+    }
 
     &::after {
       @include pseudo();
 
       background: linear-gradient(to bottom, $ukraine-blue 50%, $ukraine-yellow 50%);
       border-radius: 50%;
-      height: 25px;
+      height: 16px;
       right: 0;
       top: 50%;
       transform: translateY(-50%);
-      width: 25px;
+      width: 16px;
+
+      @include media(laptop) {
+        height: 21px;
+        width: 21px;
+      }
     }
   }
 }
