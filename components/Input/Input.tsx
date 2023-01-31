@@ -2,18 +2,18 @@ import { Control, useController } from 'react-hook-form';
 
 import styles from './Input.module.scss';
 
-export interface InputProps {
+export type InputProps = {
   name: string;
   id: undefined;
   label: undefined;
   control: Control;
   autoComplete: string;
-}
+};
 
-export interface LabelInputProps extends Omit<InputProps, 'id' | 'label'> {
+export type LabelInputProps = Omit<InputProps, 'id' | 'label'> & {
   id: string;
   label: string;
-}
+};
 
 const TextField: React.FC<InputProps | LabelInputProps> = ({ name, id, label, control, autoComplete = 'off' }) => {
   const { field, fieldState } = useController({ control, name });
