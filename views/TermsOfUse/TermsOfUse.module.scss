@@ -1,0 +1,16 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+
+.TermsOfUse {
+  &__Article {
+    padding: $gap-xl 0 $divider-gap-md;
+  }
+
+  &__EmailLink {
+    color: $orioles-orange;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
