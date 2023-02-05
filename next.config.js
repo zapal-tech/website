@@ -1,6 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('next').NextConfig} */
 
+const pwa = require('next-pwa');
+
+const withPWA = pwa({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development',
+});
+
 const { i18n } = require('./next-i18next.config');
 
 const nextConfig = {
@@ -12,4 +21,4 @@ const nextConfig = {
   i18n,
 };
 
-module.exports = nextConfig;
+module.exports = withPWA(nextConfig);
