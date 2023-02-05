@@ -38,5 +38,5 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.words": ["CCPA", "CDPA"]
+  "cSpell.words": ["CCPA", "CDPA", "svgr"]
 }
