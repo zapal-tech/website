@@ -8,11 +8,14 @@
     content: unset;
   }
 
-  a {
+  span > a {
+    color: $white;
+    text-decoration: none;
     transition: all ease 0.15s;
 
     &:hover {
       color: $orioles-orange;
+      text-decoration: none;
     }
   }
 }

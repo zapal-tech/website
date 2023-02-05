@@ -3,10 +3,12 @@ import { useRouter } from 'next/router';
 import Script from 'next/script';
 import { useEffect } from 'react';
 
+declare const fbq: (action: string, eventName: string) => void;
+
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
 const pageView = () => {
-  window.fbq('track', 'PageView');
+  if (typeof window !== 'undefined') fbq('track', 'PageView');
 };
 
 const handleRouteChange = () => {
