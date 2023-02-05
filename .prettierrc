@@ -11,6 +11,7 @@
     "^(^components$)|(^components/(.*)$)$",
     "^(^layouts$)|(^layouts/(.*)$)$",
     "^(^pages$)|(^pages/(.*)$)$",
+    "^(^views$)|(^views/(.*)$)$",
     "^(App|i18n|serviceWorkerRegistration|service-worker|serviceWorkerRegistration|reportWebVitals)$",
     "^\\.\\./.*((?<!(\\.css)|(\\.scss)))$",
     "^\\./.*((?<!(\\.css)|(\\.scss)))$",
