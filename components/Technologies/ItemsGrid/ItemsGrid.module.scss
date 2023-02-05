@@ -1,0 +1,11 @@
+@import 'styles/mixins';
+.Grid {
+  display: grid;
+  grid-row-gap: 50px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 40px;
+  @include media(laptop) {
+    grid-row-gap: 150px;
+    margin-top: 150px;
+  }
+}
