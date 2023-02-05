@@ -16,11 +16,11 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => (
       titleTemplate="Zapal - %s | Unlock Your Tech Future"
       description="Zapal is a Ukrainian IT company founded in 2022. We specializes in software development and IT services."
       additionalLinkTags={[
-        { rel: 'shortcut icon', href: 'favicon.ico', type: 'image/x-icon' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: 'apple-touch-icon.png' },
-        { rel: 'icon', type: 'image/png', sizes: '32x32', href: 'favicon-32x32.png' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: 'favicon-16x16.png' },
-        { rel: 'manifest', href: 'site.webmanifest' },
+        { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+        { rel: 'manifest', href: '/site.webmanifest' },
         {
           rel: 'preload',
           href: 'https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-ExtraBold.woff',

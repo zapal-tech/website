@@ -123,7 +123,7 @@ export const PrivacyPolicy = () => (
     <div className={styles.PrivacyPolicy}>
       <div className={styles.PrivacyPolicy__Article}>
         <Text type="h1" size="heading1">
-          PRIVACY NOTICE
+          PRIVACY POLICY
         </Text>
 
         <Text size="tiny">Last updated: 31 January, 2023</Text>
