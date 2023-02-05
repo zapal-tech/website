@@ -5,6 +5,7 @@ export * from './Footer/Footer';
 export * from './Header/Header';
 export * from './LanguageSwitch/LanguageSwitch';
 export * from './Loader/Loader';
+export * from './Link/Link';
 export * from './Logo/Logo';
 export * from './MetaPixel/MetaPixel';
 export * from './Navigation/Navigation';
