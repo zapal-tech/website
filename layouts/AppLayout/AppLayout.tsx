@@ -13,9 +13,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     <div className={styles.AppLayout}>
       <Banner />
       <Header />
-
       <main className={styles.AppLayout__Main}>{children}</main>
-
       <Footer />
     </div>
   );

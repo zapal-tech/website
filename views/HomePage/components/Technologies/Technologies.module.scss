@@ -1,0 +1,31 @@
+@import 'styles/mixins';
+
+.Technologies {
+  margin-top: 80px;
+
+  &__GridBlock {
+    width: 100%;
+  }
+
+  &__AnimationBlock {
+    display: none;
+  }
+
+  @include media(laptop) {
+    &__AnimationBlock {
+      display: block;
+      margin-left: 10%;
+      margin-top: 10%;
+    }
+
+    &__GridBlock {
+      width: 50%;
+    }
+
+    &__TechBox {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

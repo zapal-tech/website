@@ -1,0 +1,10 @@
+@import 'styles/mixins';
+
+.Container {
+  padding: 0 40px;
+
+  @include media(laptop) {
+    padding-left: 140px;
+    padding-right: 124px;
+  }
+}
