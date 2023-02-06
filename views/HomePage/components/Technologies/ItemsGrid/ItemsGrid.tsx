@@ -15,9 +15,11 @@ import redux from 'public/technologies/redux.svg';
 import styles from './ItemsGrid.module.scss';
 
 const itemsArray = [swift, python, code, figma, cSharp, js, ai, html, notion, redux, java, angular];
+
 export type ItemsGridProps = {
   className?: ClassValue | ClassValue[];
 };
+
 export const ItemsGrid: React.FC<ItemsGridProps> = ({ className }) => (
   <div className={clsx(styles.Grid, className)}>
     {itemsArray.map((Icon, index) => (
