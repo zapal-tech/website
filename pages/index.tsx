@@ -3,7 +3,7 @@ import { HomePage } from 'views/HomePage/HomePage';
 
 import { Namespace } from 'i18n';
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, [
@@ -16,6 +16,6 @@ export async function getStaticProps({ locale }) {
   };
 }
 
-export default function Home(props) {
+export default function Home(props: any) {
   return <HomePage {...props} />;
 }
