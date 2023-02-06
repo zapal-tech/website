@@ -12,10 +12,10 @@ import js from 'public/technologies/js.svg';
 import notion from 'public/technologies/notion.svg';
 import redux from 'public/technologies/redux.svg';
 
-import styles from '../ItemsGrid/ItemsGrid.module.scss';
+import styles from './ItemsGrid.module.scss';
 
 const itemsArray = [swift, python, code, figma, cSharp, js, ai, html, notion, redux, java, angular];
-type ItemsGridProps = {
+export type ItemsGridProps = {
   className?: ClassValue | ClassValue[];
 };
 export const ItemsGrid: React.FC<ItemsGridProps> = ({ className }) => (
