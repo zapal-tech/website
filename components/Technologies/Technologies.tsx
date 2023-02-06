@@ -12,10 +12,10 @@ export const Technologies: React.FC = () => {
       <div className={styles.Technologies}>
         <Text size="heading1">WE USE</Text>
         <div className={styles.Technologies__TechBox}>
-          <div className={styles.Technologies__Grid}>
-            <ItemsGrid className={styles.Technologies__Grid__Items} />
+          <div className={styles.Technologies__GridBlock}>
+            <ItemsGrid />
           </div>
-          <div className={styles.Technologies__Animation}>
+          <div className={styles.Technologies__AnimationBlock}>
             <Animation />
           </div>
         </div>

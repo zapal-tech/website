@@ -1,30 +1,23 @@
 @import 'styles/mixins';
 .Technologies {
   margin-top: 80px;
-  &__Grid {
+  &__GridBlock {
     width: 100%;
-    &__Items {
-      height: 50px;
-      width: 50px;
-    }
   }
-  &__Animation {
+  &__AnimationBlock {
     display: none;
   }
   @include media(laptop) {
-    &__Animation {
+    &__AnimationBlock {
       display: block;
       margin-left: 10%;
       margin-top: 10%;
     }
-    &__Grid {
+    &__GridBlock {
       width: 50%;
-      &__Items {
-        height: 100px;
-        width: 100px;
-      }
     }
     &__TechBox {
+      align-items: center;
       display: flex;
       flex-direction: row;
     }
