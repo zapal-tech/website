@@ -1,11 +1,12 @@
-import { Button } from 'components';
 import { Technologies } from 'components/Technologies/Technologies';
 
 import { AppLayout } from 'layouts';
 
+import { HeroSection } from './components/HeroSection/HeroSection';
+
 export const HomePage = () => (
   <AppLayout>
-    <Button>Some</Button>
+    <HeroSection />
     <Technologies />
   </AppLayout>
 );

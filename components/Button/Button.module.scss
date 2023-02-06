@@ -2,104 +2,106 @@
 @import 'styles/colors';
 @import 'styles/gaps';
 
+$secondary-border-vertical-padding: 19px;
+$secondary-border-horizontal-padding: 23px;
+
 .Button {
   align-items: center;
-  border: 1px solid $orioles-orange;
+  background: $orioles-orange;
   border-radius: $gap-lg;
+  color: $white;
   cursor: pointer;
   display: flex;
-  height: 60px;
+  font-weight: 400;
   justify-content: center;
-  max-width: 350px;
-  padding: 20px 0 18px;
+  line-height: 1;
+  padding: $gap-sm 0;
+  position: relative;
+  text-transform: uppercase;
   transition: all ease 0.25s;
   width: 100%;
 
-  &__Text {
-    text-transform: uppercase;
-    transition: all ease 0.25s;
-
-    &--WithSlider {
-      @include media(laptop) {
-        padding-right: 120px;
-        position: relative;
-
-        &::before,
-        &::after {
-          @include pseudo();
-          background: $white;
-          right: 0;
-
-          top: 50%;
-        }
-
-        &::before {
-          height: 1px;
-          transform: translateY(-50%);
-          width: 80px;
-        }
-
-        &::after {
-          border-radius: 50%;
-          height: 20px;
-          transform: translate(-70px, -50%);
-          transition: transform cubic-bezier(1, 0, 0.45, 0.45) 0.25s;
-          width: 20px;
-        }
-      }
-    }
+  &:focus-visible,
+  &:hover {
+    background: $rosso-corsa;
+    box-shadow: 0 0 15px -2px rgba($rosso-corsa, 0.7);
   }
 
   &--Primary {
-    background: $orioles-orange;
-
-    &:hover {
-      background: $rosso-corsa;
-      border-color: $rosso-corsa;
-    }
+    font-size: 1rem;
+    max-width: 350px;
 
     @include media(laptop) {
-      background: transparent;
-      border: 0;
-      height: unset;
+      border-radius: 0;
+      color: $orioles-orange;
+      font-size: 3.125rem;
+      font-weight: 800;
       padding: 0;
 
-      .Button__Text {
-        color: $orioles-orange;
-
-        &:hover {
-          color: $rosso-corsa;
-        }
-      }
-
-      &:hover .Button__Text--WithSlider::after {
-        transform: translate(10px, -50%);
+      &:focus-visible,
+      &:hover {
+        color: $rosso-corsa;
       }
     }
   }
 
   &--Secondary {
-    background: $orioles-orange;
-    padding: 0 23px;
-
-    &:hover {
-      background: $rosso-corsa;
-      border-color: $rosso-corsa;
-    }
+    font-size: 0.75rem;
+    max-width: 170px;
 
     @include media(laptop) {
-      border-width: 2px;
+      border: 2px solid $orioles-orange;
+      font-size: 1.125rem;
+      font-weight: 400;
+      padding: $secondary-border-vertical-padding $secondary-border-horizontal-padding;
 
+      &:focus-visible,
       &:hover {
         border-color: $rosso-corsa;
       }
+    }
+  }
 
-      .Button__Text {
-        font-weight: 400;
+  &--WithSlider {
+    @include media(laptop) {
+      padding-right: 120px;
+
+      &::before,
+      &::after {
+        @include pseudo();
+        background: $white;
+        right: 0;
+        top: 50%;
       }
 
-      .Button__Text--WithSlider {
-        padding-right: 70px;
+      &::before {
+        height: 1px;
+        transform: translateY(-50%);
+        width: 80px;
+      }
+
+      &::after {
+        border-radius: 50%;
+        height: 20px;
+        transform: translate(-70px, -50%);
+        transition: transform cubic-bezier(1, 0, 0.45, 0.45) 0.25s;
+        width: 20px;
+      }
+
+      &:focus-visible::after,
+      &:hover::after {
+        transform: translate(10px, -50%);
+      }
+    }
+
+    &.Button--Secondary {
+      @include media(laptop) {
+        padding-right: 70px + $secondary-border-vertical-padding;
+
+        &::before,
+        &::after {
+          right: $secondary-border-vertical-padding;
+        }
 
         &::before {
           width: 40px;
@@ -110,21 +112,24 @@
           transform: translate(-35px, -50%);
           width: 10px;
         }
-      }
 
-      &:hover .Button__Text--WithSlider::after {
-        transform: translate(5px, -50%);
+        &:focus-visible::after,
+        &:hover::after {
+          transform: translate(5px, -50%);
+        }
       }
     }
   }
 
   @include media(laptop) {
     max-width: unset;
-    width: unset;
+    width: max-content;
 
     &,
+    &:focus-visible,
     &:hover {
       background: transparent;
+      box-shadow: none;
     }
   }
 }

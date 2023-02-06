@@ -8,6 +8,7 @@ export type TextProps = {
   size?: 'heading1' | 'heading2' | 'heading3' | 'default' | 'small' | 'tiny';
   className?: ClassValue | ClassValue[];
   children: React.ReactNode;
+  id?: string;
 };
 
 export const Text: React.FC<TextProps> = ({ type = 'p', size = 'default', className, children, ...props }) =>

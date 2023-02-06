@@ -1,0 +1,75 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+$first-line-indent: 76px;
+
+.Hero {
+  background: no-repeat right / cover url('/images/hero-bg.jpg');
+  height: 100vh;
+  padding-left: 40px;
+  padding-top: $divider-gap-lg;
+  position: relative;
+
+  @include media(phone) {
+    padding-left: 20px;
+  }
+
+  &__Particles {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  @include media(laptop) {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 0;
+  }
+
+  &__Box {
+    @include media(laptop) {
+      align-items: flex-end;
+      display: flex;
+      flex-direction: column;
+      width: max-content;
+    }
+  }
+
+  &__Article {
+    margin-bottom: $gap-lg;
+    text-transform: uppercase;
+
+    @include media(laptop) {
+      line-height: 0.93;
+      margin-bottom: 100px;
+      position: relative;
+      text-indent: 76px;
+    }
+
+    &::before {
+      color: inherit;
+      content: '>';
+      font-size: inherit;
+      margin-right: $gap-xs;
+
+      @include media(laptop) {
+        left: -100px - $first-line-indent;
+        position: absolute;
+      }
+    }
+  }
+
+  &__SubArticle {
+    width: 220px;
+
+    @include media(laptop) {
+      margin-right: 190px;
+      width: 360px;
+    }
+  }
+}

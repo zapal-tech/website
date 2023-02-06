@@ -1,14 +1,31 @@
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { NextSeo } from 'next-seo';
+
 import { HomePage } from 'views/HomePage/HomePage';
 
 import { Namespace } from 'i18n';
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({ locale }: { locale: string }) {
   return {
-    props: { ...(await serverSideTranslations(locale, [Namespace.Common, Namespace.Languages, Namespace.Navigation])) },
+    props: {
+      ...(await serverSideTranslations(locale, [
+        Namespace.Titles,
+        Namespace.Languages,
+        Namespace.Navigation,
+        Namespace.Home,
+      ])),
+    },
   };
 }
 
-export default function Home(props) {
-  return <HomePage {...props} />;
+export default function Home(props: any) {
+  const { t } = useTranslation(Namespace.Titles);
+
+  return (
+    <>
+      <NextSeo title={t('home') || undefined} />
+      <HomePage {...props} />
+    </>
+  );
 }
