@@ -41,7 +41,10 @@
     "react-hook-form": "^7.41.5",
     "react-i18next": "^12.1.4",
     "react-redux": "^8.0.5",
+    "react-tsparticles": "^2.8.0",
     "redux": "^4.2.0",
+    "tsparticles": "^2.8.0",
+    "tsparticles-engine": "^2.8.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
