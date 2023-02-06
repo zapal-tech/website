@@ -16,6 +16,7 @@ export enum Namespace {
   Navigation = 'navigation',
   Languages = 'languages',
   Home = 'home',
+  Titles = 'titles',
 }
 
 export const defaultNamespace = Namespace.Common;

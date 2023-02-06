@@ -1,0 +1,8 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+
+.OrderedList {
+  color: $white;
+  list-style: decimal inside;
+  padding-left: $gap-lg;
+}

@@ -1,0 +1,21 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+
+.ListItem {
+  composes: Body from 'components/Text/Text.module.scss';
+
+  &::marker {
+    content: unset;
+  }
+
+  span > a {
+    color: $white;
+    text-decoration: none;
+    transition: all ease 0.15s;
+
+    &:hover {
+      color: $orioles-orange;
+      text-decoration: none;
+    }
+  }
+}

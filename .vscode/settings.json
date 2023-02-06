@@ -38,5 +38,5 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.words": ["tsparticles"]
+  "cSpell.words": ["CCPA", "CDPA", "svgr", "tsparticles"]
 }
