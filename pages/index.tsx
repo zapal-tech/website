@@ -9,7 +9,12 @@ import { Namespace } from 'i18n';
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, [Namespace.Titles, Namespace.Languages, Namespace.Navigation])),
+      ...(await serverSideTranslations(locale, [
+        Namespace.Titles,
+        Namespace.Languages,
+        Namespace.Navigation,
+        Namespace.Home,
+      ])),
     },
   };
 }

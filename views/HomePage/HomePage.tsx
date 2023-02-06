@@ -2,8 +2,10 @@ import { Button } from 'components';
 
 import { AppLayout } from 'layouts';
 
+import { HeroSection } from './components/HeroSection/HeroSection';
+
 export const HomePage = () => (
   <AppLayout>
-    <Button>Okay</Button>
+    <HeroSection />
   </AppLayout>
 );

@@ -8,10 +8,16 @@
 }
 
 @mixin media($breakpoint) {
-  $valid-breakpoint-names: tablet, laptop;
+  $valid-breakpoint-names: phone, tablet, laptop;
 
   @if not list.index($valid-breakpoint-names, $breakpoint) {
     @error "#{$breakpoint} is not a valid breakpoint name. Expected one of #{$valid-breakpoint-names}.";
+  }
+
+  @if $breakpoint == phone {
+    @media only screen and (max-width: $breakpoint-phone) {
+      @content;
+    }
   }
 
   @if $breakpoint == tablet {
