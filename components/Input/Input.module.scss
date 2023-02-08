@@ -1,8 +1,61 @@
 @import 'styles/colors';
+@import 'styles/mixins';
 
 .Input {
-  &__Label {
-    color: $jet-black;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+
+  &__Field,
+  &__Placeholder {
+    font-size: 1rem;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    word-break: break-word;
+
+    @include media(laptop) {
+      font-size: 1.125rem;
+    }
+  }
+
+  &__Field {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid $white;
+    color: $white;
+    height: 35px;
+    -webkit-tap-highlight-color: transparent;
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: inset 0 0 0 50px $jet-black !important;
+      box-shadow: inset 0 0 0 50px $jet-black !important;
+      color: $white !important;
+      -webkit-text-fill-color: $white !important;
+    }
+  }
+
+  &__Placeholder {
+    color: $sonic-silver;
+    cursor: text;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(1);
+    transform-origin: 0 0;
+    transition: all 0.2s ease;
+    user-select: none;
+    will-change: transform, color;
+  }
+
+  &--HasValue + &__Placeholder,
+  &__Field:focus ~ &__Placeholder,
+  &__Field:not(:placeholder-shown) ~ &__Placeholder {
+    color: $white;
+    cursor: default;
+    transform: translateY(calc(-100% - 1rem)) scale(0.75);
   }
 
   &__Error {
