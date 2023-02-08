@@ -17,6 +17,7 @@ $laptop-icon-gap: 23px;
   max-width: max-content;
   position: relative;
   transition: all ease-in 0.2s;
+  will-change: color;
 
   @include media(laptop) {
     font-size: 1.625rem;
@@ -38,6 +39,7 @@ $laptop-icon-gap: 23px;
     transform: rotateY(90deg);
     transform-origin: left center;
     transition: all ease-in 0.2s;
+    will-change: background, transform;
 
     @include media(laptop) {
       bottom: -3px;
@@ -73,6 +75,7 @@ $laptop-icon-gap: 23px;
     transform: translateY(-50%);
     transition: all ease-in 0.2s;
     width: $mobile-icon-size;
+    will-change: fill;
 
     @include media(laptop) {
       height: $laptop-icon-size;
