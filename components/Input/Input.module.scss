@@ -9,7 +9,7 @@
   &__Field,
   &__Placeholder {
     font-size: 1rem;
-    line-height: 1;
+    font-weight: 400;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -18,13 +18,13 @@
 
     @include media(laptop) {
       font-size: 1.125rem;
+      font-weight: 500;
     }
   }
 
   &__Field {
     background: transparent;
     border: 0;
-    border-bottom: 1px solid $white;
     color: $white;
     height: 35px;
     -webkit-tap-highlight-color: transparent;
@@ -35,19 +35,45 @@
       color: $white !important;
       -webkit-text-fill-color: $white !important;
     }
+
+    @include media(laptop) {
+      height: 40px;
+    }
   }
 
   &__Placeholder {
     color: $sonic-silver;
-    cursor: text;
-    left: 0;
-    position: absolute;
     top: 50%;
-    transform: translateY(-50%) scale(1);
+    transform: translateY(-50%);
     transform-origin: 0 0;
     transition: all 0.2s ease;
     user-select: none;
     will-change: transform, color;
+
+    &--Required::after {
+      color: $rosso-corsa;
+      content: '*';
+      opacity: 0.6;
+      transition: inherit;
+    }
+  }
+
+  &__Placeholder,
+  &__Border {
+    cursor: text;
+    left: 0;
+    position: absolute;
+  }
+
+  &__Border {
+    background: $white;
+    bottom: 0;
+    height: 1px;
+    right: 0;
+
+    @include media(laptop) {
+      height: 2px;
+    }
   }
 
   &--HasValue + &__Placeholder,
@@ -56,9 +82,28 @@
     color: $white;
     cursor: default;
     transform: translateY(calc(-100% - 1rem)) scale(0.75);
+
+    &--Required::after {
+      opacity: 1;
+    }
   }
 
   &__Error {
+    bottom: -5px;
     color: $rosso-corsa;
+    font-size: 0.75rem;
+    font-weight: 400;
+    left: 0;
+    line-height: 1;
+    position: absolute;
+    right: 0;
+    transform: translateY(100%);
+    transition: all 0.2s ease;
+
+    @include media(laptop) {
+      bottom: -8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
   }
 }
