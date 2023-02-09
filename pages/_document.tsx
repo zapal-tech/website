@@ -15,9 +15,9 @@ export default function Document() {
 
         <Script id="google-tag" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
-      function gtag() {dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${gTagId}');`}
+          function gtag() {dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${gTagId}');`}
         </Script>
       </Head>
 

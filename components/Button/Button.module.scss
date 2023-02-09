@@ -86,6 +86,7 @@ $secondary-border-horizontal-padding: 23px;
         transform: translate(-70px, -50%);
         transition: transform cubic-bezier(1, 0, 0.45, 0.45) 0.25s;
         width: 20px;
+        will-change: transform;
       }
 
       &:focus-visible::after,

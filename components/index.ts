@@ -4,6 +4,7 @@ export * from './Container/Container';
 export * from './Divider/Divider';
 export * from './Footer/Footer';
 export * from './Header/Header';
+export * from './Input/Input';
 export * from './LanguageSwitch/LanguageSwitch';
 export * from './Loader/Loader';
 export * from './Link/Link';
