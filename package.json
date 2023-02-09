@@ -29,7 +29,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@hookform/resolvers": "^2.9.10",
+    "@hookform/resolvers": "^2.9.11",
     "@next/font": "13.1.1",
     "@reduxjs/toolkit": "^1.9.1",
     "@svgr/webpack": "^6.5.1",
