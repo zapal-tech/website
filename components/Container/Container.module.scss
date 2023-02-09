@@ -1,10 +1,10 @@
+@import 'styles/gaps';
 @import 'styles/mixins';
 
 .Container {
-  padding: 0 40px;
+  padding: $gap-xxl $gap-lg 0;
 
   @include media(laptop) {
-    padding-left: 140px;
-    padding-right: 124px;
+    padding: $expanded-gap-xl $expanded-gap-sm 0;
   }
 }
