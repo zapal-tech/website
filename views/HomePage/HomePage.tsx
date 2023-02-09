@@ -1,3 +1,5 @@
+import { Footer } from 'components';
+
 import { AppLayout } from 'layouts';
 
 import { HeroSection } from './components/HeroSection/HeroSection';

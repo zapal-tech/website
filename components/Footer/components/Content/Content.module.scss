@@ -1,0 +1,35 @@
+@import 'styles/mixins';
+@import 'styles/colors';
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include media(laptop) {
+    margin-left: 80px;
+  }
+
+  &__Text {
+    @include media(laptop) {
+      margin-bottom: 150px;
+      margin-top: 100px;
+      max-width: 500px;
+    }
+  }
+
+  &__PrivacyText {
+    display: none;
+
+    @include media(laptop) {
+      color: $sonic-silver;
+      display: contents;
+    }
+  }
+
+  &__ButtonContent {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}

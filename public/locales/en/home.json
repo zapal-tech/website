@@ -6,5 +6,15 @@
   },
   "technologies": {
     "title": "We use"
+  },
+  "footer": {
+    "title": "LETS START YOUR PROJECT",
+    "description": "We reveal the genius that lies dormant in each project",
+    "button": "BECOME A CLIENT",
+    "love": "made by zapal with love",
+    "city": "Kyiv, Ukraine",
+    "privacy-policy": "Privacy policy",
+    "terms": "Terms of use",
+    "sitemap": "Sitemap"
   }
 }

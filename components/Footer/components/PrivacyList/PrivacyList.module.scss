@@ -1,0 +1,10 @@
+.Privacy {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__Underlined {
+    text-decoration: underline;
+  }
+}
