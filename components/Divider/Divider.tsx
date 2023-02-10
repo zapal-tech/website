@@ -6,4 +6,8 @@ export type DividerProps = {
   className?: ClassValue | ClassValue[];
 };
 
-export const Divider: React.FC<DividerProps> = ({ className }) => <hr className={clsx(styles.Divider, className)} />;
+export const Divider: React.FC<DividerProps> = ({ className }) => (
+  <div className={clsx(styles.Divider, className)}>
+    <hr />
+  </div>
+);
