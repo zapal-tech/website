@@ -11,7 +11,7 @@ export const Content: React.FC = () => {
 
   return (
     <div className={styles.Content}>
-      <Text size="heading1" uppercase>
+      <Text className={styles.Content__Title} size="heading1" uppercase>
         {t('footer.title')}
       </Text>
 

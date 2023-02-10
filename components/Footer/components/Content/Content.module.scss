@@ -1,4 +1,5 @@
 @import 'styles/mixins';
+
 @import 'styles/colors';
 
 .Content {
@@ -8,6 +9,12 @@
 
   @include media(laptop) {
     margin-left: 80px;
+  }
+
+  &__Title {
+    @include media(laptop) {
+      max-width: 90%;
+    }
   }
 
   &__Text {
@@ -22,8 +29,8 @@
     display: none;
 
     @include media(laptop) {
-      color: $sonic-silver;
-      display: contents;
+      color: $sonic-silver !important;
+      display: inline;
     }
   }
 

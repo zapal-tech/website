@@ -20,6 +20,8 @@ export const PrivacyList: React.FC = () => {
       <Text size="small">Cookies</Text>
 
       <Text size="small">{t('footer.sitemap')}</Text>
+
+      <Text size="small">{t('footer.privacy-policy')}</Text>
     </div>
   );
 };

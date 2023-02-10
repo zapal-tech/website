@@ -22,8 +22,8 @@
   }
 
   &__PrivacyText {
-    color: $sonic-silver;
-
+    color: $sonic-silver !important;
+    display: inline;
     @include media(laptop) {
       display: none;
     }
@@ -33,6 +33,14 @@
     align-items: flex-end;
     display: flex;
     flex-direction: row;
-    gap: 52px;
+    justify-content: space-between;
+    width: 100%;
+
+    @include media(laptop) {
+      align-items: flex-end;
+      display: flex;
+      flex-direction: row;
+      width: auto;
+    }
   }
 }
