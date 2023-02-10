@@ -13,4 +13,3 @@ export * from './Navigation/Navigation';
 export * from './OrderedList/OrderedList';
 export * from './Text/Text';
 export * from './Footer/components/Socials/Socials';
-export * from './Line/Line';

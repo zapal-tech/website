@@ -1,7 +1,17 @@
+@import 'styles/mixins';
+
 @import 'styles/colors';
 
 .Divider {
-  background: $white;
-  height: 1px;
-  width: 100%;
+  background: $sonic-silver;
+  height: 0.5px;
+  margin-left: 40px;
+  margin-right: 40px;
+
+  @include media(laptop) {
+    background: $white;
+    height: 0.5px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
 }
