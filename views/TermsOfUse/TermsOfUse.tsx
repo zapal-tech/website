@@ -1,4 +1,4 @@
-import { Divider, OrderedList, OrderedListDataItem, Text } from 'components';
+import { Container, Divider, OrderedList, OrderedListDataItem, Text } from 'components';
 
 import { AppLayout } from 'layouts';
 
@@ -75,27 +75,27 @@ const listOfContents: OrderedListDataItem[] = [
 export const TermsOfUse = () => (
   <AppLayout>
     <div className={styles.TermsOfUse}>
-      <div>
+      <Container className={styles.TermsOfUse__Article}>
         <Text type="h1" size="heading1" uppercase>
           Terms of Use
         </Text>
 
         <Text size="tiny">Last updated: 31 January, 2023</Text>
-      </div>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article className={styles.TermsOfUse__Article}>
+      <Container type="article" className={styles.TermsOfUse__Article}>
         <Text type="h2" size="heading3" uppercase>
           Table of contents
         </Text>
 
         <OrderedList data={listOfContents} />
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.AGREEMENT_TO_TERMS} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.AGREEMENT_TO_TERMS} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           1. AGREEMENT TO TERMS
         </Text>
@@ -128,11 +128,11 @@ export const TermsOfUse = () => (
           choose to access the Site from other locations do so on their own initiative and are solely responsible for
           compliance with local laws, if and to the extent local laws are applicable.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.INTELLECTUAL_PROPERTY_RIGHTS} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.INTELLECTUAL_PROPERTY_RIGHTS} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           2. INTELLECTUAL PROPERTY RIGHTS
         </Text>
@@ -156,11 +156,11 @@ export const TermsOfUse = () => (
           for your personal, non-commercial use. We reserve all rights not expressly granted to you in and to the Site,
           the Content and the Marks.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.USER_REPRESENTATIONS} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.USER_REPRESENTATIONS} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           3. USER REPRESENTATIONS
         </Text>
@@ -178,11 +178,11 @@ export const TermsOfUse = () => (
           suspend or terminate your account and refuse any and all current or future use of the Site (or any portion
           thereof).
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.PROHIBITED_ACTIVITIES} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.PROHIBITED_ACTIVITIES} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           4. PROHIBITED ACTIVITIES
         </Text>
@@ -290,11 +290,11 @@ export const TermsOfUse = () => (
           Use the Site as part of any effort to compete with us or otherwise use the Site and/or the Content for any
           revenue-generating endeavor or commercial enterprise.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.USER_GENERATED_CONTRIBUTIONS} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.USER_GENERATED_CONTRIBUTIONS} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           5. USER GENERATED CONTRIBUTIONS
         </Text>
@@ -355,11 +355,11 @@ export const TermsOfUse = () => (
           Any use of the Site in violation of the foregoing violates these Terms of Use and may result in, among other
           things, termination or suspension of your rights to use the Site.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.CONTRIBUTION_LICENSE} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.CONTRIBUTION_LICENSE} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           6. CONTRIBUTION LICENSE
         </Text>
@@ -381,9 +381,9 @@ export const TermsOfUse = () => (
           Site. You are solely responsible for your Contributions to the Site and you expressly agree to exonerate us
           from any and all responsibility and to refrain from any legal action against us regarding your Contributions.
         </Text>
-      </article>
+      </Container>
 
-      <article id={Section.SUBMISSIONS} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.SUBMISSIONS} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           7. SUBMISSIONS
         </Text>
@@ -398,11 +398,11 @@ export const TermsOfUse = () => (
           to submit such Submissions. You agree there shall be no recourse against us for any alleged or actual
           infringement or misappropriation of any proprietary right in your Submissions.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.SITE_MANAGEMENT} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.SITE_MANAGEMENT} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           8. SITE MANAGEMENT
         </Text>
@@ -418,11 +418,11 @@ export const TermsOfUse = () => (
           Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the
           Site.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.TERM_AND_TERMINATION} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.TERM_AND_TERMINATION} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           9. TERM AND TERMINATION
         </Text>
@@ -443,11 +443,11 @@ export const TermsOfUse = () => (
           behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take
           appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.MODIFICATIONS_AND_INTERRUPTIONS} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.MODIFICATIONS_AND_INTERRUPTIONS} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           10. MODIFICATIONS AND INTERRUPTIONS
         </Text>
@@ -469,11 +469,11 @@ export const TermsOfUse = () => (
           Site. Nothing in these Terms of Use will be construed to obligate us to maintain and support the Site or to
           supply any corrections, updates, or releases in connection therewith.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.GOVERNING_LAW} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.GOVERNING_LAW} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           11. GOVERNING LAW
         </Text>
@@ -483,11 +483,11 @@ export const TermsOfUse = () => (
           consent that the courts of Ukraine shall have exclusive jurisdiction to resolve any dispute which may arise in
           connection with these terms.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.DISPUTE_RESOLUTION} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.DISPUTE_RESOLUTION} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           12. DISPUTE RESOLUTION
         </Text>
@@ -526,11 +526,11 @@ export const TermsOfUse = () => (
           court of competent jurisdiction within the courts listed for jurisdiction above, and the Parties agree to
           submit to the personal jurisdiction of that court.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.CORRECTIONS} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.CORRECTIONS} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           13. CORRECTIONS
         </Text>
@@ -541,11 +541,11 @@ export const TermsOfUse = () => (
           errors, inaccuracies, or omissions and to change or update the information on the Site at any time, without
           prior notice.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.DISCLAIMER} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.DISCLAIMER} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           14. DISCLAIMER
         </Text>
@@ -570,11 +570,11 @@ export const TermsOfUse = () => (
           THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM
           OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.LIMITATIONS_OF_LIABILITY} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.LIMITATIONS_OF_LIABILITY} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           15. LIMITATIONS OF LIABILITY
         </Text>
@@ -590,11 +590,11 @@ export const TermsOfUse = () => (
           YOU, SOME OR ALL OF THE ABOVE DISCLAIMERS OR LIMITATIONS MAY NOT APPLY TO YOU, AND YOU MAY HAVE ADDITIONAL
           RIGHTS.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.INDEMNIFICATION} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.INDEMNIFICATION} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           16. INDEMNIFICATION
         </Text>
@@ -611,11 +611,11 @@ export const TermsOfUse = () => (
           cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of
           any such claim, action, or proceeding which is subject to this indemnification upon becoming aware of it.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.USER_DATA} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.USER_DATA} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           17. USER DATA
         </Text>
@@ -627,11 +627,12 @@ export const TermsOfUse = () => (
           using the Site. You agree that we shall have no liability to you for any loss or corruption of any such data,
           and you hereby waive any right of action against us arising from any such loss or corruption of such data.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article
+      <Container
+        type="article"
         id={Section.ELECTRONIC_COMMUNICATIONS_TRANSACTIONS_AND_SIGNATURES}
         className={styles.TermsOfUse__Article}
       >
@@ -650,11 +651,11 @@ export const TermsOfUse = () => (
           signature or delivery or retention of non-electronic records, or to payments or the granting of credits by any
           means other than electronic means.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.MISCELLANEOUS} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.MISCELLANEOUS} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           19. MISCELLANEOUS
         </Text>
@@ -674,11 +675,11 @@ export const TermsOfUse = () => (
           may have based on the electronic form of these Terms of Use and the lack of signing by the parties hereto to
           execute these Terms of Use.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.TermsOfUse__Divider} />
 
-      <article id={Section.CONTACT_US} className={styles.TermsOfUse__Article}>
+      <Container type="article" id={Section.CONTACT_US} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           20. CONTACT US
         </Text>
@@ -687,7 +688,7 @@ export const TermsOfUse = () => (
           In order to resolve a complaint regarding the Site or to receive further information regarding use of the
           Site, please contact us at: <a href="mailto:policy@zapal.tech">policy@zapal.tech</a>
         </Text>
-      </article>
+      </Container>
     </div>
   </AppLayout>
 );

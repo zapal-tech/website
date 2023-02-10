@@ -1,4 +1,4 @@
-import { Divider, OrderedList, OrderedListDataItem, Text } from 'components';
+import { Container, Divider, OrderedList, OrderedListDataItem, Text } from 'components';
 
 import { AppLayout } from 'layouts';
 
@@ -121,20 +121,23 @@ const withdrawConsentId = 'withdraw-consent';
 export const PrivacyPolicy = () => (
   <AppLayout>
     <div className={styles.PrivacyPolicy}>
-      <div className={styles.PrivacyPolicy__Article}>
+      <Container className={styles.PrivacyPolicy__Article}>
         <Text type="h1" size="heading1" uppercase>
           Privacy Policy
         </Text>
 
         <Text size="tiny">Last updated: 31 January, 2023</Text>
-      </div>
+      </Container>
 
-      <div className={styles.PrivacyPolicy__Article}>
+      <Divider className={styles.PrivacyPolicy__Divider} />
+
+      <Container className={styles.PrivacyPolicy__Article}>
         <Text size="small">
           This privacy notice for Zapal (&ldquo;Company,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or
           &ldquo;our&rdquo;), describes how and why we might collect, store, use, and/or share (&ldquo;process&rdquo;)
           your information when you use our services (&ldquo;Services&rdquo;), such as when you:
         </Text>
+
         <Text size="small">
           Visit our website at{' '}
           <a href="https://zapal.tech" target="_blank" rel="noreferrer">
@@ -142,31 +145,45 @@ export const PrivacyPolicy = () => (
           </a>
           , or any website of ours that links to this privacy notice
         </Text>
+
         <Text size="small">Engage with us in other related ways, including any sales, marketing, or events</Text>
+
         <Text size="small">
           Questions or concerns? Reading this privacy notice will help you understand your privacy rights and choices.
           If you do not agree with our policies and practices, please do not use our Services. If you still have any
           questions or concerns, please contact us at <a href="mailto:hello@zapal.tech">hello@zapal.tech</a>.
         </Text>
-        SUMMARY OF KEY POINTS
+      </Container>
+
+      <Divider className={styles.PrivacyPolicy__Divider} />
+
+      <Container type="article" id={tableOfContentsId} className={styles.PrivacyPolicy__Article}>
+        <Text type="h3" size="heading3">
+          SUMMARY OF KEY POINTS
+        </Text>
+
         <Text size="small">
           This summary provides key points from our privacy notice, but you can find out more details about any of these
           topics by clicking the link following each key point or by using our table of contents below to find the
           section you are looking for. You can also click <a href={'#' + tableOfContentsId}>here</a> to go directly to
           our table of contents.
         </Text>
+
         <Text size="small">
           What personal information do we process? When you visit, use, or navigate our Services, we may process
           personal information depending on how you interact with Zapal and the Services, the choices you make, and the
           products and features you use. Click <a href={'#' + Section.WHAT_INFORMATION_DO_WE_COLLECT}>here</a> to learn
           more.
         </Text>
+
         <Text size="small">
           Do we process any sensitive personal information? We do not process sensitive personal information.
         </Text>
+
         <Text size="small">
           Do we receive any information from third parties? We do not receive any information from third parties.
         </Text>
+
         <Text size="small">
           How do we process your information? We process your information to provide, improve, and administer our
           Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process
@@ -174,40 +191,44 @@ export const PrivacyPolicy = () => (
           legal reason to do so. Click <a href={'#' + Section.HOW_DO_WE_PROCESS_YOUR_INFORMATION}>here</a> to learn
           more.
         </Text>
+
         <Text size="small">
           In what situations and with which types of parties do we share personal information? We may share information
           in specific situations and with specific categories of third parties. Click{' '}
           <a href={'#' + Section.WHEN_AND_WITH_WHOM_DO_WE_SHARE_YOUR_PERSONAL_INFORMATION}>here</a> to learn more.
         </Text>
+
         <Text size="small">
           What are your rights? Depending on where you are located geographically, the applicable privacy law may mean
           you have certain rights regarding your personal information. Click{' '}
           <a href={'#' + Section.WHAT_ARE_YOUR_PRIVACY_RIGHTS}>here</a> to learn more.
         </Text>
+
         <Text size="small">
           How do you exercise your rights? The easiest way to exercise your rights is by filling out our data subject
           request form available here: <a href="mailto:data-request@zapal.tech">data-request@zapal.tech</a>, or by
           contacting us. We will consider and act upon any request in accordance with applicable data protection laws.
         </Text>
+
         <Text size="small">
           Want to learn more about what Zapal does with any information we collect? Click{' '}
           <a href={'#' + tableOfContentsId}>here</a> to review the notice in full.
         </Text>
-      </div>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article id={tableOfContentsId} className={styles.PrivacyPolicy__Article}>
+      <Container type="article" id={tableOfContentsId} className={styles.PrivacyPolicy__Article}>
         <Text type="h2" size="heading3" uppercase>
           Table of contents
         </Text>
 
         <OrderedList data={listOfContents} />
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article id={Section.WHAT_INFORMATION_DO_WE_COLLECT} className={styles.PrivacyPolicy__Article}>
+      <Container type="article" id={Section.WHAT_INFORMATION_DO_WE_COLLECT} className={styles.PrivacyPolicy__Article}>
         <Text type="h3" size="heading3">
           1. WHAT INFORMATION DO WE COLLECT?
         </Text>
@@ -225,15 +246,8 @@ export const PrivacyPolicy = () => (
         <Text size="small">
           Personal Information Provided by You. The personal information that we collect depends on the context of your
           interactions with us and the Services, the choices you make, and the products and features you use. The
-          personal information we collect may include the following:
+          personal information we collect may include the following: names, phone numbers, email addresses, job titles.
         </Text>
-
-        <ul>
-          <li>names</li>
-          <li>phone numbers</li>
-          <li>email addresses</li>
-          <li>job titles</li>
-        </ul>
 
         <Text size="small">Sensitive Information. We do not process sensitive information.</Text>
 
@@ -287,11 +301,15 @@ export const PrivacyPolicy = () => (
           information either by refusing access to the information or by disabling your Location setting on your device.
           However, if you choose to opt out, you may not be able to use certain aspects of the Services.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article id={Section.HOW_DO_WE_PROCESS_YOUR_INFORMATION} className={styles.PrivacyPolicy__Article}>
+      <Container
+        type="article"
+        id={Section.HOW_DO_WE_PROCESS_YOUR_INFORMATION}
+        className={styles.PrivacyPolicy__Article}
+      >
         <Text type="h3" size="heading3">
           2. HOW DO WE PROCESS YOUR INFORMATION?
         </Text>
@@ -326,11 +344,12 @@ export const PrivacyPolicy = () => (
           To save or protect an individual&apos;s vital interest. We may process your information when necessary to save
           or protect an individual&apos;s vital interest, such as to prevent harm.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article
+      <Container
+        type="article"
         id={Section.WHAT_LEGAL_BASES_DO_WE_RELY_ON_TO_PROCESS_YOUR_PERSONAL_INFORMATION}
         className={styles.PrivacyPolicy__Article}
       >
@@ -414,11 +433,12 @@ export const PrivacyPolicy = () => (
         </Text>
         <Text size="small">If the collection is solely for journalistic, artistic, or literary purposes</Text>
         <Text size="small">If the information is publicly available and is specified by the regulations</Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article
+      <Container
+        type="article"
         id={Section.WHEN_AND_WITH_WHOM_DO_WE_SHARE_YOUR_PERSONAL_INFORMATION}
         className={styles.PrivacyPolicy__Article}
       >
@@ -468,11 +488,15 @@ export const PrivacyPolicy = () => (
           Business Partners. We may share your information with our business partners to offer you certain products,
           services, or promotions.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article id={Section.DO_WE_USE_COOKIES_AND_OTHER_TRACKING_TECHNOLOGIES} className={styles.PrivacyPolicy__Article}>
+      <Container
+        type="article"
+        id={Section.DO_WE_USE_COOKIES_AND_OTHER_TRACKING_TECHNOLOGIES}
+        className={styles.PrivacyPolicy__Article}
+      >
         <Text type="h3" size="heading3">
           5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?
         </Text>
@@ -486,11 +510,15 @@ export const PrivacyPolicy = () => (
           information. Specific information about how we use such technologies and how you can refuse certain cookies is
           set out in our Cookie Notice.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article id={Section.IS_YOUR_INFORMATION_TRANSFERRED_INTERNATIONALLY} className={styles.PrivacyPolicy__Article}>
+      <Container
+        type="article"
+        id={Section.IS_YOUR_INFORMATION_TRANSFERRED_INTERNATIONALLY}
+        className={styles.PrivacyPolicy__Article}
+      >
         <Text type="h3" size="heading3">
           6. IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?
         </Text>
@@ -527,11 +555,15 @@ export const PrivacyPolicy = () => (
           implemented similar appropriate safeguards with our third-party service providers and partners and further
           details can be provided upon request.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article id={Section.HOW_LONG_DO_WE_KEEP_YOUR_INFORMATION} className={styles.PrivacyPolicy__Article}>
+      <Container
+        type="article"
+        id={Section.HOW_LONG_DO_WE_KEEP_YOUR_INFORMATION}
+        className={styles.PrivacyPolicy__Article}
+      >
         <Text type="h3" size="heading3">
           7. HOW LONG DO WE KEEP YOUR INFORMATION?
         </Text>
@@ -553,11 +585,15 @@ export const PrivacyPolicy = () => (
           been stored in backup archives), then we will securely store your personal information and isolate it from any
           further processing until deletion is possible.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article id={Section.DO_WE_COLLECT_INFORMATION_FROM_MINORS} className={styles.PrivacyPolicy__Article}>
+      <Container
+        type="article"
+        id={Section.DO_WE_COLLECT_INFORMATION_FROM_MINORS}
+        className={styles.PrivacyPolicy__Article}
+      >
         <Text type="h3" size="heading3">
           8. DO WE COLLECT INFORMATION FROM MINORS?
         </Text>
@@ -574,11 +610,11 @@ export const PrivacyPolicy = () => (
           data from our records. If you become aware of any data we may have collected from children under age 18,
           please contact us at <a href="mailto:policy@zapal.tech">policy@zapal.tech</a>.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article id={Section.WHAT_ARE_YOUR_PRIVACY_RIGHTS} className={styles.PrivacyPolicy__Article}>
+      <Container type="article" id={Section.WHAT_ARE_YOUR_PRIVACY_RIGHTS} className={styles.PrivacyPolicy__Article}>
         <Text type="h3" size="heading3">
           9. WHAT ARE YOUR PRIVACY RIGHTS?
         </Text>
@@ -662,11 +698,15 @@ export const PrivacyPolicy = () => (
           If you have questions or comments about your privacy rights, you may email us at{' '}
           <a href="mailto:policy@zapal.tech">policy@zapal.tech</a>.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article id={Section.CONTROLS_FOR_DO_NOT_TRACK_FEATURES} className={styles.PrivacyPolicy__Article}>
+      <Container
+        type="article"
+        id={Section.CONTROLS_FOR_DO_NOT_TRACK_FEATURES}
+        className={styles.PrivacyPolicy__Article}
+      >
         <Text type="h3" size="heading3">
           10. CONTROLS FOR DO-NOT-TRACK FEATURES
         </Text>
@@ -680,11 +720,12 @@ export const PrivacyPolicy = () => (
           If a standard for online tracking is adopted that we must follow in the future, we will inform you about that
           practice in a revised version of this privacy notice.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article
+      <Container
+        type="article"
         id={Section.DO_CALIFORNIA_RESIDENTS_HAVE_SPECIFIC_PRIVACY_RIGHTS}
         className={styles.PrivacyPolicy__Article}
       >
@@ -910,11 +951,12 @@ export const PrivacyPolicy = () => (
           or by referring to the contact details at the bottom of this document. If you have a complaint about how we
           handle your data, we would like to hear from you.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article
+      <Container
+        type="article"
         id={Section.DO_VIRGINIA_RESIDENTS_HAVE_SPECIFIC_PRIVACY_RIGHTS}
         className={styles.PrivacyPolicy__Article}
       >
@@ -1017,11 +1059,15 @@ export const PrivacyPolicy = () => (
           explanation of the reasons for the decisions. If your appeal if denied, you may contact the Attorney General
           to submit a complaint.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article id={Section.DO_WE_MAKE_UPDATES_TO_THIS_NOTICE} className={styles.PrivacyPolicy__Article}>
+      <Container
+        type="article"
+        id={Section.DO_WE_MAKE_UPDATES_TO_THIS_NOTICE}
+        className={styles.PrivacyPolicy__Article}
+      >
         <Text type="h3" size="heading3">
           13. DO WE MAKE UPDATES TO THIS NOTICE?
         </Text>
@@ -1037,11 +1083,15 @@ export const PrivacyPolicy = () => (
           changes or by directly sending you a notification. We encourage you to review this privacy notice frequently
           to be informed of how we are protecting your information.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article id={Section.HOW_CAN_YOU_CONTACT_US_ABOUT_THIS_NOTICE} className={styles.PrivacyPolicy__Article}>
+      <Container
+        type="article"
+        id={Section.HOW_CAN_YOU_CONTACT_US_ABOUT_THIS_NOTICE}
+        className={styles.PrivacyPolicy__Article}
+      >
         <Text type="h3" size="heading3">
           14. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
         </Text>
@@ -1050,11 +1100,12 @@ export const PrivacyPolicy = () => (
           If you have questions or comments about this notice, you may email us at{' '}
           <a href="mailto:policy@zapal.tech">policy@zapal.tech</a>.
         </Text>
-      </article>
+      </Container>
 
-      <Divider />
+      <Divider className={styles.PrivacyPolicy__Divider} />
 
-      <article
+      <Container
+        type="article"
         id={Section.HOW_CAN_YOU_REVIEW_UPDATE_OR_DELETE_THE_DATA_WE_COLLECT_FROM_YOU}
         className={styles.PrivacyPolicy__Article}
       >
@@ -1068,7 +1119,7 @@ export const PrivacyPolicy = () => (
           delete your personal information, please email us at:{' '}
           <a href="mailto:data-request@zapal.tech">data-request@zapal.tech</a>.
         </Text>
-      </article>
+      </Container>
     </div>
   </AppLayout>
 );

@@ -1,9 +1,22 @@
 @import 'styles/colors';
 @import 'styles/gaps';
+@import 'styles/mixins';
 
 .PrivacyPolicy {
   &__Article {
-    padding: $gap-xl 0 $expanded-gap-md;
+    padding-bottom: $expanded-gap-xs;
+
+    @include media(laptop) {
+      padding-bottom: $expanded-gap-md;
+    }
+  }
+
+  &__Divider {
+    padding: 0 $gap-lg;
+
+    @include media(laptop) {
+      padding: 0 $expanded-gap-sm;
+    }
   }
 
   a {
@@ -11,6 +24,16 @@
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  h2,
+  h3,
+  p {
+    margin-bottom: $gap-xs;
+
+    @include media(laptop) {
+      margin-bottom: $gap-sm;
     }
   }
 }
