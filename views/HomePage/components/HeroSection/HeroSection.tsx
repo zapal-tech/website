@@ -77,13 +77,19 @@ export const HeroSection: React.FC = () => {
       />
 
       <div className={styles.Hero__Box}>
-        <Text type="h1" size="heading1" className={styles.Hero__Article}>
-          {t('hero.upperTitle')}
+        <Text type="h1" size="heading1" className={styles.Hero__Title}>
+          {t('hero.title.unlock')}
+          {'\u00A0'}
+          <span className={styles.Hero__SelectionBg}>{t('hero.title.your')}</span>
+
           <br />
-          {t('hero.lowerTitle')}
+
+          <span className={styles.Hero__SelectionBg}>{t('hero.title.tech')}</span>
+          {'\u00A0'}
+          {t('hero.title.future')}
         </Text>
 
-        <Text size="small" className={styles.Hero__SubArticle}>
+        <Text size="small" className={styles.Hero__Subtitle}>
           {t('hero.subtitle')}
         </Text>
       </div>
