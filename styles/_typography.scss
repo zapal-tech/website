@@ -9,6 +9,14 @@
 @font-face {
   font-family: Gilroy;
   font-style: normal;
+  font-weight: 700;
+  src: local('Gilroy-Bold'),
+    url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
   font-weight: 600;
   src: local('Gilroy-SemiBold'),
     url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-SemiBold.woff') format('woff');

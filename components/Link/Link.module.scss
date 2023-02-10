@@ -9,14 +9,15 @@ $mobile-icon-gap: 12px;
 $laptop-icon-gap: 23px;
 
 .Link {
+  position: relative;
+  max-width: max-content;
   color: $orioles-orange;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1;
-  max-width: max-content;
-  position: relative;
   transition: all ease-in 0.2s;
+  will-change: color;
 
   @include media(laptop) {
     font-size: 1.625rem;
@@ -28,21 +29,22 @@ $laptop-icon-gap: 23px;
 
   &::after {
     @include pseudo();
-    background: $orioles-orange;
-    border-radius: 3px;
+    right: 0;
     bottom: -2px;
+    left: $mobile-icon-size + $mobile-icon-gap;
 
     height: 2px;
-    left: $mobile-icon-size + $mobile-icon-gap;
-    right: 0;
+    border-radius: 3px;
+    background: $orioles-orange;
     transform: rotateY(90deg);
     transform-origin: left center;
     transition: all ease-in 0.2s;
+    will-change: background, transform;
 
     @include media(laptop) {
       bottom: -3px;
-      height: 3px;
       left: $laptop-icon-size + $laptop-icon-gap;
+      height: 3px;
     }
   }
 
@@ -64,19 +66,20 @@ $laptop-icon-gap: 23px;
   }
 
   &__Icon {
-    display: block;
-    fill: $orioles-orange;
-    height: $mobile-icon-size;
-    left: 0;
     position: absolute;
     top: 50%;
+    left: 0;
+    display: block;
+    width: $mobile-icon-size;
+    height: $mobile-icon-size;
+    fill: $orioles-orange;
     transform: translateY(-50%);
     transition: all ease-in 0.2s;
-    width: $mobile-icon-size;
+    will-change: fill;
 
     @include media(laptop) {
-      height: $laptop-icon-size;
       width: $laptop-icon-size;
+      height: $laptop-icon-size;
     }
   }
 

@@ -14,7 +14,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => (
     <DefaultSeo
       defaultTitle="Zapal | Unlock Your Tech Future"
       titleTemplate="Zapal - %s | Unlock Your Tech Future"
-      description="Zapal is a Ukrainian IT company founded in 2022. We specializes in software development and IT services."
+      description="Unlock Your Tech Future with Zapal! Hire Zapal for top-notch web application development services."
       additionalLinkTags={[
         { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
@@ -56,7 +56,6 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => (
           content:
             'Zapal,IT,dev,development,outsource,frontend,backend,web,react,js,typescript,javascript,QA,services,solutions,website,custom,software,full-stack,UI,UX,design',
         },
-        { name: 'description', content: 'Hire Zapal for top-notch web application dev services. Get a quote today!' },
       ]}
       themeColor="#111"
     />

@@ -1,12 +1,51 @@
-.Header {
-  align-items: center;
-  display: flex;
-  height: 60px;
-  justify-content: space-between;
-  padding: 10px;
-  width: 100%;
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
 
-  &__Navigation {
-    margin-left: auto;
+.Banner {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.Header {
+  position: fixed;
+  z-index: 10;
+  top: 25px;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $gap-xs $gap-lg;
+  background: rgba($jet-black, 0.9);
+
+  @include media(laptop) {
+    top: 40px;
+  }
+
+  &__Buttons {
+    display: flex;
+    gap: $gap-xs;
+  }
+
+  &__ButtonText {
+    padding: 0 8px;
+  }
+
+  &__BurgerButton {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    span {
+      display: flex;
+      width: 20px;
+      height: 1.5px;
+      border-radius: 2px;
+      background: $white;
+    }
   }
 }

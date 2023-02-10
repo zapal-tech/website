@@ -1,25 +1,28 @@
+@import 'styles/gaps';
 @import 'styles/mixins';
+
 .Technologies {
-  margin-top: 80px;
+  margin-top: $gap-xxl;
+
   &__GridBlock {
     width: 100%;
-  }
-  &__AnimationBlock {
-    display: none;
-  }
-  @include media(laptop) {
-    &__AnimationBlock {
-      display: block;
-      margin-left: 10%;
-      margin-top: 10%;
-    }
-    &__GridBlock {
+
+    @include media(laptop) {
       width: 50%;
     }
-    &__TechBox {
-      align-items: center;
+  }
+
+  &__AnimationBlock {
+    display: block;
+    margin-top: 10%;
+    margin-left: 10%;
+  }
+
+  &__TechBox {
+    @include media(laptop) {
       display: flex;
       flex-direction: row;
+      align-items: center;
     }
   }
 }

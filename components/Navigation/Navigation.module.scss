@@ -1,12 +1,28 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
 .Navigation {
-  padding: 0 15px;
+  padding-top: 145px;
+
+  @include media(laptop) {
+    padding-top: 0;
+  }
 
   &__List {
     display: flex;
+    flex-direction: column;
+    gap: $gap-lg;
+
+    @include media(laptop) {
+      flex-direction: row;
+    }
   }
 
   &__ListItem {
-    margin: 0 10px;
-    padding: 2px 6px;
+    &:hover,
+    &:focus {
+      color: $orioles-orange;
+    }
   }
 }

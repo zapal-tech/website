@@ -1,7 +1,11 @@
 {
   "hero": {
-    "upperTitle": "Unlock Your",
-    "lowerTitle": "Tech Future",
+    "title": {
+      "unlock": "UNLOCK ",
+      "your": "YOUR ",
+      "tech": "TECH ",
+      "future": "FUTURE"
+    },
     "subtitle": "Lorem ipsum dolor sit amet consectetur. Imperdiet potenti accumsan ut eu faucibus molestie id"
   },
   "technologies": {
