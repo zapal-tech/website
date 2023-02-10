@@ -1,12 +1,51 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.Banner {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
 .Header {
   align-items: center;
+  background: rgba($jet-black, 0.9);
   display: flex;
-  height: 60px;
   justify-content: space-between;
-  padding: 10px;
-  width: 100%;
+  left: 0;
+  padding: $gap-md $gap-lg;
+  position: fixed;
+  right: 0;
+  top: 25px;
+  z-index: 10;
 
-  &__Navigation {
-    margin-left: auto;
+  @include media(laptop) {
+    top: 40px;
+  }
+
+  &__Buttons {
+    display: flex;
+    gap: $gap-xs;
+  }
+
+  &__ButtonText {
+    padding: 0 8px;
+  }
+
+  &__BurgerButton {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    span {
+      background: $white;
+      border-radius: 2px;
+      display: flex;
+      height: 1.5px;
+      width: 20px;
+    }
   }
 }
