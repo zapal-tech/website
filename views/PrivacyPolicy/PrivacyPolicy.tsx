@@ -122,8 +122,8 @@ export const PrivacyPolicy = () => (
   <AppLayout>
     <div className={styles.PrivacyPolicy}>
       <div className={styles.PrivacyPolicy__Article}>
-        <Text type="h1" size="heading1">
-          PRIVACY POLICY
+        <Text type="h1" size="heading1" uppercase>
+          Privacy Policy
         </Text>
 
         <Text size="tiny">Last updated: 31 January, 2023</Text>
@@ -198,8 +198,8 @@ export const PrivacyPolicy = () => (
       <Divider />
 
       <article id={tableOfContentsId} className={styles.PrivacyPolicy__Article}>
-        <Text type="h2" size="heading3">
-          TABLE OF CONTENTS
+        <Text type="h2" size="heading3" uppercase>
+          Table of contents
         </Text>
 
         <OrderedList data={listOfContents} />

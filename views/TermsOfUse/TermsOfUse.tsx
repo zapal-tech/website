@@ -76,8 +76,8 @@ export const TermsOfUse = () => (
   <AppLayout>
     <div className={styles.TermsOfUse}>
       <div>
-        <Text type="h1" size="heading1">
-          TERMS OF USE
+        <Text type="h1" size="heading1" uppercase>
+          Terms of Use
         </Text>
 
         <Text size="tiny">Last updated: 31 January, 2023</Text>
@@ -86,8 +86,8 @@ export const TermsOfUse = () => (
       <Divider />
 
       <article className={styles.TermsOfUse__Article}>
-        <Text type="h2" size="heading3">
-          TABLE OF CONTENTS
+        <Text type="h2" size="heading3" uppercase>
+          Table of contents
         </Text>
 
         <OrderedList data={listOfContents} />
