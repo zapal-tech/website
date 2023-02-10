@@ -2,20 +2,20 @@
 @import 'styles/mixins';
 
 .Banner {
-  align-items: center;
-  background-color: $orioles-orange;
-  color: $white;
   display: flex;
   height: 25px;
+  align-items: center;
   justify-content: center;
+  background-color: $orioles-orange;
+  color: $white;
 
   @include media(laptop) {
     height: 40px;
   }
 
   &__Text {
-    padding-right: 24px;
     position: relative;
+    padding-right: 24px;
 
     @include media(laptop) {
       padding-right: 35px;
@@ -23,18 +23,18 @@
 
     &::after {
       @include pseudo();
+      top: 50%;
+      right: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
 
       background: linear-gradient(to bottom, $ukraine-blue 50%, $ukraine-yellow 50%);
-      border-radius: 50%;
-      height: 16px;
-      right: 0;
-      top: 50%;
       transform: translateY(-50%);
-      width: 16px;
 
       @include media(laptop) {
-        height: 21px;
         width: 21px;
+        height: 21px;
       }
     }
   }

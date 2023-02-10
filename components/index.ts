@@ -15,3 +15,4 @@ export * from './Navigation/Navigation';
 export * from './OrderedList/OrderedList';
 export * from './SocialLinks/SocialLinks';
 export * from './Text/Text';
+export * from './Footer/components/Socials/Socials';

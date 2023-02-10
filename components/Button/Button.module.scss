@@ -6,20 +6,20 @@ $secondary-border-vertical-padding: 19px;
 $secondary-border-horizontal-padding: 23px;
 
 .Button {
+  position: relative;
+  display: flex;
+  width: 100%;
   align-items: center;
-  background: $orioles-orange;
+  justify-content: center;
+  padding: $gap-sm 0;
   border-radius: $gap-lg;
+  background: $orioles-orange;
   color: $white;
   cursor: pointer;
-  display: flex;
   font-weight: 400;
-  justify-content: center;
   line-height: 1;
-  padding: $gap-sm 0;
-  position: relative;
   text-transform: uppercase;
   transition: all ease 0.25s;
-  width: 100%;
 
   &:focus-visible,
   &:hover {
@@ -28,15 +28,15 @@ $secondary-border-horizontal-padding: 23px;
   }
 
   &--Primary {
-    font-size: 1rem;
     max-width: 350px;
+    font-size: 1rem;
 
     @include media(laptop) {
+      padding: 0;
       border-radius: 0;
       color: $orioles-orange;
       font-size: 3.125rem;
       font-weight: 800;
-      padding: 0;
 
       &:focus-visible,
       &:hover {
@@ -46,14 +46,14 @@ $secondary-border-horizontal-padding: 23px;
   }
 
   &--Secondary {
-    font-size: 0.75rem;
     max-width: 170px;
+    font-size: 0.75rem;
 
     @include media(laptop) {
+      padding: $secondary-border-vertical-padding $secondary-border-horizontal-padding;
       border: 2px solid $orioles-orange;
       font-size: 1.125rem;
       font-weight: 400;
-      padding: $secondary-border-vertical-padding $secondary-border-horizontal-padding;
 
       &:focus-visible,
       &:hover {
@@ -69,23 +69,23 @@ $secondary-border-horizontal-padding: 23px;
       &::before,
       &::after {
         @include pseudo();
-        background: $white;
-        right: 0;
         top: 50%;
+        right: 0;
+        background: $white;
       }
 
       &::before {
+        width: 80px;
         height: 1px;
         transform: translateY(-50%);
-        width: 80px;
       }
 
       &::after {
-        border-radius: 50%;
+        width: 20px;
         height: 20px;
+        border-radius: 50%;
         transform: translate(-70px, -50%);
         transition: transform cubic-bezier(1, 0, 0.45, 0.45) 0.25s;
-        width: 20px;
         will-change: transform;
       }
 
@@ -109,9 +109,9 @@ $secondary-border-horizontal-padding: 23px;
         }
 
         &::after {
+          width: 10px;
           height: 10px;
           transform: translate(-35px, -50%);
-          width: 10px;
         }
 
         &:focus-visible::after,
@@ -123,8 +123,8 @@ $secondary-border-horizontal-padding: 23px;
   }
 
   @include media(laptop) {
-    max-width: unset;
     width: max-content;
+    max-width: unset;
 
     &,
     &:focus-visible,

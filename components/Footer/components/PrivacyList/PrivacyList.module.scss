@@ -1,0 +1,14 @@
+.Privacy {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-end;
+
+  &__Underlined {
+    border-bottom: 1px solid white;
+    line-height: 30px !important;
+    margin-bottom: 15px;
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,46 @@
+@import 'styles/mixins';
+
+@import 'styles/colors';
+
+.Contacts {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 90px;
+
+  @include media(laptop) {
+    gap: 100px;
+    margin-top: 5%;
+  }
+
+  &__PhoneText {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__PrivacyText {
+    color: $sonic-silver !important;
+    display: inline;
+    @include media(laptop) {
+      display: none;
+    }
+  }
+
+  &__PrivacyBlock {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+    @include media(laptop) {
+      align-items: flex-end;
+      display: flex;
+      flex-direction: row;
+      width: auto;
+    }
+  }
+}

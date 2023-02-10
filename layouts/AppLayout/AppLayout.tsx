@@ -8,13 +8,11 @@ export interface AppLayoutProps {
   children: React.ReactNode;
 }
 
-export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
-  return (
-    <div className={styles.AppLayout}>
-      {/* <Banner /> */}
-      <Header />
-      <main className={styles.AppLayout__Main}>{children}</main>
-      <Footer />
-    </div>
-  );
-};
+export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => (
+  <div className={styles.AppLayout}>
+    {/* <Banner /> */}
+    <Header />
+    <main className={styles.AppLayout__Main}>{children}</main>
+    <Footer />
+  </div>
+);

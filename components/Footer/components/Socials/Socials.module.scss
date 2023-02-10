@@ -1,0 +1,26 @@
+@import 'styles/mixins';
+
+.Icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 40px;
+
+  @include media(laptop) {
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+    position: absolute;
+    right: 5%;
+  }
+
+  &__Icon {
+    height: 24px;
+    width: 24px;
+
+    @include media(laptop) {
+      height: 40px;
+      width: 40px;
+    }
+  }
+}

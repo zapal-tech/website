@@ -3,17 +3,17 @@
 
 .Input {
   position: relative;
-  -webkit-tap-highlight-color: transparent;
   width: 100%;
+  -webkit-tap-highlight-color: transparent;
 
   &__Field,
   &__Placeholder {
+    overflow: hidden;
+    width: 100%;
     font-size: 1rem;
     font-weight: 400;
-    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 100%;
     word-break: break-word;
 
     @include media(laptop) {
@@ -23,10 +23,10 @@
   }
 
   &__Field {
-    background: transparent;
-    border: 0;
-    color: $white;
     height: 35px;
+    border: 0;
+    background: transparent;
+    color: $white;
     -webkit-tap-highlight-color: transparent;
 
     &:-webkit-autofill {
@@ -42,8 +42,8 @@
   }
 
   &__Placeholder {
-    color: $sonic-silver;
     top: 50%;
+    color: $sonic-silver;
     transform: translateY(-50%);
     transform-origin: 0 0;
     transition: all 0.2s ease;
@@ -60,16 +60,16 @@
 
   &__Placeholder,
   &__Border {
-    cursor: text;
-    left: 0;
     position: absolute;
+    left: 0;
+    cursor: text;
   }
 
   &__Border {
-    background: $white;
+    right: 0;
     bottom: 0;
     height: 1px;
-    right: 0;
+    background: $white;
 
     @include media(laptop) {
       height: 2px;
@@ -89,14 +89,14 @@
   }
 
   &__Error {
+    position: absolute;
+    right: 0;
     bottom: -5px;
+    left: 0;
     color: $rosso-corsa;
     font-size: 0.75rem;
     font-weight: 400;
-    left: 0;
     line-height: 1;
-    position: absolute;
-    right: 0;
     transform: translateY(100%);
     transition: all 0.2s ease;
 
