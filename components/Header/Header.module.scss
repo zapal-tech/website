@@ -3,24 +3,24 @@
 @import 'styles/mixins';
 
 .Banner {
-  left: 0;
   position: fixed;
-  right: 0;
-  top: 0;
   z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 .Header {
-  align-items: center;
-  background: rgba($jet-black, 0.9);
-  display: flex;
-  justify-content: space-between;
-  left: 0;
-  padding: $gap-md $gap-lg;
   position: fixed;
-  right: 0;
-  top: 25px;
   z-index: 10;
+  top: 25px;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $gap-xs $gap-lg;
+  background: rgba($jet-black, 0.9);
 
   @include media(laptop) {
     top: 40px;
@@ -41,11 +41,11 @@
     gap: 7px;
 
     span {
-      background: $white;
-      border-radius: 2px;
       display: flex;
-      height: 1.5px;
       width: 20px;
+      height: 1.5px;
+      border-radius: 2px;
+      background: $white;
     }
   }
 }
