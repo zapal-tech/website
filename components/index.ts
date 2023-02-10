@@ -12,3 +12,4 @@ export * from './MetaPixel/MetaPixel';
 export * from './Navigation/Navigation';
 export * from './OrderedList/OrderedList';
 export * from './Text/Text';
+export * from './Footer/components/Socials/Socials';

@@ -4,10 +4,11 @@ import { Button, Text } from 'components';
 
 import { Namespace } from 'i18n';
 
-import styles from '../Content/Content.module.scss';
+import styles from './Content.module.scss';
 
 export const Content: React.FC = () => {
   const { t } = useTranslation(Namespace.Home);
+
   return (
     <div className={styles.Content}>
       <Text size="heading1" uppercase>

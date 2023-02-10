@@ -4,7 +4,7 @@ import linkedin from '/public/footer/linkedin.svg';
 import telegram from '/public/footer/telegram.svg';
 import clsx, { ClassValue } from 'clsx';
 
-import styles from '../Socials/Socials.module.scss';
+import styles from './Socials.module.scss';
 
 const IconsArray = [instagram, facebook, linkedin, telegram];
 

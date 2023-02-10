@@ -6,10 +6,11 @@ import { Namespace } from 'i18n';
 
 import { PrivacyList } from '../PrivacyList/PrivacyList';
 
-import styles from '../Contacts/Contacts.module.scss';
+import styles from './Contacts.module.scss';
 
 export const Contacts: React.FC = () => {
   const { t } = useTranslation(Namespace.Home);
+
   return (
     <div className={styles.Contacts}>
       <Text size="heading3">hello@zapal.tech</Text>
