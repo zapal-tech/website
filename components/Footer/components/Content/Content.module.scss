@@ -7,13 +7,9 @@
   flex-direction: column;
   gap: 40px;
 
-  @include media(laptop) {
-    margin-left: 80px;
-  }
-
   &__Title {
     @include media(laptop) {
-      max-width: 90%;
+      max-width: 80%;
     }
   }
 

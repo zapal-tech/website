@@ -8,7 +8,9 @@
   @include media(laptop) {
     display: flex;
     flex-direction: row;
-    margin: 150px 150px 50px 50px;
+    margin: 150px 50px 50px 50px;
+    padding-left: 50px;
+    padding-right: 50px;
     position: relative;
   }
 
@@ -19,6 +21,7 @@
 
     @include media(laptop) {
       align-items: center;
+      align-items: flex-end;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
