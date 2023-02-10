@@ -1,7 +1,11 @@
 @import 'styles/colors';
 
 .Divider {
-  background: $white;
-  height: 1px;
-  width: 100%;
+  width: auto;
+
+  hr {
+    width: 100%;
+    height: 1px;
+    background: $white;
+  }
 }

@@ -2,12 +2,12 @@
 @import 'styles/gaps';
 @import 'styles/mixins';
 
-.PrivacyPolicy {
+.CookiesPolicy {
   &__Article {
-    padding-bottom: $expanded-gap-xs;
+    padding-bottom: $gap-xl;
 
     @include media(laptop) {
-      padding-bottom: $expanded-gap-md;
+      padding-bottom: $gap-xxl;
     }
   }
 
@@ -16,6 +16,16 @@
 
     @include media(laptop) {
       padding: 0 $expanded-gap-sm;
+    }
+  }
+
+  &__CookieCard {
+    flex-direction: column;
+
+    margin: $gap-sm 0;
+
+    @include media(laptop) {
+      margin: $gap-lg 0;
     }
   }
 
