@@ -1,9 +1,32 @@
 @import 'styles/colors';
 @import 'styles/gaps';
+@import 'styles/mixins';
 
 .CookiesPolicy {
   &__Article {
-    padding: $gap-xl 0 $expanded-gap-md;
+    padding-bottom: $gap-xl;
+
+    @include media(laptop) {
+      padding-bottom: $gap-xxl;
+    }
+  }
+
+  &__Divider {
+    padding: 0 $gap-lg;
+
+    @include media(laptop) {
+      padding: 0 $expanded-gap-sm;
+    }
+  }
+
+  &__CookieCard {
+    flex-direction: column;
+
+    margin: $gap-sm 0;
+
+    @include media(laptop) {
+      margin: $gap-lg 0;
+    }
   }
 
   a {
@@ -11,6 +34,16 @@
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  h2,
+  h3,
+  p {
+    margin-bottom: $gap-xs;
+
+    @include media(laptop) {
+      margin-bottom: $gap-sm;
     }
   }
 }
