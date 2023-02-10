@@ -13,4 +13,5 @@ export * from './Logo/Logo';
 export * from './MetaPixel/MetaPixel';
 export * from './Navigation/Navigation';
 export * from './OrderedList/OrderedList';
+export * from './SocialLinks/SocialLinks';
 export * from './Text/Text';

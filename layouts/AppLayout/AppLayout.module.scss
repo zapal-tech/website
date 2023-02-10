@@ -1,4 +1,6 @@
 .AppLayout {
+  position: relative;
+
   &__Main {
     display: flex;
     flex-flow: column;

@@ -1,9 +1,15 @@
 import clsx, { ClassValue } from 'clsx';
 import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
+import { useMemo } from 'react';
+
+import { useWindowSize } from 'hooks';
 
 import { Text } from 'components';
 
 import { Namespace } from 'i18n';
+
+import media from 'styles/media.module.scss';
 
 import styles from './Navigation.module.scss';
 
@@ -13,26 +19,49 @@ export type NavigationProps = {
 
 export const Navigation: React.FC<NavigationProps> = ({ className }) => {
   const { t } = useTranslation(Namespace.Navigation);
+  const windowSize = useWindowSize();
 
-  const navLinks = [
-    {
-      title: t('home.title'),
-      path: '/',
-    },
-    {
-      title: t('about.title'),
-      path: '/about',
-    },
-  ];
+  const isLaptop = useMemo(
+    () => windowSize.width && windowSize.width >= parseInt(media.breakpointLaptop),
+    [windowSize],
+  );
+
+  const navLinks = useMemo(
+    () => [
+      {
+        title: t('about.title'),
+        path: '/about',
+      },
+      {
+        title: t('portfolio.title'),
+        path: '/portfolio',
+      },
+      {
+        title: t('career.title'),
+        path: '/career',
+      },
+      {
+        title: t('contacts.title'),
+        path: '/contacts',
+      },
+      {
+        title: t('supportUkraine.title'),
+        path: '/supportUkraine',
+      },
+    ],
+    [t],
+  );
 
   return (
     <nav className={clsx(styles.Navigation, className)}>
       <ul className={styles.Navigation__List}>
         {navLinks.map((navEl) => (
           <li key={navEl.path} className={styles.Navigation__ListItem}>
-            <a href={navEl.path}>
-              <Text>{navEl.title}</Text>
-            </a>
+            <Link href={navEl.path}>
+              <Text size={isLaptop ? 'tiny' : 'heading3'} uppercase>
+                {navEl.title}
+              </Text>
+            </Link>
           </li>
         ))}
       </ul>

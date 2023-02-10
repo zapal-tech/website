@@ -8,7 +8,16 @@
   "portfolio": {
     "title": "Portfolio"
   },
+  "career": {
+    "title": "Career"
+  },
   "contacts": {
     "title": "Contacts"
+  },
+  "supportUkraine": {
+    "title": "Support Ukraine"
+  },
+  "becomeAClient": {
+    "title": "Become a client"
   }
 }

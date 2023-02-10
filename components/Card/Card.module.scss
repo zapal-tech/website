@@ -1,15 +1,16 @@
+@import 'styles/colors';
 @import 'styles/gaps';
 @import 'styles/mixins';
 
 .Card {
-  border-radius: $gap-xxs;
+  position: relative;
   display: flex;
   padding: $gap-md;
-  position: relative;
+  border-radius: $gap-xxs;
 
   @include media(laptop) {
-    border-radius: $gap-sm;
     padding: $gap-xl;
+    border-radius: $gap-sm;
   }
 
   &--FullFrame {
@@ -21,20 +22,20 @@
   }
 
   &__Corner {
-    border: 2px solid transparent;
     position: absolute;
     width: $gap-md;
+    border: 2px solid transparent;
 
     @include media(laptop) {
       width: $gap-xl;
     }
 
     &--TopLeft {
-      border-left-color: $white;
-      border-top-color: $white;
-      border-top-left-radius: $gap-xxs;
-      left: 0;
       top: 0;
+      left: 0;
+      border-top-color: $white;
+      border-left-color: $white;
+      border-top-left-radius: $gap-xxs;
 
       @include media(laptop) {
         border-top-left-radius: $gap-sm;
@@ -42,11 +43,11 @@
     }
 
     &--TopRight {
-      border-right-color: $white;
-      border-top-color: $white;
-      border-top-right-radius: $gap-xxs;
       bottom: 0;
       left: 0;
+      border-top-color: $white;
+      border-right-color: $white;
+      border-top-right-radius: $gap-xxs;
 
       @include media(laptop) {
         border-top-right-radius: $gap-sm;
@@ -54,11 +55,11 @@
     }
 
     &--BottomLeft {
-      border-bottom-color: $white;
-      border-bottom-left-radius: $gap-xxs;
-      border-left-color: $white;
-      right: 0;
       top: 0;
+      right: 0;
+      border-bottom-color: $white;
+      border-left-color: $white;
+      border-bottom-left-radius: $gap-xxs;
 
       @include media(laptop) {
         border-bottom-left-radius: $gap-sm;
@@ -66,11 +67,11 @@
     }
 
     &--BottomRight {
+      right: 0;
+      bottom: 0;
+      border-right-color: $white;
       border-bottom-color: $white;
       border-bottom-right-radius: $gap-xxs;
-      border-right-color: $white;
-      bottom: 0;
-      right: 0;
 
       @include media(laptop) {
         border-bottom-right-radius: $gap-sm;
