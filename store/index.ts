@@ -1,7 +1,11 @@
 import { combineReducers, configureStore, Middleware } from '@reduxjs/toolkit';
 import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux';
 
-const rootReducer = combineReducers({});
+import general from './generalSlice';
+
+const rootReducer = combineReducers({
+  general,
+});
 
 const middlewares: Middleware[] = [];
 

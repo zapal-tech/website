@@ -7,7 +7,7 @@ $first-line-indent: 76px;
   background: no-repeat right / cover url('/images/hero-bg.jpg');
   height: 100vh;
   padding-left: 40px;
-  padding-top: $divider-gap-lg;
+  padding-top: $expanded-gap-lg;
   position: relative;
 
   @include media(phone) {

@@ -8,7 +8,16 @@
   "portfolio": {
     "title": "Портфоліо"
   },
+  "career": {
+    "title": "Кар'єра"
+  },
   "contacts": {
     "title": "Контакти"
+  },
+  "supportUkraine": {
+    "title": "Support Ukraine"
+  },
+  "becomeAClient": {
+    "title": "Напишіть нам"
   }
 }

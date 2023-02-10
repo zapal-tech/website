@@ -1,0 +1,40 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+@import 'styles/colors';
+
+.MobileMenu {
+  background: #000;
+  display: block;
+  height: 100%;
+  left: -100%;
+  padding-left: $gap-lg;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  &--Open {
+    left: 0;
+  }
+
+  &__Navigation {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-lg;
+  }
+
+  &__Button {
+    color: $orioles-orange;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 31px;
+    margin-top: $gap-lg;
+  }
+
+  &__CloseButton {
+    position: absolute;
+    right: 40px;
+    top: 70px;
+  }
+}

@@ -1,0 +1,13 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+
+.HeaderButton {
+  align-items: center;
+  border: 1px solid $orioles-orange;
+  border-radius: $gap-lg;
+  color: $white;
+  display: flex;
+  height: 35px;
+  justify-content: center;
+  padding: 0 10px;
+}
