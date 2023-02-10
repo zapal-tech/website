@@ -1,0 +1,15 @@
+@import 'styles/mixins';
+
+@import 'styles/colors';
+
+.Line {
+  border: 0.5px solid $sonic-silver;
+  margin-left: 40px;
+  margin-right: 40px;
+
+  @include media(laptop) {
+    border: 1px solid $white;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
