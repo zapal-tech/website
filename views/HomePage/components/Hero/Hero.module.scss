@@ -15,16 +15,6 @@ $first-line-indent: 76px;
     padding-left: 20px;
   }
 
-  &__Particles {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
   @include media(laptop) {
     display: flex;
     align-items: center;
@@ -44,6 +34,7 @@ $first-line-indent: 76px;
 
   &__Title {
     margin-bottom: $gap-lg;
+    pointer-events: none;
     text-transform: uppercase;
 
     @include media(laptop) {
