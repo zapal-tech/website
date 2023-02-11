@@ -4,6 +4,8 @@ import linkedin from '/public/footer/linkedin.svg';
 import telegram from '/public/footer/telegram.svg';
 import clsx, { ClassValue } from 'clsx';
 
+import { SocialLinks } from 'components/SocialLinks/SocialLinks';
+
 import styles from './Socials.module.scss';
 
 const IconsArray = [instagram, facebook, linkedin, telegram];
@@ -13,9 +15,10 @@ export type SocialsProps = {
 };
 
 export const Socials: React.FC<SocialsProps> = ({ className }) => (
-  <div className={clsx(styles.Icons, className)}>
-    {IconsArray.map((Icon, index) => (
-      <Icon key={index} className={styles.Icons__Icon} />
-    ))}
-  </div>
+  // <div className={clsx(styles.Icons, className)}>
+  //   {IconsArray.map((Icon, index) => (
+  //     <Icon key={index} className={styles.Icons__Icon} />
+  //   ))}
+  // </div>
+  <SocialLinks />
 );

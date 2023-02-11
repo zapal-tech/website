@@ -1,11 +1,11 @@
-@import 'styles/mixins';
-
 @import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
 
 .Content {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: $gap-lg;
 
   &__Title {
     @include media(laptop) {
@@ -15,9 +15,9 @@
 
   &__Text {
     @include media(laptop) {
-      margin-bottom: 150px;
-      margin-top: 100px;
       max-width: 500px;
+      margin-top: $expanded-gap-xs;
+      margin-bottom: $expanded-gap-md;
     }
   }
 
@@ -25,14 +25,14 @@
     display: none;
 
     @include media(laptop) {
-      color: $sonic-silver !important;
       display: inline;
+      color: $sonic-silver !important;
     }
   }
 
   &__ButtonContent {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: $gap-lg;
   }
 }
