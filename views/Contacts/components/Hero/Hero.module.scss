@@ -26,7 +26,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 177px;
-    margin-bottom: 80px;
+    margin-bottom: $gap-xxl;
     gap: 67px;
 
     @include media(laptop) {
@@ -48,7 +48,7 @@
       line-height: 22px;
 
       @include media(laptop) {
-        top: -40px;
+        top: -$gap-lg;
         font-size: 26px;
         font-weight: 500;
         line-height: 34px;
@@ -69,7 +69,7 @@
       line-height: 22px;
 
       @include media(laptop) {
-        top: -40px;
+        top: -$gap-lg;
         font-size: 26px;
         font-weight: 500;
         line-height: 34px;
