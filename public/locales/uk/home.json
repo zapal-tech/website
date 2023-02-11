@@ -8,6 +8,13 @@
     },
     "subtitle": "Lorem ipsum dolor sit amet consectetur. Imperdiet potenti accumsan ut eu faucibus molestie id"
   },
+  "about": {
+    "title": "Про нас",
+    "subTitle": "Ми сфокусовані на наданні послуг найвищої якості: від початкової консультації до успішного закінчення проекту",
+    "firstCard": "надамо найкращі умови та результати для наших клієнтів",
+    "secondCard": "високо кваліфікована команда з величезним досвідом роботи в IT сфері",
+    "thirdTitle": "Нашою цілю є перевищити ваші очікування"
+  },
   "technologies": {
     "title": "We use"
   }
