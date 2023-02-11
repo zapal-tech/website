@@ -15,9 +15,12 @@ export enum Namespace {
   Common = 'common',
   Navigation = 'navigation',
   Languages = 'languages',
+  Footer = 'footer',
   Home = 'home',
   Titles = 'titles',
+  Contacts = 'contacts',
 }
 
 export const defaultNamespace = Namespace.Common;
 export const namespaces = Object.values(Namespace);
+export const globalNamespaces = [Namespace.Titles, Namespace.Languages, Namespace.Navigation, Namespace.Footer];

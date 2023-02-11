@@ -19,5 +19,17 @@
   },
   "becomeAClient": {
     "title": "Become a client"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy"
+  },
+  "termsOfUse": {
+    "title": "Terms of Use"
+  },
+  "cookiesPolicy": {
+    "title": "Cookies Policy"
+  },
+  "sitemap": {
+    "title": "Sitemap"
   }
 }
