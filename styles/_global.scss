@@ -17,11 +17,16 @@ body {
     width: 6px;
   }
 
+  &::-webkit-scrollbar-track-piece {
+    background: $sonic-silver;
+  }
+
   &::-webkit-scrollbar-track {
     background: $jet-black;
   }
 
   &::-webkit-scrollbar-thumb {
+    height: 40px;
     background: $orioles-orange;
 
     &:hover {
