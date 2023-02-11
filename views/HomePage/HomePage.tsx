@@ -1,11 +1,13 @@
 import { AppLayout } from 'layouts';
 
-import { HeroSection } from './components/HeroSection/HeroSection';
+import { AboutUs } from './components/AboutUs/AboutUs';
+import { Hero } from './components/Hero/Hero';
 import { Technologies } from './components/Technologies/Technologies';
 
 export const HomePage = () => (
   <AppLayout>
-    <HeroSection />
+    <Hero />
+    <AboutUs />
     <Technologies />
   </AppLayout>
 );

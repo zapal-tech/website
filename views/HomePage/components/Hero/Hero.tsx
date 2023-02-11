@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import { Fragment, useCallback } from 'react';
+import { useCallback } from 'react';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 import { Engine } from 'tsparticles-engine';
@@ -8,9 +8,9 @@ import { Text } from 'components';
 
 import { Namespace } from 'i18n';
 
-import styles from './HeroSection.module.scss';
+import styles from './Hero.module.scss';
 
-export const HeroSection: React.FC = () => {
+export const Hero: React.FC = () => {
   const { t } = useTranslation(Namespace.Home);
 
   const particlesInit = useCallback(async (engine: Engine) => {
