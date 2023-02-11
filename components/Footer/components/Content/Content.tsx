@@ -7,23 +7,23 @@ import { Namespace } from 'i18n';
 import styles from './Content.module.scss';
 
 export const Content: React.FC = () => {
-  const { t } = useTranslation(Namespace.Home);
+  const { t } = useTranslation(Namespace.Footer);
 
   return (
     <div className={styles.Content}>
       <Text className={styles.Content__Title} size="heading1" uppercase>
-        {t('footer.title')}
+        {t('title')}
       </Text>
 
       <div className={styles.Content__ButtonContent}>
         <Text className={styles.Content__Text} size="heading3">
-          {t('footer.description')}
+          {t('description')}
         </Text>
 
-        <Button> {t('footer.button')}</Button>
+        <Button>{t('button')}</Button>
 
         <Text className={styles.Content__PrivacyText} size="small">
-          {t('footer.love')}
+          {t('love')}
         </Text>
       </div>
     </div>
