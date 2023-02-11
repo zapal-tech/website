@@ -1,15 +1,15 @@
 {
   "hero": {
     "title": {
-      "unlock": "UNLOCK ",
-      "your": "YOUR ",
-      "tech": "TECH ",
-      "future": "FUTURE"
+      "unlock": "Unlock",
+      "your": "Your",
+      "tech": "Tech",
+      "future": "Future"
     },
     "subtitle": "Lorem ipsum dolor sit amet consectetur. Imperdiet potenti accumsan ut eu faucibus molestie id"
   },
   "about": {
-    "title": "ABOUT US",
+    "title": "About Us",
     "subtitle": {
       "upper": "We focused on delivering high-quality",
       "lower": "services: from the initial consultation until the successful completion of the project"
