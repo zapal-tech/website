@@ -1,8 +1,8 @@
-import facebook from '/public/footer/facebook.svg';
-import instagram from '/public/footer/instagram.svg';
-import linkedin from '/public/footer/linkedin.svg';
-import telegram from '/public/footer/telegram.svg';
 import clsx, { ClassValue } from 'clsx';
+import facebook from 'public/footer/facebook.svg';
+import instagram from 'public/footer/instagram.svg';
+import linkedin from 'public/footer/linkedin.svg';
+import telegram from 'public/footer/telegram.svg';
 
 import styles from './Socials.module.scss';
 
