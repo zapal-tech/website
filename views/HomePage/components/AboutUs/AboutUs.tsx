@@ -24,13 +24,15 @@ export const AboutUs: React.FC = () => {
         <div className={styles.AboutUs__Line}></div>
 
         <div className={styles.AboutUs__CardBox}>
-          {t('about.cards', { returnObjects: true }).map((cardText: string) => (
-            <Card key={cardText} frameType="corner">
-              <Text type="h4" className={styles.Card__Text}>
-                {cardText}
-              </Text>
-            </Card>
-          ))}
+          {t('about.cards', { returnObjects: true }).map((cardText: string) => {
+            return (
+              <Card key={cardText} frameType="corner">
+                <Text type="h4" className={styles.Card__Text}>
+                  {cardText}
+                </Text>
+              </Card>
+            );
+          })}
         </div>
 
         <Button variant="primary">SERVICES</Button>
