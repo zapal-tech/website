@@ -1,0 +1,79 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+@import 'styles/gaps';
+
+.Hero {
+  &__Title {
+    margin-top: 155px;
+  }
+
+  &__SubTitle {
+    color: $jet-black;
+    -webkit-text-stroke: 1px $sonic-silver;
+
+    @media screen and not (-webkit-min-device-pixel-ratio: 0) {
+      color: $sonic-silver;
+    }
+
+    @include media(laptop) {
+      display: flex;
+      text-indent: 322px;
+      -webkit-text-stroke-color: $white;
+    }
+  }
+
+  &__LinksBox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 177px;
+    margin-bottom: 80px;
+    gap: 67px;
+
+    @include media(laptop) {
+      margin-left: 320px;
+      gap: $expanded-gap-md;
+    }
+  }
+
+  &__EmailLink {
+    position: relative;
+
+    &::before {
+      @include pseudo('email');
+      top: -25px;
+      left: 0;
+      color: $white;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+
+      @include media(laptop) {
+        top: -40px;
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 34px;
+      }
+    }
+  }
+
+  &__PhoneLink {
+    position: relative;
+
+    &::before {
+      @include pseudo('phone');
+      top: -25px;
+      left: 0;
+      color: $white;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22px;
+
+      @include media(laptop) {
+        top: -40px;
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 34px;
+      }
+    }
+  }
+}
