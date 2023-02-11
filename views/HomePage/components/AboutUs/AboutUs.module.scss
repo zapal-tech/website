@@ -12,6 +12,7 @@
       margin-left: auto;
     }
   }
+
   &__Title {
     margin-bottom: $gap-lg;
     margin-bottom: $expanded-gap-md;
@@ -36,6 +37,7 @@
     height: 1px;
     margin-bottom: 65px;
     background: $white;
+  
     @include media(laptop) {
       width: 837px;
       align-self: flex-end;
@@ -45,8 +47,8 @@
 
   &__Line::before {
     @include pseudo();
-    top: -5px;
 
+    top: -5px;
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -55,9 +57,9 @@
 
   &__Line::after {
     @include pseudo();
+
     top: -15px;
     right: 0;
-
     width: 30px;
     height: 30px;
     border-radius: 50%;
