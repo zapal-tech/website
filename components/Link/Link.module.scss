@@ -27,30 +27,32 @@ $laptop-icon-gap: 23px;
     color: $rosso-corsa;
   }
 
-  &::after {
-    @include pseudo();
-    right: 0;
-    bottom: -2px;
-    left: $mobile-icon-size + $mobile-icon-gap;
+  &--Underline {
+    &::after {
+      @include pseudo();
+      right: 0;
+      bottom: -2px;
+      left: 0;
 
-    height: 2px;
-    border-radius: 3px;
-    background: $orioles-orange;
-    transform: rotateY(90deg);
-    transform-origin: left center;
-    transition: all ease-in 0.2s;
-    will-change: background, transform;
+      height: 2px;
+      border-radius: 3px;
+      background: $orioles-orange;
+      transform: rotateY(90deg);
+      transform-origin: left center;
+      transition: all ease-in 0.2s;
+      will-change: background, transform;
 
-    @include media(laptop) {
-      bottom: -3px;
-      left: $laptop-icon-size + $laptop-icon-gap;
-      height: 3px;
+      @include media(laptop) {
+        bottom: -3px;
+        left: 0;
+        height: 3px;
+      }
     }
-  }
 
-  &:hover::after {
-    background: $rosso-corsa;
-    transform: rotateY(0deg);
+    &:hover::after {
+      background: $rosso-corsa;
+      transform: rotateY(0deg);
+    }
   }
 
   &--Icon {
@@ -58,6 +60,14 @@ $laptop-icon-gap: 23px;
 
     @include media(laptop) {
       padding-left: $laptop-icon-size + $laptop-icon-gap;
+    }
+
+    &::after {
+      left: $mobile-icon-size + $mobile-icon-gap;
+
+      @include media(laptop) {
+        left: $laptop-icon-size + $laptop-icon-gap;
+      }
     }
   }
 
