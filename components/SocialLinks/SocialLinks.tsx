@@ -14,15 +14,15 @@ type SocialLink = {
 const links: SocialLink[] = [
   {
     icon: FacebookIcon,
-    path: 'https://www.facebook.com/',
+    path: 'https://facebook.com/zapal.tech',
   },
   {
     icon: InstagramIcon,
-    path: 'https://www.instagram.com/',
+    path: 'https://instagram.com/zapal.tech',
   },
   {
     icon: LinkedInIcon,
-    path: 'https://www.linkedin.com/',
+    path: 'https://linkedin.com/company/zapal',
   },
   {
     icon: TelegramIcon,
