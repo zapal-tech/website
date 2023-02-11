@@ -1,46 +1,51 @@
+@import 'styles/colors';
+@import 'styles/gaps';
 @import 'styles/mixins';
 
-@import 'styles/colors';
-
 .Contacts {
-  align-items: flex-end;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  align-items: flex-end;
   margin-top: 90px;
+  gap: $gap-lg;
 
   @include media(laptop) {
-    gap: 100px;
     margin-top: 5%;
+    gap: $expanded-gap-xs;
   }
 
   &__PhoneText {
-    align-items: flex-end;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     gap: 5px;
   }
 
-  &__PrivacyText {
-    color: $sonic-silver !important;
+  & &__PrivacyText {
     display: inline;
+    color: $sonic-silver;
+
     @include media(laptop) {
       display: none;
     }
   }
 
+  & &__Link {
+    color: $white;
+  }
+
   &__PrivacyBlock {
-    align-items: flex-end;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     width: 100%;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
 
     @include media(laptop) {
-      align-items: flex-end;
       display: flex;
-      flex-direction: row;
       width: auto;
+      flex-direction: row;
+      align-items: flex-end;
     }
   }
 }
