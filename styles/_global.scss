@@ -11,3 +11,21 @@ body {
     color: $white;
   }
 }
+
+.CustomScrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $jet-black;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $orioles-orange;
+
+    &:hover {
+      background: $rosso-corsa;
+    }
+  }
+}
