@@ -1,0 +1,94 @@
+@import 'styles/gaps';
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.AboutUs {
+  &__Box {
+    @include media(laptop) {
+      display: flex;
+      width: max-content;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin-left: auto;
+    }
+  }
+  &__Title {
+    margin-bottom: $gap-lg;
+    margin-bottom: $expanded-gap-md;
+  }
+
+  &__Subtitle {
+    margin-bottom: $gap-md;
+
+    @include media(laptop) {
+      width: 1250px;
+      height: 183px;
+      margin-bottom: 75px;
+      margin-left: auto;
+      text-indent: 185px;
+    }
+  }
+
+  &__Line {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin-bottom: 65px;
+    background: $white;
+    @include media(laptop) {
+      width: 837px;
+      align-self: flex-end;
+      margin-bottom: 225px;
+    }
+  }
+
+  &__Line::before {
+    @include pseudo();
+    top: -5px;
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $white;
+  }
+
+  &__Line::after {
+    @include pseudo();
+    top: -15px;
+    right: 0;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: $white;
+  }
+
+  &__CardBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    gap: 30px;
+
+    @include media(laptop) {
+      flex-direction: row;
+      align-self: flex-end;
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.Card__Text {
+  display: flex;
+  width: 180px;
+  height: 160px;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include media(laptop) {
+    width: 300px;
+    height: 250px;
+    align-items: flex-end;
+  }
+}
