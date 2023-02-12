@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  gap: $gap-md;
 
   &__Icon {
     width: 20px;
@@ -25,10 +24,6 @@
     transition: 0.5s ease;
   }
 
-  @include media(laptop) {
-    gap: $gap-xl;
-  }
-
   &__Block {
     display: flex;
     flex-direction: row;
@@ -40,10 +35,19 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-top: 28px;
+    margin-bottom: 28px;
     gap: $gap-sm;
 
     @include media(laptop) {
+      margin-top: 48px;
+      margin-bottom: 48px;
       gap: $gap-xl;
     }
+  }
+
+  &__Divider {
+    margin-top: 2px;
+    margin-bottom: 2px;
   }
 }

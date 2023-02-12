@@ -26,6 +26,6 @@ export const ServiceItem: React.FC<ServiceItemProps> = ({ Icon, title }) => (
       <Link className={styles.Item__Icon} />
     </div>
 
-    <Divider />
+    <Divider className={styles.Item__Divider} />
   </div>
 );
