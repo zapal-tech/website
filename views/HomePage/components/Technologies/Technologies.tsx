@@ -25,7 +25,7 @@ export const Technologies: React.FC = () => {
 
   return (
     <Container>
-      <div className={styles.Technologies}>
+      <section className={styles.Technologies}>
         <Text size="heading1" uppercase>
           {t('technologies.title')}
         </Text>
@@ -41,7 +41,7 @@ export const Technologies: React.FC = () => {
             </div>
           )}
         </div>
-      </div>
+      </section>
     </Container>
   );
 };

@@ -21,6 +21,9 @@
       "always strive to exceed expectations"
     ]
   },
+  "services": {
+    "title": "our services"
+  },
   "technologies": {
     "title": "We use"
   }

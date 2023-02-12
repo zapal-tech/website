@@ -1,0 +1,47 @@
+@import 'styles/mixins';
+@import 'styles/colors';
+@import 'styles/gaps';
+
+.Item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: $gap-md;
+  &__Icon {
+    width: 20px;
+    height: 20px;
+    fill: $white;
+    transition: 0.5s ease;
+
+    @include media(laptop) {
+      width: 33px;
+      height: 33px;
+    }
+  }
+  &:hover .Item__Icon {
+    fill: $orioles-orange;
+    transition: 0.5s ease;
+  }
+
+  @include media(laptop) {
+    gap: $gap-xl;
+  }
+
+  &__Block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__Content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $gap-sm;
+
+    @include media(laptop) {
+      gap: $gap-xl;
+    }
+  }
+}
