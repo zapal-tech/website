@@ -1,8 +1,8 @@
-import Application from '/public/services/application.svg';
-import Backend from '/public/services/backend.svg';
-import Frontend from '/public/services/frontend.svg';
-import Software from '/public/services/software.svg';
-import Website from '/public/services/website.svg';
+import DesktopIcon from 'public/icons/desktop.svg';
+import GridIcon from 'public/icons/grid.svg';
+import ShieldCheckIcon from 'public/icons/shield-check.svg';
+import BoxIcon from 'public/icons/box.svg';
+import HashtagIcon from 'public/icons/hashtag.svg';
 import { useTranslation } from 'next-i18next';
 
 import { Container, Text } from 'components';
@@ -13,16 +13,17 @@ import { ServiceItem } from './ServiceItem/ServiceItem';
 
 import styles from './Services.module.scss';
 
-const serviceIconsArray = [
-  { icon: Website, title: 'WEBSITES' },
-  { icon: Application, title: 'MOBILE & WEB APPS' },
-  { icon: Software, title: 'SOFTWARE AUDIT' },
-  { icon: Frontend, title: 'BACK-END' },
-  { icon: Backend, title: 'BACK-END' },
+const services = [
+  { icon: DesktopIcon, title: 'Websites' },
+  { icon: GridIcon, title: 'Mobile & web apps' },
+  { icon: ShieldCheckIcon, title: 'Software audit' },
+  { icon: BoxIcon, title: 'Back-end' },
+  { icon: HashtagIcon, title: 'Front-end' },
 ];
 
 export const Services: React.FC = () => {
   const { t } = useTranslation(Namespace.Home);
+
   return (
     <Container>
       <section className={styles.Services}>
@@ -31,8 +32,8 @@ export const Services: React.FC = () => {
         </Text>
 
         <div className={styles.Services__Icons}>
-          {serviceIconsArray.map((Icon, index) => (
-            <ServiceItem Icon={Icon.icon} title={Icon.title} key={index} />
+          {services.map(({ icon, title }) => (
+            <ServiceItem key={title} Icon={icon} title={title} />
           ))}
         </div>
       </section>
