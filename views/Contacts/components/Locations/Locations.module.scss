@@ -1,0 +1,24 @@
+@import 'styles/mixins';
+
+.Locations {
+  position: relative;
+
+  &__Tabs {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    padding: 0;
+    transform: translateX(-50%);
+
+    @include media(laptop) {
+      bottom: 50%;
+      left: 100px;
+      transform: translateY(50%);
+    }
+  }
+
+  &__Map {
+    width: 100%;
+    height: 700px;
+  }
+}
