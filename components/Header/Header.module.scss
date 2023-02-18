@@ -51,7 +51,7 @@
     left: 0;
     backdrop-filter: saturate(180%) blur(12px);
     background: rgba($jet-black, 0.85);
-    mask-image: linear-gradient(to bottom, $jet-black, cubic-bezier(0.85, 0, 0.8, 0.9), transparent);
+    mask-image: linear-gradient(to bottom, $jet-black, cubic-bezier(0.75, 0, 0.8, 1), transparent);
   }
 
   @include media(laptop) {
