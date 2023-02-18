@@ -1,12 +1,17 @@
-.SocialLinks__List {
-  display: flex;
-  margin-top: 80px;
-  gap: 30px;
-}
+@import 'styles/colors';
+@import 'styles/gaps';
 
-.SocialLinks__Icon {
-  display: block;
-  width: 24px;
-  height: 24px;
-  fill: white;
+.SocialLinks {
+  &__List {
+    display: flex;
+    margin: $gap-xxl 0 0;
+    gap: $gap-md;
+  }
+
+  &__Icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    fill: $white;
+  }
 }
