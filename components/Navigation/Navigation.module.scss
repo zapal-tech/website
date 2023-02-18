@@ -19,10 +19,12 @@
     }
   }
 
-  &__ListItem {
-    &:hover,
-    &:focus {
-      color: $orioles-orange;
-    }
+  &__LinkText {
+    transition: color 0.2s ease-in-out;
+  }
+
+  &__Link:hover &__LinkText,
+  &__Link:focus-visible &__LinkText {
+    color: $orioles-orange;
   }
 }

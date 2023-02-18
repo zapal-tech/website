@@ -29,6 +29,10 @@ export const Navigation: React.FC<NavigationProps> = ({ className }) => {
   const navLinks = useMemo(
     () => [
       {
+        title: t('home.title'),
+        path: '/',
+      },
+      {
         title: t('about.title'),
         path: '/about',
       },
@@ -55,11 +59,11 @@ export const Navigation: React.FC<NavigationProps> = ({ className }) => {
   return (
     <nav className={clsx(styles.Navigation, className)}>
       <ul className={styles.Navigation__List}>
-        {navLinks.map((navEl) => (
-          <li key={navEl.path} className={styles.Navigation__ListItem}>
-            <Link href={navEl.path}>
-              <Text size={isLaptop ? 'tiny' : 'heading3'} uppercase>
-                {navEl.title}
+        {navLinks.map(({ path, title }) => (
+          <li key={path} className={styles.Navigation__ListItem}>
+            <Link href={path} className={styles.Navigation__Link}>
+              <Text size={isLaptop ? 'tiny' : 'heading3'} uppercase className={styles.Navigation__LinkText}>
+                {title}
               </Text>
             </Link>
           </li>

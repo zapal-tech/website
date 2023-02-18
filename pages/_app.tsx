@@ -10,6 +10,8 @@ import { MetaPixel } from 'components';
 
 import 'styles/index.scss';
 
+const PageLoader = dynamic(() => import('components/PageLoader/PageLoader').then((mod) => mod.PageLoader));
+
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
     if (!navigator.userAgent.includes('Mac OS')) document.body.classList.add('CustomScrollbar');
@@ -69,6 +71,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
       <Provider store={store}>
         <Component {...pageProps} />
+        <PageLoader />
       </Provider>
     </>
   );
