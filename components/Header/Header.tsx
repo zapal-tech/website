@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useWindowSize } from 'hooks';
 
