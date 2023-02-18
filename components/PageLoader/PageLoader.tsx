@@ -26,8 +26,6 @@ export const PageLoader = () => {
       router.events.off('routeChangeStart', handleStart);
       router.events.off('routeChangeComplete', handleComplete);
       router.events.off('routeChangeError', handleComplete);
-
-      clearTimeout(timeout);
     };
   }, [router.events, router.asPath]);
 
