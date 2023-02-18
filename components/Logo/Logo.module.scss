@@ -2,15 +2,21 @@
 @import 'styles/gaps';
 @import 'styles/mixins';
 
+$laptop-text-horizontal-shifting: 6px;
+
 .Logo {
   display: flex;
   align-items: center;
-  gap: 8px;
 
-  @include media(laptop) {
-    position: relative;
-    width: 162px;
-    height: 43px;
+  &--WithName {
+    gap: 8px;
+
+    @include media(laptop) {
+      position: relative;
+      width: 162px + $laptop-text-horizontal-shifting;
+      height: 43px;
+      padding-right: $laptop-text-horizontal-shifting;
+    }
   }
 
   &__Svg {
