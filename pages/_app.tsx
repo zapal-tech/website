@@ -1,6 +1,7 @@
 import { appWithTranslation } from 'next-i18next';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 
