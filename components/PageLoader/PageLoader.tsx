@@ -14,10 +14,9 @@ export const PageLoader = () => {
 
   useEffect(() => {
     setIsLoading(false);
-    const timeout = setTimeout(() => setIsShow(false), 300);
 
-    const handleStart = (path: string) => path !== router.asPath && setIsShow(true);
-    const handleComplete = (path: string) => path === router.asPath && setIsShow(false);
+    const handleStart = (path: string) => path !== router.asPath && setIsLoading(true);
+    const handleComplete = (path: string) => path === router.asPath && setIsLoading(false);
 
     router.events.on('routeChangeStart', handleStart);
     router.events.on('routeChangeComplete', handleComplete);
@@ -33,14 +32,14 @@ export const PageLoader = () => {
   }, [router.events, router.asPath]);
 
   useEffect(() => {
-    if (isShow) {
-      setIsLoading(true);
+    if (isLoading) {
+      setIsShow(true);
     } else {
-      const timeout = setTimeout(() => setIsLoading(false), 300);
+      const timeout = setTimeout(() => setIsShow(false), 300);
 
       return () => clearTimeout(timeout);
     }
-  }, [isShow]);
+  }, [isLoading]);
 
   if (!isLoading && !isShow) return null;
 

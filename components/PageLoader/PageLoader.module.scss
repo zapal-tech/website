@@ -32,11 +32,12 @@ $logo-angle: 56.5deg;
   align-items: center;
   justify-content: center;
   background: $jet-black;
-  opacity: 0;
-  transition: opacity 0.3s ease-out;
+  filter: opacity(0) blur(2px);
+  transition: filter 0.3s ease-out;
+  will-change: filter;
 
   &--Loading {
-    opacity: 1;
+    filter: opacity(1) blur(6px);
   }
 
   &__Logo {
