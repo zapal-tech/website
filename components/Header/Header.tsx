@@ -29,6 +29,7 @@ export const Header: React.FC = () => {
   );
 
   const handleBurgerButtonClick = () => dispatch(setIsMobileMenuOpen(true));
+  const handleFormButtonClick = () => null;
 
   return (
     <>
