@@ -1,4 +1,5 @@
 {
-  "loading": "Loading",
-  "letsTalk": "Let's talk"
+  "letsTalk": "Let's talk",
+  "internalServerError": "Internal server error",
+  "pageNotFound": "Page not found"
 }
