@@ -24,7 +24,7 @@ export const Input: React.FC<InputProps> = ({
   disabled = false,
   ...controllerProps
 }) => {
-  const { field, fieldState } = useController(controllerProps);
+  const { field, fieldState } = useController({ ...controllerProps, rules: { required, ...controllerProps.rules } });
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => field.onChange(evt.target.value);
 
@@ -38,7 +38,6 @@ export const Input: React.FC<InputProps> = ({
         type={type}
         autoComplete={autoComplete}
         onChange={handleChange}
-        required={required}
         disabled={disabled}
         placeholder={'\u00A0'}
       />
