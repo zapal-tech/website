@@ -10,7 +10,7 @@ export type State = {
   message: string;
 };
 
-type ContactFormField = Record<keyof State, string>;
+type ContactFormField = { name: keyof State; value: string };
 
 const initialState: State = {
   firstName: '',
@@ -24,10 +24,9 @@ export const contactFormSlice = createSlice({
   name: 'contactForm',
   initialState,
   reducers: {
-    setContactFormFieldValue: (state, action: PayloadAction<ContactFormField>) => ({
-      ...state,
-      ...action.payload,
-    }),
+    setContactFormFieldValue: (state, { payload }: PayloadAction<ContactFormField>) => {
+      state[payload.name] = payload.value;
+    },
   },
 });
 

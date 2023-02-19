@@ -1,6 +1,7 @@
 @import 'styles/colors';
 @import 'styles/gaps';
 @import 'styles/mixins';
+@import 'styles/variables';
 
 .MobileMenu {
   position: fixed;
@@ -12,15 +13,16 @@
   width: 100vw;
   height: calc(100vh + $gap-xl);
   padding: 0 $gap-lg;
-  backdrop-filter: saturate(110%) blur(0);
+  backdrop-filter: saturate(110%) blur($blur-zero);
   background: rgba($jet-black, 0.85);
-  filter: blur(6px) opacity(0.1);
+  filter: blur($blur-md) opacity(0.1);
   transition: filter ease-out 0.3s, backdrop-filter 0.25s linear, transform 0.2s cubic-bezier(0.65, 0, 0.45, 1);
   will-change: filter transform backdrop-filter;
+  // box-shadow: 0 0 10px 20px rgba($jet-black, 0.9);
 
   &--Open {
-    backdrop-filter: saturate(180%) blur(6px);
-    filter: blur(0) opacity(1);
+    backdrop-filter: saturate(180%) blur($blur-md);
+    filter: blur($blur-zero) opacity(1);
     transform: translateX(-100%);
   }
 
@@ -30,7 +32,7 @@
     gap: $gap-lg;
   }
 
-  &__Button {
+  &__ContactFormButton {
     margin-top: $gap-lg;
     color: $orioles-orange;
     font-size: 26px;
@@ -43,5 +45,12 @@
     position: absolute;
     top: $gap-lg;
     right: $gap-lg;
+    width: $gap-lg;
+    cursor: pointer;
+
+    svg {
+      width: 16px;
+      color: $white;
+    }
   }
 }

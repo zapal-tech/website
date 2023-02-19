@@ -1,6 +1,7 @@
 @import 'styles/colors';
 @import 'styles/gaps';
 @import 'styles/mixins';
+@import 'styles/variables';
 
 .Banner {
   position: fixed;
@@ -21,7 +22,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    backdrop-filter: brightness(0.3) blur(12px);
+    backdrop-filter: brightness(0.3) blur($blur-lg);
     background: rgba($orioles-orange, 0.8);
     mask-image: linear-gradient(to bottom, $orioles-orange, linear, rgba($orioles-orange, 0.9));
   }
@@ -49,7 +50,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    backdrop-filter: saturate(180%) blur(12px);
+    backdrop-filter: saturate(180%) blur($blur-lg);
     background: rgba($jet-black, 0.85);
     mask-image: linear-gradient(to bottom, $jet-black, cubic-bezier(0.75, 0, 0.8, 1), transparent);
   }
@@ -69,7 +70,9 @@
 
   &__BurgerButton {
     display: flex;
+    width: $gap-lg;
     flex-direction: column;
+    padding: 0;
     gap: 7px;
 
     span {

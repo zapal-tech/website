@@ -1,6 +1,7 @@
+import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useWindowSize } from 'hooks';
 
@@ -10,16 +11,16 @@ import { openModal } from 'store/modalSlice';
 
 import { Logo, Navigation, Text, Banner, Button } from 'components';
 
-import { ContactForm } from 'views/ContactForm/ContactForm';
-
 import { Namespace } from 'i18n';
 
 import { HeaderButton } from './components/HeaderButton/HeaderButton';
-import { MobileMenu } from './components/MobileButton/MobileMenu';
+import { MobileMenu } from './components/MobileMenu/MobileMenu';
 
 import media from 'styles/media.module.scss';
 
 import styles from './Header.module.scss';
+
+const ContactForm = dynamic(() => import('views/ContactForm/ContactForm').then((mod) => mod.ContactForm));
 
 export const Header: React.FC = () => {
   const { t } = useTranslation(Namespace.Common);
@@ -51,8 +52,8 @@ export const Header: React.FC = () => {
               {t('letsTalk')}
             </Button>
           ) : (
-            <HeaderButton>
-              <Text size="tiny" className={styles.Header__ButtonText}>
+            <HeaderButton onClick={handleFormButtonClick}>
+              <Text size="tiny" uppercase className={styles.Header__ButtonText}>
                 {t('letsTalk')}
               </Text>
             </HeaderButton>

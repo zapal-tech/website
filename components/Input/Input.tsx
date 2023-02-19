@@ -5,11 +5,12 @@ import styles from './Input.module.scss';
 
 export type InputProps = Omit<UseControllerProps, 'control'> & {
   id?: string;
-  placeholder?: string;
+  placeholder?: string | null;
   className?: ClassValue | ClassValue[];
   type?: 'text' | 'email' | 'number' | 'search' | 'password' | 'url' | 'tel';
-  autoComplete?: string;
+  autoComplete?: string | true;
   control: Control<any, any>;
+  onChange?: (name: string, value: string) => void;
   required?: boolean;
   disabled?: boolean;
 };
@@ -22,21 +23,26 @@ export const Input: React.FC<InputProps> = ({
   autoComplete = 'off',
   required = false,
   disabled = false,
+  onChange,
   ...controllerProps
 }) => {
   const { field, fieldState } = useController({ ...controllerProps, rules: { required, ...controllerProps.rules } });
 
-  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => field.onChange(evt.target.value);
+  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    field.onChange(evt.target.value);
+
+    onChange?.(controllerProps.name, evt.target.value);
+  };
 
   return (
     <div className={clsx(styles.Input, field.value && styles['Input--HasValue'], className)}>
       <input
         {...field}
         className={styles.Input__Field}
-        aria-placeholder={placeholder}
+        aria-placeholder={placeholder || undefined}
         id={controllerProps.name || id}
         type={type}
-        autoComplete={autoComplete}
+        autoComplete={autoComplete === true ? 'on' : autoComplete}
         onChange={handleChange}
         disabled={disabled}
         placeholder={'\u00A0'}

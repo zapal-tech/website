@@ -29,11 +29,13 @@
     color: $white;
     -webkit-tap-highlight-color: transparent;
 
-    &:-webkit-autofill {
-      -webkit-box-shadow: inset 0 0 0 50px $jet-black !important;
-      box-shadow: inset 0 0 0 50px $jet-black !important;
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
       color: $white !important;
       -webkit-text-fill-color: $white !important;
+      transition: background-color 5000000s ease-in-out 0s; // F*ck you Chrome :)
     }
 
     @include media(laptop) {
