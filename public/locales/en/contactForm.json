@@ -1,0 +1,13 @@
+{
+  "title": "Hello!",
+  "subtitle": "We'd love to hear about your project. Fill out the form below, and we'll get in touch soon to discuss your needs further.",
+  "form": {
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "company": "Company",
+    "message": "Project details",
+    "file": "Attach file",
+    "submit": "Send message"
+  }
+}
