@@ -10,6 +10,7 @@ import { selectCurrentLocation, selectLocations } from 'store/mapSlice';
 import { Container } from 'components';
 
 import { Map } from './components/Map/Map';
+import { TabContent } from './components/TabContent/TabContent';
 import { Tabs } from './components/Tabs/Tabs';
 
 import media from 'styles/media.module.scss';
@@ -44,8 +45,9 @@ export const Locations = () => {
         ))}
       </Map>
 
-      <Container className={styles.Locations__Tabs}>
+      <Container className={styles.Locations__TabContainer}>
         <Tabs />
+        <TabContent />
       </Container>
     </div>
   );
