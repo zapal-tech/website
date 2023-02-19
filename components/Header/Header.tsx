@@ -6,8 +6,11 @@ import { useWindowSize } from 'hooks';
 
 import { useAppDispatch } from 'store';
 import { setIsMobileMenuOpen } from 'store/generalSlice';
+import { openModal } from 'store/modalSlice';
 
 import { Logo, Navigation, Text, Banner, Button } from 'components';
+
+import { ContactForm } from 'views/ContactForm/ContactForm';
 
 import { Namespace } from 'i18n';
 
@@ -29,7 +32,7 @@ export const Header: React.FC = () => {
   );
 
   const handleBurgerButtonClick = () => dispatch(setIsMobileMenuOpen(true));
-  const handleFormButtonClick = () => null;
+  const handleFormButtonClick = () => dispatch(openModal(<ContactForm />));
 
   return (
     <>
