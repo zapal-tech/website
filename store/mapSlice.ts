@@ -18,24 +18,24 @@ const initialState: State = {
         lng: 30.52727746,
       },
       contact: {
-        title: 'Client Manager',
+        title: 'Country Manager',
         fullName: 'Olena Makovets',
-        email: { label: 'hello@zapal.tech', link: 'mailto:ivan.salata@zapal.tech' },
+        email: { label: 'front-office@zapal.tech', link: 'mailto:ivan.salata@zapal.tech' },
         phone: { label: '+380 50 453 23 23', link: 'tel:+380505000050' },
       },
       timeZone: 'Europe/Kyiv',
     },
     {
       name: 'Warsaw, Poland',
-      address: { label: 'Warsaw, Poland, bober` street, 5', link: 'https://goo.gl/maps/8YZ1CDQC31ChoSjQ9' },
+      address: { label: 'Polna 11, 00-633 Warszawa, Poland', link: 'https://goo.gl/maps/UZVnn8D3BBEnwbjeA' },
       coordinates: {
-        lat: 52.228471799,
-        lng: 21.007912203,
+        lat: 52.2159212,
+        lng: 21.0007791,
       },
       contact: {
-        title: 'Manager',
+        title: 'Country Manager',
         fullName: 'Artem Orinchuk',
-        email: { label: 'hello@zapal.tech', link: 'mailto:sasha777@ukr.net' },
+        email: { label: 'hello@zapal.tech', link: 'mailto:ivan.salata@zapal.tech' },
         phone: { label: '+380 50 453 23 23', link: 'tel:+380505000050' },
       },
       timeZone: 'Europe/Warsaw',
@@ -43,15 +43,18 @@ const initialState: State = {
 
     {
       name: 'Quebec, Canada',
-      address: { label: 'Quebec, Canada, 3205 R. France-Prime', link: 'https://goo.gl/maps/8YZ1CDQC31ChoSjQ9' },
+      address: {
+        label: '5025 Bd Cousineau, Longueuil, QC J3Y 3K7, Canada',
+        link: 'https://goo.gl/maps/SDXRCSZcADLnpMif6',
+      },
       coordinates: {
-        lat: 46.763134181448834,
-        lng: -71.30615487664099,
+        lat: 45.5051872,
+        lng: -73.4367196,
       },
       contact: {
         title: 'Country Manager',
         fullName: 'Viktor Dmytrenko',
-        email: { label: 'hello@zapal.tech', link: 'mailto:hello@zapal.tech' },
+        email: { label: 'hello@zapal.tech', link: 'mailto:ivan.salata@zapal.tech' },
         phone: { label: '+380 50 453 23 23', link: 'tel:+380505000050' },
       },
       timeZone: 'America/Toronto',
