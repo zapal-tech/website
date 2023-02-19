@@ -16,9 +16,7 @@ export const AboutUs: React.FC = () => {
       </Text>
       <div className={styles.AboutUs__Box}>
         <Text size="heading3" type="h3" className={styles.AboutUs__Subtitle}>
-          {t('about.subtitle.upper')}
-          <br />
-          {t('about.subtitle.lower')}
+          {t('about.subtitle')}
         </Text>
 
         <div className={styles.AboutUs__Line}></div>

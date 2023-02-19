@@ -7,6 +7,7 @@
     @include media(laptop) {
       display: flex;
       width: max-content;
+      max-width: 100%;
       flex-direction: column;
       justify-content: flex-end;
       margin-left: auto;
@@ -23,7 +24,7 @@
 
     @include media(laptop) {
       width: 1250px;
-      height: 183px;
+      max-width: 100%;
       margin-bottom: 75px;
       margin-left: auto;
       text-indent: 185px;
@@ -37,7 +38,7 @@
     height: 1px;
     margin-bottom: 65px;
     background: $white;
-  
+
     @include media(laptop) {
       width: 837px;
       align-self: flex-end;
