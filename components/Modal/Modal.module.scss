@@ -1,0 +1,30 @@
+@import 'styles/colors';
+
+.Modal {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: saturate(180%) blur(4px);
+  background: rgba($jet-black, 0.96);
+
+  &__Content {
+    position: relative;
+  }
+
+  &__CloseButton {
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
