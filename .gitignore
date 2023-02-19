@@ -36,3 +36,10 @@ next-env.d.ts
 .flaskenv*
 !.env.project
 !.env.vault
+
+# next sitemap
+/public/sitemap-*.xml
+
+# next pwa
+/public/sw.js
+/public/workbox*.js
