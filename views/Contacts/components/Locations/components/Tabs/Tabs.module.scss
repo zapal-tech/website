@@ -3,17 +3,7 @@
 @import 'styles/mixins';
 
 .Tabs {
-  width: 350px;
-  padding: 25px;
-  border-radius: $gap-sm;
-  background: rgba($jet-black, 0.9);
-  @include media(laptop) {
-    width: 800px;
-    height: 450px;
-    padding: $gap-xl;
-  }
-
-  &__TabsContainer {
+  &__Container {
     display: flex;
     flex-direction: column;
 
@@ -21,66 +11,18 @@
       flex-direction: row;
     }
   }
-
-  &__ContactLinks {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 5px;
+  &--Active {
+    border-color: $orioles-orange;
+    color: $orioles-orange;
   }
 
-  &__LinkText {
-    width: 140px;
-    @include media(laptop) {
-      width: 320px;
-    }
+  &__Text {
+    padding-bottom: $gap-xs;
+    border-bottom: 1px solid $sonic-silver;
+    transition: ease 500ms;
   }
-
-  &__Link,
-  &__ContactLink {
-    color: $white;
-  }
-
   &__Button {
     width: 100%;
     margin-bottom: 25px;
-
-    &__Text {
-      padding-bottom: $gap-xs;
-      border-bottom: 1px solid $sonic-silver;
-      transition: ease 500ms;
-
-      &--Active {
-        border-color: $orioles-orange;
-        color: $orioles-orange;
-      }
-    }
-  }
-
-  &__InfoPlace {
-    display: flex;
-    flex-direction: column;
-
-    @include media(laptop) {
-      gap: 60px;
-    }
-  }
-
-  &__Time {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: $expanded-gap-xs;
-  }
-
-  &__UpperBox,
-  &__LowerBox {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__LowerRight {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
   }
 }
