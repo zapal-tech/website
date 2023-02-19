@@ -1,8 +1,8 @@
-import Link from 'next/link';
 import FacebookIcon from 'public/icons/facebook.svg';
+import GitHubIcon from 'public/icons/github.svg';
 import InstagramIcon from 'public/icons/instagram.svg';
 import LinkedInIcon from 'public/icons/linkedin.svg';
-import TelegramIcon from 'public/icons/telegram.svg';
+import TwitterIcon from 'public/icons/twitter.svg';
 
 import styles from './SocialLinks.module.scss';
 
@@ -13,20 +13,24 @@ type SocialLink = {
 
 const links: SocialLink[] = [
   {
-    icon: FacebookIcon,
-    path: 'https://facebook.com/zapal.tech',
-  },
-  {
-    icon: InstagramIcon,
-    path: 'https://instagram.com/zapal.tech',
+    icon: GitHubIcon,
+    path: 'https://github.com/zapal-tech',
   },
   {
     icon: LinkedInIcon,
     path: 'https://linkedin.com/company/zapal',
   },
   {
-    icon: TelegramIcon,
-    path: 'https://t.me/Van_Vovich',
+    icon: TwitterIcon,
+    path: 'https://twitter.com/ZapalTech',
+  },
+  {
+    icon: InstagramIcon,
+    path: 'https://instagram.com/zapal.tech',
+  },
+  {
+    icon: FacebookIcon,
+    path: 'https://facebook.com/zapal.tech',
   },
 ];
 
@@ -34,9 +38,9 @@ export const SocialLinks: React.FC = () => (
   <ul className={styles.SocialLinks__List}>
     {links.map(({ icon: Icon, path }) => (
       <li key={path}>
-        <Link href={path}>
+        <a href={path} target="_blank" rel="noreferrer">
           <Icon className={styles.SocialLinks__Icon} />
-        </Link>
+        </a>
       </li>
     ))}
   </ul>

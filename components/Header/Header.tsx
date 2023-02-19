@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useWindowSize } from 'hooks';
 
@@ -7,6 +8,8 @@ import { useAppDispatch } from 'store';
 import { setIsMobileMenuOpen } from 'store/generalSlice';
 
 import { Logo, Navigation, Text, Banner, Button } from 'components';
+
+import { Namespace } from 'i18n';
 
 import { HeaderButton } from './components/HeaderButton/HeaderButton';
 import { MobileMenu } from './components/MobileButton/MobileMenu';
@@ -16,6 +19,7 @@ import media from 'styles/media.module.scss';
 import styles from './Header.module.scss';
 
 export const Header: React.FC = () => {
+  const { t } = useTranslation(Namespace.Common);
   const windowSize = useWindowSize();
   const dispatch = useAppDispatch();
 
@@ -25,6 +29,7 @@ export const Header: React.FC = () => {
   );
 
   const handleBurgerButtonClick = () => dispatch(setIsMobileMenuOpen(true));
+  const handleFormButtonClick = () => null;
 
   return (
     <>
@@ -35,20 +40,22 @@ export const Header: React.FC = () => {
           <Logo withName />
         </Link>
 
-        {isLaptop ? <Navigation /> : null}
+        {isLaptop && <Navigation />}
 
         <div className={styles.Header__Buttons}>
           {isLaptop ? (
-            <Button variant="secondary">LET&apos;S TALK</Button>
+            <Button variant="secondary" onClick={handleFormButtonClick}>
+              {t('letsTalk')}
+            </Button>
           ) : (
             <HeaderButton>
               <Text size="tiny" className={styles.Header__ButtonText}>
-                LET&apos;S TALK
+                {t('letsTalk')}
               </Text>
             </HeaderButton>
           )}
 
-          {isLaptop ? null : (
+          {!isLaptop && (
             <HeaderButton className={styles.Header__BurgerButton} onClick={handleBurgerButtonClick}>
               <span />
               <span />

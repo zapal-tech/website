@@ -25,7 +25,9 @@ export const MobileMenu: React.FC = () => {
       </div>
 
       <Navigation />
+
       <button className={styles.MobileMenu__Button}>BECOME A CLIENT</button>
+
       <div className={styles.MobileMenu__SocialLinks}>
         <SocialLinks />
       </div>

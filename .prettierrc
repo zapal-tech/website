@@ -4,9 +4,9 @@
   "endOfLine": "lf",
   "importOrder": [
     "^(^configs$)|(^configs/(.*)$)$",
+    "^(^types$)|(^types/(.*)$)$",
     "^(^hooks$)|(^hooks/(.*)$)$",
     "^(^utils$)|(^utils/(.*)$)$",
-    "^(^router$)|(^router/(.*)$)$",
     "^(^store$)|(^store/(.*)$)$",
     "^(^components$)|(^components/(.*)$)$",
     "^(^layouts$)|(^layouts/(.*)$)$",

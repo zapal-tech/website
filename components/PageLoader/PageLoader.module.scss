@@ -1,0 +1,62 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+$logo-angle: 56.5deg;
+
+@keyframes BarberPoleMobile {
+  from {
+    mask-position: 0 0;
+  }
+  to {
+    mask-position: 115px 0;
+  }
+}
+
+@keyframes BarberPoleLaptop {
+  from {
+    mask-position: 0 0;
+  }
+  to {
+    mask-position: 200px 0;
+  }
+}
+
+.PageLoader {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $jet-black;
+  filter: opacity(0) blur(4px);
+  transition: filter 0.3s ease-out;
+  will-change: filter;
+
+  &--Loading {
+    filter: opacity(1) blur(0);
+  }
+
+  &__Logo {
+    animation: BarberPoleMobile 0.7s linear infinite;
+    background: $jet-black;
+    mask-image: linear-gradient(
+      $logo-angle,
+      $jet-black,
+      $jet-black 30%,
+      transparent 30%,
+      transparent 60%,
+      $jet-black 87%
+    );
+    mask-size: 115px 50px;
+    pointer-events: none;
+
+    @include media(laptop) {
+      animation: BarberPoleLaptop 0.7s linear infinite;
+      mask-size: 200px 50px;
+    }
+  }
+}

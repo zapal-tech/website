@@ -1,6 +1,7 @@
 import { appWithTranslation } from 'next-i18next';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 
@@ -9,6 +10,8 @@ import store from 'store';
 import { MetaPixel } from 'components';
 
 import 'styles/index.scss';
+
+const PageLoader = dynamic(() => import('components/PageLoader/PageLoader').then((mod) => mod.PageLoader));
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
@@ -69,6 +72,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
       <Provider store={store}>
         <Component {...pageProps} />
+        <PageLoader />
       </Provider>
     </>
   );
