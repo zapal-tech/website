@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import CloseIcon from 'public/icons/close.svg';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
