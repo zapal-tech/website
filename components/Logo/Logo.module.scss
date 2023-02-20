@@ -8,35 +8,25 @@ $laptop-text-horizontal-shifting: 6px;
   display: flex;
   align-items: center;
 
-  &--WithName {
-    gap: 8px;
-
-    @include media(laptop) {
-      position: relative;
-      width: 162px + $laptop-text-horizontal-shifting;
-      height: 43px;
-      padding-right: $laptop-text-horizontal-shifting;
-    }
-  }
-
   &__Svg {
-    width: 23px;
+    width: auto;
     fill: $white;
     transition: all ease 0.2s;
 
-    @include media(laptop) {
-      width: 34px;
-    }
-  }
+    &--Name {
+      height: 30px;
 
-  & &__Name {
-    @include media(laptop) {
-      position: absolute;
-      top: -6px;
-      left: 47px;
-      font-size: 47px;
-      font-weight: 700;
-      line-height: 1;
+      @include media(laptop) {
+        height: 43px;
+      }
+    }
+
+    &--Clean {
+      height: 21px;
+
+      @include media(laptop) {
+        height: 31px;
+      }
     }
   }
 }
