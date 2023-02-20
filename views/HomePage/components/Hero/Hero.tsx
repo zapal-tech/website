@@ -13,7 +13,7 @@ export const Hero: React.FC = () => {
 
   return (
     <div className={styles.Hero}>
-      <Particles id="particles" />
+      <Particles id="particles" className={styles.Hero__Particles} />
 
       <div className={styles.Hero__Box}>
         <Text type="h1" size="heading1" className={styles.Hero__Title}>

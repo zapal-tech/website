@@ -3,7 +3,7 @@ import type { IOptions, RecursivePartial } from 'tsparticles-engine';
 const options: RecursivePartial<IOptions> = {
   fullScreen: false,
   particles: {
-    number: { value: 70, density: { enable: true, value_area: 900 } },
+    number: { value: 60, density: { enable: true, value_area: 900 } },
     color: { value: '#FFF' },
     shape: { type: 'square' },
     opacity: {
