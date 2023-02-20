@@ -28,7 +28,7 @@ $secondary-border-horizontal-padding: 23px;
   }
 
   &--Primary {
-    max-width: 350px;
+    max-width: 100%;
     font-size: 1rem;
 
     @include media(laptop) {
