@@ -17,4 +17,4 @@ export * from './PageLoader/PageLoader';
 export * from './Portal/Portal';
 export * from './SocialLinks/SocialLinks';
 export * from './Text/Text';
-export * from './Footer/components/Socials/Socials';
+export * from './TextArea/TextArea';

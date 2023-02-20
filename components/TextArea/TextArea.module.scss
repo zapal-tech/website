@@ -1,0 +1,114 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.TextArea {
+  position: relative;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+
+  &__Field,
+  &__Placeholder {
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+
+    @include media(laptop) {
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+  }
+
+  &__Field {
+    min-height: 35px;
+    border: 0;
+    background: transparent;
+    color: $white;
+    -webkit-tap-highlight-color: transparent;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      color: $white !important;
+      -webkit-text-fill-color: $white !important;
+      transition: background-color 5000000s ease-in-out 0s; // F*ck you Chrome :)
+    }
+
+    @include media(laptop) {
+      min-height: 40px;
+    }
+  }
+
+  &__Placeholder {
+    top: 9px;
+    color: $sonic-silver;
+    text-overflow: ellipsis;
+    transform: translateY(-50%);
+    transform-origin: 0 0;
+    transition: all 0.2s ease;
+    user-select: none;
+    white-space: nowrap;
+    will-change: transform, color;
+    word-break: break-word;
+
+    @include media(laptop) {
+      top: 10px;
+    }
+
+    &--Required::after {
+      color: $rosso-corsa;
+      content: '*';
+      opacity: 0.6;
+      transition: inherit;
+    }
+  }
+
+  &__Placeholder,
+  &__Border {
+    position: absolute;
+    left: 0;
+    cursor: text;
+  }
+
+  &__Border {
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: $white;
+
+    @include media(laptop) {
+      height: 2px;
+    }
+  }
+
+  &--HasValue + &__Placeholder,
+  &__Field:focus ~ &__Placeholder,
+  &__Field:not(:placeholder-shown) ~ &__Placeholder {
+    color: $white;
+    cursor: default;
+    transform: translateY(calc(-100% - 1rem)) scale(0.75);
+
+    &--Required::after {
+      opacity: 1;
+    }
+  }
+
+  &__Error {
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+    left: 0;
+    color: $rosso-corsa;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1;
+    transform: translateY(100%);
+    transition: all 0.2s ease;
+
+    @include media(laptop) {
+      bottom: -8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  }
+}
