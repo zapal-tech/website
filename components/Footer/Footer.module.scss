@@ -1,36 +1,32 @@
+@import 'styles/gaps';
 @import 'styles/mixins';
 
 .Footer {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  padding-bottom: $gap-lg;
+  gap: $gap-md;
+
+  @include media(laptop) {
+    padding-bottom: $gap-xxl;
+    gap: $expanded-gap-xs;
+  }
 
   &__Main {
+    position: relative;
     display: flex;
+    width: 100%;
     flex-direction: column;
-    margin: 15px 40px;
 
     @include media(laptop) {
       display: flex;
       flex-direction: row;
-      margin: 50px 50px 50px 50px;
-      padding-left: 50px;
-      padding-right: 50px;
-      position: relative;
     }
+  }
 
-    &__TextBlock {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-
-      @include media(laptop) {
-        align-items: center;
-        align-items: flex-end;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-    }
+  &__Social {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }

@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './Container.module.scss';
 
 export type ContainerProps = {
-  type?: 'div' | 'section' | 'article';
+  type?: 'div' | 'section' | 'article' | 'main' | 'aside' | 'footer' | 'header';
   id?: string;
   className?: ClassValue | ClassValue[];
   children: React.ReactNode;

@@ -4,21 +4,16 @@
 
 .Contacts {
   display: flex;
+  height: 100%;
   flex-direction: column;
   align-items: flex-end;
-  margin-top: 90px;
+  align-self: flex-end;
   gap: $gap-lg;
-
-  @include media(laptop) {
-    margin-top: 5%;
-    gap: $expanded-gap-xs;
-  }
 
   &__PhoneText {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 5px;
   }
 
   & &__PrivacyText {
@@ -37,15 +32,10 @@
   &__PrivacyBlock {
     display: flex;
     width: 100%;
-    flex-direction: row;
-    align-items: flex-end;
     justify-content: space-between;
 
     @include media(laptop) {
-      display: flex;
       width: auto;
-      flex-direction: row;
-      align-items: flex-end;
     }
   }
 }
