@@ -1,0 +1,77 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.ContactForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+
+  @include media(laptop) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 120px;
+    gap: $expanded-gap-xs;
+  }
+
+  &__Greetings {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+
+    @include media(laptop) {
+      width: min-content;
+      gap: $gap-sm;
+    }
+  }
+
+  &__Title {
+    margin: 0 0 $gap-xl;
+
+    @include media(laptop) {
+      margin: 0 0 $gap-xxl;
+    }
+  }
+
+  &__Subtitle {
+    text-indent: 75px;
+
+    @include media(laptop) {
+      text-indent: $expanded-gap-xs;
+    }
+  }
+
+  &__Form {
+    width: 100%;
+
+    @include media(laptop) {
+      max-width: 800px;
+      padding-top: 90px;
+    }
+  }
+
+  &__Fields {
+    display: grid;
+    margin: 0 0 $gap-lg;
+    gap: $gap-xl;
+    grid: 1fr / 1fr;
+
+    @include media(laptop) {
+      margin: 0 0 $gap-md * 2;
+      gap: $gap-xl $expanded-gap-xs;
+      grid: 1fr / 1fr 1fr;
+    }
+  }
+
+  &__Message {
+    @include media(laptop) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__Buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

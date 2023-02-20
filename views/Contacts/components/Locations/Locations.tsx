@@ -1,5 +1,6 @@
 import { Marker } from '@react-google-maps/api';
 import { useMemo } from 'react';
+
 import { Coordinates } from 'types/locations';
 
 import { useWindowSize } from 'hooks';

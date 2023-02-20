@@ -3,7 +3,7 @@ import type { IOptions, RecursivePartial } from 'tsparticles-engine';
 const options: RecursivePartial<IOptions> = {
   fullScreen: false,
   particles: {
-    number: { value: 70, density: { enable: true, value_area: 900 } },
+    number: { value: 60, density: { enable: true, value_area: 900 } },
     color: { value: '#FFF' },
     shape: { type: 'square' },
     opacity: {
@@ -37,7 +37,7 @@ const options: RecursivePartial<IOptions> = {
   interactivity: {
     detectOn: 'canvas',
     events: {
-      onHover: { enable: true, mode: ['grab', 'attract'], parallax: { enable: true, force: 80, smooth: 90 } },
+      onHover: { enable: true, mode: ['grab', 'attract'], parallax: { enable: true, force: 170, smooth: 120 } },
       resize: true,
     },
     modes: {

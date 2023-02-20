@@ -1,4 +1,5 @@
 import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { Location } from 'types/locations';
 
 import { RootState } from 'store';

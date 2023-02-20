@@ -1,25 +1,25 @@
 import clsx, { ClassValue } from 'clsx';
 import { Control, useController, UseControllerProps } from 'react-hook-form';
 
-import styles from './Input.module.scss';
+import styles from './TextArea.module.scss';
 
-export type InputProps = Omit<UseControllerProps, 'control'> & {
+export type TextAreaProps = Omit<UseControllerProps, 'control'> & {
   id?: string;
   placeholder?: string | null;
   className?: ClassValue | ClassValue[];
-  type?: 'text' | 'email' | 'number' | 'search' | 'password' | 'url' | 'tel';
   autoComplete?: string | true;
+  rows?: number;
   control: Control<any, any>;
   onChange?: (name: string, value: string) => void;
   required?: boolean;
   disabled?: boolean;
 };
 
-export const Input: React.FC<InputProps> = ({
+export const TextArea: React.FC<TextAreaProps> = ({
   id,
   placeholder,
   className,
-  type = 'text',
+  rows,
   autoComplete = 'off',
   required = false,
   disabled = false,
@@ -28,20 +28,20 @@ export const Input: React.FC<InputProps> = ({
 }) => {
   const { field, fieldState } = useController({ ...controllerProps, rules: { required, ...controllerProps.rules } });
 
-  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
     field.onChange(evt.target.value);
 
     onChange?.(controllerProps.name, evt.target.value);
   };
 
   return (
-    <div className={clsx(styles.Input, field.value && styles['Input--HasValue'], className)}>
-      <input
+    <div className={clsx(styles.TextArea, field.value && styles['TextArea--HasValue'], className)}>
+      <textarea
         {...field}
-        className={styles.Input__Field}
+        className={styles.TextArea__Field}
         aria-placeholder={placeholder || undefined}
         id={controllerProps.name || id}
-        type={type}
+        rows={rows}
         autoComplete={autoComplete === true ? 'on' : autoComplete}
         onChange={handleChange}
         disabled={disabled}
@@ -50,16 +50,16 @@ export const Input: React.FC<InputProps> = ({
 
       {placeholder && (
         <label
-          className={clsx(styles.Input__Placeholder, required && styles['Input__Placeholder--Required'])}
+          className={clsx(styles.TextArea__Placeholder, required && styles['TextArea__Placeholder--Required'])}
           htmlFor={controllerProps.name || id}
         >
           {placeholder}
         </label>
       )}
 
-      <div className={styles.Input__Border} />
+      <div className={styles.TextArea__Border} />
 
-      {fieldState.error && <span className={styles.Input__Error}>{fieldState.error?.message}</span>}
+      {fieldState.error && <span className={styles.TextArea__Error}>{fieldState.error?.message}</span>}
     </div>
   );
 };

@@ -2,11 +2,9 @@
 @import 'styles/gaps';
 
 .SocialLinks {
-  &__List {
-    display: flex;
-    margin: $gap-xxl 0 0;
-    gap: $gap-md;
-  }
+  display: flex;
+  margin: $gap-xxl 0 0;
+  gap: $gap-md;
 
   &__Icon {
     display: block;

@@ -1,20 +1,16 @@
 @import 'styles/colors';
 @import 'styles/mixins';
 
-.Input {
+.TextArea {
   position: relative;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
 
   &__Field,
   &__Placeholder {
-    overflow: hidden;
     width: 100%;
     font-size: 1rem;
     font-weight: 400;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-break: break-word;
 
     @include media(laptop) {
       font-size: 1.125rem;
@@ -23,7 +19,7 @@
   }
 
   &__Field {
-    height: 35px;
+    min-height: 35px;
     border: 0;
     background: transparent;
     color: $white;
@@ -39,18 +35,25 @@
     }
 
     @include media(laptop) {
-      height: 40px;
+      min-height: 40px;
     }
   }
 
   &__Placeholder {
-    top: 50%;
+    top: 9px;
     color: $sonic-silver;
+    text-overflow: ellipsis;
     transform: translateY(-50%);
     transform-origin: 0 0;
     transition: all 0.2s ease;
     user-select: none;
+    white-space: nowrap;
     will-change: transform, color;
+    word-break: break-word;
+
+    @include media(laptop) {
+      top: 10px;
+    }
 
     &--Required::after {
       color: $rosso-corsa;

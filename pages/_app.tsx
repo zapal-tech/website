@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 
 import store from 'store';
 
-import { MetaPixel } from 'components';
+import { MetaPixel, Modal } from 'components';
 
 import 'styles/index.scss';
 
@@ -73,9 +73,9 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
       <Provider store={store}>
         <Component {...pageProps} />
         <PageLoader />
+        <Modal />
       </Provider>
     </>
   );
 };
-
 export default appWithTranslation(App);

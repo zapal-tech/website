@@ -1,5 +1,6 @@
 import { GoogleMap, GoogleMapProps, useJsApiLoader } from '@react-google-maps/api';
 import { useEffect, useState } from 'react';
+
 import { Coordinates } from 'types/locations';
 
 export type MapProps = GoogleMapProps & {

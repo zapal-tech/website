@@ -1,4 +1,5 @@
 {
-  "loading": "Завантаження",
-  "letsTalk": "Let's talk"
+  "letsTalk": "Напиши нам",
+  "internalServerError": "Внутрішня помилка сервера",
+  "pageNotFound": "Сторінку не знайдено"
 }

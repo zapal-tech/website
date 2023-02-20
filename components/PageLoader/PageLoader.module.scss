@@ -1,7 +1,6 @@
 @import 'styles/colors';
 @import 'styles/mixins';
-
-$logo-angle: 56.5deg;
+@import 'styles/variables';
 
 @keyframes BarberPoleMobile {
   from {
@@ -32,12 +31,12 @@ $logo-angle: 56.5deg;
   align-items: center;
   justify-content: center;
   background: $jet-black;
-  filter: opacity(0) blur(4px);
+  filter: opacity(0) blur($blur-sm);
   transition: filter 0.3s ease-out;
   will-change: filter;
 
   &--Loading {
-    filter: opacity(1) blur(0);
+    filter: opacity(1) blur($blur-zero);
   }
 
   &__Logo {

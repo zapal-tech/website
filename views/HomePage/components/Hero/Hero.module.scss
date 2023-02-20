@@ -1,18 +1,21 @@
+@import 'styles/colors';
 @import 'styles/gaps';
 @import 'styles/mixins';
-@import 'styles/colors';
 
 $first-line-indent: 76px;
+$bottom-gradient: linear-gradient(to bottom, transparent 85%, $jet-black);
+$bottom-mask: linear-gradient(to bottom, $jet-black 88%, transparent 98%);
 
 .Hero {
   position: relative;
   height: 100vh;
   padding-top: $expanded-gap-lg;
-  padding-left: 40px;
-  background: no-repeat right / cover url('/images/hero-bg.jpg');
+  padding-left: $gap-lg;
+  background: no-repeat right / cover url('/images/hero-bg.jpg'), $bottom-gradient;
+  background-blend-mode: saturation;
 
   @include media(phone) {
-    padding-left: 20px;
+    padding-left: $gap-sm;
   }
 
   @include media(laptop) {
@@ -22,13 +25,17 @@ $first-line-indent: 76px;
     padding-top: 0;
   }
 
+  &__Particles {
+    mask-image: $bottom-mask;
+  }
+
   &__Box {
     @include media(laptop) {
       display: flex;
       width: max-content;
       flex-direction: column;
       align-items: flex-end;
-      margin-top: 100px;
+      margin-top: $expanded-gap-xs;
     }
   }
 
@@ -36,10 +43,11 @@ $first-line-indent: 76px;
     margin-bottom: $gap-lg;
     pointer-events: none;
     text-transform: uppercase;
+    user-select: none;
 
     @include media(laptop) {
       position: relative;
-      margin-bottom: 60px;
+      margin-bottom: $gap-md * 2;
       line-height: 0.93;
       line-height: 1;
       text-indent: 76px;
@@ -59,16 +67,17 @@ $first-line-indent: 76px;
   }
 
   &__SelectionBg {
-    background: rgb(209, 0, 0, 0.8);
+    background: rgb($rosso-corsa, 0.8);
     font-size: inherit;
     font-weight: inherit;
   }
 
   &__Subtitle {
-    width: 220px;
+    max-width: 220px;
+    user-select: none;
 
     @include media(laptop) {
-      width: 360px;
+      max-width: 360px;
       margin-right: 190px;
     }
   }
