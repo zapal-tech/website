@@ -10,7 +10,7 @@ $bottom-mask: linear-gradient(to bottom, $jet-black 90%, transparent 98%);
   position: relative;
   height: 100vh;
   padding-top: $expanded-gap-lg;
-  padding-left: 40px;
+  padding-left: $gap-lg;
   background: no-repeat right / cover url('/images/hero-bg.jpg'), $bottom-gradient;
   background-blend-mode: saturation;
 
@@ -67,7 +67,7 @@ $bottom-mask: linear-gradient(to bottom, $jet-black 90%, transparent 98%);
   }
 
   &__SelectionBg {
-    background: rgb(209, 0, 0, 0.8);
+    background: rgb($rosso-corsa, 0.8);
     font-size: inherit;
     font-weight: inherit;
   }
