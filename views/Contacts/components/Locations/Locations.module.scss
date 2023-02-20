@@ -1,0 +1,33 @@
+@import 'styles/mixins';
+@import 'styles/gaps';
+@import 'styles/colors';
+
+.Locations {
+  position: relative;
+
+  &__TabContainer {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    width: 350px;
+    padding: 0;
+    padding: 25px;
+    border-radius: $gap-sm;
+    background: rgba($jet-black, 0.9);
+    transform: translateX(-50%);
+
+    @include media(laptop) {
+      bottom: 50%;
+      left: 100px;
+      width: 800px;
+      height: 450px;
+      padding: $gap-xl;
+      transform: translateY(50%);
+    }
+  }
+
+  &__Map {
+    width: 100%;
+    height: 700px;
+  }
+}
