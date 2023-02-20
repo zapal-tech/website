@@ -11,6 +11,7 @@
       flex-direction: row;
     }
   }
+
   &--Active {
     border-color: $orioles-orange;
     color: $orioles-orange;
@@ -21,6 +22,7 @@
     border-bottom: 1px solid $sonic-silver;
     transition: ease 500ms;
   }
+
   &__Button {
     width: 100%;
     margin-bottom: 25px;
