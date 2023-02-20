@@ -59,7 +59,7 @@
 
     @include media(laptop) {
       margin: 0 0 $gap-md * 2;
-      gap: $expanded-gap-xs;
+      gap: $gap-xl $expanded-gap-xs;
       grid: 1fr / 1fr 1fr;
     }
   }

@@ -7,7 +7,7 @@ import * as yup from 'yup';
 import { useAppDispatch } from 'store';
 import { selectContactFormState, setContactFormFieldValue, State as ContactFormState } from 'store/contactFormSlice';
 
-import { Button, Container, Input, Text } from 'components';
+import { Button, Container, Input, Text, TextArea } from 'components';
 
 import { Namespace } from 'i18n';
 
@@ -85,12 +85,13 @@ export const ContactForm: React.FC = () => {
             placeholder={t('form.company')}
           />
 
-          <Input
+          <TextArea
             className={styles.ContactForm__Message}
             name="message"
             control={control}
             onChange={handleChange}
             placeholder={t('form.message')}
+            rows={6}
             required
           />
         </div>
