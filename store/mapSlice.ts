@@ -20,7 +20,7 @@ const initialState: State = {
       contact: {
         title: 'Country Manager',
         fullName: 'Olena Makovets',
-        email: { label: 'front-office@zapal.tech', link: 'mailto:ivan.salata@zapal.tech' },
+        email: { label: 'front-office@zapal.tech', link: 'mailto:front-office@zapal.tech' },
         phone: { label: '+380 50 453 23 23', link: 'tel:+380505000050' },
       },
       timeZone: 'Europe/Kyiv',
@@ -35,7 +35,7 @@ const initialState: State = {
       contact: {
         title: 'Country Manager',
         fullName: 'Artem Orinchuk',
-        email: { label: 'hello@zapal.tech', link: 'mailto:ivan.salata@zapal.tech' },
+        email: { label: 'hello@zapal.tech', link: 'mailto:hello@zapal.tech' },
         phone: { label: '+380 50 453 23 23', link: 'tel:+380505000050' },
       },
       timeZone: 'Europe/Warsaw',
@@ -54,7 +54,7 @@ const initialState: State = {
       contact: {
         title: 'Country Manager',
         fullName: 'Viktor Dmytrenko',
-        email: { label: 'hello@zapal.tech', link: 'mailto:ivan.salata@zapal.tech' },
+        email: { label: 'hello@zapal.tech', link: 'mailto:hello@zapal.tech' },
         phone: { label: '+380 50 453 23 23', link: 'tel:+380505000050' },
       },
       timeZone: 'America/Toronto',
