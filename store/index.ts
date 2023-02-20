@@ -3,12 +3,14 @@ import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux';
 
 import contactForm from './contactFormSlice';
 import general from './generalSlice';
+import map from './mapSlice';
 import modal, { openModal } from './modalSlice';
 
 const rootReducer = combineReducers({
   general,
   modal,
   contactForm,
+  map,
 });
 
 const middlewares: Middleware[] = [];
