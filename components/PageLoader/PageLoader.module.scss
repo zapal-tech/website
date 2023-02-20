@@ -51,12 +51,20 @@ $logo-angle: 56.5deg;
       transparent 60%,
       $jet-black 87%
     );
-    mask-size: 115px 50px;
+    mask-size: 115px 55px;
     pointer-events: none;
 
     @include media(laptop) {
       animation: BarberPoleLaptop 0.7s linear infinite;
-      mask-size: 200px 50px;
+      mask-size: 200px 75px;
+    }
+
+    & > svg {
+      height: 50px;
+
+      @include media(laptop) {
+        height: 70px;
+      }
     }
   }
 }
