@@ -1,0 +1,49 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.TabContent {
+  &__ContactLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 5px;
+  }
+
+  &__LinkText {
+    width: 140px;
+    @include media(laptop) {
+      width: 320px;
+    }
+  }
+
+  &__Link {
+    color: $white;
+  }
+
+  &__InfoPlace {
+    display: flex;
+    flex-direction: column;
+
+    @include media(laptop) {
+      gap: 60px;
+    }
+  }
+
+  &__Time {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: $expanded-gap-xs;
+  }
+
+  &__Container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__PersonInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}

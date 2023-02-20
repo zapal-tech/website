@@ -2,9 +2,11 @@ import { combineReducers, configureStore, Middleware } from '@reduxjs/toolkit';
 import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux';
 
 import general from './generalSlice';
+import map from './mapSlice';
 
 const rootReducer = combineReducers({
   general,
+  map,
 });
 
 const middlewares: Middleware[] = [];
