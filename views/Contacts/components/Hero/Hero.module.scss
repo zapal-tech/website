@@ -1,6 +1,6 @@
 @import 'styles/colors';
-@import 'styles/mixins';
 @import 'styles/gaps';
+@import 'styles/mixins';
 
 .Hero {
   &__Title {
@@ -61,6 +61,7 @@
 
     &::before {
       @include pseudo('phone');
+
       top: -25px;
       left: 0;
       color: $white;
