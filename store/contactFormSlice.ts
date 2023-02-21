@@ -18,13 +18,14 @@ export const contactFormSlice = createSlice({
   name: 'contactForm',
   initialState,
   reducers: {
+    clearContactForm: () => initialState,
     setContactFormFieldValue: (state, { payload }: PayloadAction<ContactFormField>) => {
       state[payload.name] = payload.value;
     },
   },
 });
 
-export const { setContactFormFieldValue } = contactFormSlice.actions;
+export const { setContactFormFieldValue, clearContactForm } = contactFormSlice.actions;
 
 export const selectContactFormState = (state: RootState) => state.contactForm;
 

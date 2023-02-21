@@ -7,7 +7,8 @@ import * as yup from 'yup';
 import { ContactFormState } from 'types/contactForm';
 
 import { useAppDispatch } from 'store';
-import { selectContactFormState, setContactFormFieldValue } from 'store/contactFormSlice';
+import { clearContactForm, selectContactFormState, setContactFormFieldValue } from 'store/contactFormSlice';
+import { closeModal } from 'store/modalSlice';
 
 import { Button, Container, Input, Text, TextArea } from 'components';
 
@@ -27,7 +28,7 @@ export const ContactForm: React.FC = () => {
   const { t } = useTranslation(Namespace.ContactForm);
   const dispatch = useAppDispatch();
   const contactFormState = useSelector(selectContactFormState);
-  const { control, handleSubmit, clearErrors } = useForm<ContactFormState>({
+  const { control, handleSubmit } = useForm<ContactFormState>({
     values: contactFormState,
     resolver: yupResolver(schema),
   });
@@ -49,7 +50,8 @@ export const ContactForm: React.FC = () => {
     if (res.status === 201) {
       console.log('Success');
 
-      clearErrors();
+      dispatch(clearContactForm());
+      dispatch(closeModal());
     }
   };
 
