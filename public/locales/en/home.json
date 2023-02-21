@@ -23,5 +23,9 @@
   },
   "technologies": {
     "title": "We use"
+  },
+  "projects": {
+    "title": "Projects",
+    "button": "click for more"
   }
 }
