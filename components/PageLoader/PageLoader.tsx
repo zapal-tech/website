@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 import styles from './PageLoader.module.scss';
 
-const Logo = dynamic(() => import('components/Logo/Logo').then((mod) => mod.Logo), { ssr: false });
+const Logo = dynamic(() => import('components/Logo/Logo').then((mod) => mod.Logo));
 
 export const PageLoader = () => {
   const [isLoading, setIsLoading] = useState(true);
