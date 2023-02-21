@@ -67,7 +67,7 @@ export const Header: React.FC = () => {
           )}
         </div>
 
-        <MobileMenu />
+        {!isLaptop && <MobileMenu />}
       </header>
     </>
   );
