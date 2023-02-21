@@ -1,0 +1,21 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.Projects {
+  &__List {
+    display: grid;
+    gap: $gap-sm;
+    grid-auto-rows: 250px;
+    grid-template-columns: 1fr;
+
+    @include media(laptop) {
+      gap: $gap-xl;
+      grid-auto-rows: 600px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  &__Title {
+    margin-bottom: 40px;
+  }
+}
