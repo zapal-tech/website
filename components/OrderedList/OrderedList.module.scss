@@ -2,7 +2,7 @@
 @import 'styles/gaps';
 
 .OrderedList {
+  padding-left: $gap-lg;
   color: $white;
   list-style: decimal inside;
-  padding-left: $gap-lg;
 }

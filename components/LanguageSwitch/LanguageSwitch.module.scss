@@ -1,25 +1,25 @@
 @import 'styles/colors';
 
 .LanguageSwitch {
-  display: flex;
-  height: 40px;
-  overflow: hidden;
   position: relative;
+  display: flex;
+  overflow: hidden;
   width: 150px;
+  height: 40px;
 
   &::after {
-    align-items: center;
-    background: $sonic-silver;
-    bottom: 0;
-    content: '\25BC';
-    display: flex;
-    justify-content: center;
-    pointer-events: none;
     position: absolute;
-    right: 0;
     top: 0;
-    transition: 0.2s all ease;
+    right: 0;
+    bottom: 0;
+    display: flex;
     width: 30px;
+    align-items: center;
+    justify-content: center;
+    background: $sonic-silver;
+    content: '\25BC';
+    pointer-events: none;
+    transition: 0.2s all ease;
   }
 
   &:hover::after {
@@ -27,12 +27,12 @@
   }
 
   &__Select {
+    display: flex;
+    flex: 1;
     align-items: center;
+    padding: 6px 8px;
     background: $jet-black;
     color: $white;
     cursor: pointer;
-    display: flex;
-    flex: 1;
-    padding: 6px 8px;
   }
 }
