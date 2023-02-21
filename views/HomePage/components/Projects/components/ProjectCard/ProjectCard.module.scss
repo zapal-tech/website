@@ -1,0 +1,73 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.ProjectCard {
+  overflow: hidden;
+
+  &__Image,
+  &__InnerCard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__InnerCard {
+    display: flex;
+    max-width: 510px;
+    max-height: 410px;
+    align-items: center;
+    justify-content: center;
+
+    @include media(laptop) {
+      &:hover,
+      &:focus {
+        background: rgb($jet-black, 0.9);
+      }
+    }
+
+    &__Dot {
+      display: none;
+      width: $gap-xxs;
+      height: $gap-xxs;
+      border-radius: 50%;
+      background: $white;
+
+      @include media(laptop) {
+        display: block;
+      }
+    }
+  }
+
+  &__Image {
+    object-fit: cover;
+  }
+
+  &__Name {
+    text-align: center;
+  }
+
+  &__Button {
+    position: absolute;
+    z-index: 1;
+    bottom: 30px;
+    left: 50%;
+    display: block;
+    height: 22px;
+    color: $white;
+    transform: translateX(-50%);
+
+    @include media(laptop) {
+      bottom: 30%;
+    }
+  }
+
+  &__ButtonText {
+    padding-bottom: 1px;
+    border-bottom: 1px solid $white;
+    text-shadow: 0 0 3px rgba($jet-black, 0.5);
+  }
+}
