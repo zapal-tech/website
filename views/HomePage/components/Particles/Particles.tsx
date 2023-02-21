@@ -17,7 +17,7 @@ import { loadOutModesUpdater } from 'tsparticles-updater-out-modes';
 import { loadSizeUpdater } from 'tsparticles-updater-size';
 import { loadStrokeColorUpdater } from 'tsparticles-updater-stroke-color';
 
-import config from './particlesConfig';
+import config from 'configs/particles';
 
 import styles from './Particles.module.scss';
 

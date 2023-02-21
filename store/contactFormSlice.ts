@@ -1,18 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { ContactFormState } from 'types/contactForm';
+
 import { RootState } from 'store';
 
-export type State = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  company: string;
-  message: string;
-};
+type ContactFormField = { name: keyof ContactFormState; value: string };
 
-type ContactFormField = { name: keyof State; value: string };
-
-const initialState: State = {
+const initialState: ContactFormState = {
   firstName: '',
   lastName: '',
   email: '',
@@ -24,13 +18,14 @@ export const contactFormSlice = createSlice({
   name: 'contactForm',
   initialState,
   reducers: {
+    clearContactForm: () => initialState,
     setContactFormFieldValue: (state, { payload }: PayloadAction<ContactFormField>) => {
       state[payload.name] = payload.value;
     },
   },
 });
 
-export const { setContactFormFieldValue } = contactFormSlice.actions;
+export const { setContactFormFieldValue, clearContactForm } = contactFormSlice.actions;
 
 export const selectContactFormState = (state: RootState) => state.contactForm;
 

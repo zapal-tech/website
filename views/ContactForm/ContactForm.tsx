@@ -4,8 +4,11 @@ import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import * as yup from 'yup';
 
+import { ContactFormState } from 'types/contactForm';
+
 import { useAppDispatch } from 'store';
-import { selectContactFormState, setContactFormFieldValue, State as ContactFormState } from 'store/contactFormSlice';
+import { clearContactForm, selectContactFormState, setContactFormFieldValue } from 'store/contactFormSlice';
+import { closeModal } from 'store/modalSlice';
 
 import { Button, Container, Input, Text, TextArea } from 'components';
 
@@ -33,8 +36,23 @@ export const ContactForm: React.FC = () => {
   const handleChange = (name: string, value: string) =>
     dispatch(setContactFormFieldValue({ name: name as keyof ContactFormState, value }));
 
-  const submitForm = (data: ContactFormState) => {
+  const submitForm = async (data: ContactFormState) => {
     console.log(data);
+
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (res.status === 201) {
+      console.log('Success');
+
+      dispatch(clearContactForm());
+      dispatch(closeModal());
+    }
   };
 
   return (
