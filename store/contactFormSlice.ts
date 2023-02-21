@@ -1,18 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { ContactFormState } from 'types/contactForm';
+
 import { RootState } from 'store';
 
-export type State = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  company: string;
-  message: string;
-};
+type ContactFormField = { name: keyof ContactFormState; value: string };
 
-type ContactFormField = { name: keyof State; value: string };
-
-const initialState: State = {
+const initialState: ContactFormState = {
   firstName: '',
   lastName: '',
   email: '',
