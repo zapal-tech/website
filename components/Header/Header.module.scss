@@ -37,7 +37,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: $gap-xs $gap-lg;
+  padding: $gap-xxs $gap-sm;
+
+  @include media(phone) {
+    padding: $gap-xs $gap-lg;
+  }
 
   & > * {
     z-index: 6;

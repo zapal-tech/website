@@ -3,12 +3,6 @@
 @import 'styles/mixins';
 
 .Navigation {
-  padding-top: 145px;
-
-  @include media(laptop) {
-    padding-top: 0;
-  }
-
   &__List {
     display: flex;
     flex-direction: column;

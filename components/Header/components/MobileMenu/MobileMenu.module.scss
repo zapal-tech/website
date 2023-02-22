@@ -12,13 +12,11 @@
   overflow: hidden;
   width: 100vw;
   height: calc(100vh + $gap-xl);
-  padding: 0 $gap-lg;
   backdrop-filter: saturate(110%) blur($blur-zero);
   background: rgba($jet-black, 0.85);
   filter: blur($blur-md) opacity(0.1);
   transition: filter ease-out 0.3s, backdrop-filter 0.25s linear, transform 0.2s cubic-bezier(0.65, 0, 0.45, 1);
   will-change: filter transform backdrop-filter;
-  // box-shadow: 0 0 10px 20px rgba($jet-black, 0.9);
 
   &--Open {
     backdrop-filter: saturate(180%) blur($blur-md);
@@ -26,27 +24,31 @@
     transform: translateX(-100%);
   }
 
-  &__Navigation {
+  &__Social {
     display: flex;
-    flex-direction: column;
-    gap: $gap-lg;
+    max-width: 350px;
+    justify-content: space-between;
   }
 
   &__ContactFormButton {
-    margin-top: $gap-lg;
+    margin: $gap-lg 0 $gap-xxl;
     color: $orioles-orange;
     font-size: 26px;
-    font-style: normal;
     font-weight: 400;
-    line-height: 31px;
+    line-height: 1.2;
   }
 
   &__CloseButton {
     position: absolute;
-    top: $gap-lg;
-    right: $gap-lg;
+    top: 35px;
+    right: $gap-sm;
     width: $gap-lg;
     cursor: pointer;
+
+    @include media(phone) {
+      top: $gap-lg;
+      right: $gap-lg;
+    }
 
     svg {
       width: 16px;

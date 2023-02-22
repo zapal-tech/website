@@ -1,10 +1,18 @@
 @import 'styles/colors';
 @import 'styles/gaps';
+@import 'styles/mixins';
 
 .SocialLinks {
   display: flex;
-  margin: $gap-xxl 0 0;
   gap: $gap-md;
+
+  @include media(laptop) {
+    gap: $gap-lg;
+  }
+
+  @include media(large-laptop) {
+    gap: 45px;
+  }
 
   &__Icon {
     display: block;

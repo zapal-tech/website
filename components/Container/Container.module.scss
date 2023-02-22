@@ -2,7 +2,11 @@
 @import 'styles/mixins';
 
 .Container {
-  padding: $gap-xxl $gap-lg 0;
+  padding: $gap-xxl $gap-sm 0;
+
+  @include media(phone) {
+    padding: $gap-xxl $gap-lg 0;
+  }
 
   @include media(laptop) {
     padding: $expanded-gap-xl $expanded-gap-sm 0;

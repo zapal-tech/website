@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from 'store';
 import { selectIsMobileMenuOpen, setIsMobileMenuOpen } from 'store/generalSlice';
 import { openModal } from 'store/modalSlice';
 
-import { Navigation, SocialLinks } from 'components';
+import { Container, Navigation, SocialLinks } from 'components';
 
 import { HeaderButton } from '../HeaderButton/HeaderButton';
 
@@ -25,7 +25,7 @@ export const MobileMenu: React.FC = () => {
   };
 
   return (
-    <div className={clsx(styles.MobileMenu, isOpen && styles['MobileMenu--Open'])}>
+    <Container type="aside" className={clsx(styles.MobileMenu, isOpen && styles['MobileMenu--Open'])}>
       <HeaderButton className={styles.MobileMenu__CloseButton} onClick={handleCloseButtonClick}>
         <CloseIcon />
       </HeaderButton>
@@ -36,7 +36,7 @@ export const MobileMenu: React.FC = () => {
         BECOME A CLIENT
       </button>
 
-      <SocialLinks />
-    </div>
+      <SocialLinks className={styles.MobileMenu__Social} />
+    </Container>
   );
 };
