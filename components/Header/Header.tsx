@@ -40,7 +40,7 @@ export const Header: React.FC = () => {
       <Banner className={styles.Banner} />
 
       <header className={styles.Header}>
-        <Link href="/">
+        <Link href="/" aria-label="logo, home page">
           <Logo withName />
         </Link>
 
@@ -60,7 +60,11 @@ export const Header: React.FC = () => {
           )}
 
           {!isLaptop && (
-            <HeaderButton className={styles.Header__BurgerButton} onClick={handleBurgerButtonClick}>
+            <HeaderButton
+              className={styles.Header__BurgerButton}
+              onClick={handleBurgerButtonClick}
+              aria-label="mobile menu"
+            >
               <span />
               <span />
             </HeaderButton>

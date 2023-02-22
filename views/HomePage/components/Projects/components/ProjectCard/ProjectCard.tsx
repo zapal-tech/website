@@ -32,7 +32,7 @@ export const ProjectCard: React.FC<ProjectPreview> = ({ name, photoUrl }) => {
         frameType="corner"
         cornerClassName={styles.ProjectCard__InnerCard__Dot}
       >
-        <Text className={styles.ProjectCard__Name} type="h3" size="heading3">
+        <Text className={styles.ProjectCard__Name} type="h4" size="heading3">
           {name}
 
           {isLaptop && (

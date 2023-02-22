@@ -26,7 +26,11 @@ export const MobileMenu: React.FC = () => {
 
   return (
     <Container type="aside" className={clsx(styles.MobileMenu, isOpen && styles['MobileMenu--Open'])}>
-      <HeaderButton className={styles.MobileMenu__CloseButton} onClick={handleCloseButtonClick}>
+      <HeaderButton
+        className={styles.MobileMenu__CloseButton}
+        onClick={handleCloseButtonClick}
+        aria-label="close mobile menu"
+      >
         <CloseIcon />
       </HeaderButton>
 

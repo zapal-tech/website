@@ -52,7 +52,7 @@ export const Modal: React.FC = () => {
     <Portal selector="#__next">
       {isShow && (
         <div className={styles.Modal} ref={modalRef}>
-          <button className={styles.Modal__CloseButton} onClick={handleCloseModal}>
+          <button className={styles.Modal__CloseButton} onClick={handleCloseModal} aria-label="close modal window">
             <CloseIcon />
           </button>
 
