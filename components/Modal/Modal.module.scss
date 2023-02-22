@@ -1,5 +1,6 @@
 @import 'styles/colors';
 @import 'styles/gaps';
+@import 'styles/mixins';
 @import 'styles/variables';
 
 .Modal {
@@ -13,7 +14,7 @@
   align-items: center;
   justify-content: center;
   backdrop-filter: saturate(100%) blur($blur-zero);
-  background: rgba($jet-black, 0.97);
+  background: rgba($jet-black, 0.9);
   filter: opacity(0) blur($blur-sm);
   transition: all 0.3s ease-out;
   will-change: filter, backdrop-filter;
@@ -31,8 +32,8 @@
   &__CloseButton {
     position: absolute;
     z-index: 15;
-    top: $gap-lg;
-    right: $gap-lg;
+    top: 35px;
+    right: $gap-sm;
     display: flex;
     width: $gap-lg;
     height: 35px;
@@ -41,6 +42,11 @@
     border: 1px solid $orioles-orange;
     border-radius: $gap-lg;
     cursor: pointer;
+
+    @include media(phone) {
+      top: $gap-lg;
+      right: $gap-lg;
+    }
 
     svg {
       width: 16px;

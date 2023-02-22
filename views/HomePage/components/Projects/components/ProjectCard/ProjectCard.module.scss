@@ -3,7 +3,13 @@
 @import 'styles/mixins';
 
 .ProjectCard {
+  position: relative;
   overflow: hidden;
+  border-radius: $gap-xxs;
+
+  @include media(laptop) {
+    border-radius: $gap-sm;
+  }
 
   &__Image,
   &__InnerCard {
@@ -17,16 +23,16 @@
 
   &__InnerCard {
     display: flex;
-    max-width: 510px;
-    max-height: 410px;
+    max-width: calc(100% - $gap-md * 2);
+    max-height: calc(100% - $gap-lg * 2);
     align-items: center;
     justify-content: center;
+    transition: all 0.2s ease-in-out;
 
     @include media(laptop) {
-      &:hover,
-      &:focus {
-        background: rgb($jet-black, 0.9);
-      }
+      max-width: calc(100% - $gap-lg * 2);
+      max-height: calc(100% - $gap-xxl * 2);
+      border-radius: 7px;
     }
 
     &__Dot {
@@ -42,32 +48,45 @@
     }
   }
 
+  &:hover &__InnerCard,
+  &:focus-within &__InnerCard,
+  &:focus-visible &__InnerCard {
+    background: rgb($jet-black, 0.9);
+  }
+
   &__Image {
     object-fit: cover;
   }
 
   &__Name {
+    position: relative;
     text-align: center;
   }
 
   &__Button {
     position: absolute;
-    z-index: 1;
-    bottom: 30px;
+    bottom: 0;
     left: 50%;
-    display: block;
-    height: 22px;
-    color: $white;
-    transform: translateX(-50%);
+    width: max-content;
+    opacity: 0;
+    transform: translate(-50%, 100%);
+    transition: all 0.2s ease-in-out;
+  }
 
-    @include media(laptop) {
-      bottom: 30%;
-    }
+  &:hover &__Button,
+  &:focus-visible &__Button,
+  &:focus-within &__Button {
+    opacity: 1;
   }
 
   &__ButtonText {
-    padding-bottom: 1px;
-    border-bottom: 1px solid $white;
-    text-shadow: 0 0 3px rgba($jet-black, 0.5);
+    border-bottom: 1px solid transparent;
+    text-shadow: 0 0 5px rgba($jet-black, 0.3);
+    transition: all 0.2s ease-in-out;
+  }
+
+  &__Button:hover &__ButtonText,
+  &__Button:focus-visible &__ButtonText {
+    border-color: $white;
   }
 }

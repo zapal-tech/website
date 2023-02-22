@@ -2,8 +2,11 @@
 @import 'styles/colors';
 @import 'styles/gaps';
 
-$secondary-border-vertical-padding: 19px;
-$secondary-border-horizontal-padding: 23px;
+$secondary-laptop-border-vertical-padding: 17px;
+$secondary-laptop-border-horizontal-padding: 20px;
+
+$secondary-large-laptop-border-vertical-padding: 19px;
+$secondary-large-laptop-border-horizontal-padding: 23px;
 
 .Button {
   position: relative;
@@ -50,10 +53,15 @@ $secondary-border-horizontal-padding: 23px;
     font-size: 0.75rem;
 
     @include media(laptop) {
-      padding: $secondary-border-vertical-padding $secondary-border-horizontal-padding;
+      padding: $secondary-laptop-border-vertical-padding $secondary-laptop-border-horizontal-padding;
       border: 2px solid $orioles-orange;
-      font-size: 1.125rem;
+      font-size: 1rem;
       font-weight: 400;
+    }
+
+    @include media(large-laptop) {
+      padding: $secondary-large-laptop-border-vertical-padding $secondary-large-laptop-border-horizontal-padding;
+      font-size: 1.125rem;
 
       &:focus-visible,
       &:hover {
@@ -64,7 +72,11 @@ $secondary-border-horizontal-padding: 23px;
 
   &--WithSlider {
     @include media(laptop) {
-      padding-right: 120px;
+      padding-right: 100px;
+
+      @include media(large-laptop) {
+        padding-right: 120px;
+      }
 
       &::before,
       &::after {
@@ -75,18 +87,28 @@ $secondary-border-horizontal-padding: 23px;
       }
 
       &::before {
-        width: 80px;
+        width: 60px;
         height: 1px;
         transform: translateY(-50%);
+
+        @include media(large-laptop) {
+          width: 80px;
+        }
       }
 
       &::after {
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
         border-radius: 50%;
-        transform: translate(-70px, -50%);
+        transform: translate(-50px, -50%);
         transition: transform cubic-bezier(1, 0, 0.45, 0.45) 0.25s;
         will-change: transform;
+
+        @include media(large-laptop) {
+          width: 20px;
+          height: 20px;
+          transform: translate(-70px, -50%);
+        }
       }
 
       &:focus-visible::after,
@@ -97,21 +119,37 @@ $secondary-border-horizontal-padding: 23px;
 
     &.Button--Secondary {
       @include media(laptop) {
-        padding-right: 70px + $secondary-border-vertical-padding;
+        padding-right: 65px + $secondary-laptop-border-vertical-padding;
+
+        @include media(large-laptop) {
+          padding-right: 70px + $secondary-large-laptop-border-vertical-padding;
+        }
 
         &::before,
         &::after {
-          right: $secondary-border-vertical-padding;
+          right: $secondary-laptop-border-vertical-padding;
+
+          @include media(large-laptop) {
+            right: $secondary-large-laptop-border-vertical-padding;
+          }
         }
 
         &::before {
-          width: 40px;
+          width: 35px;
+
+          @include media(large-laptop) {
+            width: 40px;
+          }
         }
 
         &::after {
           width: 10px;
           height: 10px;
-          transform: translate(-35px, -50%);
+          transform: translate(-30px, -50%);
+
+          @include media(large-laptop) {
+            transform: translate(-35px, -50%);
+          }
         }
 
         &:focus-visible::after,

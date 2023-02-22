@@ -5,8 +5,8 @@
   "about": {
     "title": "Про нас"
   },
-  "portfolio": {
-    "title": "Портфоліо"
+  "projects": {
+    "title": "Проекти"
   },
   "career": {
     "title": "Кар'єра"
@@ -18,7 +18,7 @@
     "title": "Support Ukraine"
   },
   "becomeAClient": {
-    "title": "Напишіть нам"
+    "title": "Напиши нам"
   },
   "privacyPolicy": {
     "title": "Політика конфіденційності"

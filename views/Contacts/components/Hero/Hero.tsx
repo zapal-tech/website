@@ -26,7 +26,7 @@ export const Hero = () => {
         {t('hero.title')}
       </Text>
 
-      <Text className={styles.Hero__SubTitle} size="heading1" type="h3" uppercase>
+      <Text className={styles.Hero__Subtitle} size="heading1" type="h3" uppercase>
         {t('hero.subtitle.upper')} {!isLaptop && <br />} {t('hero.subtitle.lower')}
       </Text>
 

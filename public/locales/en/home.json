@@ -11,12 +11,12 @@
   "about": {
     "title": "About Us",
     "subtitle": "We focused on delivering high-quality services: from the initial consultation until the successful completion of the project",
-    "services": "from the initial consultation until the successful completion of the project",
     "cards": [
       "providing the best results to our clients",
       "highly qualified team with extensive experience in IT ",
       "always strive to exceed expectations"
-    ]
+    ],
+    "button": "Learn more"
   },
   "services": {
     "title": "our services"

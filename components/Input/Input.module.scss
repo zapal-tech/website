@@ -16,7 +16,7 @@
     white-space: nowrap;
     word-break: break-word;
 
-    @include media(laptop) {
+    @include media(large-laptop) {
       font-size: 1.125rem;
       font-weight: 500;
     }
@@ -38,7 +38,7 @@
       transition: background-color 5000000s ease-in-out 0s; // F*ck you Chrome :)
     }
 
-    @include media(laptop) {
+    @include media(large-laptop) {
       height: 40px;
     }
   }
@@ -73,7 +73,7 @@
     height: 1px;
     background: $white;
 
-    @include media(laptop) {
+    @include media(large-laptop) {
       height: 2px;
     }
   }
@@ -102,7 +102,7 @@
     transform: translateY(100%);
     transition: all 0.2s ease;
 
-    @include media(laptop) {
+    @include media(large-laptop) {
       bottom: -8px;
       font-size: 0.875rem;
       font-weight: 500;

@@ -10,31 +10,44 @@
   color: $white;
 
   @include media(laptop) {
+    height: 32px;
+  }
+
+  @include media(large-laptop) {
     height: 40px;
   }
 
   &__Text {
     position: relative;
-    padding-right: 24px;
+    padding-right: 22px;
 
     @include media(laptop) {
-      padding-right: 35px;
+      padding-right: 28px;
+    }
+
+    @include media(large-laptop) {
+      padding-right: 36px;
     }
 
     &::after {
       @include pseudo();
       top: 50%;
       right: 0;
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       border-radius: 50%;
 
       background: linear-gradient(to bottom, $ukraine-blue 50%, $ukraine-yellow 50%);
       transform: translateY(-50%);
 
       @include media(laptop) {
-        width: 21px;
-        height: 21px;
+        width: 17px;
+        height: 17px;
+      }
+
+      @include media(large-laptop) {
+        width: 23px;
+        height: 23px;
       }
     }
   }

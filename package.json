@@ -19,6 +19,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "postbuild": "next-sitemap",
     "start": "next start",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}'",
@@ -77,6 +78,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
+    "@next/bundle-analyzer": "^13.1.6",
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
     "@types/node": "^18.13.0",
     "@types/react": "^18.0.27",
