@@ -37,13 +37,13 @@ export const Navigation: React.FC<NavigationProps> = ({ className }) => {
         path: '/about',
       },
       {
-        title: t('portfolio.title'),
-        path: '/portfolio',
+        title: t('projects.title'),
+        path: '/projects',
       },
-      {
-        title: t('career.title'),
-        path: '/career',
-      },
+      // {
+      //   title: t('career.title'),
+      //   path: '/career',
+      // },
       {
         title: t('contacts.title'),
         path: '/contacts',
