@@ -17,6 +17,10 @@ $laptop-text-horizontal-shifting: 6px;
       height: 30px;
 
       @include media(laptop) {
+        height: 38px;
+      }
+
+      @include media(large-laptop) {
         height: 43px;
       }
     }
@@ -25,6 +29,10 @@ $laptop-text-horizontal-shifting: 6px;
       height: 21px;
 
       @include media(laptop) {
+        height: 28px;
+      }
+
+      @include media(large-laptop) {
         height: 31px;
       }
     }

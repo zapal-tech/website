@@ -56,7 +56,11 @@
   }
 
   @include media(laptop) {
-    top: $gap-lg;
+    top: 32px;
+  }
+
+  @include media(large-laptop) {
+    top: 40px;
   }
 
   &__Buttons {

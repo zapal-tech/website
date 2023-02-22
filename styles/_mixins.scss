@@ -8,14 +8,20 @@
 }
 
 @mixin media($breakpoint) {
-  $valid-breakpoint-names: phone, tablet, laptop;
+  $valid-breakpoint-names: phone, large-phone, tablet, large-tablet, laptop, large-laptop, desktop;
 
   @if not list.index($valid-breakpoint-names, $breakpoint) {
     @error "#{$breakpoint} is not a valid breakpoint name. Expected one of #{$valid-breakpoint-names}.";
   }
 
   @if $breakpoint == phone {
-    @media only screen and (max-width: $breakpoint-phone) {
+    @media only screen and (min-width: $breakpoint-phone) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == large-phone {
+    @media only screen and (min-width: $breakpoint-large-phone) {
       @content;
     }
   }
@@ -26,8 +32,26 @@
     }
   }
 
+  @if $breakpoint == large-tablet {
+    @media only screen and (min-width: $breakpoint-large-tablet) {
+      @content;
+    }
+  }
+
   @if $breakpoint == laptop {
     @media only screen and (min-width: $breakpoint-laptop) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == large-laptop {
+    @media only screen and (min-width: $breakpoint-large-laptop) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: $breakpoint-desktop) {
       @content;
     }
   }

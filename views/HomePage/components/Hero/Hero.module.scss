@@ -10,12 +10,12 @@ $bottom-mask: linear-gradient(to bottom, $jet-black 88%, transparent 98%);
   position: relative;
   height: 100vh;
   padding-top: $expanded-gap-lg;
-  padding-left: $gap-lg;
+  padding-left: $gap-sm;
   background: no-repeat right / cover url('/images/hero-bg.jpg'), $bottom-gradient;
   background-blend-mode: saturation;
 
   @include media(phone) {
-    padding-left: $gap-sm;
+    padding-left: $gap-lg;
   }
 
   @include media(laptop) {
