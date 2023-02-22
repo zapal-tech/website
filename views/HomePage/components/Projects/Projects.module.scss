@@ -9,14 +9,30 @@
     grid-auto-rows: 250px;
     grid-template-columns: 1fr;
 
-    @include media(laptop) {
-      gap: $gap-xl;
-      grid-auto-rows: 600px;
+    @include media(tablet) {
+      grid-auto-rows: 300px;
       grid-template-columns: 1fr 1fr;
+    }
+
+    @include media(large-tablet) {
+      gap: $gap-lg;
+      grid-auto-rows: 350px;
+    }
+
+    @include media(laptop) {
+      grid-auto-rows: 450px;
+    }
+
+    @include media(large-laptop) {
+      grid-auto-rows: 500px;
+    }
+
+    @include media(desktop) {
+      grid-auto-rows: 600px;
     }
   }
 
   &__Title {
-    margin-bottom: 40px;
+    margin-bottom: $gap-lg;
   }
 }
