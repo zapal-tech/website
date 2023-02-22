@@ -9,6 +9,10 @@ const withPWA = pwa({
   disable: process.env.NODE_ENV === 'development',
 });
 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 const { i18n } = require('./next-i18next.config');
 
 /** @type {import('next').NextConfig} */
@@ -39,4 +43,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPWA(nextConfig);
+module.exports = withBundleAnalyzer(withPWA(nextConfig));
