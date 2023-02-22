@@ -1,22 +1,32 @@
 @import 'styles/gaps';
 @import 'styles/colors';
+@import 'styles/media';
 @import 'styles/mixins';
 
 .AboutUs {
   &__Box {
+    max-width: 100%;
+
     @include media(laptop) {
       display: flex;
       width: max-content;
-      max-width: 100%;
+      max-width: $breakpoint-large-tablet;
       flex-direction: column;
       justify-content: flex-end;
       margin-left: auto;
+    }
+
+    @include media(large-laptop) {
+      max-width: $breakpoint-laptop;
     }
   }
 
   &__Title {
     margin-bottom: $gap-lg;
-    margin-bottom: $expanded-gap-md;
+
+    @include media(laptop) {
+      margin-bottom: $expanded-gap-md;
+    }
   }
 
   &__Subtitle {
@@ -44,54 +54,58 @@
       align-self: flex-end;
       margin-bottom: 225px;
     }
-  }
 
-  &__Line::before {
-    @include pseudo();
+    &::before,
+    &::after {
+      @include pseudo();
 
-    top: -5px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: $white;
-  }
+      border-radius: 50%;
+      background: $white;
+    }
 
-  &__Line::after {
-    @include pseudo();
+    &::before {
+      top: -5px;
+      width: 10px;
+      height: 10px;
+    }
 
-    top: -15px;
-    right: 0;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: $white;
-  }
-
-  &__CardBox {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 40px;
-    gap: 30px;
-
-    @include media(laptop) {
-      flex-direction: row;
-      align-self: flex-end;
-      margin-bottom: 60px;
+    &::after {
+      top: -15px;
+      right: 0;
+      width: 30px;
+      height: 30px;
     }
   }
-}
 
-.Card__Text {
-  display: flex;
-  width: 180px;
-  height: 160px;
-  align-items: center;
-  margin-right: auto;
-  margin-left: auto;
+  &__CardsContainer {
+    display: grid;
+    margin-bottom: $gap-lg;
+    gap: $gap-md;
+    grid-auto-rows: 150px;
+    grid-template-columns: 1fr;
 
-  @include media(laptop) {
-    width: 300px;
-    height: 250px;
-    align-items: flex-end;
+    @include media(tablet) {
+      align-self: flex-end;
+      margin-bottom: $gap-md * 2;
+      grid-auto-rows: 200px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include media(large-tablet) {
+      grid-auto-rows: 250px;
+    }
+
+    @include media(large-laptop) {
+      grid-auto-rows: 350px;
+    }
+  }
+
+  &__CardText {
+    align-self: center;
+    margin: 0 auto;
+
+    @include media(tablet) {
+      align-self: flex-end;
+    }
   }
 }
