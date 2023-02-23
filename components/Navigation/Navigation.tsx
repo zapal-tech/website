@@ -44,10 +44,10 @@ export const Navigation: React.FC<NavigationProps> = ({ className }) => {
         title: t('contacts.title'),
         path: '/contacts',
       },
-      {
-        title: t('supportUkraine.title'),
-        path: '/supportUkraine',
-      },
+      // {
+      //   title: t('supportUkraine.title'),
+      //   path: '/supportUkraine',
+      // },
     ],
     [t],
   );

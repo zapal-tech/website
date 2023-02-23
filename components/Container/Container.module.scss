@@ -9,6 +9,10 @@
   }
 
   @include media(laptop) {
+    padding: $expanded-gap-xl $expanded-gap-xs 0;
+  }
+
+  @include media(large-laptop) {
     padding: $expanded-gap-xl $expanded-gap-sm 0;
   }
 }
