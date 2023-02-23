@@ -2,6 +2,7 @@
   "letsTalk": "Напиши нам",
   "internalServerError": "Внутрішня помилка сервера",
   "pageNotFound": "Сторінку не знайдено",
+  "becomeAClient": "Напиши нам",
   "email": {
     "address": "hello@zapal.tech",
     "subject": "Request for ...",
