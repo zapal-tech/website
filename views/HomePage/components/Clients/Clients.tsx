@@ -1,7 +1,6 @@
 import { useTranslation } from 'next-i18next';
-import { useMemo } from 'react';
 
-import { useWindowSize } from 'hooks';
+import { useMediaQuery } from 'hooks';
 
 import { Button, Container, Text } from 'components';
 
@@ -12,13 +11,9 @@ import media from 'styles/media.module.scss';
 import styles from './Clients.module.scss';
 
 export const Clients = () => {
-  const windowSize = useWindowSize();
-  const { t } = useTranslation([Namespace.Home, Namespace.Navigation]);
+  const { t } = useTranslation([Namespace.Home, Namespace.Common]);
 
-  const isLaptop = useMemo(
-    () => windowSize.width && windowSize.width >= parseInt(media.breakpointLaptop),
-    [windowSize],
-  );
+  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
   return (
     <Container>
@@ -27,7 +22,7 @@ export const Clients = () => {
           {t('clients.title')}
         </Text>
 
-        {!!isLaptop && (
+        {isLaptop && (
           <Text className={styles.Clients__AfterTitle} size="default">
             {t('clients.titleAfter.upper')}
             <br />
@@ -50,7 +45,7 @@ export const Clients = () => {
         {t('clients.text')}
       </Text>
 
-      <Button className={styles.Clients__Button}>{t('becomeAClient.title', { ns: Namespace.Navigation })}</Button>
+      <Button className={styles.Clients__Button}>{t('becomeAClient', { ns: Namespace.Common })}</Button>
     </Container>
   );
 };
