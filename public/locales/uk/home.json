@@ -24,5 +24,14 @@
   "projects": {
     "title": "Наші проекти",
     "cardButton": "Дізнатися більше"
+  },
+  "clients": {
+    "title": "Клієнти та партнери",
+    "titleAfter": {
+      "upper": "Drag or scroll",
+      "lower": "for more"
+    },
+    "subtitle": "We provide the highest level of gratification for our clients and their customers",
+    "text": "We only deliver creations in which we believe"
   }
 }

@@ -1,6 +1,7 @@
 import { AppLayout } from 'layouts';
 
 import { AboutUs } from './components/AboutUs/AboutUs';
+import { Clients } from './components/Clients/Clients';
 import { Hero } from './components/Hero/Hero';
 import { Projects } from './components/Projects/Projects';
 import { Services } from './components/Services/Services';
@@ -13,5 +14,6 @@ export const HomePage = () => (
     <Services />
     <Technologies />
     <Projects />
+    <Clients />
   </AppLayout>
 );

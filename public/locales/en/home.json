@@ -19,7 +19,7 @@
     "button": "Learn more"
   },
   "services": {
-    "title": "our services"
+    "title": "Our services"
   },
   "technologies": {
     "title": "We use"
@@ -27,5 +27,14 @@
   "projects": {
     "title": "Projects",
     "cardButton": "click for more"
+  },
+  "clients": {
+    "title": "Clients and partners",
+    "titleAfter": {
+      "upper": "Drag or scroll",
+      "lower": "for more"
+    },
+    "subtitle": "We provide the highest level of gratification for our clients and their customers",
+    "text": "We only deliver creations in which we believe"
   }
 }
