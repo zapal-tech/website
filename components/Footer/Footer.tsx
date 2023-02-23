@@ -34,21 +34,20 @@ const MadeByZapal = () => {
 };
 
 const BecomeAClient = () => {
-  const { t } = useTranslation(Namespace.Navigation);
+  const { t } = useTranslation(Namespace.Common);
 
-  return <Button>{t('becomeAClient.title')}</Button>;
+  return <Button className={styles.Footer__Button}>{t('becomeAClient')}</Button>;
 };
 
 const Email = () => {
   const { t } = useTranslation(Namespace.Common);
 
   return (
-    <a
-      href={`mailto:${t('email.address')}?subject=${t('email.subject')}&body=${t('email.body')}`}
-      className={styles.Footer__Email}
-    >
-      <Text size="heading3">{t('email.address')}</Text>
-    </a>
+    <Text size="heading3" className={styles.Footer__Email}>
+      <a href={`mailto:${t('email.address')}?subject=${t('email.subject')}&body=${t('email.body')}`}>
+        {t('email.address')}
+      </a>
+    </Text>
   );
 };
 
@@ -56,16 +55,20 @@ const Phone = () => {
   const { t } = useTranslation(Namespace.Common);
 
   return (
-    <a href={'tel:' + t('phone')} className={styles.Footer__Phone}>
-      <Text size="small">{t('phone')}</Text>
-    </a>
+    <Text size="small" className={styles.Footer__Phone}>
+      <a href={'tel:' + t('phone')}>{t('phone')}</a>
+    </Text>
   );
 };
 
 const Location = () => {
   const { t } = useTranslation(Namespace.Common);
 
-  return <Text size="small">{t('location')}</Text>;
+  return (
+    <Text size="small" className={styles.Footer__Location}>
+      {t('location')}
+    </Text>
+  );
 };
 
 export const Footer: React.FC = () => {

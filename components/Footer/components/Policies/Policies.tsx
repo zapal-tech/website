@@ -1,7 +1,8 @@
 import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
 import { useMemo } from 'react';
 
-import { Link, Text } from 'components';
+import { Text } from 'components';
 
 import { Namespace } from 'i18n';
 
@@ -34,16 +35,16 @@ export const Policies: React.FC = () => {
 
   return (
     <div className={styles.Policies}>
-      <Text className={styles.Policies__Title} size="small">
+      <Text className={styles.Policies__Title} size="small" uppercase>
         {t('policies', { ns: Namespace.Footer })}
       </Text>
 
       {policies.map(({ title, path }) => (
-        <Text key={path} size="small">
-          <Link href={path} className={styles.Policies__Link} underline={false} icon={false}>
+        <Link key={path} href={path} className={styles.Policies__Link}>
+          <Text className={styles.Policies__LinkText} size="small">
             {title}
-          </Link>
-        </Text>
+          </Text>
+        </Link>
       ))}
     </div>
   );
