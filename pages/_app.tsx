@@ -3,11 +3,6 @@ import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import { useEffect } from 'react';
-import { Provider } from 'react-redux';
-
-import store from 'store';
-
-import { MetaPixel, Modal } from 'components';
 
 import 'styles/index.scss';
 
@@ -68,13 +63,9 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         ]}
         themeColor="#111"
       />
-      <MetaPixel />
 
-      <Provider store={store}>
-        <Component {...pageProps} />
-        <PageLoader />
-        <Modal />
-      </Provider>
+      <Component {...pageProps} />
+      <PageLoader />
     </>
   );
 };

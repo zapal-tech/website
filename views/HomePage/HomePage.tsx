@@ -1,11 +1,14 @@
+import dynamic from 'next/dynamic';
+
 import { AppLayout } from 'layouts';
 
-import { AboutUs } from './components/AboutUs/AboutUs';
-import { Clients } from './components/Clients/Clients';
 import { Hero } from './components/Hero/Hero';
-import { Projects } from './components/Projects/Projects';
-import { Services } from './components/Services/Services';
-import { Technologies } from './components/Technologies/Technologies';
+
+const AboutUs = dynamic(() => import('./components/AboutUs/AboutUs').then((mod) => mod.AboutUs));
+const Services = dynamic(() => import('./components/Services/Services').then((mod) => mod.Services));
+const Technologies = dynamic(() => import('./components/Technologies/Technologies').then((mod) => mod.Technologies));
+const Clients = dynamic(() => import('./components/Clients/Clients').then((mod) => mod.Clients));
+const Projects = dynamic(() => import('./components/Projects/Projects').then((mod) => mod.Projects));
 
 export const HomePage = () => (
   <AppLayout>
