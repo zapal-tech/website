@@ -18,15 +18,16 @@
     }
   }
 
-  &__AfterTitleLaptopContent {
-    width: 269px;
-    height: 68px;
+  &__AfterTitle {
+    width: 270px;
     align-self: center;
     color: $sonic-silver;
+
     &::before {
       margin-right: 5px;
       content: '>';
     }
+
     @include media(large-laptop) {
       align-self: flex-end;
     }

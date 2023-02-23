@@ -1,7 +1,6 @@
 import { useTranslation } from 'next-i18next';
-import { useMemo } from 'react';
 
-import { useWindowSize } from 'hooks';
+import { useMediaQuery } from 'hooks';
 
 import { Container, Link, Text } from 'components';
 
@@ -12,13 +11,9 @@ import media from 'styles/media.module.scss';
 import styles from './Hero.module.scss';
 
 export const Hero = () => {
-  const windowSize = useWindowSize();
   const { t } = useTranslation(Namespace.Contacts);
 
-  const isLaptop = useMemo(
-    () => windowSize.width && windowSize.width >= parseInt(media.breakpointLaptop),
-    [windowSize],
-  );
+  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
   return (
     <Container>

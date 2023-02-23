@@ -28,8 +28,9 @@ export const Clients = () => {
         </Text>
 
         {!!isLaptop && (
-          <Text className={styles.Clients__AfterTitleLaptopContent} size="default">
-            {t('clients.titleAfter.upper')}<br />
+          <Text className={styles.Clients__AfterTitle} size="default">
+            {t('clients.titleAfter.upper')}
+            <br />
             {t('clients.titleAfter.lower')}
           </Text>
         )}

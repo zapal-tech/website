@@ -27,7 +27,7 @@
     max-height: calc(100% - $gap-lg * 2);
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.25s ease-in-out;
 
     @include media(laptop) {
       max-width: calc(100% - $gap-lg * 2);

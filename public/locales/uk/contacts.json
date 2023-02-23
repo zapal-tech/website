@@ -5,5 +5,8 @@
       "upper": "Напиши",
       "lower": "нам"
     }
+  },
+  "locations": {
+    "time": "час"
   }
 }

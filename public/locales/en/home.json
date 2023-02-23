@@ -26,10 +26,10 @@
   },
   "projects": {
     "title": "Projects",
-    "button": "click for more"
+    "cardButton": "click for more"
   },
   "clients": {
-    "title": "Clients",
+    "title": "Clients and partners",
     "titleAfter": {
       "upper": "Drag or scroll",
       "lower": "for more"

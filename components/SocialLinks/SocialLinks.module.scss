@@ -4,6 +4,7 @@
 
 .SocialLinks {
   display: flex;
+  justify-content: space-between;
   gap: $gap-md;
 
   @include media(laptop) {
@@ -19,5 +20,21 @@
     width: 24px;
     height: 24px;
     fill: $white;
+    transition: all 0.2s ease-in;
+
+    @include media(laptop) {
+      width: 30px;
+      height: 30px;
+    }
+
+    @include media(large-laptop) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__Link:hover &__Icon,
+  &__Link:focus-visible &__Icon {
+    fill: $orioles-orange;
   }
 }
