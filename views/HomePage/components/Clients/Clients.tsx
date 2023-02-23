@@ -26,26 +26,29 @@ export const Clients = () => {
         <Text className={styles.Clients__Title} type="h1" size="heading1" uppercase>
           {t('clients.title')}
         </Text>
-        {isLaptop ? (
+
+        {!!isLaptop && (
           <Text className={styles.Clients__AfterTitleLaptopContent} size="default">
-            {t('clients.titleAfter.upper')} <br />
+            {t('clients.titleAfter.upper')}<br />
             {t('clients.titleAfter.lower')}
           </Text>
-        ) : (
-          ''
         )}
       </div>
+
       <Text className={styles.Clients__Subtitle} type="h3" size="heading3">
         {t('clients.subtitle')}
       </Text>
+
       <div className={styles.Clients__Slider}>
         <Text className={styles.Clients__SliderText} type="h3" size="heading2">
           Slider
         </Text>
       </div>
+
       <Text className={styles.Clients__Text} type="h3" size="heading3">
         {t('clients.text')}
       </Text>
+
       <Button className={styles.Clients__Button}>{t('becomeAClient.title', { ns: Namespace.Navigation })}</Button>
     </Container>
   );
