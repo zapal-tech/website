@@ -19,7 +19,7 @@
     "button": "Learn more"
   },
   "services": {
-    "title": "our services"
+    "title": "Our services"
   },
   "technologies": {
     "title": "We use"
@@ -29,13 +29,12 @@
     "button": "click for more"
   },
   "clients": {
-    "title": "CLIENTS",
+    "title": "Clients",
     "titleAfter": {
-      "upper": "DRAG OR SCROLL",
-      "lower": "FOR MORE"
+      "upper": "Drag or scroll",
+      "lower": "for more"
     },
     "subtitle": "We provide the highest level of gratification for our clients and their customers",
-    "text": "We only deliver creations in which we believe",
-    "button": "BECOME A CLIENT"
+    "text": "We only deliver creations in which we believe"
   }
 }
