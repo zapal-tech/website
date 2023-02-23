@@ -43,7 +43,7 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({ className }) => (
   <ul className={clsx(styles.SocialLinks, className)}>
     {links.map(({ icon: Icon, path }) => (
       <li key={path}>
-        <a href={path} target="_blank" rel="noreferrer">
+        <a className={styles.SocialLinks__Link} href={path} target="_blank" rel="noreferrer">
           <Icon className={styles.SocialLinks__Icon} />
         </a>
       </li>

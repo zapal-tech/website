@@ -14,7 +14,7 @@ export type LinkProps = LinkComponentProps & {
 
 export const Link: React.FC<LinkProps> = ({
   className,
-  uppercase = true,
+  uppercase,
   underline = true,
   icon = true,
   children,

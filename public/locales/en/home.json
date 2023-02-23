@@ -26,6 +26,6 @@
   },
   "projects": {
     "title": "Projects",
-    "button": "click for more"
+    "cardButton": "click for more"
   }
 }

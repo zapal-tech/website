@@ -1,7 +1,6 @@
 import { useTranslation } from 'next-i18next';
-import { useMemo } from 'react';
 
-import { useWindowSize } from 'hooks';
+import { useMediaQuery } from 'hooks';
 
 import { Container, Text } from 'components';
 
@@ -15,13 +14,9 @@ import media from 'styles/media.module.scss';
 import styles from './Technologies.module.scss';
 
 export const Technologies: React.FC = () => {
-  const windowSize = useWindowSize();
   const { t } = useTranslation(Namespace.Home);
 
-  const isLaptop = useMemo(
-    () => windowSize.width && windowSize.width >= parseInt(media.breakpointLaptop),
-    [windowSize],
-  );
+  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
   return (
     <Container>

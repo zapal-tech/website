@@ -1,32 +1,39 @@
+@import 'styles/colors';
 @import 'styles/gaps';
 @import 'styles/mixins';
 
 .Footer {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: $gap-lg;
+  display: grid;
+  padding-bottom: $gap-xl;
   gap: $gap-md;
+  grid-template-columns: 1fr;
 
   @include media(laptop) {
     padding-bottom: $gap-xxl;
-    gap: $expanded-gap-xs;
+    grid-template-columns: 1fr min-content;
   }
 
-  &__Main {
-    position: relative;
+  &__Divider {
+    background: $sonic-silver;
+    grid-column: 1 / -1;
+  }
+
+  & > &__Title {
+    line-height: 0.9;
+  }
+
+  &__Section {
     display: flex;
-    width: 100%;
     flex-direction: column;
 
-    @include media(laptop) {
-      display: flex;
-      flex-direction: row;
+    &--JustifyBetween {
+      @include media(laptop) {
+        justify-content: space-between;
+      }
     }
-  }
 
-  &__Social {
-    position: absolute;
-    top: 0;
-    right: 0;
+    &--AlignEnd {
+      align-items: flex-end;
+    }
   }
 }

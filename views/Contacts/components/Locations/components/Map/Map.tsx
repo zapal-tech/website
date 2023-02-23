@@ -18,16 +18,6 @@ const MapComponent: React.FC<MapProps> = ({ zoom = 15, children, ...props }) => 
     setIsMounted(true);
   }, []);
 
-  // const [map, setMap] = useState<google.maps.Map | null>(null);
-
-  // const onLoad = useCallback((map: google.maps.Map) => {
-  //   setMap(map);
-  // }, []);
-
-  // const onUnmount = useCallback(() => {
-  //   setMap(null);
-  // }, []);
-
   if (loadError) return <div>Map cannot be loaded right now, sorry.</div>;
 
   return isLoaded && isMounted ? (
@@ -39,8 +29,6 @@ const MapComponent: React.FC<MapProps> = ({ zoom = 15, children, ...props }) => 
         isFractionalZoomEnabled: true,
       }}
       {...props}
-      // onLoad={onLoad}
-      // onUnmount={onUnmount}
     >
       {children}
     </GoogleMap>

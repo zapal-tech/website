@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useMemo } from 'react';
 
-import { useWindowSize } from 'hooks';
+import { useMediaQuery } from 'hooks';
 
 import { Text } from 'components';
 
@@ -19,12 +19,8 @@ export type NavigationProps = {
 
 export const Navigation: React.FC<NavigationProps> = ({ className }) => {
   const { t } = useTranslation(Namespace.Navigation);
-  const windowSize = useWindowSize();
 
-  const isLaptop = useMemo(
-    () => windowSize.width && windowSize.width >= parseInt(media.breakpointLaptop),
-    [windowSize],
-  );
+  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
   const navLinks = useMemo(
     () => [
