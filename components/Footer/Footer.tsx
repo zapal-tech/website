@@ -83,10 +83,16 @@ export const Footer: React.FC = () => {
         </Text>
       </div>
 
-      <div className={clsx(styles.Footer__Section, styles['Footer__Section--AlignEnd'])}>
+      <div
+        className={clsx(
+          styles.Footer__Section,
+          styles['Footer__Section--AlignEnd'],
+          styles['Footer__Section--JustifyBetween'],
+        )}
+      >
         {isLaptop ? (
           <>
-            <SocialLinks />
+            <SocialLinks className={styles.Footer__Social} />
             <Email />
           </>
         ) : (
@@ -111,7 +117,7 @@ export const Footer: React.FC = () => {
           <>
             <MadeByZapal />
             <Policies />
-            <SocialLinks />
+            <SocialLinks className={styles.Footer__Social} />
           </>
         )}
       </div>
