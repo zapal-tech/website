@@ -1,31 +1,30 @@
-import { ClassValue } from 'clsx';
-import Link from 'public/icons/link.svg';
+import clsx, { ClassValue } from 'clsx';
+import Link from 'next/link';
+import LinkIcon from 'public/icons/link.svg';
 
 import { Divider, Text } from 'components';
 
 import styles from './ServiceItem.module.scss';
 
 export type ServiceItemProps = {
-  Icon: any;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
   title: string;
-  link?: string;
+  href?: string;
   className?: ClassValue | ClassValue[];
 };
 
-export const ServiceItem: React.FC<ServiceItemProps> = ({ Icon, title }) => (
-  <div className={styles.Item}>
-    <div className={styles.Item__Block}>
-      <div className={styles.Item__Content}>
-        <Icon className={styles.Item__Icon} />
+export const ServiceItem: React.FC<ServiceItemProps> = ({ icon: Icon, title, href, className }) => (
+  <Link href={'/'} className={styles.ServiceItem}>
+    <div className={styles.ServiceItem__Content}>
+      <Icon className={clsx(styles.ServiceItem__Icon)} />
 
-        <Text uppercase size="heading3">
-          {title}
-        </Text>
-      </div>
+      <Text uppercase size="heading3" className={styles.ServiceItem__Text}>
+        {title}
+      </Text>
 
-      <Link className={styles.Item__Icon} />
+      <LinkIcon className={clsx(styles.ServiceItem__Icon, styles['ServiceItem__Icon--Link'])} />
     </div>
 
-    <Divider className={styles.Item__Divider} />
-  </div>
+    <Divider className={styles.ServiceItem__Divider} />
+  </Link>
 );
