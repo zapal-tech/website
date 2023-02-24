@@ -1,7 +1,6 @@
 import { useTranslation } from 'next-i18next';
-import { useMemo } from 'react';
 
-import { useWindowSize } from 'hooks';
+import { useMediaQuery } from 'hooks';
 
 import { Button, Container, Text } from 'components';
 
@@ -12,13 +11,9 @@ import media from 'styles/media.module.scss';
 import styles from './Partners.module.scss';
 
 export const Partners = () => {
-  const windowSize = useWindowSize();
-  const { t } = useTranslation([Namespace.Home, Namespace.Navigation]);
+  const { t } = useTranslation([Namespace.Home, Namespace.Common]);
 
-  const isLaptop = useMemo(
-    () => windowSize.width && windowSize.width >= parseInt(media.breakpointLaptop),
-    [windowSize],
-  );
+  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
   return (
     <Container>
@@ -27,13 +22,11 @@ export const Partners = () => {
           {t('partners.title')}
         </Text>
         {isLaptop ? (
-          <Text className={styles.Partners__AfterTitleLaptopContent} size="default">
+          <Text className={styles.Partners__AfterTitle} size="default">
             {t('partners.titleAfter.upper')} <br />
             {t('partners.titleAfter.lower')}
           </Text>
-        ) : (
-          ''
-        )}
+        ) : null}
       </div>
       <Text className={styles.Partners__Subtitle} type="h3" size="heading3">
         {t('partners.subtitle')}
@@ -46,7 +39,7 @@ export const Partners = () => {
       <Text className={styles.Partners__Text} type="h3" size="heading3">
         {t('partners.text')}
       </Text>
-      <Button className={styles.Partners__Button}>{t('becomeAClient.title', { ns: Namespace.Navigation })}</Button>
+      <Button className={styles.Partners__Button}>{t('becomeAClient', { ns: Namespace.Common })}</Button>
     </Container>
   );
 };
