@@ -3,14 +3,11 @@
 
 .Divider {
   width: auto;
+  background: $white;
 
   hr {
     width: 100%;
     height: 1px;
-    background: $sonic-silver;
-
-    @include media(laptop) {
-      background: $white;
-    }
+    background: inherit;
   }
 }

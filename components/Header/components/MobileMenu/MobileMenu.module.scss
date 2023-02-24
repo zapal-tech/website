@@ -32,10 +32,17 @@
 
   &__ContactFormButton {
     margin: $gap-lg 0 $gap-xxl;
-    color: $orioles-orange;
-    font-size: 26px;
-    font-weight: 400;
-    line-height: 1.2;
+    cursor: pointer;
+
+    p {
+      color: $orioles-orange;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover p,
+    &:focus-visible p {
+      color: $rosso-corsa;
+    }
   }
 
   &__CloseButton {
@@ -43,7 +50,6 @@
     top: 35px;
     right: $gap-sm;
     width: $gap-lg;
-    cursor: pointer;
 
     @include media(phone) {
       top: $gap-lg;

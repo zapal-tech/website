@@ -43,6 +43,16 @@
     padding: $gap-xs $gap-lg;
   }
 
+  @include media(laptop) {
+    top: 32px;
+    padding: $gap-xs $expanded-gap-xs;
+  }
+
+  @include media(large-laptop) {
+    top: 40px;
+    padding: $gap-xs $expanded-gap-sm;
+  }
+
   & > * {
     z-index: 6;
   }
@@ -57,14 +67,6 @@
     backdrop-filter: saturate(180%) blur($blur-lg);
     background: rgba($jet-black, 0.85);
     mask-image: linear-gradient(to bottom, $jet-black, cubic-bezier(0.75, 0, 0.8, 1), transparent);
-  }
-
-  @include media(laptop) {
-    top: 32px;
-  }
-
-  @include media(large-laptop) {
-    top: 40px;
   }
 
   &__Buttons {

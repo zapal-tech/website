@@ -1,8 +1,6 @@
 {
-  "title": "LET'S START YOUR PROJECT",
-  "description": "We reveal the genius that lies dormant in each project",
-  "button": "BECOME A CLIENT",
+  "title": "Let's start your project",
+  "subtitle": "We reveal the genius that lies dormant in each project",
   "policies": "Policies",
-  "love": "made by zapal with love",
-  "city": "Kyiv, Ukraine"
+  "madeByZapal": "made by zapal with love"
 }

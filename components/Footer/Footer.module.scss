@@ -1,32 +1,140 @@
+@import 'styles/colors';
 @import 'styles/gaps';
 @import 'styles/mixins';
 
 .Footer {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: $gap-lg;
+  display: grid;
+  padding-bottom: $gap-xl;
   gap: $gap-md;
+  grid-template-columns: 1fr;
 
   @include media(laptop) {
     padding-bottom: $gap-xxl;
     gap: $expanded-gap-xs;
+    grid-template-columns: 1fr min-content;
   }
 
-  &__Main {
-    position: relative;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
+  &__Divider {
+    background: $sonic-silver;
+    grid-column: 1 / -1;
+  }
+
+  & &__Title {
+    max-width: 350px;
 
     @include media(laptop) {
-      display: flex;
-      flex-direction: row;
+      max-width: 650px;
+      line-height: 0.9;
+    }
+
+    @include media(large-laptop) {
+      max-width: 1010px;
+      margin-right: -$expanded-gap-xs;
+    }
+  }
+
+  & &__Subtitle {
+    max-width: 260px;
+    align-self: flex-start;
+
+    @include media(laptop) {
+      max-width: 300px;
+      margin: 0 0 $expanded-gap-xs;
+    }
+
+    @include media(large-laptop) {
+      max-width: 500px;
+    }
+  }
+
+  & &__MadeByZapal {
+    position: absolute;
+    bottom: 64px;
+    left: 0;
+    color: $sonic-silver;
+
+    @include media(large-phone) {
+      bottom: -5px;
+    }
+
+    @include media(laptop) {
+      position: relative;
+    }
+  }
+
+  &__Email,
+  &__Phone {
+    a {
+      transition: all 0.2s ease-in-out;
+
+      &:hover,
+      &:focus-visible {
+        color: $orioles-orange;
+      }
+    }
+  }
+
+  &__Email {
+    margin: 0 0 $gap-lg;
+
+    @include media(laptop) {
+      margin: 0;
+    }
+  }
+
+  &__Phone {
+    margin: 0 0 5px;
+
+    @include media(laptop) {
+      margin: 0 0 $gap-xs;
+    }
+  }
+
+  &__Location {
+    margin: 0 0 $gap-lg;
+
+    @include media(laptop) {
+      margin: 0 0 90px;
+    }
+  }
+
+  &__Button {
+    margin: 0 0 $gap-md * 2;
+
+    @include media(laptop) {
+      margin: 0 0 $gap-sm;
+    }
+  }
+
+  &__Section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &--JustifyBetween {
+      @include media(laptop) {
+        justify-content: space-between;
+      }
+    }
+
+    &--AlignEnd {
+      align-items: flex-end;
     }
   }
 
   &__Social {
-    position: absolute;
-    top: 0;
-    right: 0;
+    width: 100%;
+
+    @include media(large-phone) {
+      width: unset;
+    }
+
+    @include media(laptop) {
+      margin: 0 0 220px;
+    }
+
+    @include media(large-laptop) {
+      margin: 0 0 370px;
+    }
   }
 }

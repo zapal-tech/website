@@ -1,20 +1,49 @@
 @import 'styles/colors';
 @import 'styles/gaps';
+@import 'styles/mixins';
 
 .Policies {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
-  gap: $gap-xxs;
+  margin: 0 0 $gap-lg;
+  gap: 5px;
+
+  @include media(laptop) {
+    margin: 0;
+    gap: $gap-xxs;
+  }
 
   & &__Title {
+    padding: 0 0 5px;
     border-bottom: 1px solid $white;
-    margin-bottom: $gap-xs;
+    margin: 0 0 5px;
+
+    @include media(laptop) {
+      padding: 0 0 7px;
+      margin: 0 0 18px;
+    }
+  }
+
+  & &__Title,
+  & &__LinkText {
     line-height: 1;
   }
 
   & &__Link {
+    padding: 0 0 5px;
+    border-bottom: 1px solid transparent;
     color: $white;
+    transition: all 0.2s ease-in-out;
+
+    @include media(laptop) {
+      padding: 0 0 7px;
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: $white;
+    }
   }
 }

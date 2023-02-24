@@ -1,11 +1,10 @@
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useMemo } from 'react';
 
 import { ProjectPreview } from 'types/projects';
 
-import { useWindowSize } from 'hooks';
+import { useMediaQuery } from 'hooks';
 
 import { Card, Text } from 'components';
 
@@ -17,15 +16,11 @@ import styles from './ProjectCard.module.scss';
 
 export const ProjectCard: React.FC<ProjectPreview> = ({ name, photoUrl }) => {
   const { t } = useTranslation(Namespace.Home);
-  const windowSize = useWindowSize();
 
-  const isLaptop = useMemo(
-    () => windowSize.width && windowSize.width >= parseInt(media.breakpointLaptop),
-    [windowSize],
-  );
+  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
   return (
-    <Link href={'/projects'} className={styles.ProjectCard}>
+    <Link href={'/projects'} className={styles.ProjectCard} tabIndex={-1}>
       <Image className={styles.ProjectCard__Image} width={500} height={400} src={photoUrl} alt={name} />
       <Card
         className={styles.ProjectCard__InnerCard}
@@ -36,9 +31,9 @@ export const ProjectCard: React.FC<ProjectPreview> = ({ name, photoUrl }) => {
           {name}
 
           {isLaptop && (
-            <Link href={photoUrl} className={styles.ProjectCard__Button}>
+            <Link href={'/projects'} className={styles.ProjectCard__Button}>
               <Text className={styles.ProjectCard__ButtonText} size="small">
-                {t('projects.button')}
+                {t('projects.cardButton')}
               </Text>
             </Link>
           )}

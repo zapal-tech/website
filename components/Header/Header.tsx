@@ -1,9 +1,8 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { useMemo } from 'react';
 
-import { useWindowSize } from 'hooks';
+import { useMediaQuery } from 'hooks';
 
 import { useAppDispatch } from 'store';
 import { setIsMobileMenuOpen } from 'store/generalSlice';
@@ -24,13 +23,9 @@ const ContactForm = dynamic(() => import('views/ContactForm/ContactForm').then((
 
 export const Header: React.FC = () => {
   const { t } = useTranslation(Namespace.Common);
-  const windowSize = useWindowSize();
   const dispatch = useAppDispatch();
 
-  const isLaptop = useMemo(
-    () => windowSize.width && windowSize.width >= parseInt(media.breakpointLaptop),
-    [windowSize],
-  );
+  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
   const handleBurgerButtonClick = () => dispatch(setIsMobileMenuOpen(true));
   const handleFormButtonClick = () => dispatch(openModal(<ContactForm />));

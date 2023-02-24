@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 
 import { Coordinates } from 'types/locations';
 
-import { useWindowSize } from 'hooks';
+import { useMediaQuery } from 'hooks';
 
 import { useAppSelector } from 'store';
 import { selectCurrentLocation, selectLocations } from 'store/mapSlice';
@@ -21,22 +21,16 @@ import styles from './Locations.module.scss';
 const markerIconProps: google.maps.Icon = { url: 'icons/location-marker.svg' };
 
 export const Locations = () => {
-  const windowSize = useWindowSize();
   const currentLocation = useAppSelector(selectCurrentLocation);
   const locations = useAppSelector(selectLocations);
 
-  const isLaptop = useMemo(
-    () => windowSize.width && windowSize.width >= parseInt(media.breakpointLaptop),
-    [windowSize],
-  );
+  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
   const centerCoordinates = useMemo<Coordinates>(() => {
-    if (!windowSize) return currentLocation.coordinates;
-
     if (isLaptop) return { ...currentLocation.coordinates, lng: currentLocation.coordinates.lng - 0.02 };
 
     return { ...currentLocation.coordinates, lat: currentLocation.coordinates.lat - 0.005 };
-  }, [currentLocation, windowSize, isLaptop]);
+  }, [currentLocation, isLaptop]);
 
   return (
     <div className={styles.Locations}>
