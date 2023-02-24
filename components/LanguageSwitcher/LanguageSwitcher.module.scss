@@ -62,7 +62,7 @@
       @include media(laptop) {
         border-color: $rosso-corsa;
         background: $rosso-corsa;
-        color: inherit;
+        color: $white;
       }
     }
 
@@ -71,8 +71,6 @@
 
       @include media(laptop) {
         border-color: $orioles-orange;
-        // color: $jet-black;
-        background: rgba($orioles-orange, 0);
       }
 
       &:hover,
@@ -82,7 +80,7 @@
         @include media(laptop) {
           border-color: $rosso-corsa;
           background: $rosso-corsa;
-          color: inherit;
+          color: $white;
         }
       }
     }
