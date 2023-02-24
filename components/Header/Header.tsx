@@ -8,7 +8,7 @@ import { useAppDispatch } from 'store';
 import { setIsMobileMenuOpen } from 'store/generalSlice';
 import { openModal } from 'store/modalSlice';
 
-import { Logo, Navigation, Text, Banner, Button } from 'components';
+import { Logo, Navigation, Text, Banner, Button, LanguageSwitcher } from 'components';
 
 import { Namespace } from 'i18n';
 
@@ -54,7 +54,9 @@ export const Header: React.FC = () => {
             </HeaderButton>
           )}
 
-          {!isLaptop && (
+          {isLaptop ? (
+            <LanguageSwitcher className={styles.Header__LanguageSwitcher} />
+          ) : (
             <HeaderButton
               className={styles.Header__BurgerButton}
               onClick={handleBurgerButtonClick}
@@ -65,9 +67,9 @@ export const Header: React.FC = () => {
             </HeaderButton>
           )}
         </div>
-
-        {!isLaptop && <MobileMenu />}
       </header>
+
+      {!isLaptop && <MobileMenu />}
     </>
   );
 };

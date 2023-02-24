@@ -15,8 +15,8 @@ export const PageLoader = () => {
   useEffect(() => {
     setIsLoading(false);
 
-    const handleStart = (path: string) => path !== router.asPath && setIsLoading(true);
-    const handleComplete = (path: string) => path === router.asPath && setIsLoading(false);
+    const handleStart = () => setIsLoading(true);
+    const handleComplete = () => setIsLoading(false);
 
     router.events.on('routeChangeStart', handleStart);
     router.events.on('routeChangeComplete', handleComplete);
