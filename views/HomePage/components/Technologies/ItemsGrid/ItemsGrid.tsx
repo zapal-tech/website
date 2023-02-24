@@ -1,20 +1,33 @@
-import python from '/public/technologies/python.svg';
-import swift from '/public/technologies/swift.svg';
+import PythonIcon from '/public/technologies/python.svg';
+import SwiftIcon from '/public/technologies/swift.svg';
 import clsx, { ClassValue } from 'clsx';
-import ai from 'public/technologies/adobe-illustrator.svg';
-import angular from 'public/technologies/angular.svg';
-import cSharp from 'public/technologies/cSharp.svg';
-import code from 'public/technologies/code.svg';
-import figma from 'public/technologies/figma.svg';
-import html from 'public/technologies/html-5.svg';
-import java from 'public/technologies/java.svg';
-import js from 'public/technologies/js.svg';
-import notion from 'public/technologies/notion.svg';
-import redux from 'public/technologies/redux.svg';
+import AiIcon from 'public/technologies/adobe-illustrator.svg';
+import AngularIcon from 'public/technologies/angular.svg';
+import CSharpIcon from 'public/technologies/cSharp.svg';
+import CodeIcon from 'public/technologies/code.svg';
+import FigmaIcon from 'public/technologies/figma.svg';
+import HtmlIcon from 'public/technologies/html-5.svg';
+import JavaIcon from 'public/technologies/java.svg';
+import JsIcon from 'public/technologies/js.svg';
+import NotionIcon from 'public/technologies/notion.svg';
+import ReduxIcon from 'public/technologies/redux.svg';
 
 import styles from './ItemsGrid.module.scss';
 
-const itemsArray = [swift, python, code, figma, cSharp, js, ai, html, notion, redux, java, angular];
+const itemsArray = [
+  SwiftIcon,
+  PythonIcon,
+  CodeIcon,
+  FigmaIcon,
+  CSharpIcon,
+  JsIcon,
+  AiIcon,
+  HtmlIcon,
+  NotionIcon,
+  ReduxIcon,
+  JavaIcon,
+  AngularIcon,
+];
 
 export type ItemsGridProps = {
   className?: ClassValue | ClassValue[];
