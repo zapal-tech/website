@@ -22,10 +22,12 @@
     width: 270px;
     align-self: center;
     color: $sonic-silver;
+
     &::before {
       margin-right: 5px;
       content: '>';
     }
+
     @include media(large-laptop) {
       align-self: flex-end;
     }
@@ -58,7 +60,7 @@
     align-items: center;
     justify-content: center;
     border-radius: $gap-xl;
-    margin-bottom: 121px;
+    margin-bottom: 120px;
     background: $white;
     cursor: pointer;
 
@@ -74,6 +76,7 @@
 
   &__Text {
     margin-bottom: $gap-lg;
+
     @include media(laptop) {
       width: 350px;
       margin-bottom: $gap-md * 2;
@@ -91,10 +94,12 @@
 
   &__Button {
     cursor: pointer;
+
     @include media(laptop) {
       margin-left: 18%;
     }
   }
+
   &__ButtonText {
     @include media(laptop) {
       color: $orioles-orange;
