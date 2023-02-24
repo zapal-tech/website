@@ -1,0 +1,26 @@
+@import 'styles/mixins';
+
+.Calendly {
+  padding: 0;
+  margin: 0;
+
+  & > div {
+    height: unset !important;
+  }
+
+  iframe {
+    height: 1080px !important;
+
+    @include media(phone) {
+      height: 1060px !important;
+    }
+
+    @include media(large-phone) {
+      height: 1120px !important;
+    }
+
+    @include media(laptop) {
+      height: 660px !important;
+    }
+  }
+}
