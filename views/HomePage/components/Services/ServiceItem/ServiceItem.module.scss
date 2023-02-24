@@ -1,53 +1,56 @@
-@import 'styles/mixins';
 @import 'styles/colors';
 @import 'styles/gaps';
+@import 'styles/mixins';
 
-.Item {
-  display: flex;
-  flex-direction: column;
+.ServiceItem {
+  margin-bottom: 5px;
   cursor: pointer;
+
+  @include media(laptop) {
+    margin-bottom: $gap-xxs;
+  }
 
   &__Icon {
     width: 20px;
     height: 20px;
     fill: $white;
-    transition: 0.5s ease;
 
     @include media(laptop) {
-      width: 33px;
-      height: 33px;
+      width: 30px;
+      height: 30px;
     }
-  }
 
-  &:hover .Item__Icon {
-    fill: $orioles-orange;
-    transition: 0.5s ease;
-  }
-
-  &__Block {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  &__Content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 28px;
-    margin-bottom: 28px;
-    gap: $gap-sm;
-
-    @include media(laptop) {
-      margin-top: 48px;
-      margin-bottom: 48px;
-      gap: $gap-xl;
+    &:hover &__Icon,
+    &:focus-visible &__Icon {
+      fill: $rosso-corsa;
+      transition: all 0.3s ease-in-out;
     }
-  }
 
-  &__Divider {
-    margin-top: 2px;
-    margin-bottom: 2px;
+    &__Text {
+      margin-left: $gap-sm;
+
+      @include media(laptop) {
+        margin-left: $gap-xl;
+      }
+    }
+
+    &__Content {
+      display: flex;
+      align-items: baseline;
+      padding-top: 25px;
+      padding-bottom: $gap-md;
+
+      @include media(laptop) {
+        padding-top: $gap-lg;
+        padding-bottom: $gap-xl;
+      }
+    }
+
+    &--Link {
+      width: 30px;
+      height: auto;
+      padding-left: 10px;
+      margin: 0 0 0 auto;
+    }
   }
 }
