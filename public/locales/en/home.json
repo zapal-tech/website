@@ -28,8 +28,8 @@
     "title": "Projects",
     "cardButton": "click for more"
   },
-  "clients": {
-    "title": "Clients and partners",
+  "partners": {
+    "title": "Partners",
     "titleAfter": {
       "upper": "Drag or scroll",
       "lower": "for more"
