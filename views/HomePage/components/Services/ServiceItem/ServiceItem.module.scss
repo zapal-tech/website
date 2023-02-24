@@ -9,7 +9,6 @@
   @include media(laptop) {
     margin-bottom: $gap-xxs;
   }
-
   &__Icon {
     width: 20px;
     height: 20px;
@@ -19,38 +18,37 @@
       width: 30px;
       height: 30px;
     }
-
-    &:hover &__Icon,
-    &:focus-visible &__Icon {
-      fill: $rosso-corsa;
-      transition: all 0.3s ease-in-out;
-    }
-
-    &__Text {
-      margin-left: $gap-sm;
-
-      @include media(laptop) {
-        margin-left: $gap-xl;
-      }
-    }
-
-    &__Content {
-      display: flex;
-      align-items: baseline;
-      padding-top: 25px;
-      padding-bottom: $gap-md;
-
-      @include media(laptop) {
-        padding-top: $gap-lg;
-        padding-bottom: $gap-xl;
-      }
-    }
-
     &--Link {
       width: 30px;
       height: auto;
       padding-left: 10px;
       margin: 0 0 0 auto;
+    }
+  }
+
+  &:hover &__Icon,
+  &:focus-visible &__Icon {
+    fill: $rosso-corsa;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__Text {
+    margin-left: $gap-sm;
+
+    @include media(laptop) {
+      margin-left: $gap-xl;
+    }
+  }
+
+  &__Content {
+    display: flex;
+    align-items: baseline;
+    padding-top: 25px;
+    padding-bottom: $gap-md;
+
+    @include media(laptop) {
+      padding-top: $gap-lg;
+      padding-bottom: $gap-xl;
     }
   }
 }
