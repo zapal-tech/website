@@ -57,16 +57,16 @@ $secondary-large-laptop-border-horizontal-padding: 23px;
       border: 2px solid $orioles-orange;
       font-size: 1rem;
       font-weight: 400;
-    }
-
-    @include media(large-laptop) {
-      padding: $secondary-large-laptop-border-vertical-padding $secondary-large-laptop-border-horizontal-padding;
-      font-size: 1.125rem;
 
       &:focus-visible,
       &:hover {
         border-color: $rosso-corsa;
       }
+    }
+
+    @include media(large-laptop) {
+      padding: $secondary-large-laptop-border-vertical-padding $secondary-large-laptop-border-horizontal-padding;
+      font-size: 1.125rem;
     }
   }
 
