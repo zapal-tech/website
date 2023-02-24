@@ -6,7 +6,7 @@ export * from './Divider/Divider';
 export * from './Footer/Footer';
 export * from './Header/Header';
 export * from './Input/Input';
-export * from './LanguageSwitch/LanguageSwitch';
+export * from './LanguageSwitcher/LanguageSwitcher';
 export * from './Link/Link';
 export * from './Logo/Logo';
 export * from './MetaPixel/MetaPixel';

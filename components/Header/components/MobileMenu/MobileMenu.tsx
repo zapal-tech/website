@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from 'store';
 import { selectIsMobileMenuOpen, setIsMobileMenuOpen } from 'store/generalSlice';
 import { openModal } from 'store/modalSlice';
 
-import { Container, Navigation, SocialLinks, Text } from 'components';
+import { Container, LanguageSwitcher, Navigation, SocialLinks, Text } from 'components';
 
 import { Namespace } from 'i18n';
 
@@ -47,6 +47,8 @@ export const MobileMenu: React.FC = () => {
       </button>
 
       <SocialLinks className={styles.MobileMenu__Social} />
+
+      <LanguageSwitcher className={styles.MobileMenu__LanguageSwitcher} />
     </Container>
   );
 };

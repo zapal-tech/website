@@ -27,12 +27,12 @@ export const ProjectCard: React.FC<ProjectPreview> = ({ name, photoUrl }) => {
         frameType="corner"
         cornerClassName={styles.ProjectCard__InnerCard__Dot}
       >
-        <Text className={styles.ProjectCard__Name} type="h4" size="heading3">
+        <Text className={styles.ProjectCard__Name} type="span" size="heading3">
           {name}
 
           {isLaptop && (
             <Link href={'/projects'} className={styles.ProjectCard__Button}>
-              <Text className={styles.ProjectCard__ButtonText} size="small">
+              <Text className={styles.ProjectCard__ButtonText} type="span" size="small">
                 {t('projects.cardButton')}
               </Text>
             </Link>

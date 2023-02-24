@@ -3,15 +3,19 @@
 @import 'styles/mixins';
 @import 'styles/variables';
 
+$mobile-safe-area-bottom: $gap-xl;
+
 .MobileMenu {
   position: fixed;
   z-index: 10;
   top: 0;
   right: -100%;
-  display: block;
+  display: flex;
   overflow: hidden;
   width: 100vw;
-  height: calc(100vh + $gap-xl);
+  height: calc(100vh + $mobile-safe-area-bottom);
+  flex-direction: column;
+  padding-bottom: $mobile-safe-area-bottom + $gap-lg;
   backdrop-filter: saturate(110%) blur($blur-zero);
   background: rgba($jet-black, 0.85);
   filter: blur($blur-md) opacity(0.1);
@@ -60,5 +64,9 @@
       width: 16px;
       color: $white;
     }
+  }
+
+  &__LanguageSwitcher {
+    margin-top: auto;
   }
 }
