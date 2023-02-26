@@ -1,5 +1,6 @@
-import CloseIcon from 'public/icons/close.svg';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+
+import CloseIcon from 'public/icons/close.svg';
 
 import { useAppDispatch, useAppSelector } from 'store';
 import { closeModal, selectIsModalOpen, selectModalContent } from 'store/modalSlice';
@@ -24,11 +25,16 @@ export const Modal: React.FC = () => {
 
   useEffect(() => {
     if (isOpen) {
+      document.body.style.overflow = 'hidden';
       setIsShow(true);
     } else {
+      document.body.style.overflow = 'auto';
       const timeout = setTimeout(() => setIsShow(false), 300);
 
-      return () => clearTimeout(timeout);
+      return () => {
+        document.body.style.overflow = 'auto';
+        clearTimeout(timeout);
+      };
     }
   }, [isOpen]);
 

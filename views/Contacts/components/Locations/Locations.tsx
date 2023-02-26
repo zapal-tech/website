@@ -18,7 +18,7 @@ import media from 'styles/media.module.scss';
 
 import styles from './Locations.module.scss';
 
-const markerIconProps: google.maps.Icon = { url: 'icons/location-marker.svg' };
+const markerIconProps: google.maps.Icon = { url: '/icons/location-marker.svg' };
 
 export const Locations = () => {
   const currentLocation = useAppSelector(selectCurrentLocation);

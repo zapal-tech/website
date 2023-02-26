@@ -1,4 +1,38 @@
-import Image from 'next/image';
-import animation from 'public/technologies/animation.png';
+import styles from './Animation.module.scss';
 
-export const Animation: React.FC = () => <Image src={animation} alt="animation" />;
+export const Animation: React.FC = () => (
+  <div className={styles.Animation}>
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+    <div className={styles.Animation__Line} />
+  </div>
+);

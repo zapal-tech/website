@@ -29,7 +29,7 @@ export const Projects = () => {
 
   return (
     <Container className={styles.Projects}>
-      <Text className={styles.Projects__Title} uppercase type="h1" size="heading1">
+      <Text className={styles.Projects__Title} uppercase type="h2" size="heading1">
         {t('projects.title')}
       </Text>
 

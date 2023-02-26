@@ -21,18 +21,12 @@ export const Hero = () => {
         {t('hero.title')}
       </Text>
 
-      <Text className={styles.Hero__Subtitle} size="heading1" type="h3" uppercase>
+      <Text className={styles.Hero__Subtitle} size="heading1" type="h2" uppercase>
         {t('hero.subtitle.upper')} {!isLaptop && <br />} {t('hero.subtitle.lower')}
       </Text>
 
       <div className={styles.Hero__LinksBox}>
-        <Link
-          uppercase={false}
-          underline={false}
-          icon={false}
-          href="mailto:hello@zapal"
-          className={styles.Hero__EmailLink}
-        >
+        <Link underline={false} icon={false} href="mailto:hello@zapal" className={styles.Hero__EmailLink}>
           <Text size="heading3">hello@zapal.tech</Text>
         </Link>
 

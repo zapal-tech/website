@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
+import { useEffect } from 'react';
+
 import CloseIcon from 'public/icons/close.svg';
 
 import { useAppDispatch, useAppSelector } from 'store';
@@ -28,6 +30,24 @@ export const MobileMenu: React.FC = () => {
     dispatch(openModal(<ContactForm />));
   };
 
+  const closeMobileMenu = () => dispatch(setIsMobileMenuOpen(false));
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) dispatch(setIsMobileMenuOpen(false));
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  });
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+  }, [isOpen]);
+
   return (
     <Container type="aside" className={clsx(styles.MobileMenu, isOpen && styles['MobileMenu--Open'])}>
       <HeaderButton
@@ -38,7 +58,7 @@ export const MobileMenu: React.FC = () => {
         <CloseIcon />
       </HeaderButton>
 
-      <Navigation />
+      <Navigation closeMobileMenu={closeMobileMenu} />
 
       <button className={styles.MobileMenu__ContactFormButton} onClick={handleContactFormButtonClick}>
         <Text size="heading3" uppercase>

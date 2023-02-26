@@ -3,6 +3,7 @@
   "bracketSpacing": true,
   "endOfLine": "lf",
   "importOrder": [
+    "^(^public$)|(^public/(.*)$)$",
     "^(^configs$)|(^configs/(.*)$)$",
     "^(^types$)|(^types/(.*)$)$",
     "^(^hooks$)|(^hooks/(.*)$)$",

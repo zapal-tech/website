@@ -18,27 +18,32 @@ export const Partners = () => {
   return (
     <Container>
       <div className={styles.Partners}>
-        <Text className={styles.Partners__Title} type="h1" size="heading1" uppercase>
+        <Text className={styles.Partners__Title} type="h2" size="heading1" uppercase>
           {t('partners.title')}
         </Text>
+
         {isLaptop ? (
-          <Text className={styles.Partners__AfterTitle} size="default">
+          <Text className={styles.Partners__AfterTitle}>
             {t('partners.titleAfter.upper')} <br />
             {t('partners.titleAfter.lower')}
           </Text>
         ) : null}
       </div>
+
       <Text className={styles.Partners__Subtitle} type="h3" size="heading3">
         {t('partners.subtitle')}
       </Text>
+
       <div className={styles.Partners__Slider}>
-        <Text className={styles.Partners__SliderText} type="h3" size="heading2">
+        <Text className={styles.Partners__SliderText} size="heading2">
           Slider
         </Text>
       </div>
-      <Text className={styles.Partners__Text} type="h3" size="heading3">
+
+      <Text className={styles.Partners__Text} size="heading3">
         {t('partners.text')}
       </Text>
+
       <Button className={styles.Partners__Button}>{t('becomeAClient', { ns: Namespace.Common })}</Button>
     </Container>
   );

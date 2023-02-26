@@ -3,25 +3,28 @@
 @import 'styles/mixins';
 
 .ServiceItem {
-  margin-bottom: 5px;
+  margin: 0 0 5px;
   cursor: pointer;
 
   @include media(laptop) {
-    margin-bottom: $gap-xxs;
+    margin: 0 0 $gap-xxs;
   }
+
   &__Icon {
     width: 20px;
     height: 20px;
     fill: $white;
+    transition: all 0.3s ease-in-out;
 
     @include media(laptop) {
       width: 30px;
       height: 30px;
     }
+
     &--Link {
       width: 30px;
       height: auto;
-      padding-left: 10px;
+      padding-left: $gap-xxs;
       margin: 0 0 0 auto;
     }
   }
@@ -29,7 +32,6 @@
   &:hover &__Icon,
   &:focus-visible &__Icon {
     fill: $rosso-corsa;
-    transition: all 0.3s ease-in-out;
   }
 
   &__Text {
@@ -43,12 +45,10 @@
   &__Content {
     display: flex;
     align-items: baseline;
-    padding-top: 25px;
-    padding-bottom: $gap-md;
+    padding: 25px 0 $gap-md;
 
     @include media(laptop) {
-      padding-top: $gap-lg;
-      padding-bottom: $gap-xl;
+      padding: $gap-lg 0 $gap-xl;
     }
   }
 }

@@ -15,7 +15,7 @@ export const AboutUs: React.FC = () => {
 
   return (
     <Container className={styles.AboutUs}>
-      <Text size="heading1" type="h1" uppercase className={styles.AboutUs__Title}>
+      <Text size="heading1" type="h2" uppercase className={styles.AboutUs__Title}>
         {t('about.title')}
       </Text>
 

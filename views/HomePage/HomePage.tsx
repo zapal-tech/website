@@ -9,6 +9,7 @@ const Services = dynamic(() => import('./components/Services/Services').then((mo
 const Technologies = dynamic(() => import('./components/Technologies/Technologies').then((mod) => mod.Technologies));
 const Partners = dynamic(() => import('./components/Partners/Partners').then((mod) => mod.Partners));
 const Projects = dynamic(() => import('./components/Projects/Projects').then((mod) => mod.Projects));
+const Team = dynamic(() => import('./components/Team/Team').then((mod) => mod.Team));
 
 export const HomePage = () => (
   <AppLayout>
@@ -18,5 +19,6 @@ export const HomePage = () => (
     <Technologies />
     <Projects />
     <Partners />
+    <Team />
   </AppLayout>
 );

@@ -1,8 +1,11 @@
+import dynamic from 'next/dynamic';
+
 import { AppLayout } from 'layouts';
 
-import { Calendly } from './components/Calendly/Calendly';
 import { Hero } from './components/Hero/Hero';
-import { Locations } from './components/Locations/Locations';
+
+const Calendly = dynamic(() => import('./components/Calendly/Calendly').then((mod) => mod.Calendly));
+const Locations = dynamic(() => import('./components/Locations/Locations').then((mod) => mod.Locations));
 
 export const Contacts: React.FC = () => (
   <AppLayout>

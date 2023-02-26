@@ -10,7 +10,6 @@ export type MapProps = GoogleMapProps & {
 const MapComponent: React.FC<MapProps> = ({ zoom = 15, children, ...props }) => {
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
-    preventGoogleFontsLoading: true,
   });
   const [isMounted, setIsMounted] = useState(false);
 

@@ -6,6 +6,8 @@ import * as yup from 'yup';
 
 import { ContactFormState } from 'types/contactForm';
 
+import { useMediaQuery } from 'hooks';
+
 import { useAppDispatch } from 'store';
 import { clearContactForm, selectContactFormState, setContactFormFieldValue } from 'store/contactFormSlice';
 import { closeModal } from 'store/modalSlice';
@@ -13,6 +15,8 @@ import { closeModal } from 'store/modalSlice';
 import { Button, Container, Input, Text, TextArea } from 'components';
 
 import { Namespace } from 'i18n';
+
+import media from 'styles/media.module.scss';
 
 import styles from './ContactForm.module.scss';
 
@@ -27,6 +31,7 @@ const schema = yup.object<ContactFormState>({
 export const ContactForm: React.FC = () => {
   const { t } = useTranslation(Namespace.ContactForm);
   const dispatch = useAppDispatch();
+  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
   const contactFormState = useSelector(selectContactFormState);
   const { control, handleSubmit } = useForm<ContactFormState>({
     values: contactFormState,
@@ -37,8 +42,6 @@ export const ContactForm: React.FC = () => {
     dispatch(setContactFormFieldValue({ name: name as keyof ContactFormState, value }));
 
   const submitForm = async (data: ContactFormState) => {
-    console.log(data);
-
     const res = await fetch('/api/contact', {
       method: 'POST',
       headers: {
@@ -109,7 +112,7 @@ export const ContactForm: React.FC = () => {
             control={control}
             onChange={handleChange}
             placeholder={t('form.message')}
-            rows={6}
+            rows={isLaptop ? 6 : 2}
             required
           />
         </div>

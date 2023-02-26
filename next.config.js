@@ -28,7 +28,7 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'firebasestorage.googleapis.com',
         port: '',
-        pathname: '/v0/b/astute-impulse-377623.appspot.com/**',
+        pathname: `/v0/b/${process.env.GOOGLE_FIREBASE_PROJECT_ID}.appspot.com/**`,
       },
     ],
   },

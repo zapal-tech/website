@@ -3,6 +3,14 @@
 @import 'styles/mixins';
 
 .Projects {
+  &__Title {
+    margin: 0 0 $gap-lg;
+
+    @include media(laptop) {
+      margin: 0 0 $expanded-gap-md;
+    }
+  }
+
   &__List {
     display: grid;
     gap: $gap-sm;
@@ -30,9 +38,5 @@
     @include media(desktop) {
       grid-auto-rows: 600px;
     }
-  }
-
-  &__Title {
-    margin-bottom: $gap-lg;
   }
 }

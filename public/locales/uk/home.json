@@ -6,7 +6,7 @@
       "tech": "Tech",
       "future": "Future"
     },
-    "subtitle": "From ideation to launch, we're here to unlock your online dreams with our web development services"
+    "subtitle": "Від ідеї до запуску, ми тут, щоб допомогти розкрити потенціал твоєї ідеї та перетворити її в успішний продукт"
   },
   "about": {
     "title": "Про нас",
@@ -18,8 +18,18 @@
     ],
     "button": "дізнатися більше"
   },
+  "services": {
+    "title": "Наші послуги",
+    "webDev": "Розробка сайтів та веб-додатків",
+    "mobDev": "Розробка мобільних додатків",
+    "techAudit": "Технічний аудит",
+    "DevOps": "DevOps",
+    "UI/UX": "UI/UX дизайн",
+    "QA": "Тестування",
+    "ItConsult": "IT консалтинг"
+  },
   "technologies": {
-    "title": "Ми використовуємо"
+    "title": "Технології"
   },
   "projects": {
     "title": "Наші проекти",
@@ -28,20 +38,14 @@
   "partners": {
     "title": "Партнери",
     "titleAfter": {
-      "upper": "Drag or scroll",
-      "lower": "for more"
+      "upper": "Потягни або прокрути",
+      "lower": "для перегляду"
     },
     "subtitle": "We provide the highest level of gratification for our clients and their customers",
     "text": "We only deliver creations in which we believe"
   },
-  "services": {
-    "title": "Наші сервіси ",
-    "webDev": "Web apps development",
-    "mobDev": "Mobile apps development",
-    "techAudit": "Technical audit",
-    "DevOps": "DevOps services",
-    "UI/UX": "UI/UX Design",
-    "QA": "Quality Assurance services",
-    "ItConsult": "IT Consulting"
+  "team": {
+    "title": "Наша команда",
+    "readMore": "Більше"
   }
 }

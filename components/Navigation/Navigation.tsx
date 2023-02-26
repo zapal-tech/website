@@ -15,9 +15,10 @@ import styles from './Navigation.module.scss';
 
 export type NavigationProps = {
   className?: ClassValue | ClassValue[];
+  closeMobileMenu?: () => void;
 };
 
-export const Navigation: React.FC<NavigationProps> = ({ className }) => {
+export const Navigation: React.FC<NavigationProps> = ({ className, closeMobileMenu }) => {
   const { t } = useTranslation(Namespace.Navigation);
 
   const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
@@ -57,7 +58,7 @@ export const Navigation: React.FC<NavigationProps> = ({ className }) => {
       <ul className={styles.Navigation__List}>
         {navLinks.map(({ path, title }) => (
           <li key={path} className={styles.Navigation__ListItem}>
-            <Link href={path} className={styles.Navigation__Link}>
+            <Link href={path} className={styles.Navigation__Link} onClick={closeMobileMenu}>
               <Text size={isLaptop ? 'tiny' : 'heading3'} uppercase className={styles.Navigation__LinkText}>
                 {title}
               </Text>
