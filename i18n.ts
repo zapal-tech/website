@@ -32,5 +32,4 @@ export const globalNamespaces = [
   Namespace.Navigation,
   Namespace.Footer,
   Namespace.ContactForm,
-  Namespace.Projects,
 ];
