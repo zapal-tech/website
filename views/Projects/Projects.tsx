@@ -1,7 +1,5 @@
 import axios from 'axios';
 import { useTranslation } from 'next-i18next';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import CircleSvg from 'public/icons/projects-circle.svg';
@@ -13,6 +11,8 @@ import { Container, Text } from 'components';
 import { AppLayout } from 'layouts';
 
 import { Namespace } from 'i18n';
+
+import { ProjectCard } from './components/ProjectCard';
 
 import styles from './Projects.module.scss';
 
@@ -36,30 +36,17 @@ export const Projects = () => {
         <Text className={styles.Projects__Title} type="h2" size="heading1" uppercase>
           {t('title')}
         </Text>
-        <div className={styles.Projects__SubtitleBlock}>
-          <Text className={styles.Projects__SubtitleText} size="heading3">
+        <div className={styles.Projects__SubtitleContainer}>
+          <Text className={styles.Projects__Subtitle} size="heading3">
             {t('subtitle')}
           </Text>
 
-          <CircleSvg className={styles.Projects__Svg} />
+          <CircleSvg className={styles.Projects__CircleSvg} />
         </div>
-        <div className={styles.Projects__List}>
+
+        <div className={styles.Projects__Grid}>
           {projects.map((project) => (
-            <Link href={'/projects'} className={styles.Projects__Link} key={project.name}>
-              <Image
-                width={780}
-                height={800}
-                src={project.photoUrl}
-                alt={project.name}
-                className={styles.Projects__Image}
-              />
-              <Text size="heading3" className={styles.Projects__ImageTitle}>
-                {project.name}
-              </Text>
-              <Text size="small" className={styles.Projects__ImageSubtitle}>
-                Making online shopping a more sustainable experience
-              </Text>
-            </Link>
+            <ProjectCard key={project.name} {...project} />
           ))}
         </div>
       </Container>

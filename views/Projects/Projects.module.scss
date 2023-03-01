@@ -8,7 +8,7 @@
     margin-bottom: $gap-xxl;
   }
 
-  &__SubtitleBlock {
+  &__SubtitleContainer {
     position: relative;
     margin-bottom: $expanded-gap-xs;
 
@@ -17,7 +17,7 @@
     }
   }
 
-  &__SubtitleText {
+  &__Subtitle {
     @include media(laptop) {
       display: flex;
       justify-content: flex-end;
@@ -25,7 +25,7 @@
     }
   }
 
-  &__Svg {
+  &__CircleSvg {
     position: absolute;
     top: -$gap-xl;
     left: -$gap-xl;
@@ -48,12 +48,12 @@
     @include media(desktop) {
       top: -240px;
       right: -$expanded-gap-sm;
-      left: 86%;
+      left: 85%;
       height: 600px;
     }
   }
 
-  &__List {
+  &__Grid {
     position: relative;
     z-index: 2;
     display: grid;
@@ -79,38 +79,6 @@
       @include media(laptop) {
         margin-top: $expanded-gap-xl;
       }
-    }
-  }
-
-  &__Image {
-    border-radius: $gap-xxs;
-    margin-bottom: $gap-sm;
-    object-fit: cover;
-
-    @include media(laptop) {
-      height: 500px;
-      border-radius: $gap-sm;
-      margin-bottom: $gap-lg;
-    }
-
-    @include media(desktop) {
-      height: 800px;
-    }
-  }
-
-  &__ImageTitle {
-    margin-bottom: $gap-xxs;
-
-    @include media(laptop) {
-      margin-bottom: $gap-sm;
-    }
-  }
-
-  &__ImageSubtitle {
-    margin-bottom: $gap-xl;
-
-    @include media(laptop) {
-      width: 490px;
     }
   }
 }
