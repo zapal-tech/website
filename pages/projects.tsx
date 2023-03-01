@@ -19,7 +19,7 @@ export default function PortfolioPage(props: any) {
 
   return (
     <>
-      <NextSeo title={t('portfolio') || undefined} />
+      <NextSeo title={t('projects') || undefined} />
       <Projects {...props} />
     </>
   );
