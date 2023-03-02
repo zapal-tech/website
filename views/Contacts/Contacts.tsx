@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { MapProvider } from 'react-map-gl';
 
 import { AppLayout } from 'layouts';
 
@@ -9,8 +10,10 @@ const Locations = dynamic(() => import('./components/Locations/Locations').then(
 
 export const Contacts: React.FC = () => (
   <AppLayout>
-    <Hero />
-    <Locations />
-    <Calendly />
+    <MapProvider>
+      <Hero />
+      <Locations />
+      <Calendly />
+    </MapProvider>
   </AppLayout>
 );

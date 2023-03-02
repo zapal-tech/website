@@ -1,0 +1,85 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.TabContent {
+  display: grid;
+  height: 230px;
+  flex-direction: column;
+  padding: 25px 0 0;
+  gap: 5px;
+  grid-template-columns: 1fr;
+
+  @include media(large-phone) {
+    height: 150px;
+    gap: $gap-xxs;
+    grid-template: 1fr 1fr / 1fr 1fr;
+  }
+
+  @include media(large-tablet) {
+    height: 200px;
+  }
+
+  @include media(laptop) {
+    padding: $gap-xl 0 0;
+    gap: $gap-md;
+  }
+
+  @include media(large-laptop) {
+    height: 260px;
+  }
+
+  &__ContactLinks,
+  &__PersonInfo,
+  &__Time {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__ContactLinks,
+  &__PersonInfo {
+    gap: 5px;
+
+    @include media(large-phone) {
+      gap: $gap-xxs;
+    }
+  }
+
+  &__ContactLinks,
+  &__Time {
+    margin: 0 0 $gap-xxs;
+
+    @include media(large-phone) {
+      margin: 0;
+    }
+  }
+
+  &__PersonInfo,
+  &__Time {
+    @include media(large-phone) {
+      align-items: flex-end;
+    }
+  }
+
+  &__Time {
+    @include media(large-phone) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__Link {
+    height: max-content;
+    color: $white;
+    transition: all 0.3s ease-in-out;
+
+    & > * {
+      color: inherit;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $orioles-orange;
+    }
+  }
+}

@@ -4,7 +4,7 @@
 
 .Hero {
   &__Title {
-    margin-top: 155px;
+    margin-top: $expanded-gap-sm;
   }
 
   &__Subtitle {
@@ -22,59 +22,29 @@
     }
   }
 
-  &__LinksBox {
+  &__Links {
     display: flex;
     flex-direction: column;
-    margin-top: 177px;
-    margin-bottom: $gap-xxl;
-    gap: 67px;
-
-    @include media(laptop) {
-      margin-left: 320px;
-      gap: $expanded-gap-md;
-    }
+    gap: $gap-lg;
   }
 
-  &__EmailLink {
-    position: relative;
-
-    &::before {
-      @include pseudo('email');
-      top: -25px;
-      left: 0;
-      color: $white;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 22px;
-
-      @include media(laptop) {
-        top: -$gap-lg;
-        font-size: 26px;
-        font-weight: 500;
-        line-height: 34px;
-      }
-    }
+  &__LinkContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
 
-  &__PhoneLink {
-    position: relative;
+  &__Link {
+    color: $white;
+    transition: all 0.3s ease-in-out;
 
-    &::before {
-      @include pseudo('phone');
+    & > * {
+      color: inherit;
+    }
 
-      top: -25px;
-      left: 0;
-      color: $white;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 22px;
-
-      @include media(laptop) {
-        top: -$gap-lg;
-        font-size: 26px;
-        font-weight: 500;
-        line-height: 34px;
-      }
+    &:hover,
+    &:focus-visible {
+      color: $orioles-orange;
     }
   }
 }

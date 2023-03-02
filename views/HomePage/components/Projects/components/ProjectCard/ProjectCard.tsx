@@ -31,11 +31,11 @@ export const ProjectCard: React.FC<ProjectPreview> = ({ name, photoUrl }) => {
           {name}
 
           {isLaptop && (
-            <Link href={'/projects'} className={styles.ProjectCard__Button}>
+            <button className={styles.ProjectCard__Button}>
               <Text className={styles.ProjectCard__ButtonText} type="span" size="small">
                 {t('projects.cardButton')}
               </Text>
-            </Link>
+            </button>
           )}
         </Text>
       </Card>

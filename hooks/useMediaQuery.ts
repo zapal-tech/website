@@ -13,18 +13,16 @@ type Query = {
 export const useMediaQuery = (query: Query): boolean => {
   const { width, height } = useWindowSize();
 
+  if (!width || !height) return true;
+
   const widthMin = query.width?.min;
   const widthMax = query.width?.max;
 
   const heightMin = query.height?.min;
   const heightMax = query.height?.max;
 
-  const widthMatch =
-    (width && widthMin && widthMin <= width) || (width && widthMax && widthMax >= width) || (!widthMin && !widthMax);
-  const heightMatch =
-    (height && heightMin && heightMin <= height) ||
-    (height && heightMax && heightMax >= height) ||
-    (!heightMin && !heightMax);
+  const widthMatch = (widthMin ? width >= widthMin : true) && (widthMax ? width <= widthMax : true);
+  const heightMatch = (heightMin ? height >= heightMin : true) && (heightMax ? height <= heightMax : true);
 
   return Boolean(widthMatch && heightMatch);
 };
