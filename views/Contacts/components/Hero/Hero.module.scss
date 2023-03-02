@@ -1,0 +1,50 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.Hero {
+  &__Title {
+    margin-top: $expanded-gap-sm;
+  }
+
+  &__Subtitle {
+    color: $jet-black;
+    -webkit-text-stroke: 1px $sonic-silver;
+
+    @media screen and not (-webkit-min-device-pixel-ratio: 0) {
+      color: $sonic-silver;
+    }
+
+    @include media(laptop) {
+      display: flex;
+      text-indent: 322px;
+      -webkit-text-stroke-color: $white;
+    }
+  }
+
+  &__Links {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-lg;
+  }
+
+  &__LinkContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__Link {
+    color: $white;
+    transition: all 0.3s ease-in-out;
+
+    & > * {
+      color: inherit;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $orioles-orange;
+    }
+  }
+}

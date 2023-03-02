@@ -1,0 +1,54 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.Banner {
+  display: flex;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+  background-color: $orioles-orange;
+  color: $white;
+
+  @include media(laptop) {
+    height: 32px;
+  }
+
+  @include media(large-laptop) {
+    height: 40px;
+  }
+
+  &__Text {
+    position: relative;
+    padding-right: 22px;
+
+    @include media(laptop) {
+      padding-right: 28px;
+    }
+
+    @include media(large-laptop) {
+      padding-right: 36px;
+    }
+
+    &::after {
+      @include pseudo();
+      top: 50%;
+      right: 0;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+
+      background: linear-gradient(to bottom, $ukraine-blue 50%, $ukraine-yellow 50%);
+      transform: translateY(-50%);
+
+      @include media(laptop) {
+        width: 17px;
+        height: 17px;
+      }
+
+      @include media(large-laptop) {
+        width: 23px;
+        height: 23px;
+      }
+    }
+  }
+}

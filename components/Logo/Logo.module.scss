@@ -1,0 +1,40 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+$laptop-text-horizontal-shifting: 6px;
+
+.Logo {
+  display: flex;
+  align-items: center;
+
+  &__Svg {
+    width: auto;
+    fill: $white;
+    transition: all ease 0.2s;
+
+    &--Name {
+      height: 30px;
+
+      @include media(laptop) {
+        height: 38px;
+      }
+
+      @include media(large-laptop) {
+        height: 43px;
+      }
+    }
+
+    &--Clean {
+      height: 21px;
+
+      @include media(laptop) {
+        height: 28px;
+      }
+
+      @include media(large-laptop) {
+        height: 31px;
+      }
+    }
+  }
+}

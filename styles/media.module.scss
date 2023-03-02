@@ -1,0 +1,11 @@
+@import './media';
+
+:export {
+  breakpointDesktop: $breakpoint-desktop;
+  breakpointLaptop: $breakpoint-laptop;
+  breakpointLargeLaptop: $breakpoint-large-laptop;
+  breakpointLargePhone: $breakpoint-large-phone;
+  breakpointLargeTablet: $breakpoint-large-tablet;
+  breakpointPhone: $breakpoint-phone;
+  breakpointTablet: $breakpoint-tablet;
+}

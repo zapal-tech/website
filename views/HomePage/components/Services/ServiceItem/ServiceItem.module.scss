@@ -1,0 +1,54 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.ServiceItem {
+  margin: 0 0 5px;
+  cursor: pointer;
+
+  @include media(laptop) {
+    margin: 0 0 $gap-xxs;
+  }
+
+  &__Icon {
+    width: 20px;
+    height: 20px;
+    fill: $white;
+    transition: all 0.3s ease-in-out;
+
+    @include media(laptop) {
+      width: 30px;
+      height: 30px;
+    }
+
+    &--Link {
+      width: 30px;
+      height: auto;
+      padding-left: $gap-xxs;
+      margin: 0 0 0 auto;
+    }
+  }
+
+  &:hover &__Icon,
+  &:focus-visible &__Icon {
+    fill: $rosso-corsa;
+  }
+
+  &__Text {
+    margin-left: $gap-sm;
+
+    @include media(laptop) {
+      margin-left: $gap-xl;
+    }
+  }
+
+  &__Content {
+    display: flex;
+    align-items: baseline;
+    padding: 25px 0 $gap-md;
+
+    @include media(laptop) {
+      padding: $gap-lg 0 $gap-xl;
+    }
+  }
+}

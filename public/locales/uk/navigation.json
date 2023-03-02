@@ -1,0 +1,32 @@
+{
+  "home": {
+    "title": "Головна"
+  },
+  "about": {
+    "title": "Про нас"
+  },
+  "projects": {
+    "title": "Проекти"
+  },
+  "career": {
+    "title": "Кар'єра"
+  },
+  "contacts": {
+    "title": "Контакти"
+  },
+  "supportUkraine": {
+    "title": "Support Ukraine"
+  },
+  "privacyPolicy": {
+    "title": "Політика конфіденційності"
+  },
+  "termsOfUse": {
+    "title": "Правила користування сайтом"
+  },
+  "cookiesPolicy": {
+    "title": "Політика щодо файлів cookie"
+  },
+  "sitemap": {
+    "title": "Карта сайту"
+  }
+}

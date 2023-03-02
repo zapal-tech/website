@@ -25,12 +25,21 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# local env files
-.env*.local
-
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
+
+# next sitemap
+/public/sitemap-*.xml
+
+# next pwa
+/public/sw.js
+/public/workbox*.js

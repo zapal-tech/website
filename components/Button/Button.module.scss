@@ -1,0 +1,174 @@
+@import 'styles/mixins';
+@import 'styles/colors';
+@import 'styles/gaps';
+
+$secondary-laptop-border-vertical-padding: 17px;
+$secondary-laptop-border-horizontal-padding: 20px;
+
+$secondary-large-laptop-border-vertical-padding: 19px;
+$secondary-large-laptop-border-horizontal-padding: 23px;
+
+.Button {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: $gap-sm 0;
+  border-radius: $gap-lg;
+  background: $orioles-orange;
+  color: $white;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: all ease 0.25s;
+
+  &:focus-visible,
+  &:hover {
+    background: $rosso-corsa;
+    box-shadow: 0 0 15px -2px rgba($rosso-corsa, 0.7);
+  }
+
+  &--Primary {
+    max-width: 100%;
+    font-size: 1rem;
+
+    @include media(laptop) {
+      padding: 0;
+      border-radius: 0;
+      color: $orioles-orange;
+      font-size: 3.125rem;
+      font-weight: 800;
+
+      &:focus-visible,
+      &:hover {
+        color: $rosso-corsa;
+      }
+    }
+  }
+
+  &--Secondary {
+    max-width: 170px;
+    font-size: 0.75rem;
+
+    @include media(laptop) {
+      padding: $secondary-laptop-border-vertical-padding $secondary-laptop-border-horizontal-padding;
+      border: 2px solid $orioles-orange;
+      font-size: 1rem;
+      font-weight: 400;
+
+      &:focus-visible,
+      &:hover {
+        border-color: $rosso-corsa;
+      }
+    }
+
+    @include media(large-laptop) {
+      padding: $secondary-large-laptop-border-vertical-padding $secondary-large-laptop-border-horizontal-padding;
+      font-size: 1.125rem;
+    }
+  }
+
+  &--WithSlider {
+    @include media(laptop) {
+      padding-right: 100px;
+
+      @include media(large-laptop) {
+        padding-right: 120px;
+      }
+
+      &::before,
+      &::after {
+        @include pseudo();
+        top: 50%;
+        right: 0;
+        background: $white;
+      }
+
+      &::before {
+        width: 60px;
+        height: 1px;
+        transform: translateY(-50%);
+
+        @include media(large-laptop) {
+          width: 80px;
+        }
+      }
+
+      &::after {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        transform: translate(-50px, -50%);
+        transition: transform cubic-bezier(1, 0, 0.45, 0.45) 0.25s;
+        will-change: transform;
+
+        @include media(large-laptop) {
+          width: 20px;
+          height: 20px;
+          transform: translate(-70px, -50%);
+        }
+      }
+
+      &:focus-visible::after,
+      &:hover::after {
+        transform: translate(10px, -50%);
+      }
+    }
+
+    &.Button--Secondary {
+      @include media(laptop) {
+        padding-right: 65px + $secondary-laptop-border-vertical-padding;
+
+        @include media(large-laptop) {
+          padding-right: 70px + $secondary-large-laptop-border-vertical-padding;
+        }
+
+        &::before,
+        &::after {
+          right: $secondary-laptop-border-vertical-padding;
+
+          @include media(large-laptop) {
+            right: $secondary-large-laptop-border-vertical-padding;
+          }
+        }
+
+        &::before {
+          width: 35px;
+
+          @include media(large-laptop) {
+            width: 40px;
+          }
+        }
+
+        &::after {
+          width: 10px;
+          height: 10px;
+          transform: translate(-30px, -50%);
+
+          @include media(large-laptop) {
+            transform: translate(-35px, -50%);
+          }
+        }
+
+        &:focus-visible::after,
+        &:hover::after {
+          transform: translate(5px, -50%);
+        }
+      }
+    }
+  }
+
+  @include media(laptop) {
+    width: max-content;
+    max-width: unset;
+
+    &,
+    &:focus-visible,
+    &:hover {
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+}

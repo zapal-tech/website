@@ -1,0 +1,12 @@
+@import 'styles/mixins';
+
+.Tabs {
+  &__ButtonsContainer {
+    display: flex;
+    flex-direction: column;
+
+    @include media(large-tablet) {
+      flex-direction: row;
+    }
+  }
+}

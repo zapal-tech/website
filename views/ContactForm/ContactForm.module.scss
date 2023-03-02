@@ -1,0 +1,118 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.ContactForm {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 75px;
+
+  @include media(tablet) {
+    gap: $gap-xl;
+  }
+
+  @include media(large-tablet) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 120px;
+    gap: $gap-xxl;
+  }
+
+  @include media(laptop) {
+    gap: $expanded-gap-xs;
+  }
+
+  &__Greetings {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xs;
+
+    @include media(tablet) {
+      width: 350px;
+    }
+
+    @include media(large-tablet) {
+      width: min-content;
+      gap: 42px;
+    }
+
+    @include media(laptop) {
+      gap: $gap-xxl;
+    }
+  }
+
+  &__Subtitle {
+    max-width: 400px;
+    text-indent: $gap-md;
+
+    @include media(phone) {
+      text-indent: $gap-lg;
+    }
+
+    @include media(large-phone) {
+      text-indent: $gap-xl;
+    }
+
+    @include media(tablet) {
+      min-width: 400px;
+      max-width: unset;
+    }
+
+    @include media(laptop) {
+      min-width: unset;
+    }
+
+    @include media(large-laptop) {
+      text-indent: $expanded-gap-xs;
+    }
+  }
+
+  &__Form {
+    width: 100%;
+
+    @include media(large-tablet) {
+      max-width: 800px;
+    }
+
+    @include media(laptop) {
+      padding-top: 115px;
+    }
+
+    @include media(large-laptop) {
+      padding-top: $expanded-gap-md;
+    }
+  }
+
+  &__Fields {
+    display: grid;
+    margin: 0 0 $gap-lg;
+    gap: $gap-xl;
+    grid: 1fr / 1fr;
+
+    @include media(tablet) {
+      grid: 1fr / 1fr 1fr;
+    }
+
+    @include media(large-tablet) {
+      margin: 0 0 $gap-md * 2;
+      gap: $gap-xl $gap-xl;
+    }
+
+    @include media(laptop) {
+      gap: $gap-xl $expanded-gap-xs;
+    }
+  }
+
+  &__Message {
+    @include media(tablet) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__Buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

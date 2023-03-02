@@ -1,0 +1,31 @@
+@import './colors';
+
+html,
+body {
+  background: $jet-black;
+  font-size: 16px;
+  scroll-behavior: smooth;
+
+  ::selection {
+    background: rgba($rosso-corsa, 0.8);
+    color: $white;
+  }
+}
+
+.CustomScrollbar {
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $jet-black;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $orioles-orange;
+
+    &:hover {
+      background: $rosso-corsa;
+    }
+  }
+}

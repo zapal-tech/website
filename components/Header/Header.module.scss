@@ -1,0 +1,96 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+@import 'styles/variables';
+
+.Banner {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: transparent;
+
+  & > * {
+    z-index: 6;
+  }
+
+  &::before {
+    @include pseudo();
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: brightness(0.3) blur($blur-lg);
+    background: rgba($orioles-orange, 0.8);
+    mask-image: linear-gradient(to bottom, $orioles-orange, linear, rgba($orioles-orange, 0.9));
+  }
+}
+
+.Header {
+  position: fixed;
+  z-index: 5;
+  top: 25px;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $gap-xxs $gap-sm;
+
+  @include media(phone) {
+    padding: $gap-xs $gap-lg;
+  }
+
+  @include media(laptop) {
+    top: 32px;
+    padding: $gap-xs $expanded-gap-xs;
+  }
+
+  @include media(large-laptop) {
+    top: 40px;
+    padding: $gap-xs $expanded-gap-sm;
+  }
+
+  & > * {
+    z-index: 6;
+  }
+
+  &::before {
+    @include pseudo();
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: saturate(180%) blur($blur-lg);
+    background: rgba($jet-black, 0.85);
+    mask-image: linear-gradient(to bottom, $jet-black, cubic-bezier(0.75, 0, 0.8, 1), transparent);
+  }
+
+  &__Buttons {
+    display: flex;
+    gap: $gap-xs;
+  }
+
+  &__ButtonText {
+    padding: 0 8px;
+  }
+
+  &__BurgerButton {
+    display: flex;
+    width: $gap-lg;
+    flex-direction: column;
+    padding: 0;
+    gap: 7px;
+
+    span {
+      display: flex;
+      width: 20px;
+      height: 1.5px;
+      border-radius: 2px;
+      background: $white;
+    }
+  }
+}

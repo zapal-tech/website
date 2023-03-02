@@ -1,0 +1,27 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.TabButton {
+  width: 100%;
+  height: $gap-xl;
+  border-bottom: 1px solid $sonic-silver;
+  color: $white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $orioles-orange;
+    color: $orioles-orange;
+  }
+
+  &--Active {
+    border-color: $orioles-orange;
+    color: $orioles-orange;
+  }
+
+  & > * {
+    color: inherit;
+  }
+}

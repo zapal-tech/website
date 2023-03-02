@@ -1,0 +1,84 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+$first-line-indent: 76px;
+$bottom-gradient: linear-gradient(to bottom, transparent 85%, $jet-black);
+$bottom-mask: linear-gradient(to bottom, $jet-black 88%, transparent 98%);
+
+.Hero {
+  position: relative;
+  height: 100vh;
+  padding-top: $expanded-gap-lg;
+  padding-left: $gap-sm;
+  background: no-repeat right / cover url('/images/hero-bg.jpg'), $bottom-gradient;
+  background-blend-mode: saturation;
+
+  @include media(phone) {
+    padding-left: $gap-lg;
+  }
+
+  @include media(laptop) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+  }
+
+  &__Particles {
+    mask-image: $bottom-mask;
+  }
+
+  &__Box {
+    @include media(laptop) {
+      display: flex;
+      width: max-content;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-top: $expanded-gap-xs;
+    }
+  }
+
+  &__Title {
+    margin-bottom: $gap-lg;
+    pointer-events: none;
+    text-transform: uppercase;
+    user-select: none;
+
+    @include media(laptop) {
+      position: relative;
+      margin-bottom: $gap-md * 2;
+      line-height: 0.93;
+      line-height: 1;
+      text-indent: 76px;
+    }
+
+    &::before {
+      margin-right: $gap-xs;
+      color: inherit;
+      content: '>';
+      font-size: inherit;
+
+      @include media(laptop) {
+        position: absolute;
+        left: -100px - $first-line-indent;
+      }
+    }
+  }
+
+  &__SelectionBg {
+    background: rgb($rosso-corsa, 0.8);
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  &__Subtitle {
+    max-width: 220px;
+    user-select: none;
+
+    @include media(laptop) {
+      max-width: 360px;
+      margin-right: 190px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "hero": {
+    "title": "Contacts",
+    "email": "email",
+    "phone": "phone",
+    "subtitle": {
+      "upper": "Let's",
+      "lower": "Connect"
+    }
+  },
+  "locations": {
+    "time": "time"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "en": {
+    "code": "eng",
+    "name": "English",
+    "nativeName": "English"
+  },
+  "uk": {
+    "code": "ukr",
+    "name": "Ukrainian",
+    "nativeName": "Українська"
+  }
+}

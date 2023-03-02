@@ -27,6 +27,7 @@
     },
     "import/resolver": {
       "typescript": {
+        "paths": ".",
         "alwaysTryTypes": true
       }
     }

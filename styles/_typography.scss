@@ -1,0 +1,44 @@
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 800;
+  src: local('Gilroy-ExtraBold'),
+    url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-ExtraBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 700;
+  src: local('Gilroy-Bold'),
+    url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 600;
+  src: local('Gilroy-SemiBold'),
+    url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 500;
+  src: local('Gilroy-Medium'),
+    url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gilroy-Regular'),
+    url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-Regular.woff') format('woff');
+}
+
+* {
+  font-family: Gilroy, 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: inherit;
+}

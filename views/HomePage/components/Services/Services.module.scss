@@ -1,0 +1,12 @@
+@import 'styles/gaps';
+
+.Services {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-lg;
+
+  &__Icons {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,99 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+$mobile-icon-size: $gap-sm;
+$laptop-icon-size: 33.3px;
+
+$mobile-icon-gap: 12px;
+$laptop-icon-gap: 23px;
+
+.Link {
+  position: relative;
+  max-width: max-content;
+  color: $orioles-orange;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  transition: all ease-in 0.2s;
+  will-change: color;
+
+  @include media(laptop) {
+    font-size: 1.625rem;
+  }
+
+  &:hover {
+    color: $rosso-corsa;
+  }
+
+  &--Underline {
+    &::after {
+      @include pseudo();
+      right: 0;
+      bottom: -2px;
+      left: 0;
+
+      height: 2px;
+      border-radius: 3px;
+      background: $orioles-orange;
+      transform: rotateY(90deg);
+      transform-origin: left center;
+      transition: all ease-in 0.2s;
+      will-change: background, transform;
+
+      @include media(laptop) {
+        bottom: -3px;
+        left: 0;
+        height: 3px;
+      }
+    }
+
+    &:hover::after {
+      background: $rosso-corsa;
+      transform: rotateY(0deg);
+    }
+  }
+
+  &--Icon {
+    padding-left: $mobile-icon-size + $mobile-icon-gap;
+
+    @include media(laptop) {
+      padding-left: $laptop-icon-size + $laptop-icon-gap;
+    }
+
+    &::after {
+      left: $mobile-icon-size + $mobile-icon-gap;
+
+      @include media(laptop) {
+        left: $laptop-icon-size + $laptop-icon-gap;
+      }
+    }
+  }
+
+  &--Uppercase {
+    text-transform: uppercase;
+  }
+
+  &__Icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: $mobile-icon-size;
+    height: $mobile-icon-size;
+    fill: $orioles-orange;
+    transform: translateY(-50%);
+    transition: all ease-in 0.2s;
+    will-change: fill;
+
+    @include media(laptop) {
+      width: $laptop-icon-size;
+      height: $laptop-icon-size;
+    }
+  }
+
+  &:hover &__Icon {
+    fill: $rosso-corsa;
+  }
+}

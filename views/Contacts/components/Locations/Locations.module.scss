@@ -1,0 +1,73 @@
+@import 'styles/mixins';
+@import 'styles/gaps';
+@import 'styles/colors';
+
+$defaultMargin: $gap-sm;
+$phoneMargin: $gap-lg;
+$laptopMargin: $expanded-gap-xs;
+$largeLaptopMargin: $expanded-gap-sm;
+
+.Locations {
+  position: relative;
+  padding-right: 0;
+  padding-left: 0;
+
+  &__Tabs {
+    position: absolute;
+    bottom: $gap-md;
+    left: 50%;
+    width: calc(100% - $defaultMargin * 2);
+    padding: 10px 25px 25px;
+    border-radius: $gap-xxs;
+    background: rgba($jet-black, 0.9);
+    transform: translateX(-50%);
+
+    @include media(phone) {
+      bottom: $gap-lg;
+      width: calc(100% - $phoneMargin * 2);
+    }
+
+    @include media(large-tablet) {
+      bottom: 50%;
+      left: $gap-lg;
+      width: 100%;
+      max-width: 520px;
+      transform: translateY(50%);
+    }
+
+    @include media(laptop) {
+      left: $laptopMargin;
+      width: calc(50% - $laptopMargin);
+      min-width: 620px;
+      max-width: unset;
+      padding: 25px $gap-lg $gap-lg;
+      border-radius: $gap-sm;
+    }
+
+    @include media(large-laptop) {
+      left: $largeLaptopMargin;
+      width: calc(50% - $largeLaptopMargin);
+      min-width: 820px;
+    }
+
+    @include media(desktop) {
+      padding: 35px $gap-xl $gap-xl;
+      border-radius: $gap-sm;
+    }
+  }
+
+  &__Map {
+    width: 100%;
+    height: 700px;
+  }
+
+  &__Marker {
+    height: 70px;
+    fill: $white;
+    transition: all 1s ease-in-out;
+
+    &--Active {
+      fill: $orioles-orange;
+    }
+  }
+}

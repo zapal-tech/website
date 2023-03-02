@@ -1,17 +1,14 @@
 {
-  "extends": "stylelint-config-recommended-scss",
-  "plugins": ["stylelint-scss", "stylelint-order"],
+  "extends": ["stylelint-config-recommended-scss", "stylelint-config-css-modules", "stylelint-config-idiomatic-order"],
+  "plugins": ["stylelint-scss"],
   "rules": {
     "selector-max-id": 1,
-    "number-leading-zero": null,
-    "order/properties-alphabetical-order": true,
-    "max-nesting-depth": 3,
-    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global"] }],
-    "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["global"] }],
+    "max-nesting-depth": 5,
+    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global", "export"] }],
+    "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["global", "export"] }],
     "selector-class-pattern": [
-      "^[a-z0-9]+(-?-[a-zA-Z0-9]+)*",
-      { "message": "Class names should begin with lowercase, and can be separated by hyphens" }
-    ],
-    "order/order": ["custom-properties", "declarations"]
+      "^(([A-Z][A-Za-z0-9]*)((__|--)[A-Z][A-Za-z0-9]?))*",
+      { "message": "Class names should begin with uppercase, and cannot be separated by hyphens" }
+    ]
   }
 }
