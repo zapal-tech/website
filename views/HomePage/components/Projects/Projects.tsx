@@ -14,7 +14,7 @@ export type ProjectsProps = {
   projects: ProjectPreview[];
 };
 
-export const Projects = ({ projects }) => {
+export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const { t } = useTranslation(Namespace.Home);
 
   return (
