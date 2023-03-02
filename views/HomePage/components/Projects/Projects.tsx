@@ -1,11 +1,10 @@
 import axios from 'axios';
 import { useTranslation } from 'next-i18next';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import { ProjectPreview } from 'types/projects';
 
-import { Card, Container, Text } from 'components';
+import { Container, Text } from 'components';
 
 import { Namespace } from 'i18n';
 
