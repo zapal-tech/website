@@ -1,32 +1,48 @@
-import { useAppDispatch, useAppSelector } from 'store';
-import { selectCurrentLocationIndex, selectLocations, setCurrentLocationIndex } from 'store/mapSlice';
+import clsx, { ClassValue } from 'clsx';
 
-import { Text } from 'components';
+import { useFlyToCurrentLocation } from 'hooks/useFlyToCurrentLocation';
+
+import { useAppDispatch, useAppSelector } from 'store';
+import {
+  selectCurrentLocation,
+  selectCurrentLocationIndex,
+  selectLocations,
+  setCurrentLocationIndex,
+} from 'store/mapSlice';
+
+import { TabButton } from './components/TabButton/TabButton';
+import { TabContent } from './components/TabContent/TabContent';
 
 import styles from './Tabs.module.scss';
 
-export const Tabs = () => {
+export type TabsProps = {
+  className?: ClassValue | ClassValue[];
+};
+
+export const Tabs: React.FC<TabsProps> = ({ className }) => {
   const locations = useAppSelector(selectLocations);
+  const currentLocation = useAppSelector(selectCurrentLocation);
   const currentLocationIndex = useAppSelector(selectCurrentLocationIndex);
   const dispatch = useAppDispatch();
+  const flyToCurrentLocation = useFlyToCurrentLocation();
 
-  const handleTabClick = (index: number) => dispatch(setCurrentLocationIndex(index));
+  const handleTabClick = (index: number) => {
+    if (index === currentLocationIndex) return flyToCurrentLocation();
+
+    dispatch(setCurrentLocationIndex(index));
+  };
 
   return (
-    <div className={styles.Tabs}>
-      <div className={styles.Tabs__Container}>
-        {locations.map((location, idx) => (
-          <button key={location.name} className={styles.Tabs__Button} onClick={() => handleTabClick(idx)}>
-            <Text
-              className={[styles.Tabs__Text, currentLocationIndex === idx && styles['Tabs--Active']]}
-              type="h5"
-              size="small"
-            >
-              {location.name}
-            </Text>
-          </button>
+    <div className={clsx(styles.Tabs, className)}>
+      <div className={styles.Tabs__ButtonsContainer}>
+        {locations.map(({ name }, idx) => (
+          <TabButton key={name} active={idx === currentLocationIndex} onClick={() => handleTabClick(idx)}>
+            {name}
+          </TabButton>
         ))}
       </div>
+
+      <TabContent {...currentLocation} />
     </div>
   );
 };

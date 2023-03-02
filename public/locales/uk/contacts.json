@@ -4,7 +4,9 @@
     "subtitle": {
       "upper": "Напиши",
       "lower": "нам"
-    }
+    },
+    "email": "електронна пошта",
+    "phone": "телефон"
   },
   "locations": {
     "time": "час"

@@ -1,49 +1,59 @@
-import { Marker } from '@react-google-maps/api';
+import clsx from 'clsx';
 import { useMemo } from 'react';
+import { MarkerProps } from 'react-map-gl';
 
-import { Coordinates } from 'types/locations';
+import PinIcon from 'public/icons/pin.svg';
 
-import { useMediaQuery } from 'hooks';
+import { defaultZoom } from 'types/locations';
 
-import { useAppSelector } from 'store';
-import { selectCurrentLocation, selectLocations } from 'store/mapSlice';
+import { useFlyToCurrentLocation } from 'hooks/useFlyToCurrentLocation';
+
+import { useAppDispatch, useAppSelector } from 'store';
+import { selectCurrentLocation, selectLocations, setCurrentLocationIndex } from 'store/mapSlice';
 
 import { Container } from 'components';
 
 import { Map } from './components/Map/Map';
-import { TabContent } from './components/TabContent/TabContent';
 import { Tabs } from './components/Tabs/Tabs';
 
-import media from 'styles/media.module.scss';
-
 import styles from './Locations.module.scss';
-
-const markerIconProps: google.maps.Icon = { url: '/icons/location-marker.svg' };
 
 export const Locations = () => {
   const currentLocation = useAppSelector(selectCurrentLocation);
   const locations = useAppSelector(selectLocations);
+  const dispatch = useAppDispatch();
+  const flyToCurrentLocation = useFlyToCurrentLocation();
 
-  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
-
-  const centerCoordinates = useMemo<Coordinates>(() => {
-    if (isLaptop) return { ...currentLocation.coordinates, lng: currentLocation.coordinates.lng - 0.02 };
-
-    return { ...currentLocation.coordinates, lat: currentLocation.coordinates.lat - 0.005 };
-  }, [currentLocation, isLaptop]);
+  const markers: MarkerProps[] = useMemo(
+    () =>
+      locations.map(({ name, coordinates }, idx) => ({
+        ...coordinates,
+        children: (
+          <PinIcon
+            className={clsx(
+              styles.Locations__Marker,
+              name === currentLocation.name && styles['Locations__Marker--Active'],
+            )}
+          />
+        ),
+        anchor: 'bottom',
+        onClick: () => {
+          if (name === currentLocation.name) return flyToCurrentLocation();
+          dispatch(setCurrentLocationIndex(idx));
+        },
+      })),
+    [currentLocation.name, flyToCurrentLocation, locations, dispatch],
+  );
 
   return (
-    <div className={styles.Locations}>
-      <Map center={centerCoordinates} mapContainerClassName={styles.Locations__Map}>
-        {locations.map(({ name, coordinates }) => (
-          <Marker key={name} position={coordinates} icon={markerIconProps} />
-        ))}
+    <Container className={styles.Locations}>
+      <Map
+        initialViewState={{ ...currentLocation.coordinates, zoom: defaultZoom }}
+        className={styles.Locations__Map}
+        markers={markers}
+      >
+        <Tabs className={styles.Locations__Tabs} />
       </Map>
-
-      <Container className={styles.Locations__TabContainer}>
-        <Tabs />
-        <TabContent />
-      </Container>
-    </div>
+    </Container>
   );
 };

@@ -1,31 +1,12 @@
-@import 'styles/colors';
-@import 'styles/gaps';
 @import 'styles/mixins';
 
 .Tabs {
-  &__Container {
+  &__ButtonsContainer {
     display: flex;
     flex-direction: column;
 
-    @include media(laptop) {
+    @include media(large-tablet) {
       flex-direction: row;
     }
-  }
-
-  &--Active {
-    border-color: $orioles-orange;
-    color: $orioles-orange;
-  }
-
-  &__Text {
-    padding-bottom: $gap-xs;
-    border-bottom: 1px solid $sonic-silver;
-    transition: ease 500ms;
-  }
-
-  &__Button {
-    width: 100%;
-    margin-bottom: 25px;
-    cursor: pointer;
   }
 }

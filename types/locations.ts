@@ -1,6 +1,9 @@
+export const mapId = 'locations' as const;
+export const defaultZoom = 14.2 as const;
+
 export type Coordinates = {
-  lat: number;
-  lng: number;
+  latitude: number;
+  longitude: number;
 };
 
 type Contact = {

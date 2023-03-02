@@ -13,10 +13,10 @@ const initialState: State = {
   locations: [
     {
       name: 'Kyiv, Ukraine',
-      address: { label: 'Kyiv, Ukraine, Mechnykova street,', link: 'https://goo.gl/maps/8YZ1CDQC31ChoSjQ9' },
+      address: { label: 'Mechnykova St, 2, Kyiv, 01023', link: 'https://goo.gl/maps/8YZ1CDQC31ChoSjQ9' },
       coordinates: {
-        lat: 50.43774939,
-        lng: 30.52727746,
+        latitude: 50.43774939,
+        longitude: 30.52727746,
       },
       contact: {
         title: 'Country Manager',
@@ -28,15 +28,15 @@ const initialState: State = {
     },
     {
       name: 'Warsaw, Poland',
-      address: { label: 'Polna 11, 00-633 Warszawa, Poland', link: 'https://goo.gl/maps/UZVnn8D3BBEnwbjeA' },
+      address: { label: 'Polna 11, 00-633 Warsaw, Poland', link: 'https://goo.gl/maps/UZVnn8D3BBEnwbjeA' },
       coordinates: {
-        lat: 52.2159212,
-        lng: 21.0007791,
+        latitude: 52.2159212,
+        longitude: 21.0007791,
       },
       contact: {
         title: 'Country Manager',
         fullName: 'Artem Orinchuk',
-        email: { label: 'hello@zapal.tech', link: 'mailto:hello@zapal.tech' },
+        email: { label: 'front-office@zapal.tech', link: 'mailto:front-office@zapal.tech' },
         phone: { label: '+380 50 453 23 23', link: 'tel:+380505000050' },
       },
       timeZone: 'Europe/Warsaw',
@@ -49,13 +49,13 @@ const initialState: State = {
         link: 'https://goo.gl/maps/SDXRCSZcADLnpMif6',
       },
       coordinates: {
-        lat: 45.5051872,
-        lng: -73.4367196,
+        latitude: 45.5051872,
+        longitude: -73.4367196,
       },
       contact: {
         title: 'Country Manager',
         fullName: 'Viktor Dmytrenko',
-        email: { label: 'hello@zapal.tech', link: 'mailto:hello@zapal.tech' },
+        email: { label: 'front-office@zapal.tech', link: 'mailto:front-office@zapal.tech' },
         phone: { label: '+380 50 453 23 23', link: 'tel:+380505000050' },
       },
       timeZone: 'America/Toronto',
