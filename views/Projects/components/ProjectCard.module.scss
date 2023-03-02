@@ -1,0 +1,48 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.ProjectCard {
+  &:nth-child(2n + 1) {
+    @include media(laptop) {
+      margin-bottom: -300px;
+    }
+  }
+
+  &:nth-child(2n + 2) {
+    @include media(laptop) {
+      margin-top: $expanded-gap-xl;
+    }
+  }
+
+  &__Image {
+    border-radius: $gap-xxs;
+    margin-bottom: $gap-sm;
+    object-fit: cover;
+
+    @include media(laptop) {
+      height: 500px;
+      border-radius: $gap-sm;
+      margin-bottom: $gap-lg;
+    }
+
+    @include media(desktop) {
+      height: 800px;
+    }
+  }
+
+  &__Title {
+    margin-bottom: $gap-xxs;
+
+    @include media(laptop) {
+      margin-bottom: $gap-sm;
+    }
+  }
+
+  &__Subtitle {
+    margin-bottom: $gap-xl;
+
+    @include media(laptop) {
+      width: 490px;
+    }
+  }
+}

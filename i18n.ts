@@ -20,6 +20,7 @@ export enum Namespace {
   Titles = 'titles',
   Contacts = 'contacts',
   ContactForm = 'contactForm',
+  Projects = 'projects',
 }
 
 export const defaultNamespace = Namespace.Common;
