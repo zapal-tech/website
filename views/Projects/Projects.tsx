@@ -16,19 +16,12 @@ import { ProjectCard } from './components/ProjectCard';
 
 import styles from './Projects.module.scss';
 
-export const Projects = () => {
+export type ProjectsProps = {
+  projects: ProjectPreview[];
+};
+
+export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const { t } = useTranslation(Namespace.Projects);
-  const [projects, setProjects] = useState<ProjectPreview[]>([]);
-
-  const fetchData = async () => {
-    const { data } = await axios.get('/api/projects');
-
-    setProjects(data as ProjectPreview[]);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
     <AppLayout>
