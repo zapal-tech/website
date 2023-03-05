@@ -1,0 +1,8 @@
+name: Production release deployment
+run-name: ${{ github.actor }} released ${{ github.event.release.tag_name }}
+on:
+  release:
+    types: [released]
+runs-on: ubuntu-latest
+    steps:
+    - run: curl -X POST -d {} ${{ secrets.PRODUCTION_DEPLOYMENT_HOOK_URL }}
