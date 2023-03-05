@@ -1,16 +1,25 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 import Script from 'next/script';
 
+import companyAddressData from 'public/json-ld/address.json';
+import companyData from 'public/json-ld/company-data.json';
+
 const gTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
 
 export default function Document() {
   return (
     <Html lang="en">
-      <Script strategy="lazyOnload" type="application/ld+json" src="/json-ld/company-data.json" />
-      <Script strategy="lazyOnload" type="application/ld+json" src="/json-ld/review-emily-davis.json" />
-      <Script strategy="lazyOnload" type="application/ld+json" src="/json-ld/review-jane-prudeus.json" />
-      <Script strategy="lazyOnload" type="application/ld+json" src="/json-ld/review-oliver-brooks.json" />
       <Head>
+        <Script
+          id="company-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(companyData) }}
+        />
+        <Script
+          id="company-address-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(companyAddressData) }}
+        />
         <Script
           id="google-tag-manager"
           strategy="afterInteractive"
