@@ -7,16 +7,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <script
-          key="company-data"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(companyData) }}
-        />
-        <script
-          key="company-address-data"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(companyAddressData) }}
-        />
         <Script
           id="google-tag-manager"
           strategy="afterInteractive"
