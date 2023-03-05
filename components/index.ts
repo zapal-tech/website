@@ -2,6 +2,7 @@ export * from './Banner/Banner';
 export * from './Button/Button';
 export * from './Card/Card';
 export * from './Container/Container';
+export * from './DefaultSeo/DefaultSeo';
 export * from './Divider/Divider';
 export * from './Footer/Footer';
 export * from './Header/Header';
