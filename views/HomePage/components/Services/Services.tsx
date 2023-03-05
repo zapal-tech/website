@@ -38,7 +38,7 @@ export const Services: React.FC = () => {
       </Text>
 
       <div className={styles.Services__Icons}>
-        {services.map(({ icon, title }) => (
+        {services.map(({ icon, title, path }) => (
           <ServiceItem key={title} icon={icon} title={title} href={path} />
         ))}
       </div>
