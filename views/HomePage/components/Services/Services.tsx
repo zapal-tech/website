@@ -1,10 +1,11 @@
 import { useTranslation } from 'next-i18next';
+import { useMemo } from 'react';
+
 import BoxIcon from 'public/icons/box.svg';
 import DesktopIcon from 'public/icons/desktop.svg';
 import GridIcon from 'public/icons/grid.svg';
 import HashtagIcon from 'public/icons/hashtag.svg';
 import ShieldCheckIcon from 'public/icons/shield-check.svg';
-import { useMemo } from 'react';
 
 import { Container, Text } from 'components';
 
@@ -19,13 +20,13 @@ export const Services: React.FC = () => {
 
   const services = useMemo(
     () => [
-      { icon: DesktopIcon, title: t('services.webDev') },
-      { icon: GridIcon, title: t('services.mobDev') },
-      { icon: ShieldCheckIcon, title: t('services.techAudit') },
-      { icon: BoxIcon, title: t('services.DevOps') },
-      { icon: HashtagIcon, title: t('services.UI/UX') },
-      { icon: HashtagIcon, title: t('services.QA') },
-      { icon: HashtagIcon, title: t('services.ItConsult') },
+      { icon: DesktopIcon, title: t('services.webDev'), path: '/about#web-apps-development' },
+      { icon: GridIcon, title: t('services.mobDev'), path: '/about#mobile-apps-development' },
+      { icon: ShieldCheckIcon, title: t('services.techAudit'), path: '/about#technical-audit' },
+      { icon: BoxIcon, title: t('services.DevOps'), path: '/about#devops-services' },
+      { icon: HashtagIcon, title: t('services.UI/UX'), path: '/about#ui-ux-design' },
+      { icon: HashtagIcon, title: t('services.QA'), path: '/about#quality-assurance-services' },
+      { icon: HashtagIcon, title: t('services.ItConsult'), path: '/about#it-consulting' },
     ],
     [t],
   );
@@ -38,7 +39,7 @@ export const Services: React.FC = () => {
 
       <div className={styles.Services__Icons}>
         {services.map(({ icon, title }) => (
-          <ServiceItem key={title} icon={icon} title={title} />
+          <ServiceItem key={title} icon={icon} title={title} href={path} />
         ))}
       </div>
     </Container>

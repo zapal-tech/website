@@ -1,4 +1,5 @@
 import clsx, { ClassValue } from 'clsx';
+
 import FacebookIcon from 'public/icons/facebook.svg';
 import GitHubIcon from 'public/icons/github.svg';
 import InstagramIcon from 'public/icons/instagram.svg';
@@ -8,30 +9,36 @@ import TwitterIcon from 'public/icons/twitter.svg';
 import styles from './SocialLinks.module.scss';
 
 type SocialLink = {
-  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  name: string;
   path: string;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
 };
 
 const links: SocialLink[] = [
   {
-    icon: GitHubIcon,
+    name: 'GitHub',
     path: 'https://github.com/zapal-tech',
+    icon: GitHubIcon,
   },
   {
-    icon: LinkedInIcon,
+    name: 'LinkedIn',
     path: 'https://linkedin.com/company/zapal',
+    icon: LinkedInIcon,
   },
   {
-    icon: TwitterIcon,
+    name: 'Twitter',
     path: 'https://twitter.com/ZapalTech',
+    icon: TwitterIcon,
   },
   {
-    icon: InstagramIcon,
+    name: 'Instagram',
     path: 'https://instagram.com/zapal.tech',
+    icon: InstagramIcon,
   },
   {
-    icon: FacebookIcon,
+    name: 'Facebook',
     path: 'https://facebook.com/zapal.tech',
+    icon: FacebookIcon,
   },
 ];
 
@@ -41,9 +48,9 @@ export type SocialLinksProps = {
 
 export const SocialLinks: React.FC<SocialLinksProps> = ({ className }) => (
   <ul className={clsx(styles.SocialLinks, className)}>
-    {links.map(({ icon: Icon, path }) => (
+    {links.map(({ icon: Icon, name, path }) => (
       <li key={path}>
-        <a className={styles.SocialLinks__Link} href={path} target="_blank" rel="noreferrer">
+        <a className={styles.SocialLinks__Link} href={path} aria-label={name} target="_blank" rel="noreferrer">
           <Icon className={styles.SocialLinks__Icon} />
         </a>
       </li>

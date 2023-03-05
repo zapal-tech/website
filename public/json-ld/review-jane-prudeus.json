@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "SoftwareApplication",
+    "name": "Mobile App Development",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "iOS, Android",
+    "offers": {
+      "@type": "Offer",
+      "price": "8000",
+      "priceCurrency": "USD"
+    }
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "5"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Jane Prudeus"
+  },
+  "datePublished": "2022-10-02",
+  "description": "Zapal provided excellent mobile app development services. The team was very professional and delivered high-quality work on time and within budget."
+}

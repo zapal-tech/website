@@ -1,0 +1,91 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Zapal",
+  "url": "https://zapal.tech",
+  "logo": [
+    {
+      "@type": "ImageObject",
+      "url": "https://zapal.tech/logo.svg",
+      "width": "156",
+      "height": "145"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://zapal.tech/logo.webp",
+      "width": "156",
+      "height": "145"
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://zapal.tech/logo.png",
+      "width": "156",
+      "height": "145"
+    }
+  ],
+  "description": "Zapal is an IT outsourcing company that provides web and mobile app development, technical audit, DevOps services, UI/UX design, quality assurance services, and IT consulting.",
+  "slogan": "Unlock Your Tech Future",
+  "sameAs": [
+    "https://github.com/zapal-tech",
+    "https://linkedin.com/company/zapal",
+    "https://twitter.com/ZapalTech",
+    "https://instagram.com/zapal.tech",
+    "https://facebook.com/zapal.tech"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "hello@zapal.tech",
+      "url": "https://zapal.tech/contacts"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Web apps development",
+        "description": "We provide web app development services to create powerful, custom web applications that meet your business needs.",
+        "url": "https://zapal.tech/about#web-apps-development"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Mobile apps development",
+        "description": "We develop mobile applications for iOS and Android platforms to help your business reach new heights.",
+        "url": "https://zapal.tech/about#mobile-apps-development"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Technical audit",
+        "description": "We perform a technical audit of your website or application to identify any issues and provide recommendations for improvement.",
+        "url": "https://zapal.tech/about#technical-audit"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "DevOps services",
+        "description": "We provide DevOps services to automate your software delivery process, increase efficiency, and reduce time-to-market.",
+        "url": "https://zapal.tech/about#devops-services"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "UI/UX Design",
+        "description": "We design beautiful and intuitive user interfaces for web and mobile applications to enhance user experience and satisfaction.",
+        "url": "https://zapal.tech/about#ui-ux-design"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Quality Assurance services",
+        "description": "We provide quality assurance services to ensure that your web or mobile application meets the highest quality standards.",
+        "url": "https://zapal.tech/about#quality-assurance-services"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "IT Consulting",
+        "description": "We provide IT consulting services to help businesses optimize their IT infrastructure and processes for maximum efficiency and performance.",
+        "url": "https://zapal.tech/about#it-consulting"
+      }
+    ]
+  }
+}

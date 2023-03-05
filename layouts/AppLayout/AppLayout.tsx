@@ -4,11 +4,12 @@ import { Provider } from 'react-redux';
 
 import store from 'store';
 
-import { Footer, Header, MetaPixel } from 'components';
+import { Footer, Header } from 'components';
 
 import styles from './AppLayout.module.scss';
 
 const Modal = dynamic(() => import('components/Modal/Modal').then((mod) => mod.Modal));
+const MetaPixel = dynamic(() => import('components/MetaPixel/MetaPixel').then((mod) => mod.MetaPixel));
 
 export interface AppLayoutProps {
   children: React.ReactNode;

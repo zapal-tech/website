@@ -1,5 +1,6 @@
 import clsx, { ClassValue } from 'clsx';
 import Link from 'next/link';
+
 import LinkIcon from 'public/icons/link.svg';
 
 import { Divider, Text } from 'components';
@@ -9,12 +10,12 @@ import styles from './ServiceItem.module.scss';
 export type ServiceItemProps = {
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
   title: string;
-  href?: string;
+  href: string;
   className?: ClassValue | ClassValue[];
 };
 
 export const ServiceItem: React.FC<ServiceItemProps> = ({ icon: Icon, title, href, className }) => (
-  <Link href={'/'} className={styles.ServiceItem}>
+  <Link href={href} className={clsx(styles.ServiceItem, className)}>
     <div className={styles.ServiceItem__Content}>
       <Icon className={clsx(styles.ServiceItem__Icon)} />
 

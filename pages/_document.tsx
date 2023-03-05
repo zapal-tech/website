@@ -6,6 +6,10 @@ const gTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
 export default function Document() {
   return (
     <Html lang="en">
+      <Script strategy="lazyOnload" type="application/ld+json" src="/json-ld/company-data.json" />
+      <Script strategy="lazyOnload" type="application/ld+json" src="/json-ld/review-emily-davis.json" />
+      <Script strategy="lazyOnload" type="application/ld+json" src="/json-ld/review-jane-prudeus.json" />
+      <Script strategy="lazyOnload" type="application/ld+json" src="/json-ld/review-oliver-brooks.json" />
       <Head>
         <Script
           id="google-tag-manager"
