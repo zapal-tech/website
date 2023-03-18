@@ -68,6 +68,7 @@
     bottom: 0;
     left: 50%;
     width: max-content;
+    cursor: pointer;
     opacity: 0;
     transform: translate(-50%, 100%);
     transition: all 0.2s ease-in-out;

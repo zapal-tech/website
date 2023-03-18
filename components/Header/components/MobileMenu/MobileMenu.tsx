@@ -27,7 +27,7 @@ export const MobileMenu: React.FC = () => {
   const handleCloseButtonClick = () => dispatch(setIsMobileMenuOpen(false));
   const handleContactFormButtonClick = () => {
     dispatch(setIsMobileMenuOpen(false));
-    dispatch(openModal(<ContactForm />));
+    dispatch(openModal(ContactForm));
   };
 
   const closeMobileMenu = () => dispatch(setIsMobileMenuOpen(false));

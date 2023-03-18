@@ -28,7 +28,7 @@ export const Header: React.FC = () => {
   const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
   const handleBurgerButtonClick = () => dispatch(setIsMobileMenuOpen(true));
-  const handleFormButtonClick = () => dispatch(openModal(<ContactForm />));
+  const handleFormButtonClick = () => dispatch(openModal(ContactForm));
 
   return (
     <>
