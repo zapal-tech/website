@@ -2,9 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { RootState } from 'store';
 
+type ContentType = React.ComponentType;
+
 export type State = {
   isOpen: boolean;
-  content: React.ReactNode | null;
+  content: ContentType | null;
 };
 
 const initialState: State = {
@@ -16,7 +18,7 @@ export const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    openModal: (_state, action: PayloadAction<React.ReactNode>) => ({
+    openModal: (_state, action: PayloadAction<ContentType>) => ({
       isOpen: true,
       content: action.payload,
     }),

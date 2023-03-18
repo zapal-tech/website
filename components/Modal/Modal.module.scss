@@ -13,15 +13,30 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  backdrop-filter: saturate(100%) blur($blur-zero);
+  backdrop-filter: saturate(180%) blur($blur-md);
   background: rgba($jet-black, 0.9);
-  filter: opacity(0) blur($blur-sm);
+  opacity: 0;
   transition: all 0.3s ease-out;
   will-change: filter, backdrop-filter;
 
-  &--Open {
-    backdrop-filter: saturate(180%) blur($blur-md);
-    filter: opacity(1) blur($blur-zero);
+  &--Enter {
+    opacity: 0;
+  }
+
+  &--EnterActive {
+    opacity: 1;
+  }
+
+  &--EnterDone {
+    opacity: 1;
+  }
+
+  &--Exit {
+    opacity: 1;
+  }
+
+  &--ExitActive {
+    opacity: 0;
   }
 
   &__Content {
