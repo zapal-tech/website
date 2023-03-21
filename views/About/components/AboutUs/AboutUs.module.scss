@@ -1,0 +1,181 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+@import 'styles/colors';
+
+.Hero {
+  padding-top: $expanded-gap-sm;
+
+  @include media(laptop) {
+    padding-top: $expanded-gap-lg;
+  }
+
+  &__Title {
+    margin: 0 0 $gap-lg;
+
+    @include media(laptop) {
+      margin: 0 0 $expanded-gap-md;
+    }
+  }
+
+  &__Subtitle {
+    width: 290px;
+    margin-bottom: $gap-lg;
+
+    @include media(tablet) {
+      margin-right: auto;
+    }
+
+    @include media(laptop) {
+      margin-bottom: $expanded-gap-xs;
+    }
+
+    @include media(large-laptop) {
+      width: 480px;
+    }
+  }
+
+  &__SubtitleContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    @include media(tablet) {
+      flex-direction: row;
+      margin-top: $expanded-gap-xs;
+      gap: $expanded-gap-sm;
+    }
+  }
+
+  &__Circle {
+    width: 150px;
+    height: 153px;
+    margin-bottom: $gap-xl;
+    margin-left: auto;
+
+    @include media(large-laptop) {
+      width: 220px;
+    }
+  }
+
+  & > :not(&__BackgroundLight) {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__BackgroundLight {
+    position: absolute;
+    z-index: 0;
+    top: 190px;
+    left: -1500px;
+
+    width: 1374px;
+    height: 1374px;
+
+    background: #f84c0b;
+    filter: blur(315.247px);
+
+    @include media(laptop) {
+      top: 590px;
+      left: -1299px;
+      height: 2574px;
+    }
+  }
+
+  &__SubtitleDescription {
+    width: 232px;
+    margin-right: auto;
+    margin-bottom: $gap-xxl;
+    margin-left: auto;
+
+    @include media(tablet) {
+      margin-right: none;
+      margin-left: 60px;
+    }
+
+    @include media(large-tablet) {
+      margin-left: 170px;
+    }
+
+    @include media(laptop) {
+      margin-bottom: $expanded-gap-xl;
+      margin-left: 23%;
+    }
+
+    @include media(large-laptop) {
+      width: 350px;
+      margin-left: 21vw;
+    }
+  }
+
+  &__Slider {
+    width: 100%;
+    height: 53px;
+    margin-bottom: $gap-xxl;
+    background-color: $white;
+    cursor: pointer;
+
+    @include media(laptop) {
+      margin-bottom: $expanded-gap-xl;
+    }
+
+    @include media(large-laptop) {
+      height: 120px;
+    }
+  }
+
+  &__SliderSubtitle {
+    margin-bottom: $expanded-gap-xs;
+
+    @include media(laptop) {
+      width: 540px;
+      margin-right: auto;
+      margin-bottom: $expanded-gap-md;
+      margin-left: auto;
+      text-indent: 40px;
+    }
+
+    @include media(large-laptop) {
+      width: 950px;
+      text-indent: 70px;
+    }
+  }
+
+  &__AnimatedText {
+    display: flex;
+    width: 260px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $white;
+    margin-bottom: $gap-lg;
+    gap: 3px;
+
+    @include media(laptop) {
+      width: 302px;
+      margin-bottom: 180px;
+      gap: $gap-xs;
+    }
+
+    @include media(large-laptop) {
+      width: 430px;
+    }
+  }
+
+  &__SliderButtonSubtitle {
+    margin-bottom: $gap-lg;
+
+    @include media(laptop) {
+      width: 505px;
+      margin-right: auto;
+      margin-bottom: $gap-xl + 10px;
+      margin-left: auto;
+    }
+
+    @include media(large-laptop) {
+      width: 540px;
+    }
+  }
+
+  &__Button {
+    @include media(laptop) {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}

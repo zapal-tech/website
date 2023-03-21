@@ -1,0 +1,24 @@
+@import 'styles/gaps';
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.OurServices {
+  &__Title {
+    padding-bottom: $gap-lg;
+    border-bottom: 1px solid $sonic-silver;
+
+    @include media(laptop) {
+      padding-bottom: $expanded-gap-xs;
+    }
+  }
+
+  &__Button {
+    @include media(laptop) {
+      margin-left: 50%;
+    }
+
+    @include media(large-laptop) {
+      margin-left: 45vw;
+    }
+  }
+}

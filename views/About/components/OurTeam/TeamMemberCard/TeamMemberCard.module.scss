@@ -1,0 +1,45 @@
+@import 'styles/gaps';
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.TeamMemberCard {
+  display: grid;
+  align-items: center;
+  column-gap: $expanded-gap-md;
+  grid-template-columns: 1fr;
+
+  @include media(laptop) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__Image {
+    width: 100%;
+    border-radius: $gap-xxs;
+    margin-bottom: $gap-sm;
+    object-fit: cover;
+
+    @include media(laptop) {
+      width: 600px;
+      height: 700px;
+      margin-bottom: $expanded-gap-xs;
+    }
+  }
+
+  &__Name {
+    margin-bottom: $gap-xxs;
+  }
+
+  &__JobTitle {
+    margin-bottom: $gap-md;
+    color: $sonic-silver;
+  }
+
+  &__Subtitle {
+    width: 280px;
+    margin-bottom: $gap-sm;
+
+    @include media(laptop) {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.OurPartners {
+  &__Title {
+    margin: 0 0 5px;
+
+    @include media(laptop) {
+      margin: 0;
+    }
+  }
+
+  &__Subtitle {
+    margin: 0 0 $gap-lg;
+    color: $sonic-silver;
+
+    &::before {
+      margin-right: 5px;
+      content: '>';
+    }
+
+    @include media(laptop) {
+      width: 150px;
+      align-self: center;
+      margin: 0;
+    }
+
+    @include media(large-laptop) {
+      width: 170px;
+    }
+  }
+
+  &__Slider {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: $white;
+
+    @include media(laptop) {
+      height: 70px;
+    }
+  }
+
+  &__TextContainer {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xxs;
+
+    @include media(laptop) {
+      flex-direction: row;
+      margin: 0 0 $expanded-gap-md;
+      gap: $gap-lg;
+    }
+  }
+}

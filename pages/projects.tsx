@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   revalidate: 10,
 });
 
-export default function PortfolioPage(props: any) {
+export default function ProjectsPage(props: any) {
   const { t } = useTranslation(Namespace.Titles);
 
   return (

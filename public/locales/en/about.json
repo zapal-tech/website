@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "title": "ABOUT US",
+    "subtitle": "We focused on delivering high-quality services and results to clients",
+    "subtitleDescription": "Our team of experts comprises highly qualified professionals with extensive experience in IT project management and software development",
+    "slider": {
+      "sliderSubtitle": "We are passionate about providing the best service to our clients, from the initial consultation until the successful completion of the project",
+      "animatedText": {
+        "first": "We prioritize customer",
+        "second": "outstanding"
+      },
+      "button": {
+        "subtitle": "always strive to exceed expectations"
+      }
+    }
+  },
+  "AboutZapal": {
+    "title": "MINDS OF ZAPAL",
+    "subtitle": "Our team is friendly and reliable, providing a supportive and responsive working environment allowing us to solve complex problems quickly and efficiently",
+    "circleTitle": "With Zapal, you can be sure of an engaging and productive relationship, as well as an end product of the highest standards"
+  },
+  "OurServices": {
+    "title": "services we provide"
+  },
+  "OurPartners": {
+    "title": "Our Partners",
+    "subtitle": "Drag or Scroll for more"
+  }
+}
