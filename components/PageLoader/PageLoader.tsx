@@ -1,11 +1,10 @@
 import clsx from 'clsx';
-import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import styles from './PageLoader.module.scss';
+import { Logo } from 'components/Logo/Logo';
 
-const Logo = dynamic(() => import('components/Logo/Logo').then((mod) => mod.Logo));
+import styles from './PageLoader.module.scss';
 
 export const PageLoader = () => {
   const [isLoading, setIsLoading] = useState(true);

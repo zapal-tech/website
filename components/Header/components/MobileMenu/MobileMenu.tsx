@@ -5,11 +5,12 @@ import { useEffect } from 'react';
 
 import CloseIcon from 'public/icons/close.svg';
 
-import { useAppDispatch, useAppSelector } from 'store';
-import { selectIsMobileMenuOpen, setIsMobileMenuOpen } from 'store/generalSlice';
-import { openModal } from 'store/modalSlice';
+import { useGlobalContext } from 'hooks/useGlobalContext';
 
-import { Container, LanguageSwitcher, Navigation, SocialLinks, Text } from 'components';
+import { Container, Text } from 'components';
+import { LanguageSwitcher } from 'components/LanguageSwitcher/LanguageSwitcher';
+import { Navigation } from 'components/Navigation/Navigation';
+import { SocialLinks } from 'components/SocialLinks/SocialLinks';
 
 import { Namespace } from 'i18n';
 
@@ -21,20 +22,17 @@ const ContactForm = dynamic(() => import('views/ContactForm/ContactForm').then((
 
 export const MobileMenu: React.FC = () => {
   const { t } = useTranslation(Namespace.Common);
-  const isOpen = useAppSelector(selectIsMobileMenuOpen);
-  const dispatch = useAppDispatch();
+  const { isMobileMenuOpen, closeMobileMenu, openModal } = useGlobalContext();
 
-  const handleCloseButtonClick = () => dispatch(setIsMobileMenuOpen(false));
+  const handleCloseButtonClick = () => closeMobileMenu();
   const handleContactFormButtonClick = () => {
-    dispatch(setIsMobileMenuOpen(false));
-    dispatch(openModal(ContactForm));
+    closeMobileMenu();
+    openModal(ContactForm);
   };
-
-  const closeMobileMenu = () => dispatch(setIsMobileMenuOpen(false));
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && isOpen) dispatch(setIsMobileMenuOpen(false));
+      if (event.key === 'Escape' && isMobileMenuOpen) closeMobileMenu();
     };
 
     document.addEventListener('keydown', handleKeyDown);
@@ -45,11 +43,11 @@ export const MobileMenu: React.FC = () => {
   });
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
-  }, [isOpen]);
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
+  }, [isMobileMenuOpen]);
 
   return (
-    <Container type="aside" className={clsx(styles.MobileMenu, isOpen && styles['MobileMenu--Open'])}>
+    <Container type="aside" className={clsx(styles.MobileMenu, isMobileMenuOpen && styles['MobileMenu--Open'])}>
       <HeaderButton
         className={styles.MobileMenu__CloseButton}
         onClick={handleCloseButtonClick}

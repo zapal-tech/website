@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useMemo } from 'react';
 
-import { useMediaQuery } from 'hooks';
+import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Text } from 'components';
 

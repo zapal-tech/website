@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 
-import { useMediaQuery } from 'hooks';
+import { useMediaQuery } from 'hooks/useMediaQuery';
 
-import { Button, Container, Divider, SocialLinks, Text } from 'components';
+import { Button, Container, Divider, Text } from 'components';
+import { SocialLinks } from 'components/SocialLinks/SocialLinks';
 
 import { Namespace } from 'i18n';
 
