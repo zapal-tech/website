@@ -13,7 +13,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import { mapId } from 'types/locations';
 
-import { useMediaQuery } from 'hooks';
+import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import media from 'styles/media.module.scss';
 

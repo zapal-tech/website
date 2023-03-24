@@ -1,15 +1,12 @@
 import dynamic from 'next/dynamic';
-import React from 'react';
-import { Provider } from 'react-redux';
 
-import store from 'store';
-
-import { Footer, Header } from 'components';
+import { Header } from 'components/Header/Header';
 
 import styles from './AppLayout.module.scss';
 
+const Footer = dynamic(() => import('components/Footer/Footer').then((mod) => mod.Footer));
 const Modal = dynamic(() => import('components/Modal/Modal').then((mod) => mod.Modal));
-const MetaPixel = dynamic(() => import('components/MetaPixel/MetaPixel').then((mod) => mod.MetaPixel));
+// const MetaPixel = dynamic(() => import('components/MetaPixel/MetaPixel').then((mod) => mod.MetaPixel));
 
 export interface AppLayoutProps {
   children: React.ReactNode;
@@ -17,17 +14,14 @@ export interface AppLayoutProps {
 
 export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => (
   <>
-    <MetaPixel />
+    <div className={styles.AppLayout}>
+      {/* <Banner /> */}
+      <Header />
+      <main className={styles.AppLayout__Main}>{children}</main>
+      <Footer />
 
-    <Provider store={store}>
-      <div className={styles.AppLayout}>
-        {/* <Banner /> */}
-        <Header />
-        <main className={styles.AppLayout__Main}>{children}</main>
-        <Footer />
-      </div>
-
+      {/* <MetaPixel /> */}
       <Modal />
-    </Provider>
+    </div>
   </>
 );

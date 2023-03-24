@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 
-import { useMediaQuery } from 'hooks';
+import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Button, Container, Text } from 'components';
 

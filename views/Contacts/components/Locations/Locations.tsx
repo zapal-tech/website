@@ -4,12 +4,10 @@ import { MarkerProps } from 'react-map-gl';
 
 import PinIcon from 'public/icons/pin.svg';
 
-import { defaultZoom } from 'types/locations';
+import { Location, defaultZoom } from 'types/locations';
 
 import { useFlyToCurrentLocation } from 'hooks/useFlyToCurrentLocation';
-
-import { useAppDispatch, useAppSelector } from 'store';
-import { selectCurrentLocation, selectLocations, setCurrentLocationIndex } from 'store/mapSlice';
+import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Container } from 'components';
 
@@ -19,36 +17,34 @@ import { Tabs } from './components/Tabs/Tabs';
 import styles from './Locations.module.scss';
 
 export const Locations = () => {
-  const currentLocation = useAppSelector(selectCurrentLocation);
-  const locations = useAppSelector(selectLocations);
-  const dispatch = useAppDispatch();
+  const { locations, currentLocation, setCurrentLocationIndex } = useGlobalContext<{ locations: Location[] }>();
   const flyToCurrentLocation = useFlyToCurrentLocation();
 
-  const markers: MarkerProps[] = useMemo(
+  const markers: MarkerProps[] | undefined = useMemo(
     () =>
-      locations.map(({ name, coordinates }, idx) => ({
+      locations?.map(({ name, coordinates }, idx) => ({
         ...coordinates,
         children: (
           <PinIcon
             className={clsx(
               styles.Locations__Marker,
-              name === currentLocation.name && styles['Locations__Marker--Active'],
+              name === currentLocation?.name && styles['Locations__Marker--Active'],
             )}
           />
         ),
         anchor: 'bottom',
         onClick: () => {
-          if (name === currentLocation.name) return flyToCurrentLocation();
-          dispatch(setCurrentLocationIndex(idx));
+          if (name === currentLocation?.name) return flyToCurrentLocation();
+          setCurrentLocationIndex(idx);
         },
       })),
-    [currentLocation.name, flyToCurrentLocation, locations, dispatch],
+    [currentLocation?.name, flyToCurrentLocation, locations, setCurrentLocationIndex],
   );
 
   return (
     <Container className={styles.Locations}>
       <Map
-        initialViewState={{ ...currentLocation.coordinates, zoom: defaultZoom }}
+        initialViewState={{ ...currentLocation!.coordinates, zoom: defaultZoom }}
         className={styles.Locations__Map}
         markers={markers}
       >

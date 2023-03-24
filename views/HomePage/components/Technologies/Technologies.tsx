@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 
-// import { useMediaQuery } from 'hooks';
+// import { useMediaQuery } from 'hooks/useMediaQuery';
 import { Container, Text } from 'components';
 
 import { Namespace } from 'i18n';

@@ -1,4 +1,5 @@
-import { Container, Divider, OrderedList, OrderedListDataItem, Text } from 'components';
+import { Container, Divider, Text } from 'components';
+import { OrderedList, OrderedListDataItem } from 'components/OrderedList/OrderedList';
 
 import { AppLayout } from 'layouts';
 
