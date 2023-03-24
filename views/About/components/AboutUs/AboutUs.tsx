@@ -6,6 +6,8 @@ import { Button, Container, Text } from 'components';
 
 import { Namespace } from 'i18n';
 
+import { AlternantText } from './components/AlternantText/AlternantText';
+
 import styles from './AboutUs.module.scss';
 
 export const AboutUs = () => {
@@ -36,13 +38,13 @@ export const AboutUs = () => {
         {t('hero.slider.sliderSubtitle')}
       </Text>
 
-      <div className={styles.Hero__AnimatedText}>
-        <Text type="h4">{t('hero.slider.animatedText.first')}</Text>
+      {/* <div className={styles.Hero__AlternantText}>
+        <Text type="h4">{t('hero.slider.AlternantText.first')}</Text>
         <Text size="small" type="h4">
-          {t('hero.slider.animatedText.second')}
+          {t('hero.slider.AlternantText.second')}
         </Text>
-      </div>
-
+      </div> */}
+      <AlternantText baseText={t('hero.slider.alternantText.first')} />
       <Text className={styles.Hero__SliderButtonSubtitle} type="h3" size="heading3">
         {t('hero.slider.button.subtitle')}
       </Text>

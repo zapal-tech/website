@@ -108,12 +108,12 @@
   &__Slider {
     width: 100%;
     height: 53px;
-    margin-bottom: $gap-xxl;
+    margin: 0 0 $gap-xxl;
     background-color: $white;
     cursor: pointer;
 
     @include media(laptop) {
-      margin-bottom: $expanded-gap-xl;
+      margin: 0 0 $expanded-gap-xl;
     }
 
     @include media(large-laptop) {
@@ -129,7 +129,7 @@
       margin-right: auto;
       margin-bottom: $expanded-gap-md;
       margin-left: auto;
-      text-indent: 40px;
+      text-indent: $gap-lg;
     }
 
     @include media(large-laptop) {
@@ -140,7 +140,6 @@
 
   &__AnimatedText {
     display: flex;
-    width: 260px;
     padding-bottom: 5px;
     border-bottom: 1px solid $white;
     margin-bottom: $gap-lg;
