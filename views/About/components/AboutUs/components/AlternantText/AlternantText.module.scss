@@ -1,0 +1,22 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.AlternantText {
+  display: flex;
+  width: 263px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid $white;
+  margin-bottom: $gap-lg;
+  gap: 3px;
+
+  @include media(laptop) {
+    width: 308px;
+    margin-bottom: 180px;
+    gap: $gap-xs;
+  }
+
+  @include media(large-laptop) {
+    width: 438px;
+  }
+}
