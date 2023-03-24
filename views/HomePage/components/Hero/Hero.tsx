@@ -1,12 +1,13 @@
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 
 import { Text } from 'components';
 
 import { Namespace } from 'i18n';
 
-import { Particles } from '../Particles/Particles';
-
 import styles from './Hero.module.scss';
+
+const Particles = dynamic(() => import('../Particles/Particles').then((mod) => mod.Particles), { ssr: false });
 
 export const Hero: React.FC = () => {
   const { t } = useTranslation(Namespace.Home);

@@ -1,18 +1,16 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'next-i18next';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
 import * as yup from 'yup';
 
 import { ContactFormState } from 'types/contactForm';
 
-import { useMediaQuery } from 'hooks';
+import { useGlobalContext } from 'hooks/useGlobalContext';
+import { useMediaQuery } from 'hooks/useMediaQuery';
 
-import { useAppDispatch } from 'store';
-import { clearContactForm, selectContactFormState, setContactFormFieldValue } from 'store/contactFormSlice';
-import { closeModal } from 'store/modalSlice';
-
-import { Button, Container, Input, Text, TextArea } from 'components';
+import { Button, Container, Text } from 'components';
+import { Input } from 'components/Input/Input';
+import { TextArea } from 'components/TextArea/TextArea';
 
 import { Namespace } from 'i18n';
 
@@ -30,16 +28,15 @@ const schema = yup.object<ContactFormState>({
 
 export const ContactForm: React.FC = () => {
   const { t } = useTranslation(Namespace.ContactForm);
-  const dispatch = useAppDispatch();
+  const { clearContactForm, closeModal, contactForm, setContactFormFieldValue } = useGlobalContext();
   const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
-  const contactFormState = useSelector(selectContactFormState);
   const { control, handleSubmit } = useForm<ContactFormState>({
-    values: contactFormState,
+    values: contactForm,
     resolver: yupResolver(schema),
   });
 
   const handleChange = (name: string, value: string) =>
-    dispatch(setContactFormFieldValue({ name: name as keyof ContactFormState, value }));
+    setContactFormFieldValue({ name: name as keyof ContactFormState, value });
 
   const submitForm = async (data: ContactFormState) => {
     const res = await fetch('/api/contact', {
@@ -51,10 +48,8 @@ export const ContactForm: React.FC = () => {
     });
 
     if (res.status === 201) {
-      console.log('Success');
-
-      dispatch(clearContactForm());
-      dispatch(closeModal());
+      clearContactForm();
+      closeModal();
     }
   };
 
@@ -64,6 +59,7 @@ export const ContactForm: React.FC = () => {
         <Text size="heading1" className={styles.ContactForm__Title} uppercase>
           {t('title')}
         </Text>
+
         <Text size="small" className={styles.ContactForm__Subtitle}>
           {t('subtitle')}
         </Text>
