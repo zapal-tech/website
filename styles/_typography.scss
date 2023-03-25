@@ -3,23 +3,23 @@
   font-style: normal;
   font-weight: 800;
   src: local('Gilroy-ExtraBold'),
-    url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-ExtraBold.woff') format('woff');
+    url('https://cdn.statically.io/gh/LadyRainbow/Lawer/master/app/build/fonts/Gilroy-Extrabold.woff2') format('woff2');
 }
 
-@font-face {
-  font-family: Gilroy;
-  font-style: normal;
-  font-weight: 700;
-  src: local('Gilroy-Bold'),
-    url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-Bold.woff') format('woff');
-}
+// @font-face {
+//   font-family: Gilroy;
+//   font-style: normal;
+//   font-weight: 700;
+//   src: local('Gilroy-Bold'),
+//     url('https://cdn.statically.io/gh/LadyRainbow/Lawer/master/app/build/fonts/Gilroy-Bold.woff2') format('woff2');
+// }
 
 @font-face {
   font-family: Gilroy;
   font-style: normal;
   font-weight: 600;
   src: local('Gilroy-SemiBold'),
-    url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-SemiBold.woff') format('woff');
+    url('https://cdn.statically.io/gh/LadyRainbow/Lawer/master/app/build/fonts/Gilroy-SemiBold.woff2') format('woff2');
 }
 
 @font-face {
@@ -27,7 +27,7 @@
   font-style: normal;
   font-weight: 500;
   src: local('Gilroy-Medium'),
-    url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-Medium.woff') format('woff');
+    url('https://cdn.statically.io/gh/LadyRainbow/Lawer/master/app/build/fonts/Gilroy-Medium.woff2') format('woff2');
 }
 
 @font-face {
@@ -35,10 +35,10 @@
   font-style: normal;
   font-weight: 400;
   src: local('Gilroy-Regular'),
-    url('https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-Regular.woff') format('woff');
+    url('https://cdn.statically.io/gh/LadyRainbow/Lawer/master/app/build/fonts/Gilroy-Regular.woff2') format('woff2');
 }
 
 * {
-  font-family: Gilroy, 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Gilroy, Tahoma, Geneva, Verdana, sans-serif;
   font-weight: inherit;
 }

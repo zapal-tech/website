@@ -1,6 +1,4 @@
-import axios from 'axios';
 import { useTranslation } from 'next-i18next';
-import { useEffect, useState } from 'react';
 
 import CircleSvg from 'public/icons/projects-circle.svg';
 

@@ -9,7 +9,7 @@
     "^(^hooks$)|(^hooks/(.*)$)$",
     "^(^utils$)|(^utils/(.*)$)$",
     "^(^services$)|(^services/(.*)$)$",
-    "^(^store$)|(^store/(.*)$)$",
+    "^(^contexts$)|(^contexts/(.*)$)$",
     "^(^components$)|(^components/(.*)$)$",
     "^(^layouts$)|(^layouts/(.*)$)$",
     "^(^pages$)|(^pages/(.*)$)$",

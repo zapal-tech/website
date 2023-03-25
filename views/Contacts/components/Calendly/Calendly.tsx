@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { InlineWidget } from 'react-calendly';
 
 import { calendlyInlineConfig } from 'configs/calendly';

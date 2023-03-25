@@ -2,33 +2,34 @@ import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
-import { useMediaQuery } from 'hooks';
+import { useGlobalContext } from 'hooks/useGlobalContext';
+import { useMediaQuery } from 'hooks/useMediaQuery';
 
-import { useAppDispatch } from 'store';
-import { setIsMobileMenuOpen } from 'store/generalSlice';
-import { openModal } from 'store/modalSlice';
-
-import { Logo, Navigation, Text, Banner, Button, LanguageSwitcher } from 'components';
+import { Text, Button } from 'components';
+import { Banner } from 'components/Banner/Banner';
+import { LanguageSwitcher } from 'components/LanguageSwitcher/LanguageSwitcher';
+import { Logo } from 'components/Logo/Logo';
+import { Navigation } from 'components/Navigation/Navigation';
 
 import { Namespace } from 'i18n';
 
 import { HeaderButton } from './components/HeaderButton/HeaderButton';
-import { MobileMenu } from './components/MobileMenu/MobileMenu';
 
 import media from 'styles/media.module.scss';
 
 import styles from './Header.module.scss';
 
+const MobileMenu = dynamic(() => import('./components/MobileMenu/MobileMenu').then((mod) => mod.MobileMenu));
 const ContactForm = dynamic(() => import('views/ContactForm/ContactForm').then((mod) => mod.ContactForm));
 
 export const Header: React.FC = () => {
   const { t } = useTranslation(Namespace.Common);
-  const dispatch = useAppDispatch();
+  const { closeMobileMenu, openModal } = useGlobalContext();
 
   const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
-  const handleBurgerButtonClick = () => dispatch(setIsMobileMenuOpen(true));
-  const handleFormButtonClick = () => dispatch(openModal(ContactForm));
+  const handleBurgerButtonClick = () => closeMobileMenu();
+  const handleFormButtonClick = () => openModal(ContactForm);
 
   return (
     <>

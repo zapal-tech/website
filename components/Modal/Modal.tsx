@@ -3,27 +3,28 @@ import { CSSTransition } from 'react-transition-group';
 
 import CloseIcon from 'public/icons/close.svg';
 
-import { useAppDispatch, useAppSelector } from 'store';
-import { closeModal, selectIsModalOpen, selectModalContent } from 'store/modalSlice';
+import { useGlobalContext } from 'hooks/useGlobalContext';
 
-import { Portal } from 'components';
+import { Portal } from 'components/Portal/Portal';
 
 import styles from './Modal.module.scss';
 
 export const Modal: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const isOpen = useAppSelector(selectIsModalOpen);
-  const Content = useAppSelector(selectModalContent);
+  const {
+    isMobileMenuOpen,
+    closeModal,
+    modal: { content: Content },
+  } = useGlobalContext();
 
-  const handleCloseModal = useCallback(() => isOpen && dispatch(closeModal()), [dispatch, isOpen]);
+  const handleCloseModal = useCallback(() => isMobileMenuOpen && closeModal(), [isMobileMenuOpen, closeModal]);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
 
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [isOpen]);
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const handleEscKeyDown = (evt: KeyboardEvent) => {
@@ -33,7 +34,7 @@ export const Modal: React.FC = () => {
     document.addEventListener('keydown', handleEscKeyDown);
 
     return () => document.removeEventListener('keydown', handleEscKeyDown);
-  }, [isOpen, handleCloseModal]);
+  }, [isMobileMenuOpen, handleCloseModal]);
 
   return (
     <Portal selector="#__next">
@@ -45,7 +46,7 @@ export const Modal: React.FC = () => {
           exit: styles['Modal--Exit'],
           exitActive: styles['Modal--ExitActive'],
         }}
-        in={isOpen}
+        in={isMobileMenuOpen}
         timeout={300}
         unmountOnExit
       >

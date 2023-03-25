@@ -8,23 +8,38 @@ import { Text } from 'components';
 import styles from './TeamMemberCard.module.scss';
 
 export type TeamMemberCardProps = {
-  imageSrc: string;
-  imageAlt: string;
+  imageUrl: string;
+  imageAlt?: string;
   href: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   title: string;
 };
 
-export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ imageSrc, imageAlt, href, name, title }) => (
+export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
+  imageUrl,
+  imageAlt,
+  href,
+  firstName,
+  lastName,
+  title,
+}) => (
   <Link className={styles.TeamMemberCard} href={href}>
     <div className={styles.TeamMemberCard__PhotoContainer}>
-      <Image className={styles.TeamMemberCard__Photo} src={imageSrc} alt={imageAlt} width={500} height={500} />
+      <Image
+        className={styles.TeamMemberCard__Photo}
+        src={imageUrl}
+        alt={imageAlt || `${firstName} ${lastName} photo`}
+        width={500}
+        height={500}
+        loading="eager"
+      />
 
       <LinkIcon className={styles.TeamMemberCard__Icon} />
     </div>
 
     <Text className={styles.TeamMemberCard__Name} size="heading3">
-      {name}
+      {firstName} {lastName}
     </Text>
 
     <Text className={styles.TeamMemberCard__Title} size="small">

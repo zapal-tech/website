@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { ProjectPreview } from 'types/projects';
 
-import { useMediaQuery } from 'hooks';
+import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Card, Text } from 'components';
 
@@ -21,7 +21,7 @@ export const ProjectCard: React.FC<ProjectPreview> = ({ name, photoUrl }) => {
 
   return (
     <Link href={'/projects'} className={styles.ProjectCard} tabIndex={isLaptop ? -1 : undefined}>
-      <Image className={styles.ProjectCard__Image} width={500} height={400} src={photoUrl} alt={name} />
+      <Image className={styles.ProjectCard__Image} width={500} height={400} src={photoUrl} alt={name} loading="eager" />
       <Card
         className={styles.ProjectCard__InnerCard}
         frameType="corner"

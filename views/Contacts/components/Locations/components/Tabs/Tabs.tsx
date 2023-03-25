@@ -1,14 +1,7 @@
 import clsx, { ClassValue } from 'clsx';
 
 import { useFlyToCurrentLocation } from 'hooks/useFlyToCurrentLocation';
-
-import { useAppDispatch, useAppSelector } from 'store';
-import {
-  selectCurrentLocation,
-  selectCurrentLocationIndex,
-  selectLocations,
-  setCurrentLocationIndex,
-} from 'store/mapSlice';
+import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { TabButton } from './components/TabButton/TabButton';
 import { TabContent } from './components/TabContent/TabContent';
@@ -20,29 +13,26 @@ export type TabsProps = {
 };
 
 export const Tabs: React.FC<TabsProps> = ({ className }) => {
-  const locations = useAppSelector(selectLocations);
-  const currentLocation = useAppSelector(selectCurrentLocation);
-  const currentLocationIndex = useAppSelector(selectCurrentLocationIndex);
-  const dispatch = useAppDispatch();
+  const { locations, currentLocation, currentLocationIndex, setCurrentLocationIndex } = useGlobalContext();
   const flyToCurrentLocation = useFlyToCurrentLocation();
 
   const handleTabClick = (index: number) => {
     if (index === currentLocationIndex) return flyToCurrentLocation();
 
-    dispatch(setCurrentLocationIndex(index));
+    setCurrentLocationIndex(index);
   };
 
   return (
     <div className={clsx(styles.Tabs, className)}>
       <div className={styles.Tabs__ButtonsContainer}>
-        {locations.map(({ name }, idx) => (
+        {locations?.map(({ name }, idx) => (
           <TabButton key={name} active={idx === currentLocationIndex} onClick={() => handleTabClick(idx)}>
             {name}
           </TabButton>
         ))}
       </div>
 
-      <TabContent {...currentLocation} />
+      {currentLocation && <TabContent {...currentLocation} />}
     </div>
   );
 };

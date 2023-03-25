@@ -76,34 +76,34 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => (
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
         { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'preconnect', href: 'https://cdn.statically.io' },
-        // {
-        //   rel: 'preload',
-        //   href: 'https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-ExtraBold.woff',
-        //   as: 'font',
-        //   type: 'font/woff',
-        //   crossOrigin: 'anonymous',
-        // },
-        // {
-        //   rel: 'preload',
-        //   href: 'https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-SemiBold.woff',
-        //   as: 'font',
-        //   type: 'font/woff',
-        //   crossOrigin: 'anonymous',
-        // },
-        // {
-        //   rel: 'preload',
-        //   href: 'https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-Medium.woff',
-        //   as: 'font',
-        //   type: 'font/woff',
-        //   crossOrigin: 'anonymous',
-        // },
-        // {
-        //   rel: 'preload',
-        //   href: 'https://cdn.statically.io/gh/devesh111/Gilroy-Font/main/Gilroy-Regular.woff',
-        //   as: 'font',
-        //   type: 'font/woff',
-        //   crossOrigin: 'anonymous',
-        // },
+        {
+          rel: 'preload',
+          href: 'https://cdn.statically.io/gh/LadyRainbow/Lawer/master/app/build/fonts/Gilroy-Extrabold.woff2',
+          as: 'font',
+          type: 'font/woff2',
+          crossOrigin: 'anonymous',
+        },
+        {
+          rel: 'preload',
+          href: 'https://cdn.statically.io/gh/LadyRainbow/Lawer/master/app/build/fonts/Gilroy-SemiBold.woff2',
+          as: 'font',
+          type: 'font/woff2',
+          crossOrigin: 'anonymous',
+        },
+        {
+          rel: 'preload',
+          href: 'https://cdn.statically.io/gh/LadyRainbow/Lawer/master/app/build/fonts/Gilroy-Medium.woff2',
+          as: 'font',
+          type: 'font/woff2',
+          crossOrigin: 'anonymous',
+        },
+        {
+          rel: 'preload',
+          href: 'https://cdn.statically.io/gh/LadyRainbow/Lawer/master/app/build/fonts/Gilroy-Regular.woff2',
+          as: 'font',
+          type: 'font/woff2',
+          crossOrigin: 'anonymous',
+        },
       ]}
       additionalMetaTags={[
         {
