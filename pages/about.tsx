@@ -3,27 +3,23 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { NextSeo } from 'next-seo';
 
-import { TeamMember } from 'types/team';
+import { getServices, getTeam } from 'services/firestore';
 
-import { getTeam } from 'services/firestore';
-
-import { About } from 'views/About/About';
+import { About, AboutProps } from 'views/About/About';
 
 import { globalNamespaces, Namespace } from 'i18n';
 
-type PageProps = {
-  team: TeamMember[];
-};
-
-export const getStaticProps: GetStaticProps<PageProps> = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<AboutProps> = async ({ locale }) => {
   const team = await getTeam(locale);
+  const services = await getServices(locale);
 
   return {
     props: {
       ...(await serverSideTranslations(locale as string, [...globalNamespaces, Namespace.Contacts])),
       team,
+      services,
     },
-    revalidate: 10,
+    revalidate: 3600,
   };
 };
 

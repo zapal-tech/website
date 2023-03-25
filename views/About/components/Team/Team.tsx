@@ -27,10 +27,11 @@ export const Team = () => {
       </Text>
 
       <div className={styles.Team__CircleContainer}>
-        <Text className={styles.Team__CircleTitle} type="h3" size="heading3">
-          {t('aboutZapal.circleTitle')}
+        <Text className={styles.Team__Description} type="h3" size="heading3">
+          {t('aboutZapal.description')}
         </Text>
-        <div className={styles.Team__Circle}></div>
+
+        <div className={styles.Team__Circle} />
       </div>
 
       <div className={styles.Team__Members}>

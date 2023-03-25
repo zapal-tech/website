@@ -1,6 +1,10 @@
 import { useTranslation } from 'next-i18next';
 
+import { useGlobalContext } from 'hooks/useGlobalContext';
+
 import { Button, Container, Text } from 'components';
+
+import { AboutProps } from 'views/About/About';
 
 import { Namespace } from 'i18n';
 
@@ -10,46 +14,45 @@ import styles from './Services.module.scss';
 
 const servicesList = [
   {
-    title: 'WEB APPS DEVELOPMENT',
-    subtitle:
+    name: 'Web apps development',
+    description:
       'Lorem ipsum dolor sit amet consectetur. Sed mauris interdum vulputate mattis ultricies. Donec nam lorem enim adipiscing dolor ipsum lacus risus semper. Euismod ut dictum in massa etiam integer malesuada leo varius',
   },
   {
-    title: 'MOBILE APPS Development',
-    subtitle:
+    name: 'Mobile apps development',
+    description:
       'ipsum dolor sit amet consectetur. Elementum volutpat sit blandit pulvinar quis blandit. ipsum dolor sit amet consectetur. ipsum dolor sit amet consectetur. Elementum volutpat sit blandit ',
   },
   {
-    title: 'Technical AUDIT',
-    subtitle:
+    name: 'Technical AUDIT',
+    description:
       'if your tku dolor sit amet consectetur. Elementum volutpat sit blandit magna if your tku dolor sit amet consectetur. Elementum volutpat sit blandit magna',
   },
   {
-    title: 'Devops Services',
-    subtitle:
+    name: 'DevOps Services',
+    description:
       'if your tku dolor sit amet consectetur. Elementum volutpat sit blandit magna text text text text if your tku dolor sit amet consectetur. Elementum volutpat sit blandit magna if your tku dolor sit amet  ',
   },
   {
-    title: 'UI/UX Design',
-    subtitle:
+    name: 'UI/UX Design',
+    description:
       'tku dolor sit amet consectetur. Elementum volutpat sit blandit magna sit blandit magna pulvinar quis blandit. Enim elit in tku dolor sit amet consectetur. Elementum tku dolor  consectetur. text some',
   },
   {
-    title: 'Quality Assurance Services',
-    subtitle:
+    name: 'Quality Assurance Services',
+    description:
       'tku dolor sit amet consectetur. Elementum volutpat sit blandit magna sit blandit magna pulvinar quis blandit. Enim elit in tku dolor sit amet consectetur. Elementum tku dolor  consectetur. text some',
   },
   {
-    title: 'IT Consulting',
-    subtitle:
+    name: 'IT Consulting',
+    description:
       'tku dolor sit amet consectetur. Elementum volutpat sit blandit magna sit blandit magna pulvinar quis blandit. Enim elit in tku dolor sit amet consectetur. Elementum tku dolor  consectetur. text some',
   },
 ];
 
 export const Services = () => {
-  const { t } = useTranslation(Namespace.About);
-
-  const getOrder = (index: number) => `${index + 1}`.padStart(2, '0');
+  const { t } = useTranslation([Namespace.About, Namespace.Common]);
+  const { pageProps } = useGlobalContext<AboutProps>();
 
   return (
     <Container>
@@ -58,11 +61,12 @@ export const Services = () => {
       </Text>
 
       <div className={styles.Services__List}>
-        {servicesList.map((service, idx) => (
-          <ServiceCard key={service.title} href={'/about'} {...service} order={getOrder(idx)} />
+        {pageProps.services.map((service) => (
+          <ServiceCard key={service.order} {...service} />
         ))}
       </div>
-      <Button className={styles.Services__Button}>BECOME A CLIENT</Button>
+
+      <Button className={styles.Services__Button}>{t('becomeAClient', { ns: Namespace.Common })}</Button>
     </Container>
   );
 };

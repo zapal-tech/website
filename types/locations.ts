@@ -14,9 +14,11 @@ type Contact = {
 };
 
 export type Location = {
+  id: string;
   name: string;
   address: { label: string; link: string };
   coordinates: Coordinates;
   timeZone: string;
   contact: Contact;
+  order: number;
 };

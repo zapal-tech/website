@@ -29,18 +29,18 @@ export const Hero = () => {
 
       <div className={styles.Hero__BackgroundLight}></div>
       <Text className={styles.Hero__SubtitleDescription} type="h5" size="small">
-        {t('hero.subtitleDescription')}
+        {t('hero.description')}
       </Text>
 
       <div className={styles.Hero__Slider}></div>
 
       <Text className={styles.Hero__SliderSubtitle} type="h3" size="heading3">
-        {t('hero.slider.sliderSubtitle')}
+        {t('hero.sliderSubtitle')}
       </Text>
 
       <AlternantText baseText={t('hero.alternantText.baseText')} />
       <Text className={styles.Hero__SliderButtonSubtitle} type="h3" size="heading3">
-        {t('hero.button.subtitle')}
+        {t('hero.buttonSubtitle')}
       </Text>
 
       <Button className={styles.Hero__Button}>{t('becomeAClient', { ns: Namespace.Common })}</Button>

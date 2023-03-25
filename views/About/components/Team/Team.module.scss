@@ -27,6 +27,29 @@
     }
   }
 
+  &__Description {
+    width: 280px;
+    margin: 0 0 65px auto;
+
+    @include media(large-tablet) {
+      margin-right: auto;
+    }
+
+    @include media(laptop) {
+      width: 360px;
+      margin-right: 20%;
+      margin-bottom: $expanded-gap-lg;
+    }
+
+    @include media(large-laptop) {
+      width: 600px;
+    }
+  }
+
+  &__CircleContainer {
+    position: relative;
+  }
+
   &__Circle {
     position: absolute;
     top: -100px;
@@ -67,29 +90,6 @@
 
     @include media(large-laptop) {
       transform: translate(140px);
-    }
-  }
-
-  &__CircleContainer {
-    position: relative;
-  }
-
-  &__CircleTitle {
-    width: 280px;
-    margin: 0 0 65px auto;
-
-    @include media(large-tablet) {
-      margin-right: auto;
-    }
-
-    @include media(laptop) {
-      width: 360px;
-      margin-right: 20%;
-      margin-bottom: $expanded-gap-lg;
-    }
-
-    @include media(large-laptop) {
-      width: 600px;
     }
   }
 
