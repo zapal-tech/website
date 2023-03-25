@@ -15,28 +15,28 @@
   &__Image {
     width: 100%;
     border-radius: $gap-xxs;
-    margin-bottom: $gap-sm;
+    margin: 0 0 $gap-sm;
     object-fit: cover;
 
     @include media(laptop) {
       width: 600px;
       height: 700px;
-      margin-bottom: $expanded-gap-xs;
+      margin: 0 0 $expanded-gap-xs;
     }
   }
 
   &__Name {
-    margin-bottom: $gap-xxs;
+    margin: 0 0 $gap-xxs;
   }
 
-  &__JobTitle {
-    margin-bottom: $gap-md;
+  &__Title {
+    margin: 0 0 $gap-md;
     color: $sonic-silver;
   }
 
-  &__Subtitle {
+  &__Bio {
     width: 280px;
-    margin-bottom: $gap-sm;
+    margin: 0 0 $gap-sm;
 
     @include media(laptop) {
       width: 100%;

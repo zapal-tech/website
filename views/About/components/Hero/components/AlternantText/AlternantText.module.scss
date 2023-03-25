@@ -4,19 +4,19 @@
 
 .AlternantText {
   display: flex;
-  width: 263px;
+  width: 265px;
   padding-bottom: 5px;
   border-bottom: 1px solid $white;
-  margin-bottom: $gap-lg;
+  margin: 0 0 $gap-lg;
   gap: 3px;
 
   @include media(laptop) {
-    width: 308px;
+    width: 310px;
     margin-bottom: 180px;
     gap: $gap-xs;
   }
 
   @include media(large-laptop) {
-    width: 438px;
+    width: 440px;
   }
 }

@@ -2,7 +2,7 @@
 @import 'styles/colors';
 @import 'styles/mixins';
 
-.OurServiceCard {
+.ServiceCard {
   @include media(laptop) {
     display: grid;
     padding-top: $expanded-gap-xs;
@@ -19,8 +19,7 @@
 
   &__TitleContainer {
     display: flex;
-    margin-top: $gap-xl + 10px;
-    margin-bottom: $gap-md;
+    margin: $gap-xl + 10px 0 $gap-md 0;
     gap: $gap-xs;
 
     @include media(laptop) {
@@ -40,7 +39,7 @@
   &__Subtitle {
     padding-bottom: $gap-xl + 10px;
     border-bottom: 1px solid $sonic-silver;
-    margin-bottom: $gap-lg;
+    margin: 0 0 $gap-lg 0;
 
     @include media(laptop) {
       padding-bottom: 0;

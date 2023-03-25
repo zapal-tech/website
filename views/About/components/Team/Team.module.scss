@@ -2,20 +2,21 @@
 @import 'styles/colors';
 @import 'styles/mixins';
 
-.OurTeam {
+.Team {
   position: relative;
   overflow: hidden;
+
   &__Title {
-    margin-bottom: $gap-lg;
+    margin: 0 0 $gap-lg;
 
     @include media(laptop) {
-      margin-bottom: $expanded-gap-xs;
+      margin: 0 0 $expanded-gap-xs;
     }
   }
 
   &__Subtitle {
     width: 280px;
-    margin-bottom: 200px;
+    margin: 0 0 200px;
 
     @include media(laptop) {
       width: 240px;
@@ -75,8 +76,7 @@
 
   &__CircleTitle {
     width: 280px;
-    margin-bottom: 65px;
-    margin-left: auto;
+    margin: 0 0 65px auto;
 
     @include media(large-tablet) {
       margin-right: auto;
