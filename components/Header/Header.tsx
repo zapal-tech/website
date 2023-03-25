@@ -24,11 +24,11 @@ const ContactForm = dynamic(() => import('views/ContactForm/ContactForm').then((
 
 export const Header: React.FC = () => {
   const { t } = useTranslation(Namespace.Common);
-  const { closeMobileMenu, openModal } = useGlobalContext();
+  const { openMobileMenu, openModal } = useGlobalContext();
 
   const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
-  const handleBurgerButtonClick = () => closeMobileMenu();
+  const handleBurgerButtonClick = () => openMobileMenu();
   const handleFormButtonClick = () => openModal(ContactForm);
 
   return (

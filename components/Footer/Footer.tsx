@@ -45,8 +45,10 @@ const Email = () => {
 
   return (
     <Text size="heading3" className={styles.Footer__Email}>
-      <a href={`mailto:${t('email.address')}?subject=${t('email.subject')}&body=${t('email.body')}`}>
-        {t('email.address')}
+      <a
+        href={`mailto:${t('projectEmail.address')}?subject=${t('projectEmail.subject')}&body=${t('projectEmail.body')}`}
+      >
+        {t('projectEmail.address')}
       </a>
     </Text>
   );

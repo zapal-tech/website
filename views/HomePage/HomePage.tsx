@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 
 import { ProjectPreview } from 'types/projects';
+import { TeamMemberPreview } from 'types/team';
 
 import { AppLayout } from 'layouts';
 
@@ -15,15 +16,16 @@ const Team = dynamic(() => import('./components/Team/Team').then((mod) => mod.Te
 
 export type HomeProps = {
   projects: ProjectPreview[];
+  team: TeamMemberPreview[];
 };
 
-export const HomePage: React.FC<HomeProps> = ({ projects }) => (
+export const HomePage: React.FC<HomeProps> = () => (
   <AppLayout>
     <Hero />
     <AboutUs />
     <Services />
     <Technologies />
-    <Projects projects={projects} />
+    <Projects />
     <Partners />
     <Team />
   </AppLayout>

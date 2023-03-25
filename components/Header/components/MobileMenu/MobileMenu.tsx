@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import CloseIcon from 'public/icons/close.svg';
 
@@ -23,6 +23,7 @@ const ContactForm = dynamic(() => import('views/ContactForm/ContactForm').then((
 export const MobileMenu: React.FC = () => {
   const { t } = useTranslation(Namespace.Common);
   const { isMobileMenuOpen, closeMobileMenu, openModal } = useGlobalContext();
+  const containerRef = useRef<HTMLElement>(null);
 
   const handleCloseButtonClick = () => closeMobileMenu();
   const handleContactFormButtonClick = () => {
@@ -43,11 +44,17 @@ export const MobileMenu: React.FC = () => {
   });
 
   useEffect(() => {
+    if (isMobileMenuOpen) containerRef.current?.focus();
+
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
   }, [isMobileMenuOpen]);
 
   return (
-    <Container type="aside" className={clsx(styles.MobileMenu, isMobileMenuOpen && styles['MobileMenu--Open'])}>
+    <Container
+      type="aside"
+      className={clsx(styles.MobileMenu, isMobileMenuOpen && styles['MobileMenu--Open'])}
+      ref={containerRef}
+    >
       <HeaderButton
         className={styles.MobileMenu__CloseButton}
         onClick={handleCloseButtonClick}

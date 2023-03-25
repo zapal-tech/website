@@ -1,15 +1,15 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://zapal.tech',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
   generateRobotsTxt: true,
   alternateRefs: [
     {
-      href: 'https://zapal.tech/en',
+      href: process.env.NEXT_PUBLIC_SITE_URL + '/en',
       hreflang: 'en',
     },
     {
-      href: 'https://zapal.tech/uk',
+      href: process.env.NEXT_PUBLIC_SITE_URL + '/uk',
       hreflang: 'uk',
     },
   ],

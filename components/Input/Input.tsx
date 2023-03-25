@@ -11,6 +11,7 @@ export type InputProps = Omit<UseControllerProps, 'control'> & {
   autoComplete?: string | true;
   control: Control<any, any>;
   onChange?: (name: string, value: string) => void;
+  inputRef?: React.Ref<HTMLInputElement>;
   required?: boolean;
   disabled?: boolean;
 };
@@ -24,6 +25,7 @@ export const Input: React.FC<InputProps> = ({
   required = false,
   disabled = false,
   onChange,
+  inputRef,
   ...controllerProps
 }) => {
   const { field, fieldState } = useController({ ...controllerProps, rules: { required, ...controllerProps.rules } });
@@ -38,6 +40,7 @@ export const Input: React.FC<InputProps> = ({
     <div className={clsx(styles.Input, field.value && styles['Input--HasValue'], className)}>
       <input
         {...field}
+        ref={inputRef}
         className={styles.Input__Field}
         aria-placeholder={placeholder || undefined}
         id={controllerProps.name || id}

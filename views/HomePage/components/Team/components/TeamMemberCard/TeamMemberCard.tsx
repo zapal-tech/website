@@ -27,11 +27,11 @@ export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
   <Link className={styles.TeamMemberCard} href={href}>
     <div className={styles.TeamMemberCard__PhotoContainer}>
       <Image
+        width={500}
+        height={500}
         className={styles.TeamMemberCard__Photo}
         src={imageUrl}
         alt={imageAlt || `${firstName} ${lastName} photo`}
-        width={500}
-        height={500}
         loading="eager"
       />
 
