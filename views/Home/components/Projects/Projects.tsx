@@ -6,7 +6,7 @@ import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Container, Text } from 'components';
 
-import { HomeProps } from 'views/HomePage/HomePage';
+import { HomeProps } from 'views/Home/Home';
 
 import { Namespace } from 'i18n';
 

@@ -7,7 +7,7 @@ import { projects } from 'utils/projects';
 
 import { getTeamPreview } from 'services/firestore';
 
-import { HomePage, HomeProps } from 'views/HomePage/HomePage';
+import { Home, HomeProps } from 'views/Home/Home';
 
 import { globalNamespaces, Namespace } from 'i18n';
 
@@ -20,17 +20,17 @@ export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
       projects,
       team,
     },
-    revalidate: 10,
+    revalidate: 3600,
   };
 };
 
-export default function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function HomePage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation(Namespace.Titles);
 
   return (
     <>
       <NextSeo title={t('home') || undefined} />
-      <HomePage {...props} />
+      <Home {...props} />
     </>
   );
 }

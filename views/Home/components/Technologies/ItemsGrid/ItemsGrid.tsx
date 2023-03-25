@@ -1,6 +1,7 @@
 import PythonIcon from '/public/technologies/python.svg';
 import SwiftIcon from '/public/technologies/swift.svg';
 import clsx, { ClassValue } from 'clsx';
+
 import AiIcon from 'public/technologies/adobe-illustrator.svg';
 import AngularIcon from 'public/technologies/angular.svg';
 import CSharpIcon from 'public/technologies/cSharp.svg';

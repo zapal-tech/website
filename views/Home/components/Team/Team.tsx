@@ -7,7 +7,7 @@ import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Card, Container, Text } from 'components';
 
-import { HomeProps } from 'views/HomePage/HomePage';
+import { HomeProps } from 'views/Home/Home';
 
 import { Namespace } from 'i18n';
 
