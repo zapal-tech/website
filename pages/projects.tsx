@@ -3,19 +3,13 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { NextSeo } from 'next-seo';
 
-import { ProjectPreview } from 'types/projects';
-
 import { projects } from 'utils/projects';
 
-import { Projects } from 'views/Projects/Projects';
+import { Projects, ProjectsProps } from 'views/Projects/Projects';
 
 import { globalNamespaces, Namespace } from 'i18n';
 
-type PageProps = {
-  projects: ProjectPreview[];
-};
-
-export const getStaticProps: GetStaticProps<PageProps> = async ({ locale }) => ({
+export const getStaticProps: GetStaticProps<ProjectsProps> = async ({ locale }) => ({
   props: {
     ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Projects])),
     projects,

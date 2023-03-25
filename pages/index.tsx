@@ -3,23 +3,15 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { NextSeo } from 'next-seo';
 
-import { ProjectPreview } from 'types/projects';
-import { TeamMemberPreview } from 'types/team';
-
 import { projects } from 'utils/projects';
 
 import { getTeamPreview } from 'services/firestore';
 
-import { HomePage } from 'views/HomePage/HomePage';
+import { HomePage, HomeProps } from 'views/HomePage/HomePage';
 
 import { globalNamespaces, Namespace } from 'i18n';
 
-type PageProps = {
-  projects: ProjectPreview[];
-  team: TeamMemberPreview[];
-};
-
-export const getStaticProps: GetStaticProps<PageProps> = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
   const team = await getTeamPreview(locale);
 
   return {

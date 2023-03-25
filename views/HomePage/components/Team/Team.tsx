@@ -7,6 +7,8 @@ import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Card, Container, Text } from 'components';
 
+import { HomeProps } from 'views/HomePage/HomePage';
+
 import { Namespace } from 'i18n';
 
 import { TeamMemberCard } from './components/TeamMemberCard/TeamMemberCard';
@@ -14,7 +16,7 @@ import { TeamMemberCard } from './components/TeamMemberCard/TeamMemberCard';
 import styles from './Team.module.scss';
 
 export const Team = () => {
-  const { pageProps } = useGlobalContext<{ team: TeamMemberPreview[] }>();
+  const { pageProps } = useGlobalContext<HomeProps>();
   const { t } = useTranslation(Namespace.Home);
 
   return (

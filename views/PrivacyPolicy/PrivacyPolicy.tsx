@@ -141,7 +141,7 @@ export const PrivacyPolicy = () => (
 
         <Text size="small">
           Visit our website at{' '}
-          <a href="https://zapal.tech" target="_blank" rel="noreferrer">
+          <a href="/" target="_blank" rel="noreferrer">
             zapal.tech
           </a>
           , or any website of ours that links to this privacy notice

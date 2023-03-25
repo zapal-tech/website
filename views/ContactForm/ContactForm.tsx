@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'next-i18next';
+import { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
@@ -30,10 +31,16 @@ export const ContactForm: React.FC = () => {
   const { t } = useTranslation(Namespace.ContactForm);
   const { clearContactForm, closeModal, contactForm, setContactFormFieldValue } = useGlobalContext();
   const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
+
+  const firstNameInputRef = useRef<HTMLInputElement>(null);
   const { control, handleSubmit } = useForm<ContactFormState>({
     values: contactForm,
     resolver: yupResolver(schema),
   });
+
+  useEffect(() => {
+    firstNameInputRef.current?.focus();
+  }, []);
 
   const handleChange = (name: string, value: string) =>
     setContactFormFieldValue({ name: name as keyof ContactFormState, value });
@@ -73,6 +80,7 @@ export const ContactForm: React.FC = () => {
             onChange={handleChange}
             autoComplete="given-name"
             placeholder={t('form.firstName')}
+            inputRef={firstNameInputRef}
             required
           />
 

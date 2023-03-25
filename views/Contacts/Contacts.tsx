@@ -5,7 +5,8 @@ import { AppLayout } from 'layouts';
 
 import { Hero } from './components/Hero/Hero';
 
-const Calendly = dynamic(() => import('./components/Calendly/Calendly').then((mod) => mod.Calendly));
+// TODO: Uncomment when we will have a Calendly pro account
+// const Calendly = dynamic(() => import('./components/Calendly/Calendly').then((mod) => mod.Calendly));
 const Locations = dynamic(() => import('./components/Locations/Locations').then((mod) => mod.Locations));
 
 export const Contacts: React.FC = () => (
@@ -13,7 +14,7 @@ export const Contacts: React.FC = () => (
     <MapProvider>
       <Hero />
       <Locations />
-      <Calendly />
+      {/* <Calendly /> */}
     </MapProvider>
   </AppLayout>
 );
