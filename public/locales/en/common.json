@@ -1,9 +1,12 @@
 {
+  "slogan": "Unlock Your Tech Future",
+  "description": "Unlock Your Tech Future with Zapal! Hire Zapal for top-notch web application development services.",
+  "keywords": "Zapal, Zapal Tech, Tech, IT, dev, development, outsource, frontend, backend, web development, ReactJS, JavaScript, TypeScript, QA, services, solutions, website development, custom software, full-stack development, UI design, UX design, web design, app development, software engineering, agile development, project management, mobile development, technical audit, digital solutions, responsive design, API integration, cloud services, web applications, performance optimization, software maintenance",
   "letsTalk": "Let's talk",
   "internalServerError": "Internal server error",
   "pageNotFound": "Page not found",
   "becomeAClient": "Become a client",
-  "email": {
+  "projectEmail": {
     "address": "hello@zapal.tech",
     "subject": "Request for ...",
     "body": "Hi, Zapal Team!%0D%0A%0D%0AI'm interested in hiring you to help me with my project.%0D%0A%0D%0AThe project I have in mind is a ..."
