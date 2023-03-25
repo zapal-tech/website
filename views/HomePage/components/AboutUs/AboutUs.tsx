@@ -11,7 +11,7 @@ export const AboutUs: React.FC = () => {
   const { t } = useTranslation(Namespace.Home);
   const router = useRouter();
 
-  const goToAboutUs = () => router.push('/about');
+  const goToAboutUs = (locale) => router.push('/about', locale);
 
   return (
     <Container className={styles.AboutUs}>

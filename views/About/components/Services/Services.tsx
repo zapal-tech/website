@@ -4,9 +4,9 @@ import { Button, Container, Text } from 'components';
 
 import { Namespace } from 'i18n';
 
-import { OurServiceCard } from './components/OurServiceCard/OurServiceCard';
+import { ServiceCard } from './components/OurServiceCard/ServiceCard';
 
-import styles from './OurServices.module.scss';
+import styles from './Services.module.scss';
 
 const servicesList = [
   {
@@ -46,23 +46,23 @@ const servicesList = [
   },
 ];
 
-export const OurServices = () => {
+export const Services = () => {
   const { t } = useTranslation(Namespace.About);
 
   const getOrder = (index: number) => `${index + 1}`.padStart(2, '0');
 
   return (
     <Container>
-      <Text className={styles.OurServices__Title} size="heading1" type="h2" uppercase>
-        {t('OurServices.title')}
+      <Text className={styles.Services__Title} size="heading1" type="h2" uppercase>
+        {t('services.title')}
       </Text>
 
-      <div className={styles.OurServices__List}>
+      <div className={styles.Services__List}>
         {servicesList.map((service, idx) => (
-          <OurServiceCard key={service.title} href={'/about'} {...service} order={getOrder(idx)} />
+          <ServiceCard key={service.title} href={'/about'} {...service} order={getOrder(idx)} />
         ))}
       </div>
-      <Button className={styles.OurServices__Button}>BECOME A CLIENT</Button>
+      <Button className={styles.Services__Button}>BECOME A CLIENT</Button>
     </Container>
   );
 };

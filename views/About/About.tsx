@@ -1,17 +1,23 @@
+import { TeamMember } from 'types/team';
+
 import { AppLayout } from 'layouts';
 
-import { AboutUs } from './components/AboutUs/AboutUs';
-import { OurPartners } from './components/OurPartners/OurPartners';
-import { OurServices } from './components/OurServices/OurServices';
-import { OurTeam } from './components/OurTeam/OurTeam';
+import { Hero } from './components/Hero/Hero';
+import { Partners } from './components/Partners/Partners';
+import { Services } from './components/Services/Services';
+import { Team } from './components/Team/Team';
 
 import styles from './About.module.scss';
 
-export const About: React.FC = () => (
+export type AboutProps = {
+  team: TeamMember[];
+};
+
+export const About: React.FC<AboutProps> = () => (
   <AppLayout>
-    <AboutUs />
-    <OurTeam />
-    <OurServices />
-    <OurPartners />
+    <Hero />
+    <Team />
+    <Services />
+    <Partners />
   </AppLayout>
 );

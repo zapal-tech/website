@@ -5,12 +5,8 @@ export type TeamMemberPreview = {
   imageUrl: string;
 };
 
-export type TeamMember = {
-  firstName: string;
-  lastName: string;
-  title: string;
+export type TeamMember = TeamMemberPreview & {
   email: string;
-  imageUrl: string;
   description: string;
   linkedInUrl: string;
 };

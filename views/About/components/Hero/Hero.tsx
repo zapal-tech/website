@@ -8,10 +8,10 @@ import { Namespace } from 'i18n';
 
 import { AlternantText } from './components/AlternantText/AlternantText';
 
-import styles from './AboutUs.module.scss';
+import styles from './Hero.module.scss';
 
-export const AboutUs = () => {
-  const { t } = useTranslation(Namespace.About);
+export const Hero = () => {
+  const { t } = useTranslation([Namespace.About, Namespace.Common]);
 
   return (
     <Container className={styles.Hero}>
@@ -38,18 +38,12 @@ export const AboutUs = () => {
         {t('hero.slider.sliderSubtitle')}
       </Text>
 
-      {/* <div className={styles.Hero__AlternantText}>
-        <Text type="h4">{t('hero.slider.AlternantText.first')}</Text>
-        <Text size="small" type="h4">
-          {t('hero.slider.AlternantText.second')}
-        </Text>
-      </div> */}
-      <AlternantText baseText={t('hero.slider.alternantText.first')} />
+      <AlternantText baseText={t('hero.alternantText.baseText')} />
       <Text className={styles.Hero__SliderButtonSubtitle} type="h3" size="heading3">
-        {t('hero.slider.button.subtitle')}
+        {t('hero.button.subtitle')}
       </Text>
 
-      <Button className={styles.Hero__Button}>BECOME A CLIENT</Button>
+      <Button className={styles.Hero__Button}>{t('becomeAClient', { ns: Namespace.Common })}</Button>
     </Container>
   );
 };
