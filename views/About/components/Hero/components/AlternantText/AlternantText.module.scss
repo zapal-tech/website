@@ -19,4 +19,10 @@
   @include media(large-laptop) {
     width: 440px;
   }
+
+  &__Carousel {
+    .carousel .slide {
+      text-align: left;
+    }
+  }
 }

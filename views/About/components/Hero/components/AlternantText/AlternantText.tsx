@@ -23,9 +23,10 @@ export const AlternantText: React.FC<AlternantTextProps> = ({ baseText }) => {
         className={styles.AlternantText__Carousel}
         axis="vertical"
         infiniteLoop
-        interval={1000}
+        interval={1300}
         autoPlay
-        transitionTime={500}
+        emulateTouch
+        transitionTime={600}
         showArrows={false}
         showIndicators={false}
         showThumbs={false}
