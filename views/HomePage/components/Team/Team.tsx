@@ -27,11 +27,11 @@ export const Team = () => {
 
       <div className={styles.Team__Members}>
         {pageProps.team.map((member) => (
-          <TeamMemberCard key={member.firstName} href={'/about'} {...member} />
+          <TeamMemberCard key={member.firstName} {...member} />
         ))}
 
         <div className={styles.Team__MoreContainer}>
-          <Link className={styles.Team__MoreContainer} href={'/about'}>
+          <Link className={styles.Team__MoreContainer} href="/about">
             <Card className={styles.Team__More} frameType="corner">
               <Text uppercase>{t('team.readMore')}</Text>
             </Card>
