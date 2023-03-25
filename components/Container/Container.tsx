@@ -8,6 +8,7 @@ export type ContainerProps = {
   id?: string;
   className?: ClassValue | ClassValue[];
   children: React.ReactNode;
+  ref?: React.Ref<HTMLElement>;
 };
 
 export const Container: React.FC<ContainerProps> = ({ type = 'div', className, children, ...props }) =>

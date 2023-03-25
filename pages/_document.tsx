@@ -5,7 +5,7 @@ const gTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html>
       <Head>
         <Script
           id="google-tag-manager"

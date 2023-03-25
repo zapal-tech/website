@@ -21,7 +21,7 @@ export const ProjectCard: React.FC<ProjectPreview> = ({ name, photoUrl }) => {
 
   return (
     <Link href={'/projects'} className={styles.ProjectCard} tabIndex={isLaptop ? -1 : undefined}>
-      <Image className={styles.ProjectCard__Image} width={500} height={400} src={photoUrl} alt={name} loading="eager" />
+      <Image width={500} height={400} className={styles.ProjectCard__Image} src={photoUrl} alt={name} loading="eager" />
       <Card
         className={styles.ProjectCard__InnerCard}
         frameType="corner"

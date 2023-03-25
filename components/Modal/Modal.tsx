@@ -11,20 +11,19 @@ import styles from './Modal.module.scss';
 
 export const Modal: React.FC = () => {
   const {
-    isMobileMenuOpen,
     closeModal,
-    modal: { content: Content },
+    modal: { isOpen, content: Content },
   } = useGlobalContext();
 
-  const handleCloseModal = useCallback(() => isMobileMenuOpen && closeModal(), [isMobileMenuOpen, closeModal]);
+  const handleCloseModal = useCallback(() => isOpen && closeModal(), [isOpen, closeModal]);
 
   useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
 
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, [isMobileMenuOpen]);
+  }, [isOpen]);
 
   useEffect(() => {
     const handleEscKeyDown = (evt: KeyboardEvent) => {
@@ -34,10 +33,10 @@ export const Modal: React.FC = () => {
     document.addEventListener('keydown', handleEscKeyDown);
 
     return () => document.removeEventListener('keydown', handleEscKeyDown);
-  }, [isMobileMenuOpen, handleCloseModal]);
+  }, [isOpen, handleCloseModal]);
 
   return (
-    <Portal selector="#__next">
+    <Portal selector="#app">
       <CSSTransition
         classNames={{
           enter: styles['Modal--Enter'],
@@ -46,7 +45,7 @@ export const Modal: React.FC = () => {
           exit: styles['Modal--Exit'],
           exitActive: styles['Modal--ExitActive'],
         }}
-        in={isMobileMenuOpen}
+        in={isOpen}
         timeout={300}
         unmountOnExit
       >
