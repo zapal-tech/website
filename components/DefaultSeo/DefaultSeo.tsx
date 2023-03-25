@@ -27,22 +27,22 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
       item: getAbsoluteUrl(),
     },
     {
-      position: 2,
+      position: 1,
       name: t('about'),
       item: getAbsoluteUrl('/about'),
     },
     {
-      position: 3,
+      position: 2,
       name: t('services'),
       item: getAbsoluteUrl('/about#services'),
     },
     {
-      position: 4,
+      position: 1,
       name: t('projects'),
       item: getAbsoluteUrl('/projects'),
     },
     {
-      position: 5,
+      position: 1,
       name: t('contacts'),
       item: getAbsoluteUrl('/contacts'),
     },
