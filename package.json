@@ -53,7 +53,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-transition-group": "^4.4.5",
     "react-tsparticles": "^2.9.3",
-    "sharp": "^0.31.3",
+    "sharp": "^0.32.0",
     "tsparticles-engine": "^2.9.3",
     "tsparticles-interaction-external-attract": "^2.9.3",
     "tsparticles-interaction-external-bubble": "^2.9.3",
