@@ -5,6 +5,11 @@
 .Team {
   position: relative;
   overflow: hidden;
+  margin-bottom: $gap-md;
+
+  @include media(laptop) {
+    margin-bottom: $expanded-gap-xs;
+  }
 
   &__Title {
     margin: 0 0 $gap-lg;
@@ -97,14 +102,15 @@
     position: relative;
     z-index: 2;
     display: grid;
+    gap: $gap-xxl;
 
     @include media(tablet) {
-      grid-column-gap: $gap-xl;
+      gap: $gap-xl;
       grid-template-columns: 1fr 1fr;
     }
 
     @include media(laptop) {
-      grid-column-gap: $gap-xxl;
+      gap: $expanded-gap-xs $gap-xxl;
       grid-template-columns: 1fr;
     }
   }

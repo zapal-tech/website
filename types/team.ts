@@ -3,12 +3,16 @@ export type TeamMemberPreview = {
   firstName: string;
   lastName: string;
   title: string;
+  fullTitle: string;
   imageUrl: string;
   order: number;
 };
 
 export type TeamMember = TeamMemberPreview & {
   email: string;
-  description: string;
-  linkedInUrl: string;
+  bio: string;
+  links: {
+    name: string;
+    url: string;
+  }[];
 };

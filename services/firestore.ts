@@ -25,9 +25,9 @@ export const getTeamPreview = async (locale?: string): Promise<TeamMemberPreview
   const teamSnapshot = await getDocs(teamRef);
 
   const team = teamSnapshot.docs.map((doc) => {
-    const { firstName, lastName, title, imageUrl } = doc.data()[locale || defaultLanguage];
+    const { id, firstName, lastName, title, imageUrl, order } = doc.data()[locale || defaultLanguage];
 
-    return { firstName, lastName, title, imageUrl };
+    return { id, firstName, lastName, title, imageUrl, order };
   }) as TeamMemberPreview[];
 
   return team.sort(sortByOrder);

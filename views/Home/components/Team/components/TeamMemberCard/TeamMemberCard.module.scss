@@ -12,6 +12,18 @@
     transition: all 0.2s ease-in-out;
   }
 
+  &__Photo {
+    position: relative;
+    border-radius: $gap-xxs;
+    margin: 0 0 $gap-sm;
+    aspect-ratio: 1/1;
+
+    @include media(laptop) {
+      border-radius: $gap-sm;
+      margin: 0 0 $gap-md;
+    }
+  }
+
   &__Icon {
     position: absolute;
     right: $gap-sm;
@@ -24,28 +36,6 @@
       bottom: $gap-md;
       width: $gap-md;
       opacity: 0;
-    }
-  }
-
-  &__PhotoContainer {
-    position: relative;
-    width: max-content;
-    margin: 0 0 $gap-sm;
-
-    @include media(laptop) {
-      margin: 0 0 $gap-md;
-    }
-  }
-
-  &__Photo {
-    width: 250px;
-    height: 250px;
-    border-radius: $gap-xxs;
-
-    @include media(laptop) {
-      width: 500px;
-      height: 500px;
-      border-radius: $gap-sm;
     }
   }
 

@@ -11,6 +11,10 @@
     "subject": "Request for ...",
     "body": "Hi, Zapal Team!%0D%0A%0D%0AI'm interested in hiring you to help me with my project.%0D%0A%0D%0AThe project I have in mind is a ..."
   },
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address"
+  },
   "phone": "+48 123 456 789",
   "location": "Kyiv, Ukraine"
 }

@@ -6,6 +6,11 @@
   position: relative;
   overflow: hidden;
   border-radius: $gap-xxs;
+  aspect-ratio: 7/5;
+
+  @include media(tablet) {
+    aspect-ratio: 4/3;
+  }
 
   @include media(laptop) {
     border-radius: $gap-sm;
@@ -23,15 +28,14 @@
 
   &__InnerCard {
     display: flex;
-    max-width: calc(100% - $gap-md * 2);
-    max-height: calc(100% - $gap-lg * 2);
+    width: 70%;
+    height: auto;
     align-items: center;
     justify-content: center;
+    aspect-ratio: 55/41;
     transition: all 0.25s ease-in-out;
 
     @include media(laptop) {
-      max-width: calc(100% - $gap-lg * 2);
-      max-height: calc(100% - $gap-xxl * 2);
       border-radius: 7px;
     }
 
@@ -51,7 +55,9 @@
   &:hover &__InnerCard,
   &:focus-within &__InnerCard,
   &:focus-visible &__InnerCard {
-    background: rgb($jet-black, 0.9);
+    @include media(laptop) {
+      background: rgb($jet-black, 0.9);
+    }
   }
 
   &__Image {
@@ -61,6 +67,11 @@
   &__Name {
     position: relative;
     text-align: center;
+    text-shadow: 0 0 5px rgba($jet-black, 0.3);
+
+    @include media(large-tablet) {
+      text-shadow: 0 0 10px rgba($jet-black, 0.2);
+    }
   }
 
   &__Button {
@@ -82,7 +93,6 @@
 
   &__ButtonText {
     border-bottom: 1px solid transparent;
-    text-shadow: 0 0 5px rgba($jet-black, 0.3);
     transition: all 0.2s ease-in-out;
   }
 

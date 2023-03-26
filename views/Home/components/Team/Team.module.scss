@@ -2,6 +2,12 @@
 @import 'styles/mixins';
 
 .Team {
+  padding-bottom: $gap-xl;
+
+  @include media(laptop) {
+    padding-bottom: 0;
+  }
+
   &__Title {
     margin: 0 0 $gap-lg;
 
@@ -11,23 +17,34 @@
   }
 
   &__Members {
-    @include media(laptop) {
+    display: grid;
+    overflow: scroll;
+    width: 100%;
+    margin: 0 0 $expanded-gap-xs;
+    gap: $gap-lg;
+    grid-auto-columns: 80%;
+    grid-auto-flow: column;
+
+    @include media(large-phone) {
+      grid-auto-columns: 75%;
+    }
+
+    @include media(tablet) {
       display: grid;
-      width: max-content;
-      gap: $gap-lg;
+      width: 100%;
+      margin: 0;
+      gap: $gap-sm;
+      grid-auto-columns: unset;
+      grid-auto-flow: unset;
       grid-template-columns: 1fr 1fr;
     }
-  }
 
-  &__MoreContainer {
-    @include media(laptop) {
-      padding: 0 0 100px;
+    @include media(large-tablet) {
+      gap: $gap-lg;
     }
-  }
 
-  &__More {
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease-in-out;
+    @include media(laptop) {
+      width: 65.85%;
+    }
   }
 }

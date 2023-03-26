@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 import LinkIcon from 'public/icons/link.svg';
@@ -6,25 +5,22 @@ import LinkIcon from 'public/icons/link.svg';
 import { TeamMemberPreview } from 'types/team';
 
 import { Text } from 'components';
+import { Image } from 'components/Image/Image';
 
 import styles from './TeamMemberCard.module.scss';
 
 export type TeamMemberCardProps = TeamMemberPreview;
 
-export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ imageUrl, firstName, lastName, title }) => (
-  <Link className={styles.TeamMemberCard} href={`/about#${firstName.toLowerCase()}`}>
-    <div className={styles.TeamMemberCard__PhotoContainer}>
-      <Image
-        width={500}
-        height={500}
-        className={styles.TeamMemberCard__Photo}
-        src={imageUrl}
-        alt={`${firstName} ${lastName} photo`}
-        loading="eager"
-      />
-
+export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ id, imageUrl, firstName, lastName, title }) => (
+  <Link className={styles.TeamMemberCard} href={`/about#${id}`}>
+    <Image
+      className={styles.TeamMemberCard__Photo}
+      src={imageUrl}
+      alt={`${firstName} ${lastName} photo`}
+      loading="eager"
+    >
       <LinkIcon className={styles.TeamMemberCard__Icon} />
-    </div>
+    </Image>
 
     <Text className={styles.TeamMemberCard__Name} size="heading3">
       {firstName} {lastName}

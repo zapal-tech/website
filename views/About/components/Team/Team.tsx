@@ -18,7 +18,7 @@ export const Team = () => {
   const { t } = useTranslation(Namespace.About);
 
   return (
-    <Container className={styles.Team}>
+    <Container id="team" className={styles.Team}>
       <Text className={styles.Team__Title} type="h1" size="heading1">
         {t('aboutZapal.title')}
       </Text>

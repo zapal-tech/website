@@ -1,0 +1,13 @@
+@import 'styles/gaps';
+
+.ReadMoreCard {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+
+  &__Card {
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+  }
+}
