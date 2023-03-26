@@ -30,7 +30,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@hookform/resolvers": "^2.9.11",
+    "@hookform/resolvers": "^3.0.0",
     "@svgr/webpack": "^7.0.0",
     "clsx": "^1.2.1",
     "firebase": "^9.18.0",
