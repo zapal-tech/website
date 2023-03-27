@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps<ProjectsProps> = async ({ locale }) 
     ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Projects])),
     projects,
   },
-  revalidate: 10,
+  revalidate: 3600,
 });
 
 export default function ProjectsPage(props: InferGetStaticPropsType<typeof getStaticProps>) {

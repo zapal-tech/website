@@ -7,9 +7,11 @@
   display: flex;
   height: 100%;
   flex-direction: column;
+  padding-bottom: $gap-lg;
   gap: 75px;
 
   @include media(tablet) {
+    padding-bottom: $gap-xxl;
     gap: $gap-xl;
   }
 

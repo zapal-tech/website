@@ -27,22 +27,22 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
       item: getAbsoluteUrl(),
     },
     {
-      position: 2,
+      position: 1,
       name: t('about'),
       item: getAbsoluteUrl('/about'),
     },
     {
-      position: 3,
+      position: 2,
       name: t('services'),
       item: getAbsoluteUrl('/about#services'),
     },
     {
-      position: 4,
+      position: 1,
       name: t('projects'),
       item: getAbsoluteUrl('/projects'),
     },
     {
-      position: 5,
+      position: 1,
       name: t('contacts'),
       item: getAbsoluteUrl('/contacts'),
     },
@@ -56,11 +56,7 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
         description={t('description', { ns: Namespace.Common })!}
         themeColor="#111"
         canonical={getAbsoluteUrl()}
-        languageAlternates={[
-          { hrefLang: 'en', href: getAbsoluteUrl(undefined, false) },
-          { hrefLang: 'en', href: getAbsoluteUrl('/en', false) },
-          { hrefLang: 'uk', href: getAbsoluteUrl('/uk', false) },
-        ]}
+        languageAlternates={[{ hrefLang: 'uk', href: getAbsoluteUrl('/uk', false) }]}
         openGraph={{
           type: 'website',
           locale: 'en_US',
@@ -100,9 +96,11 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
         type="Organization"
         name="Zapal"
         legalName="Zapal"
+        slogan={t('slogan', { ns: Namespace.Common })}
+        email={t('email', { ns: Namespace.Common })}
         contactPoint={[
           {
-            email: 'hello@zapal.tech',
+            email: t('email', { ns: Namespace.Common }),
             url: getAbsoluteUrl('/contacts'),
             contactType: 'customer support',
             availableLanguage: ['English', 'Ukrainian'],
@@ -150,15 +148,10 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
       <BreadcrumbJsonLd itemListElements={breadcrumbs} />
 
       <BrandJsonLd
-        id="zapal"
+        id=""
         slogan={t('slogan', { ns: Namespace.Common })!}
         name="Zapal"
         logo={getAbsoluteUrl('/logo.webp', false)}
-        aggregateRating={{
-          ratingValue: '4.9',
-          ratingCount: '21',
-          bestRating: '5',
-        }}
         url={getAbsoluteUrl(undefined, false)}
       />
 

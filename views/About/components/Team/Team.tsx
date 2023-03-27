@@ -18,7 +18,7 @@ export const Team = () => {
   const { t } = useTranslation(Namespace.About);
 
   return (
-    <Container className={styles.Team}>
+    <Container id="team" className={styles.Team}>
       <Text className={styles.Team__Title} type="h1" size="heading1">
         {t('aboutZapal.title')}
       </Text>
@@ -27,10 +27,11 @@ export const Team = () => {
       </Text>
 
       <div className={styles.Team__CircleContainer}>
-        <Text className={styles.Team__CircleTitle} type="h3" size="heading3">
-          {t('aboutZapal.circleTitle')}
+        <Text className={styles.Team__Description} type="h3" size="heading3">
+          {t('aboutZapal.description')}
         </Text>
-        <div className={styles.Team__Circle}></div>
+
+        <div className={styles.Team__Circle} />
       </div>
 
       <div className={styles.Team__Members}>

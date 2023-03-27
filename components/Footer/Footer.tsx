@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 
+import { useGlobalContext } from 'hooks/useGlobalContext';
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Button, Container, Divider, Text } from 'components';
@@ -13,6 +15,8 @@ import { Policies } from './components/Policies/Policies';
 import media from 'styles/media.module.scss';
 
 import styles from './Footer.module.scss';
+
+const ContactForm = dynamic(() => import('views/ContactForm/ContactForm').then((mod) => mod.ContactForm));
 
 const Subtitle = () => {
   const { t } = useTranslation(Namespace.Footer);
@@ -35,9 +39,16 @@ const MadeByZapal = () => {
 };
 
 const BecomeAClient = () => {
+  const { openModal } = useGlobalContext();
   const { t } = useTranslation(Namespace.Common);
 
-  return <Button className={styles.Footer__Button}>{t('becomeAClient')}</Button>;
+  const openContactForm = () => openModal(ContactForm);
+
+  return (
+    <Button className={styles.Footer__Button} onClick={openContactForm}>
+      {t('becomeAClient')}
+    </Button>
+  );
 };
 
 const Email = () => {
@@ -45,10 +56,8 @@ const Email = () => {
 
   return (
     <Text size="heading3" className={styles.Footer__Email}>
-      <a
-        href={`mailto:${t('projectEmail.address')}?subject=${t('projectEmail.subject')}&body=${t('projectEmail.body')}`}
-      >
-        {t('projectEmail.address')}
+      <a href={`mailto:${t('projectEmail.email')}?subject=${t('projectEmail.subject')}&body=${t('projectEmail.body')}`}>
+        {t('projectEmail.email')}
       </a>
     </Text>
   );

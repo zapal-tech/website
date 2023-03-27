@@ -27,8 +27,8 @@ const nextConfig = {
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     deviceSizes: [768, 1024, 1280, 1680, 1920, 2560, 3840],
-    imagesSizes: [128, 256, 400, 520, 600, 680, 720, 760],
-    formats: ['image/webp'],
+    imagesSizes: [300, 360, 400, 520, 600, 680, 720, 760],
+    formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60 * 10,
     remotePatterns: [
       {

@@ -28,7 +28,7 @@ export const AboutUs: React.FC = () => {
 
         <div className={styles.AboutUs__CardsContainer}>
           {(t('about.cards', { returnObjects: true }) as string[]).map((cardText) => (
-            <Card key={cardText} frameType="corner">
+            <Card key={cardText} frameType="corner" className={styles.AboutUs__Card}>
               <Text type="h4" className={styles.AboutUs__CardText}>
                 {cardText}
               </Text>

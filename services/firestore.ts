@@ -2,7 +2,10 @@ import { getFirestore, collection, addDoc, serverTimestamp, getDocs } from 'fire
 
 import { ContactFormState } from 'types/contactForm';
 import { Location } from 'types/locations';
+import { Service } from 'types/services';
 import { TeamMember, TeamMemberPreview } from 'types/team';
+
+import { sortByOrder } from 'utils/order';
 
 import { defaultLanguage } from 'i18n';
 
@@ -21,23 +24,47 @@ export const getTeamPreview = async (locale?: string): Promise<TeamMemberPreview
   const teamRef = collection(firestore, 'team');
   const teamSnapshot = await getDocs(teamRef);
 
-  return teamSnapshot.docs.map((doc) => {
-    const { firstName, lastName, title, imageUrl } = doc.data()[locale || defaultLanguage];
+  const team = teamSnapshot.docs.map((doc) => {
+    const { id, firstName, lastName, title, imageUrl, order } = doc.data()[locale || defaultLanguage];
 
-    return { firstName, lastName, title, imageUrl };
+    return { id, firstName, lastName, title, imageUrl, order };
   }) as TeamMemberPreview[];
+
+  return team.sort(sortByOrder);
 };
 
 export const getTeam = async (locale?: string): Promise<TeamMember[]> => {
   const teamRef = collection(firestore, 'team');
   const teamSnapshot = await getDocs(teamRef);
 
-  return teamSnapshot.docs.map((doc) => doc.data()[locale || defaultLanguage]) as TeamMember[];
+  const team = teamSnapshot.docs.map((doc) => doc.data()[locale || defaultLanguage]) as TeamMember[];
+
+  return team.sort(sortByOrder);
 };
 
 export const getLocations = async (locale?: string): Promise<Location[]> => {
   const locationsRef = collection(firestore, 'locations');
   const locationsSnapshot = await getDocs(locationsRef);
 
-  return locationsSnapshot.docs.map((doc) => doc.data()[locale || defaultLanguage]) as Location[];
+  const locations = locationsSnapshot.docs.map((doc) => doc.data()[locale || defaultLanguage]) as Location[];
+
+  return locations.sort(sortByOrder);
+};
+
+export const getServices = async (locale?: string): Promise<Service[]> => {
+  const servicesRef = collection(firestore, 'services');
+  const servicesSnapshot = await getDocs(servicesRef);
+
+  const services = servicesSnapshot.docs.map((doc) => doc.data()[locale || defaultLanguage]) as Service[];
+
+  return services.sort(sortByOrder);
+};
+
+export const getPartners = async (): Promise<Service[]> => {
+  const partnersRef = collection(firestore, 'partners');
+  const partnersSnapshot = await getDocs(partnersRef);
+
+  const partners = partnersSnapshot.docs.map((doc) => doc.data()) as Service[];
+
+  return partners.sort(sortByOrder);
 };

@@ -23,14 +23,15 @@ export const AlternantText: React.FC<AlternantTextProps> = ({ baseText }) => {
         className={styles.AlternantText__Carousel}
         axis="vertical"
         infiniteLoop
-        interval={1300}
+        interval={1500}
         autoPlay
-        emulateTouch
-        transitionTime={600}
+        swipeable
+        transitionTime={700}
         showArrows={false}
         showIndicators={false}
         showThumbs={false}
         showStatus={false}
+        stopOnHover={false}
       >
         {(t('hero.alternantText.alternantWords', { returnObjects: true }) as string[]).map((word) => (
           <CarouselItem key={word}>{word}</CarouselItem>
@@ -45,6 +46,3 @@ const CarouselItem: React.FC<React.PropsWithChildren> = ({ children }) => (
     {children}
   </Text>
 );
-// <Text size="small" type="h4" className={styles.AlternantText__CarouselItem}>
-//   {text}
-// </Text>

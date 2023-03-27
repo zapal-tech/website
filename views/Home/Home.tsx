@@ -19,7 +19,7 @@ export type HomeProps = {
   team: TeamMemberPreview[];
 };
 
-export const HomePage: React.FC<HomeProps> = () => (
+export const Home: React.FC<HomeProps> = () => (
   <AppLayout>
     <Hero />
     <AboutUs />

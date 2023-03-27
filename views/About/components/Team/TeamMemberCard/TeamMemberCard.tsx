@@ -1,38 +1,63 @@
-import Image from 'next/image';
+import clsx from 'clsx';
 
 import { TeamMember } from 'types/team';
 
 import { Text } from 'components';
+import { Image } from 'components/Image/Image';
 
 import styles from './TeamMemberCard.module.scss';
 
 export type TeamMemberCardProps = TeamMember;
 
 export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
+  id,
   imageUrl,
   firstName,
   lastName,
+  fullTitle,
   title,
-  description,
+  bio,
+  links,
 }) => (
-  <div className={styles.TeamMemberCard} id={`${firstName.toLowerCase()}`}>
-    <Image
-      className={styles.TeamMemberCard__Image}
-      src={imageUrl}
-      alt={`${firstName} ${lastName} photo`}
-      width={350}
-      height={350}
-    />
-    <div className={styles.TeamMemberCard__TitleContainer}>
+  <div className={styles.TeamMemberCard} id={id}>
+    <Image className={styles.TeamMemberCard__Photo} src={imageUrl} alt={`${firstName} ${lastName} photo`} />
+
+    <div className={styles.TeamMemberCard__Container}>
       <Text className={styles.TeamMemberCard__Name} size="heading3" type="h3">
         {firstName} {lastName}
       </Text>
 
-      <Text className={styles.TeamMemberCard__Title}>{title}</Text>
-
-      <Text className={styles.TeamMemberCard__Bio} size="small">
-        {description}
+      <Text
+        className={clsx(
+          styles.TeamMemberCard__Title,
+          (bio || links.length) && styles['TeamMemberCard__Title--MarginBottom'],
+        )}
+      >
+        {fullTitle || title}
       </Text>
+
+      {bio && (
+        <Text
+          className={clsx(styles.TeamMemberCard__Bio, links.length && styles['TeamMemberCard__Bio--MarginBottom'])}
+          size="small"
+        >
+          {bio}
+        </Text>
+      )}
+
+      {links.length && (
+        <ul className={styles.TeamMemberCard__Links}>
+          {links.map(({ name, url }, idx) => (
+            <li key={url}>
+              {!!idx && <Text> / </Text>}
+
+              <a className={styles.TeamMemberCard__Link} href={url} target="_blank" rel="noreferrer">
+                <Text>{name}</Text>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   </div>
 );

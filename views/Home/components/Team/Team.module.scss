@@ -1,0 +1,67 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+$particles-mask: radial-gradient(ellipse at center, $jet-black 20%, transparent 80%);
+
+.Team {
+  position: relative;
+  padding-bottom: $gap-xl;
+
+  @include media(laptop) {
+    padding-bottom: 0;
+  }
+
+  &__Particles {
+    top: 30% !important;
+    left: unset !important;
+    height: 70% !important;
+    mask-image: $particles-mask;
+
+    @include media(tablet) {
+      top: 30% !important;
+      width: 70% !important;
+      height: 70% !important;
+    }
+  }
+
+  &__Title {
+    margin: 0 0 $gap-lg;
+
+    @include media(laptop) {
+      margin: 0 0 $expanded-gap-md;
+    }
+  }
+
+  &__Members {
+    display: grid;
+    overflow: scroll;
+    width: 100%;
+    margin: 0 0 $expanded-gap-xs;
+    gap: $gap-lg;
+    grid-auto-columns: 80%;
+    grid-auto-flow: column;
+
+    @include media(large-phone) {
+      grid-auto-columns: 75%;
+    }
+
+    @include media(tablet) {
+      display: grid;
+      width: 100%;
+      margin: 0;
+      gap: $gap-sm;
+      grid-auto-columns: unset;
+      grid-auto-flow: unset;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media(large-tablet) {
+      gap: $gap-lg;
+    }
+
+    @include media(laptop) {
+      width: 65.85%;
+    }
+  }
+}

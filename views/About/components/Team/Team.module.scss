@@ -5,6 +5,11 @@
 .Team {
   position: relative;
   overflow: hidden;
+  margin-bottom: $gap-md;
+
+  @include media(laptop) {
+    margin-bottom: $expanded-gap-xs;
+  }
 
   &__Title {
     margin: 0 0 $gap-lg;
@@ -25,6 +30,29 @@
     @include media(large-laptop) {
       width: 350px;
     }
+  }
+
+  &__Description {
+    width: 280px;
+    margin: 0 0 65px auto;
+
+    @include media(large-tablet) {
+      margin-right: auto;
+    }
+
+    @include media(laptop) {
+      width: 360px;
+      margin-right: 20%;
+      margin-bottom: $expanded-gap-lg;
+    }
+
+    @include media(large-laptop) {
+      width: 600px;
+    }
+  }
+
+  &__CircleContainer {
+    position: relative;
   }
 
   &__Circle {
@@ -70,41 +98,19 @@
     }
   }
 
-  &__CircleContainer {
-    position: relative;
-  }
-
-  &__CircleTitle {
-    width: 280px;
-    margin: 0 0 65px auto;
-
-    @include media(large-tablet) {
-      margin-right: auto;
-    }
-
-    @include media(laptop) {
-      width: 360px;
-      margin-right: 20%;
-      margin-bottom: $expanded-gap-lg;
-    }
-
-    @include media(large-laptop) {
-      width: 600px;
-    }
-  }
-
   &__Members {
     position: relative;
     z-index: 2;
     display: grid;
+    gap: $gap-xxl;
 
     @include media(tablet) {
-      grid-column-gap: $gap-xl;
+      gap: $gap-xl;
       grid-template-columns: 1fr 1fr;
     }
 
     @include media(laptop) {
-      grid-column-gap: $gap-xxl;
+      gap: $expanded-gap-xs $gap-xxl;
       grid-template-columns: 1fr;
     }
   }

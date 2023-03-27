@@ -81,22 +81,29 @@
     display: grid;
     margin-bottom: $gap-lg;
     gap: $gap-md;
-    grid-auto-rows: 150px;
+    grid-auto-rows: 100px;
     grid-template-columns: 1fr;
+
+    @include media(large-phone) {
+      grid-auto-rows: 150px;
+    }
 
     @include media(tablet) {
       align-self: flex-end;
       margin-bottom: $gap-md * 2;
-      grid-auto-rows: 200px;
+      grid-auto-rows: unset;
       grid-template-columns: repeat(3, 1fr);
     }
+  }
 
-    @include media(large-tablet) {
-      grid-auto-rows: 250px;
+  &__Card {
+    @include media(tablet) {
+      max-height: 250px;
+      aspect-ratio: 4/3.5;
     }
 
-    @include media(large-laptop) {
-      grid-auto-rows: 350px;
+    @include media(laptop) {
+      max-height: unset;
     }
   }
 

@@ -31,18 +31,7 @@
     }
   }
 
-  &__Slider {
-    width: 100%;
-    height: $gap-lg;
-    border-radius: $gap-lg;
-    background: $white;
-
-    @include media(laptop) {
-      height: 70px;
-    }
-  }
-
-  &__TextContainer {
+  &__Container {
     display: flex;
     flex-direction: column;
     gap: $gap-xxs;
@@ -51,6 +40,17 @@
       flex-direction: row;
       margin: 0 0 $expanded-gap-md;
       gap: $gap-lg;
+    }
+  }
+
+  &__Slider {
+    width: 100%;
+    height: $gap-lg;
+    border-radius: $gap-lg;
+    background: $white;
+
+    @include media(laptop) {
+      height: 70px;
     }
   }
 }

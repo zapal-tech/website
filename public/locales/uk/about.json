@@ -1,29 +1,28 @@
 {
   "hero": {
-    "title": "About Us",
+    "title": "Про нас",
     "subtitle": "Ми сфокусовані на наданні високоякісних послуг та результаті клієнтів",
-    "subtitleDescription": "Команда наших експертів складається з висококваліфікованих фахівців з великим досвідом управління ІТ-проектами та розробки програмного забезпечення",
-    "slider": {
-      "sliderSubtitle": "Ми прагнемо надавати найкращі послуги нашим клієнтам, від початкової консультації до успішного завершення проекту"
-    },
+    "description": "Команда наших експертів складається з висококваліфікованих фахівців з великим досвідом управління ІТ-проектами та розробки програмного забезпечення",
+    "sliderSubtitle": "Ми прагнемо надавати найкращі послуги нашим клієнтам, від початкової консультації до успішного завершення проекту",
+    "buttonSubtitle": "always strive to exceed expectations",
     "alternantText": {
-      "baseText": "Ми ставимо в пріоритет",
-      "alternantWords": ["видатність", "задоволення", "продуктивність"]
+      "baseText": "We prioritize customer",
+      "alternantWords": ["outstanding", "satisfaction", "performance"]
     },
     "button": {
-      "subtitle": "завжди прагнемо перевершити очікування"
+      "subtitle": "always strive to exceed expectations"
     }
   },
   "aboutZapal": {
-    "title": "Думки про Zapal",
-    "subtitle": "Наша команда дружня та надійна, забезпечує сприятливе та чуйне робоче середовище, що дозволяє нам швидко та ефективно вирішувати складні проблеми",
-    "circleTitle": "З Zapal ви можете бути впевнені у привабливих і продуктивних відносинах, а також у кінцевому продукті за найвищими стандартами"
+    "title": "Minds of Zapal",
+    "subtitle": "Our team is friendly and reliable, providing a supportive and responsive working environment allowing us to solve complex problems quickly and efficiently",
+    "circleTitle": "With Zapal, you can be sure of an engaging and productive relationship, as well as an end product of the highest standards"
   },
   "services": {
-    "title": "Сервіси, які ми надаємо"
+    "title": "services we provide"
   },
   "partners": {
-    "title": "Наші партнери",
-    "subtitle": "Штовхни чи потягни для більшого"
+    "title": "Our Partners",
+    "subtitle": "Drag or Scroll for more"
   }
 }

@@ -11,16 +11,17 @@ export const Partners = () => {
 
   return (
     <Container className={styles.Partners}>
-      <div className={styles.Partners__TextContainer}>
+      <div className={styles.Partners__Container}>
         <Text className={styles.Partners__Title} uppercase size="heading1" type="h2">
           {t('partners.title')}
         </Text>
+
         <Text className={styles.Partners__Subtitle} uppercase size="tiny">
           {t('partners.subtitle')}
         </Text>
       </div>
 
-      <div className={styles.Partners__Slider}></div>
+      <div className={styles.Partners__Slider} />
     </Container>
   );
 };

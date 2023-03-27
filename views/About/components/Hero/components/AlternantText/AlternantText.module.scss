@@ -4,25 +4,23 @@
 
 .AlternantText {
   display: flex;
-  width: 265px;
+  width: max-content;
   padding-bottom: 5px;
   border-bottom: 1px solid $white;
   margin: 0 0 $gap-lg;
-  gap: 3px;
+  gap: 4px;
 
   @include media(laptop) {
-    width: 310px;
+    // width: 310px;
     margin-bottom: 180px;
-    gap: $gap-xs;
+    gap: 5px;
   }
 
   @include media(large-laptop) {
     width: 440px;
   }
 
-  &__Carousel {
-    .carousel .slide {
-      text-align: left;
-    }
+  &__CarouselItem {
+    text-align: left;
   }
 }

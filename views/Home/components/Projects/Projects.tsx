@@ -6,7 +6,7 @@ import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Container, Text } from 'components';
 
-import { HomeProps } from 'views/HomePage/HomePage';
+import { HomeProps } from 'views/Home/Home';
 
 import { Namespace } from 'i18n';
 
@@ -26,7 +26,7 @@ export const Projects: React.FC = () => {
 
       <div className={styles.Projects__List}>
         {pageProps.projects.map((project) => (
-          <ProjectCard key={project.name} {...project} />
+          <ProjectCard key={project.id} {...project} />
         ))}
       </div>
     </Container>
