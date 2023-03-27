@@ -59,3 +59,12 @@ export const getServices = async (locale?: string): Promise<Service[]> => {
 
   return services.sort(sortByOrder);
 };
+
+export const getPartners = async (): Promise<Service[]> => {
+  const partnersRef = collection(firestore, 'partners');
+  const partnersSnapshot = await getDocs(partnersRef);
+
+  const partners = partnersSnapshot.docs.map((doc) => doc.data()) as Service[];
+
+  return partners.sort(sortByOrder);
+};

@@ -1,4 +1,5 @@
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
 import { TeamMemberPreview } from 'types/team';
@@ -19,6 +20,8 @@ import media from 'styles/media.module.scss';
 
 import styles from './Team.module.scss';
 
+const Particles = dynamic(() => import('../Particles/Particles').then((mod) => mod.Particles), { ssr: false });
+
 export const Team = () => {
   const { pageProps } = useGlobalContext<HomeProps>();
   const { t } = useTranslation(Namespace.Home);
@@ -27,6 +30,8 @@ export const Team = () => {
 
   return (
     <Container className={styles.Team}>
+      <Particles id="team-particles" className={styles.Team__Particles} />
+
       <Text className={styles.Team__Title} uppercase type="h2" size="heading1">
         {t('team.title')}
       </Text>

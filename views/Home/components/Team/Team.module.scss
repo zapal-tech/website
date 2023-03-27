@@ -1,11 +1,28 @@
+@import 'styles/colors';
 @import 'styles/gaps';
 @import 'styles/mixins';
 
+$particles-mask: radial-gradient(ellipse at center, $jet-black 20%, transparent 80%);
+
 .Team {
+  position: relative;
   padding-bottom: $gap-xl;
 
   @include media(laptop) {
     padding-bottom: 0;
+  }
+
+  &__Particles {
+    top: 30% !important;
+    left: unset !important;
+    height: 70% !important;
+    mask-image: $particles-mask;
+
+    @include media(tablet) {
+      top: 30% !important;
+      width: 70% !important;
+      height: 70% !important;
+    }
   }
 
   &__Title {

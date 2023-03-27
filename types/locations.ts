@@ -9,8 +9,8 @@ export type Coordinates = {
 type Contact = {
   fullName: string;
   title: string;
-  email: { label: string; link: string };
-  phone: { label: string; link: string };
+  email: string;
+  phone: string;
 };
 
 export type Location = {

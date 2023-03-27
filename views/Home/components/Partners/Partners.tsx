@@ -1,5 +1,7 @@
 import { useTranslation } from 'next-i18next';
+import dynamic from 'next/dynamic';
 
+import { useGlobalContext } from 'hooks/useGlobalContext';
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Button, Container, Text } from 'components';
@@ -10,10 +12,15 @@ import media from 'styles/media.module.scss';
 
 import styles from './Partners.module.scss';
 
+const ContactForm = dynamic(() => import('views/ContactForm/ContactForm').then((mod) => mod.ContactForm));
+
 export const Partners = () => {
+  const { openModal } = useGlobalContext();
   const { t } = useTranslation([Namespace.Home, Namespace.Common]);
 
   const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
+
+  const openContactForm = () => openModal(ContactForm);
 
   return (
     <Container>
@@ -44,7 +51,9 @@ export const Partners = () => {
         {t('partners.text')}
       </Text>
 
-      <Button className={styles.Partners__Button}>{t('becomeAClient', { ns: Namespace.Common })}</Button>
+      <Button className={styles.Partners__Button} onClick={openContactForm}>
+        {t('becomeAClient', { ns: Namespace.Common })}
+      </Button>
     </Container>
   );
 };

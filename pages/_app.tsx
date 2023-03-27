@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
@@ -43,7 +44,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <div id="app" className={ronaldFont.className}>
+    <div id="app" className={clsx(ronaldFont.className, ronaldFont.variable)}>
       <DefaultSeo />
 
       <GlobalContextProvider pageProps={pageProps}>
