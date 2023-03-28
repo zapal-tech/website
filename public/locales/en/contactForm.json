@@ -9,5 +9,17 @@
     "message": "Project details",
     "file": "Attach file",
     "submit": "Send message"
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address"
+  },
+  "success": {
+    "title": "Thank you!",
+    "subtitle": "We'll get back to you soon."
+  },
+  "error": {
+    "title": "Damn...",
+    "subtitle": "Our servers is system that can be defined in a single word: awdsmfafoothimaaafootafootwhscuseme. Please try again later."
   }
 }
