@@ -5,11 +5,11 @@ import { NextSeo } from 'next-seo';
 
 import { getLocations } from 'services/firestore';
 
-import { Contacts } from 'views/Contacts/Contacts';
+import { Contacts, ContactsProps } from 'views/Contacts/Contacts';
 
 import { globalNamespaces, Namespace } from 'i18n';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<ContactsProps> = async ({ locale }) => {
   const locations = await getLocations(locale);
 
   return {
