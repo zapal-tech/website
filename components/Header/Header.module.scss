@@ -71,11 +71,19 @@
 
   &__Buttons {
     display: flex;
-    gap: $gap-xs;
+    gap: $gap-xxs;
+
+    @media only screen and (min-width: 340px) {
+      gap: $gap-xs;
+    }
   }
 
   &__ButtonText {
-    padding: 0 8px;
+    padding: 0;
+
+    @media only screen and (min-width: 340px) {
+      padding: 0 8px;
+    }
   }
 
   &__BurgerButton {
