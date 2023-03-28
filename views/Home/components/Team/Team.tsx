@@ -1,13 +1,10 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
-
-import { TeamMemberPreview } from 'types/team';
 
 import { useGlobalContext } from 'hooks/useGlobalContext';
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
-import { Card, Container, Text } from 'components';
+import { Container, Text } from 'components';
 
 import { HomeProps } from 'views/Home/Home';
 

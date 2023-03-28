@@ -3,7 +3,6 @@
 @import 'styles/mixins';
 
 .ContactForm {
-  position: relative;
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -24,6 +23,45 @@
 
   @include media(laptop) {
     gap: $expanded-gap-xs;
+  }
+
+  &__Status {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+    gap: $gap-xxs;
+    transform: translate(-50%, -50%);
+
+    & > * {
+      text-align: center;
+      white-space: pre-line;
+    }
+  }
+
+  &__Status,
+  &__Greetings,
+  &__Form {
+    transition: opacity 0.3s ease-in-out;
+    will-change: opacity;
+
+    &--EnterActive,
+    &--EnterDone {
+      opacity: 1;
+    }
+
+    &--ExitActive {
+      opacity: 0;
+    }
+
+    &--ExitDone {
+      display: none !important;
+    }
   }
 
   &__Greetings {
