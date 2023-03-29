@@ -71,11 +71,11 @@ export const ContactForm: React.FC = () => {
     if (res.status === 201) {
       setMessageState({ isShow: true, type: 'success' });
 
-      return setTimeout(clearFormAndCloseModal, 3000);
+      return setTimeout(clearFormAndCloseModal, 4000);
     }
 
     setMessageState({ isShow: true, type: 'error' });
-    setTimeout(clearFormAndCloseModal, 3000);
+    setTimeout(clearFormAndCloseModal, 7500);
   };
 
   return (
