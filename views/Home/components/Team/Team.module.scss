@@ -2,7 +2,7 @@
 @import 'styles/gaps';
 @import 'styles/mixins';
 
-$particles-mask: radial-gradient(ellipse at center, $jet-black 20%, transparent 80%);
+$particles-mask: radial-gradient(circle, $jet-black 30%, transparent 70%);
 
 .Team {
   position: relative;

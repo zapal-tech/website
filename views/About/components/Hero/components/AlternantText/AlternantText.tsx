@@ -25,13 +25,14 @@ export const AlternantText: React.FC<AlternantTextProps> = ({ baseText }) => {
         infiniteLoop
         interval={1500}
         autoPlay
-        swipeable
+        swipeable={false}
         transitionTime={700}
         showArrows={false}
         showIndicators={false}
         showThumbs={false}
         showStatus={false}
         stopOnHover={false}
+        animationHandler={'fade'}
       >
         {(t('hero.alternantText.alternantWords', { returnObjects: true }) as string[]).map((word) => (
           <CarouselItem key={word}>{word}</CarouselItem>
