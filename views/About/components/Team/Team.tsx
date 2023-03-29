@@ -19,7 +19,7 @@ export const Team = () => {
 
   return (
     <Container id="team" className={styles.Team}>
-      <Text className={styles.Team__Title} type="h1" size="heading1">
+      <Text className={styles.Team__Title} type="h1" size="heading1" uppercase>
         {t('aboutZapal.title')}
       </Text>
       <Text className={styles.Team__Subtitle} type="h5" size="small">
