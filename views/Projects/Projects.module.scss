@@ -2,6 +2,7 @@
 @import 'styles/mixins';
 
 .Projects {
+  overflow: hidden;
   padding-top: $expanded-gap-lg;
 
   &__Title {
@@ -57,27 +58,29 @@
     position: relative;
     z-index: 2;
     display: grid;
+    gap: $gap-md * 2;
 
     @include media(laptop) {
-      grid-column-gap: $gap-xl;
+      gap: $gap-xl;
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: 800px;
     }
 
     @include media(desktop) {
-      grid-column-gap: $gap-xxl;
+      gap: $gap-xxl;
     }
   }
 
-  &__Link {
+  &__ProjectCard {
     &:nth-child(2n + 1) {
       @include media(laptop) {
-        margin-bottom: -300px;
+        margin-top: -75%;
       }
     }
 
     &:nth-child(2n + 2) {
       @include media(laptop) {
-        margin-top: $expanded-gap-xl;
+        margin-top: 75%;
       }
     }
   }
