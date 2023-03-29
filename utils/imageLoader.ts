@@ -30,9 +30,9 @@ const getFirebaseStorageUrl = (src: string, deviceWidth?: number) => {
   return `https://firebasestorage.googleapis.com/v0/b/${process.env.GOOGLE_FIREBASE_PROJECT_ID}.appspot.com/o/${path}?alt=media`;
 };
 
-export const imageLoader: ImageLoader = ({ src, width, quality }) => {
+export const imageLoader: ImageLoader = ({ src, width }) => {
   const isExternal = src.startsWith('http');
-  const source = isExternal ? `${src}?w=${width}&q=${quality || 75}` : getFirebaseStorageUrl(src, width);
+  const source = isExternal ? src : getFirebaseStorageUrl(src, width);
 
   return source;
 };
