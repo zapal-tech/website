@@ -30,7 +30,7 @@ export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
       <Text
         className={clsx(
           styles.TeamMemberCard__Title,
-          (bio || links.length) && styles['TeamMemberCard__Title--MarginBottom'],
+          (bio || links?.length) && styles['TeamMemberCard__Title--MarginBottom'],
         )}
       >
         {fullTitle || title}
@@ -38,14 +38,14 @@ export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 
       {bio && (
         <Text
-          className={clsx(styles.TeamMemberCard__Bio, links.length && styles['TeamMemberCard__Bio--MarginBottom'])}
+          className={clsx(styles.TeamMemberCard__Bio, links?.length && styles['TeamMemberCard__Bio--MarginBottom'])}
           size="small"
         >
           {bio}
         </Text>
       )}
 
-      {links.length && (
+      {links?.length && (
         <ul className={styles.TeamMemberCard__Links}>
           {links.map(({ name, url }, idx) => (
             <li key={url}>

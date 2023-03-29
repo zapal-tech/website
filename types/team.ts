@@ -11,7 +11,7 @@ export type TeamMemberPreview = {
 export type TeamMember = TeamMemberPreview & {
   email: string;
   bio: string;
-  links: {
+  links?: {
     name: string;
     url: string;
   }[];
