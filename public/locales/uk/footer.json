@@ -2,5 +2,8 @@
   "title": "Let's start your project",
   "subtitle": "We reveal the genius that lies dormant in each project",
   "policies": "Policies",
-  "madeByZapal": "made by zapal with love"
+  "madeByZapal": {
+    "base": "зроблено в zapal з",
+    "alternant": ["любов'ю", "натхненням", "запалом", "наркотиками"]
+  }
 }

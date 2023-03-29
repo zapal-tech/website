@@ -138,6 +138,18 @@
     }
   }
 
+  &__Alternant {
+    margin: 0 0 $gap-lg;
+
+    @include media(laptop) {
+      margin: 0 0 180px;
+    }
+  }
+
+  &__AlternantItem {
+    color: $orioles-orange;
+  }
+
   &__Button {
     @include media(laptop) {
       margin: 0 auto 0;

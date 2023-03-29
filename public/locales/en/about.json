@@ -6,8 +6,8 @@
     "sliderSubtitle": "We are passionate about providing the best service to our clients, from the initial consultation until the successful completion of the project",
     "buttonSubtitle": "always strive to exceed expectations",
     "alternantText": {
-      "baseText": "We prioritize customer",
-      "alternantWords": ["outstanding", "satisfaction", "performance"]
+      "base": "We prioritize customer",
+      "alternant": ["outstanding", "satisfaction", "performance"]
     }
   },
   "aboutZapal": {

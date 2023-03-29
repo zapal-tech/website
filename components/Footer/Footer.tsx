@@ -6,6 +6,7 @@ import { useGlobalContext } from 'hooks/useGlobalContext';
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Button, Container, Divider, Text } from 'components';
+import { AlternantText } from 'components/AlternantText/AlternantText';
 import { SocialLinks } from 'components/SocialLinks/SocialLinks';
 
 import { Namespace } from 'i18n';
@@ -32,9 +33,15 @@ const MadeByZapal = () => {
   const { t } = useTranslation(Namespace.Footer);
 
   return (
-    <Text className={styles.Footer__MadeByZapal} size="small">
-      {t('madeByZapal')}
-    </Text>
+    <AlternantText
+      className={styles.Footer__MadeByZapal}
+      baseTextClassName={styles.Footer__MadeByZapalBaseText}
+      itemClassName={styles.Footer__MadeByZapalAlternantText}
+      baseText={t('madeByZapal.base')}
+      baseTextProps={{ size: 'small' }}
+      alternantText={t('madeByZapal.alternant', { returnObjects: true }) as string[]}
+      alternantTextProps={{ size: 'small' }}
+    />
   );
 };
 

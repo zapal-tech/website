@@ -2,7 +2,6 @@ import { getFirestore, collection, addDoc, serverTimestamp, getDocs, orderBy, li
 
 import { ContactFormState } from 'types/contactForm';
 import { Location } from 'types/locations';
-import { MadeByZapalWith } from 'types/madeByZapalWith';
 import { Service } from 'types/services';
 import { TeamMember, TeamMemberPreview } from 'types/team';
 
@@ -82,16 +81,4 @@ export const getPartners = async (): Promise<Service[]> => {
   const partners = partnersSnapshot.docs.map((doc) => doc.data()) as Service[];
 
   return partners;
-};
-
-export const getMadeByZapalWith = async (locale?: string): Promise<MadeByZapalWith[]> => {
-  const lng = getLocale(locale);
-
-  const madeByZapalWithRef = collection(firestore, 'madeByZapalWith');
-  const madeByZapalWithQuery = query(madeByZapalWithRef, orderBy(`${lng}.order`));
-  const madeByZapalWithSnapshot = await getDocs(madeByZapalWithQuery);
-
-  const madeByZapalWith = madeByZapalWithSnapshot.docs.map(mapLocaleObject(lng)) as MadeByZapalWith[];
-
-  return madeByZapalWith;
 };

@@ -1,0 +1,27 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+$mask: linear-gradient(to bottom, transparent 0%, $jet-black 3%, $jet-black 97%, transparent 100%);
+
+.AlternantText {
+  display: flex;
+  width: max-content;
+
+  &__Carousel {
+    :global {
+      .carousel {
+        mask-image: $mask;
+      }
+    }
+  }
+
+  &__BaseText {
+    line-height: 1.2 !important;
+  }
+
+  &__CarouselItem {
+    line-height: 1.2;
+    text-align: left !important;
+  }
+}

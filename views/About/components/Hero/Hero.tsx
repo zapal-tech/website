@@ -6,10 +6,9 @@ import Circle from 'public/icons/circle.svg';
 import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Button, Container, Text } from 'components';
+import { AlternantText } from 'components/AlternantText/AlternantText';
 
 import { Namespace } from 'i18n';
-
-import { AlternantText } from './components/AlternantText/AlternantText';
 
 import styles from './Hero.module.scss';
 
@@ -50,7 +49,12 @@ export const Hero = () => {
           {t('hero.sliderSubtitle')}
         </Text>
 
-        <AlternantText baseText={t('hero.alternantText.baseText')} />
+        <AlternantText
+          className={styles.Hero__Alternant}
+          itemClassName={styles.Hero__AlternantItem}
+          baseText={t('hero.alternantText.base')}
+          alternantText={t('hero.alternantText.alternant', { returnObjects: true }) as string[]}
+        />
 
         <Text className={styles.Hero__ButtonSubtitle} type="h3" size="heading3">
           {t('hero.buttonSubtitle')}
