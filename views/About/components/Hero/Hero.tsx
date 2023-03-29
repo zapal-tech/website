@@ -43,7 +43,7 @@ export const Hero = () => {
 
       <div className={styles.Hero__Slider} />
 
-      <Container>
+      <Container className={styles.Hero__SliderContainer}>
         <Text className={styles.Hero__SliderSubtitle} type="h3" size="heading3">
           {t('hero.sliderSubtitle')}
         </Text>
