@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 
@@ -7,6 +8,7 @@ import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Button, Container, Text } from 'components';
 import { AlternantText } from 'components/AlternantText/AlternantText';
+import { Ticker } from 'components/Ticker/Ticker';
 
 import { Namespace } from 'i18n';
 
@@ -40,6 +42,20 @@ export const Hero = () => {
           {t('hero.description')}
         </Text>
       </Container>
+
+      <Ticker
+        data={['creativity', 'passion', 'skills', 'quality']}
+        renderItem={(item, idx) => (
+          <Text
+            key={item}
+            uppercase
+            size="heading1"
+            className={clsx(styles.Hero__TickerText, idx % 2 ? null : styles['Hero__TickerText--Orange'])}
+          >
+            {item}
+          </Text>
+        )}
+      />
 
       <div className={styles.Hero__Slider} />
 
