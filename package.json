@@ -49,6 +49,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.1",
     "react-i18next": "^12.2.0",
+    "react-infinite-ticker": "^2.1.1",
     "react-map-gl": "^7.0.21",
     "react-responsive-carousel": "3.2.21",
     "react-transition-group": "^4.4.5",
