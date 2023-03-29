@@ -14,14 +14,19 @@ import media from 'styles/media.module.scss';
 
 import styles from './ProjectCard.module.scss';
 
-export const ProjectCard: React.FC<ProjectPreview> = ({ name, thumbnailImageUrl }) => {
+export const ProjectCard: React.FC<ProjectPreview> = ({ id, shortName, thumbnailImageUrl }) => {
   const { t } = useTranslation(Namespace.Home);
 
   const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
   return (
-    <Link href={'/projects'} className={styles.ProjectCard} tabIndex={isLaptop ? -1 : undefined}>
-      <Image className={styles.ProjectCard__Image} src={thumbnailImageUrl} alt={name} loading="eager" />
+    <Link href={`/projects#${id}`} className={styles.ProjectCard} tabIndex={isLaptop ? -1 : undefined}>
+      <Image
+        className={styles.ProjectCard__Image}
+        src={thumbnailImageUrl}
+        alt={`${shortName} project`}
+        loading="eager"
+      />
 
       <Card
         className={styles.ProjectCard__InnerCard}
@@ -29,7 +34,7 @@ export const ProjectCard: React.FC<ProjectPreview> = ({ name, thumbnailImageUrl 
         cornerClassName={styles.ProjectCard__InnerCard__Dot}
       >
         <Text className={styles.ProjectCard__Name} type="span" size="heading3">
-          {name}
+          {shortName}
 
           {isLaptop && (
             <button className={styles.ProjectCard__Button}>

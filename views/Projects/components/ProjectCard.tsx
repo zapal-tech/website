@@ -14,13 +14,14 @@ export type ProjectCardProps = ProjectPreview & {
 };
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
+  id,
   shortName,
   shortDescription,
   thumbnailImageUrl,
   photoLoading,
   className,
 }) => (
-  <div className={clsx(styles.ProjectCard, className)}>
+  <div id={id} className={clsx(styles.ProjectCard, className)}>
     <Image
       src={thumbnailImageUrl}
       alt={`${shortName} project`}
