@@ -29,7 +29,6 @@ export const Hero = () => {
         <Text className={styles.Hero__Title} type="h1" size="heading1" uppercase>
           {t('hero.title')}
         </Text>
-
         <div className={styles.Hero__SubtitleContainer}>
           <Circle className={styles.Hero__Circle} />
 
