@@ -1,33 +1,33 @@
-import PythonIcon from '/public/technologies/python.svg';
-import SwiftIcon from '/public/technologies/swift.svg';
 import clsx, { ClassValue } from 'clsx';
 
-import AiIcon from 'public/technologies/adobe-illustrator.svg';
 import AngularIcon from 'public/technologies/angular.svg';
-import CSharpIcon from 'public/technologies/cSharp.svg';
-import CodeIcon from 'public/technologies/code.svg';
-import FigmaIcon from 'public/technologies/figma.svg';
-import HtmlIcon from 'public/technologies/html-5.svg';
-import JavaIcon from 'public/technologies/java.svg';
-import JsIcon from 'public/technologies/js.svg';
-import NotionIcon from 'public/technologies/notion.svg';
+import CssIcon from 'public/technologies/css.svg';
+import FastifyIcon from 'public/technologies/fastify.svg';
+import HtmlIcon from 'public/technologies/html.svg';
+import JavaScriptIcon from 'public/technologies/javascript.svg';
+import NestJsIcon from 'public/technologies/nest-js.svg';
+import NextJsIcon from 'public/technologies/next-js.svg';
+import NodeJsIcon from 'public/technologies/node-js.svg';
+import ReactIcon from 'public/technologies/react.svg';
 import ReduxIcon from 'public/technologies/redux.svg';
+import TypeScriptIcon from 'public/technologies/typescript.svg';
+import VueIcon from 'public/technologies/vue.svg';
 
 import styles from './ItemsGrid.module.scss';
 
-const itemsArray = [
-  SwiftIcon,
-  PythonIcon,
-  CodeIcon,
-  FigmaIcon,
-  CSharpIcon,
-  JsIcon,
-  AiIcon,
+const technologies = [
+  TypeScriptIcon,
+  JavaScriptIcon,
   HtmlIcon,
-  NotionIcon,
-  ReduxIcon,
-  JavaIcon,
+  CssIcon,
+  NextJsIcon,
+  ReactIcon,
   AngularIcon,
+  VueIcon,
+  NodeJsIcon,
+  NestJsIcon,
+  FastifyIcon,
+  ReduxIcon,
 ];
 
 export type ItemsGridProps = {
@@ -36,7 +36,7 @@ export type ItemsGridProps = {
 
 export const ItemsGrid: React.FC<ItemsGridProps> = ({ className }) => (
   <div className={clsx(styles.Grid, className)}>
-    {itemsArray.map((Icon, index) => (
+    {technologies.map((Icon, index) => (
       <Icon key={index} className={styles.Grid__Item} />
     ))}
   </div>
