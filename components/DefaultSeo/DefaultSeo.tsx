@@ -54,7 +54,7 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
         defaultTitle="Zapal | Unlock Your Tech Future"
         titleTemplate="Zapal - %s | Unlock Your Tech Future"
         description={t('description', { ns: Namespace.Common })!}
-        themeColor="#111"
+        themeColor="#070707"
         canonical={getAbsoluteUrl()}
         languageAlternates={[{ hrefLang: 'uk', href: getAbsoluteUrl('/uk', false) }]}
         openGraph={{
@@ -88,7 +88,7 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
             name: 'keywords',
             content: t('keywords', { ns: Namespace.Common }),
           },
-          { name: 'msapplication-TileColor', content: '#111' },
+          { name: 'msapplication-TileColor', content: '#070707' },
         ]}
       />
 
