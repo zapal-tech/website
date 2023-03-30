@@ -166,7 +166,7 @@
   }
 
   &__Alternant {
-    margin: 0 0 $gap-lg;
+    margin: 0 0 $gap-xxs;
 
     @include media(laptop) {
       margin: 0 0 180px;
@@ -178,8 +178,16 @@
     color: $orioles-orange;
   }
 
-  &__TickerText--Orange {
-    margin: 0 60px 0;
-    color: $orioles-orange;
+  &__TickerText {
+    margin: 0 $gap-md;
+    font-weight: 500;
+
+    @include media(laptop) {
+      margin: 0 $gap-md;
+    }
+
+    &--Orange {
+      color: $orioles-orange;
+    }
   }
 }
