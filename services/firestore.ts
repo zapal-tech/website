@@ -2,6 +2,7 @@ import { getFirestore, collection, addDoc, serverTimestamp, getDocs, orderBy, li
 
 import { ContactFormState } from 'types/contactForm';
 import { Location } from 'types/locations';
+import { Partner } from 'types/partners';
 import { Service } from 'types/services';
 import { TeamMember, TeamMemberPreview } from 'types/team';
 
@@ -74,11 +75,11 @@ export const getServices = async (locale?: string): Promise<Service[]> => {
   return services;
 };
 
-export const getPartners = async (): Promise<Service[]> => {
+export const getPartners = async (): Promise<Partner[]> => {
   const partnersRef = collection(firestore, 'partners');
-  const partnersSnapshot = await getDocs(partnersRef);
+  const partnersQuery = query(partnersRef, orderBy('order'));
+  const partnersSnapshot = await getDocs(partnersQuery);
 
-  const partners = partnersSnapshot.docs.map((doc) => doc.data()) as Service[];
-
+  const partners = partnersSnapshot.docs.map((doc) => doc.data()) as Partner[];
   return partners;
 };

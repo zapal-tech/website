@@ -3,21 +3,23 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { NextSeo } from 'next-seo';
 
-import { getServices, getTeam } from 'services/firestore';
+import { getPartners, getTeam, getServices } from 'services/firestore';
 
 import { About, AboutProps } from 'views/About/About';
 
 import { globalNamespaces, Namespace } from 'i18n';
 
 export const getStaticProps: GetStaticProps<AboutProps> = async ({ locale }) => {
+  const partners = await getPartners();
   const team = await getTeam(locale);
   const services = await getServices(locale);
 
   return {
     props: {
       ...(await serverSideTranslations(locale as string, [...globalNamespaces, Namespace.Contacts])),
-      team,
+      partners,
       services,
+      team,
     },
     revalidate: 3600,
   };
