@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
 
+import { Partner } from 'types/partners';
 import { ProjectPreview } from 'types/projects';
 import { TeamMemberPreview } from 'types/team';
 
@@ -15,6 +16,7 @@ const Projects = dynamic(() => import('./components/Projects/Projects').then((mo
 const Team = dynamic(() => import('./components/Team/Team').then((mod) => mod.Team));
 
 export type HomeProps = {
+  partners: Partner[];
   projects: ProjectPreview[];
   team: TeamMemberPreview[];
 };

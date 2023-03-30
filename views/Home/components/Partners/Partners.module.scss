@@ -53,27 +53,6 @@
     }
   }
 
-  &__Slider {
-    display: flex;
-    width: auto;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-    border-radius: $gap-xl;
-    margin-bottom: 120px;
-    background: $white;
-    cursor: pointer;
-
-    @include media(laptop) {
-      height: 70px;
-      margin-bottom: 320px;
-    }
-  }
-
-  &__SliderText {
-    color: $jet-black;
-  }
-
   &__Text {
     margin-bottom: $gap-lg;
 
@@ -103,6 +82,39 @@
   &__ButtonText {
     @include media(laptop) {
       color: $orioles-orange;
+    }
+  }
+
+  &__TickerItem {
+    display: flex;
+    width: 100px;
+    height: $gap-lg;
+    align-items: center;
+    justify-content: center;
+    border-radius: $gap-lg;
+    margin: 0 $gap-xs / 2 0;
+    background: $white;
+    color: $black;
+
+    @include media(laptop) {
+      width: 250px;
+      height: 70px;
+      margin: 0 $gap-xs 0;
+    }
+
+    &--Wide {
+      width: 180px;
+
+      @include media(laptop) {
+        width: 350px;
+      }
+    }
+
+    &--Placeholder {
+      width: auto;
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+      background: $rosso-corsa;
     }
   }
 }

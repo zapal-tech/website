@@ -1,3 +1,4 @@
+import { Partner } from 'types/partners';
 import { Service } from 'types/services';
 import { TeamMember } from 'types/team';
 
@@ -11,6 +12,7 @@ import { Team } from './components/Team/Team';
 // import styles from './About.module.scss';
 
 export type AboutProps = {
+  partners: Partner[];
   team: TeamMember[];
   services: Service[];
 };
