@@ -8,13 +8,11 @@ export type LogoProps = {
   withName?: boolean;
 };
 
-const LogoIcon = dynamic<React.SVGProps<SVGSVGElement>>(
-  () => import('public/icons/logo.svg').then((mod) => mod.default),
-  { ssr: false },
+const LogoIcon = dynamic<React.SVGProps<SVGSVGElement>>(() =>
+  import('public/icons/logo.svg').then((mod) => mod.default),
 );
-const LogoWithNameIcon = dynamic<React.SVGProps<SVGSVGElement>>(
-  () => import('public/icons/logo-with-name.svg').then((mod) => mod.default),
-  { ssr: false },
+const LogoWithNameIcon = dynamic<React.SVGProps<SVGSVGElement>>(() =>
+  import('public/icons/logo-with-name.svg').then((mod) => mod.default),
 );
 
 export const Logo: React.FC<LogoProps> = ({ className, withName = false }) => (
