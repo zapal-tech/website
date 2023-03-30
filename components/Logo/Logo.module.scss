@@ -25,12 +25,9 @@ $laptop-text-horizontal-shifting: 6px;
       }
 
       path {
-        &:nth-child(1) {
-          transition: all ease-in-out 0.3s;
-        }
-
+        &:nth-child(1),
         &:nth-child(2) {
-          transition: all ease-in-out 0.3s 0.11s;
+          transition: all ease-in-out 0.3s;
         }
       }
 
