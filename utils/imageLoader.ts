@@ -26,7 +26,7 @@ const getFirebaseStorageUrl = (src: string, deviceWidth?: number, noSize?: boole
     path = `${fileName}_${size}.${fileExtension}`;
   }
 
-  return `https://firebasestorage.googleapis.com/v0/b/${process.env.GOOGLE_FIREBASE_PROJECT_ID}.appspot.com/o/${path}?alt=media`;
+  return `https://firebasestorage.googleapis.com/v0/b/${process.env.NEXT_PUBLIC_GOOGLE_FIREBASE_PROJECT_ID}.appspot.com/o/${path}?alt=media`;
 };
 
 export const imageLoader = ({ src, width, noSize }: ImageLoaderProps & { noSize?: boolean }) => {

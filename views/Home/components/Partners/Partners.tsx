@@ -53,20 +53,28 @@ export const Partners = () => {
 
       <Ticker
         className={styles.Partners__Ticker}
-        data={partners}
-        duration={20000}
+        // TODO: remove this after adding more partners
+        data={[...partners, ...partners]}
         renderItem={(item, idx) => (
           <Fragment key={item.id}>
             {idx % 3 ? null : (
               <div className={clsx(styles.Partners__TickerItem, styles['Partners__TickerItem--Placeholder'])} />
             )}
-            <Image
-              key={item.id}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={item.url}
               className={clsx(styles.Partners__TickerItem, idx % 3 === 2 && styles['Partners__TickerItem--Wide'])}
-              src={item.logoUrl}
-              alt={item.name}
-              noSize
-            />
+            >
+              <Image
+                key={item.id}
+                className={styles.Partners__TickerImageContainer}
+                imageClassName={styles.Partners__TickerImage}
+                src={item.logoUrl}
+                alt={item.name}
+                noSize
+              />
+            </a>
           </Fragment>
         )}
       />

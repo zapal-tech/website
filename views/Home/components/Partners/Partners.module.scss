@@ -86,19 +86,17 @@
   }
 
   &__TickerItem {
-    display: flex;
     width: 100px;
     height: $gap-lg;
-    align-items: center;
-    justify-content: center;
+    padding: $gap-xxs;
     border-radius: $gap-lg;
     margin: 0 $gap-xs / 2 0;
     background: $white;
-    color: $black;
 
     @include media(laptop) {
       width: 250px;
       height: 70px;
+      padding: $gap-xs;
       margin: 0 $gap-xs 0;
     }
 
@@ -116,5 +114,21 @@
       aspect-ratio: 1/1;
       background: $rosso-corsa;
     }
+  }
+
+  &__TickerImageContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__TickerImage {
+    position: static !important;
+    width: auto !important;
+    height: 100% !important;
+    filter: brightness(0);
+    object-fit: contain !important;
   }
 }
