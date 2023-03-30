@@ -7,6 +7,7 @@ import { useGlobalContext } from 'hooks/useGlobalContext';
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Button, Container, Text } from 'components';
+import { Image } from 'components/Image/Image';
 import { Ticker } from 'components/Ticker/Ticker';
 
 import { HomeProps } from 'views/Home/Home';
@@ -49,6 +50,7 @@ export const Partners = () => {
           {t('partners.subtitle')}
         </Text>
       </Container>
+
       <Ticker
         className={styles.Partners__Ticker}
         data={partners}
@@ -58,17 +60,17 @@ export const Partners = () => {
             {idx % 3 ? null : (
               <div className={clsx(styles.Partners__TickerItem, styles['Partners__TickerItem--Placeholder'])} />
             )}
-            <Text
+            <Image
               key={item.id}
               className={clsx(styles.Partners__TickerItem, idx % 3 === 2 && styles['Partners__TickerItem--Wide'])}
-              uppercase
-              size="tiny"
-            >
-              {item.name}
-            </Text>
+              src={item.logoUrl}
+              alt={item.name}
+              noSize
+            />
           </Fragment>
         )}
       />
+
       <Container>
         <Text className={styles.Partners__Text} size="heading3">
           {t('partners.text')}

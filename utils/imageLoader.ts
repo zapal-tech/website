@@ -1,4 +1,4 @@
-import { ImageLoader } from 'next/image';
+import { ImageLoader, ImageLoaderProps } from 'next/image';
 
 // { key: device width; value: [image width, image height] }
 const sizes = {
@@ -12,14 +12,13 @@ const sizes = {
   '3840': [760, 950],
 } as const;
 
-const getFirebaseStorageUrl = (src: string, deviceWidth?: number) => {
+const getFirebaseStorageUrl = (src: string, deviceWidth?: number, noSize?: boolean) => {
   const normalizedPath = (src.startsWith('/') ? src.slice(1) : src).replaceAll('/', '%2F');
+  const [fileName, fileExtension] = normalizedPath.split('.');
 
   let path = normalizedPath;
 
-  if (deviceWidth) {
-    const [fileName, fileExtension] = normalizedPath.split('.');
-
+  if (deviceWidth && !noSize && fileExtension !== 'svg') {
     const imageSizeArr = Object.entries(sizes).find(([key]) => Number(key) >= deviceWidth)?.[1] || sizes['768'];
 
     const size = `${imageSizeArr[0]}x${imageSizeArr[1]}`;
@@ -30,9 +29,9 @@ const getFirebaseStorageUrl = (src: string, deviceWidth?: number) => {
   return `https://firebasestorage.googleapis.com/v0/b/${process.env.GOOGLE_FIREBASE_PROJECT_ID}.appspot.com/o/${path}?alt=media`;
 };
 
-export const imageLoader: ImageLoader = ({ src, width }) => {
+export const imageLoader = ({ src, width, noSize }: ImageLoaderProps & { noSize?: boolean }) => {
   const isExternal = src.startsWith('http');
-  const source = isExternal ? src : getFirebaseStorageUrl(src, width);
+  const source = isExternal ? src : getFirebaseStorageUrl(src, width, noSize);
 
   return source;
 };

@@ -9,12 +9,26 @@ export type ImageProps = ImageComponentProps &
   React.PropsWithChildren & {
     className?: string;
     imageClassName?: string;
+    noSize?: boolean;
   };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const Image: React.FC<ImageProps> = ({ children, className, imageClassName, height, width, ...props }) => (
+export const Image: React.FC<ImageProps> = ({
+  children,
+  className,
+  imageClassName,
+  height,
+  width,
+  noSize,
+  ...props
+}) => (
   <div className={clsx(styles.Image, className)}>
-    <ImageComponent className={clsx(styles.Image__Image, imageClassName)} loader={imageLoader} fill {...props} />
+    <ImageComponent
+      className={clsx(styles.Image__Image, imageClassName)}
+      loader={(loaderProps) => imageLoader({ ...loaderProps, noSize })}
+      fill
+      {...props}
+    />
     {children}
   </div>
 );
