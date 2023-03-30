@@ -94,25 +94,14 @@
 
   &__Description {
     width: 232px;
-    margin: 0 auto $gap-xxl;
-
-    @include media(tablet) {
-      margin-right: auto;
-      margin-left: 10vw;
-    }
-
-    @include media(large-tablet) {
-      margin-left: 170px;
-    }
+    margin: 0 0 $gap-xxl;
 
     @include media(laptop) {
       margin-bottom: $expanded-gap-xl;
-      margin-left: 23%;
     }
 
     @include media(large-laptop) {
       width: 350px;
-      margin-left: 21vw;
     }
   }
 
@@ -188,6 +177,15 @@
 
     &--Orange {
       color: $orioles-orange;
+    }
+  }
+
+  &__TextContainer {
+    @include media(tablet) {
+      display: grid;
+      width: max-content;
+      margin-right: auto;
+      margin-left: auto;
     }
   }
 }

@@ -30,17 +30,19 @@ export const Hero = () => {
         <Text className={styles.Hero__Title} type="h1" size="heading1" uppercase>
           {t('hero.title')}
         </Text>
-        <div className={styles.Hero__SubtitleContainer}>
-          <Circle className={styles.Hero__Circle} />
+        <div className={styles.Hero__TextContainer}>
+          <div className={styles.Hero__SubtitleContainer}>
+            <Circle className={styles.Hero__Circle} />
 
-          <Text className={styles.Hero__Subtitle} type="h3" size="heading3">
-            {t('hero.subtitle')}
+            <Text className={styles.Hero__Subtitle} type="h3" size="heading3">
+              {t('hero.subtitle')}
+            </Text>
+          </div>
+
+          <Text className={styles.Hero__Description} type="h5" size="small">
+            {t('hero.description')}
           </Text>
         </div>
-
-        <Text className={styles.Hero__Description} type="h5" size="small">
-          {t('hero.description')}
-        </Text>
       </Container>
 
       <Ticker
