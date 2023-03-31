@@ -17,8 +17,8 @@ const Team = dynamic(() => import('./components/Team/Team').then((mod) => mod.Te
 
 export type HomeProps = {
   partners: Partner[];
-  projects: ProjectPreview[];
-  team: TeamMemberPreview[];
+  projectsPreview: ProjectPreview[];
+  teamPreview: TeamMemberPreview[];
 };
 
 export const Home: React.FC<HomeProps> = () => (

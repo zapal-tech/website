@@ -12,8 +12,10 @@ export const ReadMoreCard: React.FC = () => {
 
   return (
     <Link className={styles.ReadMoreCard} href="/about#team">
-      <Card className={styles.ReadMoreCard__Card} frameType="corner">
-        <Text uppercase>{t('team.readMore')}</Text>
+      <Card className={styles.ReadMoreCard__Card} cornerClassName={styles.ReadMoreCard__Corner} frameType="corner">
+        <Text className={styles.ReadMoreCard__Text} uppercase>
+          {t('team.readMore')}
+        </Text>
       </Card>
     </Link>
   );

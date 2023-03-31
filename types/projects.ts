@@ -3,6 +3,7 @@ export type ProjectPreview = {
   shortName: string;
   shortDescription: string;
   thumbnailImageUrl: string;
+  order: number;
 };
 
 export type Project = ProjectPreview & {

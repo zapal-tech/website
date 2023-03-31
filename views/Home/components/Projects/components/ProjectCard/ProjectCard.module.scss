@@ -67,10 +67,10 @@
   &__Name {
     position: relative;
     text-align: center;
-    text-shadow: 0 0 5px rgba($jet-black, 0.3);
+    text-shadow: 0 0 5px rgba($black, 0.3);
 
     @include media(large-tablet) {
-      text-shadow: 0 0 10px rgba($jet-black, 0.2);
+      text-shadow: 0 0 15px rgba($black, 0.4);
     }
   }
 

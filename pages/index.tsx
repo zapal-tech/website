@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo';
 
 import { projects } from 'utils/projects';
 
-import { getPartners, getTeamPreview } from 'services/firestore';
+import { getPartners, getProjectsPreview, getTeamPreview } from 'services/firestore';
 
 import { Home, HomeProps } from 'views/Home/Home';
 
@@ -13,14 +13,15 @@ import { globalNamespaces, Namespace } from 'i18n';
 
 export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
   const partners = await getPartners();
-  const team = await getTeamPreview(locale);
+  const projectsPreview = await getProjectsPreview(locale);
+  const teamPreview = await getTeamPreview(locale);
 
   return {
     props: {
       ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Home])),
       partners,
-      projects,
-      team,
+      teamPreview,
+      projectsPreview,
     },
     revalidate: 3600,
   };

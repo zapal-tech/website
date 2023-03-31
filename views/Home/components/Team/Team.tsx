@@ -34,7 +34,7 @@ export const Team = () => {
       </Text>
 
       <div className={styles.Team__Members}>
-        {pageProps.team.map((member) => (
+        {pageProps.teamPreview.map((member) => (
           <TeamMemberCard key={member.id} {...member} />
         ))}
 
