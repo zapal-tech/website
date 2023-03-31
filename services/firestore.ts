@@ -3,6 +3,7 @@ import { getFirestore, collection, addDoc, serverTimestamp, getDocs, orderBy, li
 import { ContactFormState } from 'types/contactForm';
 import { Location } from 'types/locations';
 import { Partner } from 'types/partners';
+import { Project, ProjectPreview } from 'types/projects';
 import { Service } from 'types/services';
 import { TeamMember, TeamMemberPreview } from 'types/team';
 
@@ -21,6 +22,34 @@ export const addContact = async (contact: ContactFormState) => {
   const newContact = await addDoc(contactsRef, { ...contact, createdAt: serverTimestamp() });
 
   return newContact;
+};
+
+export const getProjectsPreview = async (locale?: string): Promise<ProjectPreview[]> => {
+  const lng = getLocale(locale);
+
+  const projectsRef = collection(firestore, 'projects');
+  const projectsQuery = query(projectsRef, orderBy(`${lng}.order`), limit(4));
+  const projectsSnapshot = await getDocs(projectsQuery);
+
+  const projects = projectsSnapshot.docs.map((doc) => {
+    const { id, shortName, shortDescription, thumbnailImageUrl, order } = doc.data()[lng];
+
+    return { id, shortName, shortDescription, thumbnailImageUrl, order };
+  }) as ProjectPreview[];
+
+  return projects;
+};
+
+export const getProjects = async (locale?: string): Promise<Project[]> => {
+  const lng = getLocale(locale);
+
+  const projectsRef = collection(firestore, 'projects');
+  const projectsQuery = query(projectsRef, orderBy(`${lng}.order`));
+  const projectsSnapshot = await getDocs(projectsQuery);
+
+  const projects = projectsSnapshot.docs.map(mapLocaleObject(lng)) as Project[];
+
+  return projects;
 };
 
 export const getTeamPreview = async (locale?: string): Promise<TeamMemberPreview[]> => {

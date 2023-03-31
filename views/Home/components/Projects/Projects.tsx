@@ -1,7 +1,5 @@
 import { useTranslation } from 'next-i18next';
 
-import { ProjectPreview } from 'types/projects';
-
 import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Container, Text } from 'components';
@@ -25,7 +23,7 @@ export const Projects: React.FC = () => {
       </Text>
 
       <div className={styles.Projects__List}>
-        {pageProps.projects.map((project) => (
+        {pageProps.projectsPreview.map((project) => (
           <ProjectCard key={project.id} {...project} />
         ))}
       </div>

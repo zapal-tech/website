@@ -37,12 +37,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
         <div className={styles.Projects__Grid}>
           {projects.map((project) => (
-            <ProjectCard
-              key={project.shortName}
-              {...project}
-              className={styles.Projects__ProjectCard}
-              shortDescription="Make your website work for you and your business"
-            />
+            <ProjectCard key={project.shortName} {...project} className={styles.Projects__ProjectCard} />
           ))}
         </div>
       </Container>

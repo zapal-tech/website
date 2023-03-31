@@ -12,13 +12,21 @@
     }
   }
 
+  &__List {
+    margin: 0 0 $gap-lg;
+
+    @include media(laptop) {
+      margin: 0 0 $gap-md * 2;
+    }
+  }
+
   &__Button {
     @include media(laptop) {
-      margin-left: 50%;
+      margin-left: calc(50% + $gap-sm / 2);
     }
 
     @include media(large-laptop) {
-      margin-left: 45vw;
+      margin-left: calc(50% + $gap-xxl / 2);
     }
   }
 }

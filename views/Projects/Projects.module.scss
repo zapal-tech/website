@@ -63,7 +63,6 @@
     @include media(laptop) {
       gap: $gap-xl;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 800px;
     }
 
     @include media(desktop) {
@@ -72,15 +71,13 @@
   }
 
   &__ProjectCard {
-    &:nth-child(2n + 1) {
-      @include media(laptop) {
-        margin-top: -75%;
-      }
-    }
-
     &:nth-child(2n + 2) {
       @include media(laptop) {
-        margin-top: 75%;
+        margin: 75% 0 -75%;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
       }
     }
   }

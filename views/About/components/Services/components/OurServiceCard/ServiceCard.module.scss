@@ -3,27 +3,28 @@
 @import 'styles/mixins';
 
 .ServiceCard {
+  display: flex;
+  flex-direction: column;
+  padding: $gap-md * 2 0;
+  border-bottom: 1px solid $sonic-silver;
+  gap: $gap-md;
+
   @include media(laptop) {
     display: grid;
-    padding-top: $expanded-gap-xs;
-    padding-bottom: 100px;
-    border-bottom: 1px solid #757575;
-    margin-bottom: $gap-xl + 10px;
+    padding: $expanded-gap-xs 0;
     gap: $gap-sm;
     grid-template-columns: 1fr 1fr;
+  }
 
-    @include media(large-laptop) {
-      gap: $gap-xxl;
-    }
+  @include media(large-laptop) {
+    gap: $gap-xxl;
   }
 
   &__TitleContainer {
     display: flex;
-    margin: $gap-xl + 10px 0 $gap-md 0;
     gap: $gap-xs;
 
     @include media(laptop) {
-      margin-top: 0;
       gap: $expanded-gap-xs;
     }
   }
@@ -37,18 +38,8 @@
   }
 
   &__Description {
-    padding-bottom: $gap-xl + 10px;
-    border-bottom: 1px solid $sonic-silver;
-    margin: 0 0 $gap-lg 0;
-
-    @include media(laptop) {
-      padding-bottom: 0;
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
     @include media(large-laptop) {
-      width: 600px;
+      max-width: 600px;
     }
   }
 }

@@ -35,7 +35,7 @@ $particles-mask: radial-gradient(circle, $jet-black 30%, transparent 70%);
 
   &__Members {
     display: grid;
-    overflow: scroll;
+    overflow: auto;
     width: 100%;
     margin: 0 0 $expanded-gap-xs;
     gap: $gap-lg;
@@ -48,6 +48,7 @@ $particles-mask: radial-gradient(circle, $jet-black 30%, transparent 70%);
 
     @include media(tablet) {
       display: grid;
+      overflow: unset;
       width: 100%;
       margin: 0;
       gap: $gap-sm;
@@ -61,7 +62,7 @@ $particles-mask: radial-gradient(circle, $jet-black 30%, transparent 70%);
     }
 
     @include media(laptop) {
-      width: 65.85%;
+      width: 70%;
     }
   }
 }
