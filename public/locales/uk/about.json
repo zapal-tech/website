@@ -9,7 +9,7 @@
       "base": "Ми ставимо в пріоритет",
       "alternant": ["оригінальність", "якість", "продуктивність"]
     },
-    "sliderText": ["creativity", "passion", "skills", "quality"]
+    "tickerText": ["Креативність", "Вмотивованість", "Досвід", "якість"]
   },
   "aboutZapal": {
     "title": "Команда Zapal",

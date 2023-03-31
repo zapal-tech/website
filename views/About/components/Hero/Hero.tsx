@@ -46,7 +46,7 @@ export const Hero = () => {
       </Container>
 
       <Ticker
-        data={['creativity', 'passion', 'skills', 'quality']}
+        data={t('hero.tickerText', { returnObjects: true }) as string[]}
         renderItem={(item, idx) => (
           <Text
             key={item}

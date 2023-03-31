@@ -9,7 +9,7 @@
       "base": "We prioritize customer",
       "alternant": ["outstanding", "satisfaction", "performance"]
     },
-    "sliderText": ["creativity", "passion", "skills", "quality"]
+    "tickerText": ["creativity", "passion", "skills", "quality"]
   },
   "aboutZapal": {
     "title": "Minds of Zapal",
