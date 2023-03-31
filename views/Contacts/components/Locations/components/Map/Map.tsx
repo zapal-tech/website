@@ -107,7 +107,7 @@ export const Map: React.FC<MapProps> = ({ className, children, markers, ...props
         onLoad={handleLoad}
         {...props}
       >
-        <CSSTransition addEndListener={() => void 0} classNames="Fade" in={!isFullscreen} unmountOnExit>
+        <CSSTransition addEndListener={() => void 0} classNames={'Fade'} in={!isFullscreen} unmountOnExit>
           {children}
         </CSSTransition>
 

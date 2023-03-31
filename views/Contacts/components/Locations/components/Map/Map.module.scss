@@ -1,20 +1,19 @@
 .Map {
-  // Fade for react-transition-group, CSSTransition
-  .Transition {
-    &--Enter {
+  :global {
+    .Fade-enter {
       opacity: 0;
     }
 
-    &--EnterActive {
+    .Fade-enter-active {
       opacity: 1;
       transition: opacity 300ms ease-in-out;
     }
 
-    &--Exit {
+    .Fade-exit {
       opacity: 1;
     }
 
-    &--ExitActive {
+    .Fade-exit-active {
       opacity: 0;
       transition: opacity 300ms ease-in-out;
     }
