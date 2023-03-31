@@ -1,59 +1,75 @@
 @import 'styles/colors';
 
-@keyframes lines {
-  0% {
-    transform: rotateX(0deg);
-  }
-  25% {
-    transform: rotateX(45deg);
-  }
-  40% {
-    transform: rotateX(150deg);
-  }
-  50% {
-    transform: rotateX(175deg);
-  }
+$animation-multiplier: 2.85;
+
+@keyframes audioWave {
+  0%,
   100% {
     transform: rotateX(0deg);
+  }
+  10% {
+    transform: rotateX(15deg * $animation-multiplier);
+  }
+  20% {
+    transform: rotateX(-10deg * $animation-multiplier);
+  }
+  30% {
+    transform: rotateX(20deg * $animation-multiplier);
+  }
+  40% {
+    transform: rotateX(-5deg * $animation-multiplier);
+  }
+  50% {
+    transform: rotateX(25deg * $animation-multiplier);
+  }
+  60% {
+    transform: rotateX(-15deg * $animation-multiplier);
+  }
+  70% {
+    transform: rotateX(10deg * $animation-multiplier);
+  }
+  80% {
+    transform: rotateX(-20deg * $animation-multiplier);
+  }
+  90% {
+    transform: rotateX(30deg * $animation-multiplier);
   }
 }
 
 .Animation {
   position: relative;
   display: flex;
-  width: 400px;
-  height: 100px;
+  width: 100%;
+  height: auto;
   justify-content: space-between;
+  aspect-ratio: 156/145;
+  mask-image: radial-gradient(ellipse at center, rgba($black, 0.25) 10%, transparent 68%),
+    url(../../../../../public/icons/logo.svg);
+  mask-position: 50% 50%;
+  mask-repeat: no-repeat;
+  mask-size: 100%;
 
   &__Line {
     width: 2px;
     height: 100%;
     border-radius: 3px;
-    animation: lines 3s ease-in-out infinite;
-    background: $white;
+    animation: audioWave 4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    background: $orioles-orange;
 
-    @for $i from 1 through 8 {
-      &:nth-child(#{$i}) {
-        animation-delay: 0.15s * $i;
-      }
+    &:nth-child(2n) {
+      animation-delay: 0.8s;
     }
-
-    @for $i from 9 through 16 {
-      &:nth-child(#{$i}) {
-        animation-delay: 0.15s * $i;
-      }
+    &:nth-child(3n) {
+      animation-delay: 1.6s;
     }
-
-    @for $i from 17 through 24 {
-      &:nth-child(#{$i}) {
-        animation-delay: 0.15s * $i;
-      }
+    &:nth-child(4n) {
+      animation-delay: 2.4s;
     }
-
-    @for $i from 25 through 32 {
-      &:nth-child(#{$i}) {
-        animation-delay: 0.15s * $i;
-      }
+    &:nth-child(5n) {
+      animation-delay: 3.2s;
+    }
+    &:nth-child(6n) {
+      animation-delay: 4s;
     }
   }
 }

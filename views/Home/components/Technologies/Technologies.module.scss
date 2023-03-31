@@ -2,27 +2,24 @@
 @import 'styles/mixins';
 
 .Technologies {
-  margin-top: $gap-xxl;
-
-  &__GridBlock {
-    width: 100%;
+  &__Title {
+    margin: 0 0 $gap-lg;
 
     @include media(laptop) {
-      width: 50%;
+      margin: 0 0 120px;
     }
   }
 
   &__AnimationBlock {
-    display: block;
-    margin-top: 10%;
-    margin-left: 10%;
+    display: flex;
+    align-items: center;
   }
 
   &__TechBox {
-    @include media(laptop) {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+    @include media(large-tablet) {
+      display: grid;
+      gap: $gap-lg;
+      grid-template-columns: 1fr 1fr;
     }
   }
 }
