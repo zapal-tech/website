@@ -32,17 +32,21 @@ export const TabContent: React.FC<Location> = ({ address, contact, timeZone }) =
       </a>
 
       <Text size="small" className={styles.TabContent__Time}>
-        {t('locations.time')} : {currentLocationTime}
+        {t('locations.time')}: {currentLocationTime}
       </Text>
 
       <div className={styles.TabContent__ContactLinks}>
-        <a className={styles.TabContent__Link} href={contact.email.link}>
-          <Text size="small">{contact.email.label}</Text>
-        </a>
+        {contact.email && (
+          <a className={styles.TabContent__Link} href={'mailto:' + contact.email}>
+            <Text size="small">{contact.email}</Text>
+          </a>
+        )}
 
-        <a className={styles.TabContent__Link} href={contact.phone.link}>
-          <Text size="small">{contact.phone.label}</Text>
-        </a>
+        {contact.phone && (
+          <a className={styles.TabContent__Link} href={'tel:' + contact.phone}>
+            <Text size="small">{contact.phone}</Text>
+          </a>
+        )}
       </div>
 
       <div className={styles.TabContent__PersonInfo}>

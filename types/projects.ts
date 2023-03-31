@@ -1,6 +1,12 @@
 export type ProjectPreview = {
-  name: string;
-  photoUrl: string;
+  id: string;
+  shortName: string;
+  shortDescription: string;
+  thumbnailImageUrl: string;
+  order: number;
 };
 
-// export type Project = {
+export type Project = ProjectPreview & {
+  name: string;
+  description: string;
+};

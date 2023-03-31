@@ -1,0 +1,45 @@
+@import 'styles/gaps';
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.ServiceCard {
+  display: flex;
+  flex-direction: column;
+  padding: $gap-md * 2 0;
+  border-bottom: 1px solid $sonic-silver;
+  gap: $gap-md;
+
+  @include media(laptop) {
+    display: grid;
+    padding: $expanded-gap-xs 0;
+    gap: $gap-sm;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include media(large-laptop) {
+    gap: $gap-xxl;
+  }
+
+  &__TitleContainer {
+    display: flex;
+    gap: $gap-xs;
+
+    @include media(laptop) {
+      gap: $expanded-gap-xs;
+    }
+  }
+
+  &__Order {
+    color: $sonic-silver;
+
+    &::after {
+      content: '/';
+    }
+  }
+
+  &__Description {
+    @include media(large-laptop) {
+      max-width: 600px;
+    }
+  }
+}

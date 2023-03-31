@@ -2,47 +2,29 @@
 @import 'styles/mixins';
 
 .ProjectCard {
-  &:nth-child(2n + 1) {
-    @include media(laptop) {
-      margin-bottom: -300px;
-    }
-  }
-
-  &:nth-child(2n + 2) {
-    @include media(laptop) {
-      margin-top: $expanded-gap-xl;
-    }
-  }
-
   &__Image {
     border-radius: $gap-xxs;
-    margin-bottom: $gap-sm;
-    object-fit: cover;
+    margin: 0 0 $gap-sm;
+    aspect-ratio: 1/1;
 
     @include media(laptop) {
-      height: 500px;
       border-radius: $gap-sm;
-      margin-bottom: $gap-lg;
-    }
-
-    @include media(desktop) {
-      height: 800px;
+      margin: 0 0 $gap-lg;
     }
   }
 
   &__Title {
-    margin-bottom: $gap-xxs;
+    margin: 0 0 $gap-xxs;
 
     @include media(laptop) {
-      margin-bottom: $gap-sm;
+      margin: 0 0 $gap-sm;
     }
   }
 
   &__Subtitle {
-    margin-bottom: $gap-xl;
-
-    @include media(laptop) {
-      width: 490px;
-    }
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 }

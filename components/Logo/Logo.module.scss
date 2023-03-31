@@ -23,6 +23,22 @@ $laptop-text-horizontal-shifting: 6px;
       @include media(large-laptop) {
         height: 43px;
       }
+
+      path {
+        &:nth-child(1),
+        &:nth-child(2) {
+          transition: all ease-in-out 0.3s;
+        }
+      }
+
+      &:hover {
+        path {
+          &:nth-child(1),
+          &:nth-child(2) {
+            fill: $orioles-orange;
+          }
+        }
+      }
     }
 
     &--Clean {

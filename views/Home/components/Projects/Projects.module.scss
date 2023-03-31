@@ -1,0 +1,27 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.Projects {
+  &__Title {
+    margin: 0 0 $gap-lg;
+
+    @include media(laptop) {
+      margin: 0 0 $expanded-gap-md;
+    }
+  }
+
+  &__List {
+    display: grid;
+    gap: $gap-sm;
+    grid-template-columns: 1fr;
+
+    @include media(tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media(large-tablet) {
+      gap: $gap-lg;
+    }
+  }
+}

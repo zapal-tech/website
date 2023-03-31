@@ -1,0 +1,191 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+@import 'styles/colors';
+
+.Hero {
+  padding-top: $expanded-gap-sm;
+
+  @include media(laptop) {
+    padding-top: $expanded-gap-lg;
+  }
+
+  &__Container {
+    padding-top: 0;
+  }
+
+  &__Title {
+    margin: 0 0 $gap-lg;
+
+    @include media(laptop) {
+      margin: 0 0 $expanded-gap-md;
+    }
+  }
+
+  &__DescriptionContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__SubtitleContainer {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include media(tablet) {
+      flex-direction: row;
+      margin: $expanded-gap-xs 0 0 0;
+      gap: $expanded-gap-sm;
+    }
+  }
+
+  &__Subtitle {
+    width: 290px;
+    margin: 0 0 $gap-lg;
+
+    @include media(tablet) {
+      margin-right: auto;
+    }
+
+    @include media(laptop) {
+      margin-bottom: $expanded-gap-xs;
+    }
+
+    @include media(large-laptop) {
+      width: 480px;
+    }
+  }
+
+  &__Circle {
+    width: 150px;
+    height: min-content;
+    margin: 0 0 $gap-xl auto;
+    transform: rotate(0);
+
+    @include media(tablet) {
+      transform: rotate(45deg);
+    }
+
+    @include media(large-laptop) {
+      width: 220px;
+    }
+  }
+
+  & > :not(&__BackgroundLight) {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__BackgroundLight {
+    position: absolute;
+    z-index: 0;
+    top: 190px;
+    left: -1500px;
+    width: 1374px;
+    height: 1374px;
+    background: $orioles-orange;
+    filter: blur(315.247px);
+
+    @include media(laptop) {
+      top: 535px;
+      left: -2500px;
+      width: 2860px;
+      height: 2860px;
+    }
+  }
+
+  &__Description {
+    width: 232px;
+    margin: 0 0 $gap-xxl;
+
+    @include media(laptop) {
+      margin-bottom: $expanded-gap-xl;
+    }
+
+    @include media(large-laptop) {
+      width: 350px;
+    }
+  }
+
+  &__SliderContainer {
+    @include media(laptop) {
+      display: flex;
+      flex-direction: column;
+      margin-left: 21vw;
+    }
+  }
+
+  &__SliderSubtitle {
+    margin: 0 0 $expanded-gap-xs;
+
+    @include media(laptop) {
+      width: 540px;
+      margin-bottom: $expanded-gap-md;
+
+      text-indent: $gap-lg;
+    }
+
+    @include media(large-laptop) {
+      width: 950px;
+      text-indent: 70px;
+    }
+  }
+
+  &__ButtonSubtitle {
+    width: 290px;
+    margin-bottom: $gap-lg;
+    @include media(laptop) {
+      width: 500px;
+      margin-bottom: $gap-xl + 10px;
+    }
+    @include media(desktop) {
+      width: 600px;
+    }
+  }
+
+  &__SliderButtonSubtitle {
+    margin: 0 0 $gap-lg;
+
+    @include media(laptop) {
+      width: 505px;
+      margin-bottom: $gap-xl + 10px;
+    }
+
+    @include media(large-laptop) {
+      width: 540px;
+    }
+  }
+
+  &__Alternant {
+    margin: 0 0 $gap-xxs;
+
+    @include media(laptop) {
+      margin: 0 0 180px;
+      transform: translateX(-100%);
+    }
+  }
+
+  &__AlternantItem {
+    color: $orioles-orange;
+  }
+
+  &__TickerText {
+    margin: 0 $gap-md;
+    font-weight: 500;
+
+    @include media(laptop) {
+      margin: 0 $gap-md;
+    }
+
+    &--Orange {
+      color: $orioles-orange;
+    }
+  }
+
+  &__TextContainer {
+    @include media(tablet) {
+      display: grid;
+      width: max-content;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}

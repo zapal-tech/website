@@ -37,7 +37,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
         <div className={styles.Projects__Grid}>
           {projects.map((project) => (
-            <ProjectCard key={project.name} {...project} />
+            <ProjectCard key={project.shortName} {...project} className={styles.Projects__ProjectCard} />
           ))}
         </div>
       </Container>

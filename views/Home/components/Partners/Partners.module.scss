@@ -1,0 +1,134 @@
+@import 'styles/gaps';
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.Partners {
+  @include media(laptop) {
+    display: flex;
+    height: 126px;
+    margin-bottom: $expanded-gap-sm;
+    gap: $gap-xl;
+  }
+
+  &__Title {
+    margin-bottom: $gap-lg;
+
+    @include media(laptop) {
+      margin-bottom: $expanded-gap-sm;
+    }
+  }
+
+  &__AfterTitle {
+    width: 270px;
+    align-self: center;
+    color: $sonic-silver;
+
+    &::before {
+      margin-right: 5px;
+      content: '>';
+    }
+
+    @include media(large-laptop) {
+      align-self: flex-end;
+    }
+  }
+
+  &__Subtitle {
+    margin-bottom: $gap-xxl;
+
+    @include media(laptop) {
+      width: 490px;
+      margin-bottom: $expanded-gap-md;
+      margin-left: 18%;
+      text-indent: $expanded-gap-xs;
+    }
+
+    @include media(large-laptop) {
+      width: 760px;
+    }
+
+    @include media(desktop) {
+      width: 790px;
+      text-indent: 80px;
+    }
+  }
+
+  &__Text {
+    margin-bottom: $gap-lg;
+
+    @include media(laptop) {
+      width: 350px;
+      margin-bottom: $gap-md * 2;
+      margin-left: 18%;
+    }
+
+    @include media(large-laptop) {
+      width: 590px;
+    }
+
+    @include media(desktop) {
+      width: 615px;
+    }
+  }
+
+  &__Button {
+    cursor: pointer;
+
+    @include media(laptop) {
+      margin-left: 18%;
+    }
+  }
+
+  &__ButtonText {
+    @include media(laptop) {
+      color: $orioles-orange;
+    }
+  }
+
+  &__TickerItem {
+    width: 100px;
+    height: $gap-lg;
+    padding: $gap-xxs;
+    border-radius: $gap-lg;
+    margin: 0 $gap-xs / 2 0;
+    background: $white;
+
+    @include media(laptop) {
+      width: 250px;
+      height: 70px;
+      padding: $gap-xs;
+      margin: 0 $gap-xs 0;
+    }
+
+    &--Wide {
+      width: 180px;
+
+      @include media(laptop) {
+        width: 350px;
+      }
+    }
+
+    &--Placeholder {
+      width: auto;
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+      background: $rosso-corsa;
+    }
+  }
+
+  &__TickerImageContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__TickerImage {
+    position: static !important;
+    width: auto !important;
+    height: 100% !important;
+    filter: brightness(0);
+    object-fit: contain !important;
+  }
+}

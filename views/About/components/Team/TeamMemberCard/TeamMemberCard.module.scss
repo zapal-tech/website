@@ -1,0 +1,70 @@
+@import 'styles/gaps';
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.TeamMemberCard {
+  display: grid;
+  gap: $gap-sm;
+  grid-auto-rows: min-content 1fr;
+
+  @include media(laptop) {
+    align-items: center;
+    column-gap: $expanded-gap-md;
+    grid-template-columns: minmax(31.25%, 600px) 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  &__Photo {
+    border-radius: $gap-xxs;
+    aspect-ratio: 1/1;
+
+    @include media(laptop) {
+      aspect-ratio: 6/7;
+    }
+  }
+
+  &__Name {
+    margin: 0 0 $gap-xxs;
+  }
+
+  &__Title {
+    color: $sonic-silver;
+
+    &--MarginBottom {
+      margin: 0 0 $gap-md;
+
+      @include media(laptop) {
+        margin: 0 0 $gap-xl;
+      }
+    }
+  }
+
+  &__Bio {
+    &--MarginBottom {
+      margin: 0 0 $gap-sm;
+
+      @include media(laptop) {
+        margin: 0 0 $gap-md;
+      }
+    }
+  }
+
+  &__Links {
+    &,
+    & > li {
+      display: flex;
+      gap: 5px;
+    }
+  }
+
+  &__Link {
+    & > * {
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover > *,
+    &:focus-visible > * {
+      color: $orioles-orange;
+    }
+  }
+}

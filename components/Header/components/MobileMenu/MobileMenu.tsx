@@ -26,7 +26,7 @@ export const MobileMenu: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
 
   const handleCloseButtonClick = () => closeMobileMenu();
-  const handleContactFormButtonClick = () => {
+  const openContactForm = () => {
     closeMobileMenu();
     openModal(ContactForm);
   };
@@ -65,7 +65,7 @@ export const MobileMenu: React.FC = () => {
 
       <Navigation closeMobileMenu={closeMobileMenu} />
 
-      <button className={styles.MobileMenu__ContactFormButton} onClick={handleContactFormButtonClick}>
+      <button className={styles.MobileMenu__ContactFormButton} onClick={openContactForm}>
         <Text size="heading3" uppercase>
           {t('becomeAClient')}
         </Text>

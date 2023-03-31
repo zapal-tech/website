@@ -19,6 +19,7 @@ const { i18n } = require('./next-i18next.config');
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  poweredByHeader: false,
   basePath: process.env.NEXT_PUBLIC_BASE_PATH,
   assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
   i18n,
@@ -26,16 +27,16 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    deviceSizes: [768, 1024, 1280, 1680, 1920, 2560, 3840],
-    imagesSizes: [128, 256, 400, 520, 600, 680, 720, 760],
-    formats: ['image/webp'],
+    deviceSizes: [768, 1024, 1280, 1440, 1680, 1920, 2560, 3840],
+    imageSizes: [300, 360, 400, 520, 600, 680, 720, 760],
+    formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60 * 10,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'firebasestorage.googleapis.com',
         port: '',
-        pathname: `/v0/b/${process.env.GOOGLE_FIREBASE_PROJECT_ID}.appspot.com/**`,
+        pathname: `/v0/b/${process.env.NEXT_PUBLIC_GOOGLE_FIREBASE_PROJECT_ID}.appspot.com/**`,
       },
     ],
   },

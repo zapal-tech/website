@@ -5,32 +5,35 @@ import { NextSeo } from 'next-seo';
 
 import { projects } from 'utils/projects';
 
-import { getTeamPreview } from 'services/firestore';
+import { getPartners, getProjectsPreview, getTeamPreview } from 'services/firestore';
 
-import { HomePage, HomeProps } from 'views/HomePage/HomePage';
+import { Home, HomeProps } from 'views/Home/Home';
 
 import { globalNamespaces, Namespace } from 'i18n';
 
 export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
-  const team = await getTeamPreview(locale);
+  const partners = await getPartners();
+  const projectsPreview = await getProjectsPreview(locale);
+  const teamPreview = await getTeamPreview(locale);
 
   return {
     props: {
       ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Home])),
-      projects,
-      team,
+      partners,
+      teamPreview,
+      projectsPreview,
     },
-    revalidate: 10,
+    revalidate: 3600,
   };
 };
 
-export default function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function HomePage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation(Namespace.Titles);
 
   return (
     <>
       <NextSeo title={t('home') || undefined} />
-      <HomePage {...props} />
+      <Home {...props} />
     </>
   );
 }

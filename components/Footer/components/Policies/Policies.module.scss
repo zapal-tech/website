@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
-  margin: 0 0 $gap-lg;
+  margin: 0 0 $gap-xxl;
   gap: 5px;
 
   @include media(laptop) {

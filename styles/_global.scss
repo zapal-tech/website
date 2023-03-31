@@ -1,10 +1,16 @@
 @import './colors';
+@import './mixins';
 
 html,
 body {
   background: $jet-black;
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+
+  @include media(laptop) {
+    scroll-padding-top: 120px;
+  }
 
   ::selection {
     background: rgba($rosso-corsa, 0.8);

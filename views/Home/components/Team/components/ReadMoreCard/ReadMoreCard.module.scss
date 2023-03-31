@@ -1,0 +1,46 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+
+.ReadMoreCard {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+
+  &__Card {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__Text,
+  &__Corner {
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover &__Text,
+  &:focus-visible &__Text {
+    color: $orioles-orange;
+  }
+
+  &:hover &__Corner,
+  &:focus-visible &__Corner {
+    &:nth-child(1) {
+      border-top-color: $orioles-orange;
+      border-left-color: $orioles-orange;
+    }
+
+    &:nth-child(2) {
+      border-top-color: $orioles-orange;
+      border-right-color: $orioles-orange;
+    }
+
+    &:nth-child(3) {
+      border-bottom-color: $orioles-orange;
+      border-left-color: $orioles-orange;
+    }
+
+    &:nth-child(4) {
+      border-right-color: $orioles-orange;
+      border-bottom-color: $orioles-orange;
+    }
+  }
+}

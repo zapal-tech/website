@@ -4,12 +4,14 @@ import { MarkerProps } from 'react-map-gl';
 
 import PinIcon from 'public/icons/pin.svg';
 
-import { Location, defaultZoom } from 'types/locations';
+import { defaultZoom } from 'types/locations';
 
 import { useFlyToCurrentLocation } from 'hooks/useFlyToCurrentLocation';
 import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Container } from 'components';
+
+import { ContactsProps } from 'views/Contacts/Contacts';
 
 import { Map } from './components/Map/Map';
 import { Tabs } from './components/Tabs/Tabs';
@@ -17,7 +19,7 @@ import { Tabs } from './components/Tabs/Tabs';
 import styles from './Locations.module.scss';
 
 export const Locations = () => {
-  const { locations, currentLocation, setCurrentLocationIndex } = useGlobalContext<{ locations: Location[] }>();
+  const { locations, currentLocation, setCurrentLocationIndex } = useGlobalContext<ContactsProps>();
   const flyToCurrentLocation = useFlyToCurrentLocation();
 
   const markers: MarkerProps[] | undefined = useMemo(

@@ -1,0 +1,92 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.Partners {
+  &__Title {
+    margin: 0 0 5px;
+
+    @include media(laptop) {
+      margin: 0;
+    }
+  }
+
+  &__Subtitle {
+    margin: 0 0 $gap-lg;
+    color: $sonic-silver;
+
+    &::before {
+      margin-right: 5px;
+      content: '>';
+    }
+
+    @include media(laptop) {
+      width: 150px;
+      align-self: center;
+      margin: 0;
+    }
+
+    @include media(large-laptop) {
+      width: 170px;
+    }
+  }
+
+  &__Container {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xxs;
+
+    @include media(laptop) {
+      flex-direction: row;
+      margin: 0 0 $expanded-gap-md;
+      gap: $gap-lg;
+    }
+  }
+
+  &__TickerItem {
+    width: 100px;
+    height: $gap-lg;
+    padding: $gap-xxs;
+    border-radius: $gap-lg;
+    margin: 0 $gap-xs / 2 0;
+    background: $white;
+
+    @include media(laptop) {
+      width: 250px;
+      height: 70px;
+      padding: $gap-xs;
+      margin: 0 $gap-xs 0;
+    }
+
+    &--Wide {
+      width: 180px;
+
+      @include media(laptop) {
+        width: 350px;
+      }
+    }
+
+    &--Placeholder {
+      width: auto;
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+      background: $rosso-corsa;
+    }
+  }
+
+  &__TickerImageContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__TickerImage {
+    position: static !important;
+    width: auto !important;
+    height: 100% !important;
+    filter: brightness(0);
+    object-fit: contain !important;
+  }
+}

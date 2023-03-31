@@ -11,7 +11,7 @@ import media from 'styles/media.module.scss';
 import styles from './Hero.module.scss';
 
 export const Hero = () => {
-  const { t } = useTranslation(Namespace.Contacts);
+  const { t } = useTranslation([Namespace.Contacts, Namespace.Common]);
 
   const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
 
@@ -33,8 +33,8 @@ export const Hero = () => {
             <Text size="small" className={styles.Hero__LinkLabel}>
               {t('hero.email')}
             </Text>
-            <a href="mailto:hello@zapal" className={styles.Hero__Link}>
-              <Text size="heading3">hello@zapal.tech</Text>
+            <a href={'mailto:' + t('email', { ns: Namespace.Common })} className={styles.Hero__Link}>
+              <Text size="heading3">{t('email', { ns: Namespace.Common })}</Text>
             </a>
           </div>
 
@@ -42,8 +42,8 @@ export const Hero = () => {
             <Text size="small" className={styles.Hero__LinkLabel}>
               {t('hero.phone')}
             </Text>
-            <a href="tel:+380887348756" className={styles.Hero__Link}>
-              <Text size="heading3">+38 088 734 87 56</Text>
+            <a href={'tel:' + t('phone', { ns: Namespace.Common })} className={styles.Hero__Link}>
+              <Text size="heading3">{t('phone', { ns: Namespace.Common })}</Text>
             </a>
           </div>
         </div>

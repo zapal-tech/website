@@ -1,0 +1,25 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.Technologies {
+  &__Title {
+    margin: 0 0 $gap-lg;
+
+    @include media(laptop) {
+      margin: 0 0 120px;
+    }
+  }
+
+  &__AnimationBlock {
+    display: flex;
+    align-items: center;
+  }
+
+  &__TechBox {
+    @include media(large-tablet) {
+      display: grid;
+      gap: $gap-lg;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

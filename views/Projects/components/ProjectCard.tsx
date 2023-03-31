@@ -1,34 +1,40 @@
-import Image from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link';
+import clsx, { ClassValue } from 'clsx';
 
 import { ProjectPreview } from 'types/projects';
 
 import { Text } from 'components';
+import { Image } from 'components/Image/Image';
 
 import styles from './ProjectCard.module.scss';
 
-export const ProjectCard: React.FC<{ photoLoading?: 'eager' | 'lazy' } & ProjectPreview> = ({
-  name,
-  photoUrl,
+export type ProjectCardProps = ProjectPreview & {
+  photoLoading?: 'eager' | 'lazy';
+  className?: ClassValue | ClassValue[];
+};
+
+export const ProjectCard: React.FC<ProjectCardProps> = ({
+  id,
+  shortName,
+  shortDescription,
+  thumbnailImageUrl,
   photoLoading,
+  className,
 }) => (
-  <Link href={'/projects'} className={styles.ProjectCard}>
+  <div id={id} className={clsx(styles.ProjectCard, className)}>
     <Image
-      width={500}
-      height={400}
-      src={photoUrl}
-      alt={name}
+      src={thumbnailImageUrl}
+      alt={`${shortName} project`}
       className={styles.ProjectCard__Image}
       loading={photoLoading}
     />
 
     <Text size="heading3" className={styles.ProjectCard__Title}>
-      {name}
+      {shortName}
     </Text>
 
     <Text size="small" className={styles.ProjectCard__Subtitle}>
-      {/* TODO: Replace with real data */}
-      Make your website work for you and your business
+      {shortDescription}
     </Text>
-  </Link>
+  </div>
 );
