@@ -5,13 +5,11 @@ import {
   OrganizationJsonLd,
   ImageJsonLd,
   BrandJsonLd,
-  BreadcrumbJsonLd,
 } from 'next-seo';
-import { ItemListElements } from 'next-seo/lib/types';
 
 import { Namespace, defaultLanguage } from 'i18n';
 
-export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
+export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
   const { t, i18n } = useTranslation([Namespace.Titles, Namespace.Common]);
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -20,33 +18,33 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
   const getAbsoluteUrl = (path?: string, includeLangPath = true) =>
     new URL((includeLangPath ? langPath : '') + (path || '/'), baseUrl).href;
 
-  const breadcrumbs: ItemListElements[] = [
-    {
-      position: 1,
-      name: t('home'),
-      item: getAbsoluteUrl(),
-    },
-    {
-      position: 1,
-      name: t('about'),
-      item: getAbsoluteUrl('/about'),
-    },
-    {
-      position: 2,
-      name: t('services'),
-      item: getAbsoluteUrl('/about#services'),
-    },
-    {
-      position: 1,
-      name: t('projects'),
-      item: getAbsoluteUrl('/projects'),
-    },
-    {
-      position: 1,
-      name: t('contacts'),
-      item: getAbsoluteUrl('/contacts'),
-    },
-  ];
+  // const breadcrumbs: ItemListElements[] = [
+  //   {
+  //     position: 1,
+  //     name: t('home'),
+  //     item: getAbsoluteUrl(),
+  //   },
+  //   {
+  //     position: 1,
+  //     name: t('about'),
+  //     item: getAbsoluteUrl('/about'),
+  //   },
+  //   {
+  //     position: 2,
+  //     name: t('services'),
+  //     item: getAbsoluteUrl('/about#services'),
+  //   },
+  //   {
+  //     position: 1,
+  //     name: t('projects'),
+  //     item: getAbsoluteUrl('/projects'),
+  //   },
+  //   {
+  //     position: 1,
+  //     name: t('contacts'),
+  //     item: getAbsoluteUrl('/contacts'),
+  //   },
+  // ];
 
   return (
     <>
@@ -55,7 +53,7 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
         titleTemplate="Zapal - %s | Unlock Your Tech Future"
         description={t('description', { ns: Namespace.Common })!}
         themeColor="#070707"
-        canonical={getAbsoluteUrl()}
+        // canonical={getAbsoluteUrl()}
         languageAlternates={[{ hrefLang: 'uk', href: getAbsoluteUrl('/uk', false) }]}
         openGraph={{
           type: 'website',
@@ -143,12 +141,11 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
           postalCode: '01601',
           addressCountry: 'Ukraine',
         }}
+        {...props}
       />
 
-      <BreadcrumbJsonLd itemListElements={breadcrumbs} />
-
       <BrandJsonLd
-        id=""
+        id="zapal-tech"
         slogan={t('slogan', { ns: Namespace.Common })!}
         name="Zapal"
         logo={getAbsoluteUrl('/logo.webp', false)}

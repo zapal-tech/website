@@ -13,7 +13,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
 export default function Error404(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <NextSeo title="404" />
+      <NextSeo title="404" noindex nofollow />
       <Error404Page {...props} />
     </>
   );

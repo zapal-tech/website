@@ -13,7 +13,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
 export default function Error500(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <NextSeo title="500" />
+      <NextSeo title="500" noindex nofollow />
       <Error500Page {...props} />
     </>
   );
