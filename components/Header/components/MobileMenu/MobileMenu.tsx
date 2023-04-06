@@ -63,7 +63,7 @@ export const MobileMenu: React.FC = () => {
         <CloseIcon />
       </HeaderButton>
 
-      <Navigation closeMobileMenu={closeMobileMenu} />
+      <Navigation />
 
       <button className={styles.MobileMenu__ContactFormButton} onClick={openContactForm}>
         <Text size="heading3" uppercase>

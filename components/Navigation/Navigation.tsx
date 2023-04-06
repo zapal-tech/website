@@ -1,8 +1,9 @@
-import clsx, { ClassValue } from 'clsx';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useMemo } from 'react';
 
+import { useGlobalContext } from 'hooks/useGlobalContext';
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Text } from 'components';
@@ -13,15 +14,22 @@ import media from 'styles/media.module.scss';
 
 import styles from './Navigation.module.scss';
 
-export type NavigationProps = {
-  className?: ClassValue | ClassValue[];
-  closeMobileMenu?: () => void;
-};
-
-export const Navigation: React.FC<NavigationProps> = ({ className, closeMobileMenu }) => {
+export const Navigation: React.FC = () => {
+  const { closeMobileMenu } = useGlobalContext();
   const { t } = useTranslation(Namespace.Navigation);
+  const router = useRouter();
 
   const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
+
+  useEffect(() => {
+    const handleStart = () => closeMobileMenu();
+
+    router.events.on('routeChangeStart', handleStart);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+    };
+  }, [router.events, router.asPath, closeMobileMenu]);
 
   const navLinks = useMemo(
     () => [
@@ -54,7 +62,7 @@ export const Navigation: React.FC<NavigationProps> = ({ className, closeMobileMe
   );
 
   return (
-    <nav className={clsx(styles.Navigation, className)}>
+    <nav className={styles.Navigation}>
       <ul className={styles.Navigation__List}>
         {navLinks.map(({ path, title }) => (
           <li key={path} className={styles.Navigation__ListItem}>
