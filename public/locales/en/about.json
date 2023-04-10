@@ -1,9 +1,9 @@
 {
   "hero": {
     "title": "About Us",
-    "subtitle": "We focused on\ndelivering high-quality\nservices and results\nto clients",
-    "description": "Our team of experts comprises\nhighly qualified professionals\nwith extensive experience in\nIT project management\nand software development",
-    "sliderSubtitle": "We are passionate about providing the best service to our clients, from the initial consultation until the successful completion of the project",
+    "subtitle": "We aim to give the highest quality services",
+    "description": "Zapal it’s ever about\n well-communication\nand teamwork",
+    "sliderSubtitle": "Our company’s vision is a continuous development , so each project is a opportunity for us to improve our knowledge and take a higher level of quality and style",
     "buttonSubtitle": "always strive to exceed expectations",
     "alternantText": {
       "base": "We prioritize customer",
@@ -13,8 +13,8 @@
   },
   "aboutZapal": {
     "title": "Minds of Zapal",
-    "subtitle": "Our team is friendly and reliable, providing a supportive and responsive working environment allowing us to solve complex problems quickly and efficiently",
-    "description": "With Zapal, you can be sure of an engaging and productive relationship, as well as an end product of the highest standards"
+    "subtitle": "Our main advantages are cohesion and openness. We are always available to help our clients and our open source code is a quality indicator",
+    "description": "According to Zapal’s policy, we strive to build long-term partnerships with each client, so let introduce our team which will do everything to make it true"
   },
   "services": {
     "title": "services we provide"
