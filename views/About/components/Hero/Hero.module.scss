@@ -117,12 +117,12 @@
     }
   }
 
-  &__UnderSliderContainer {
+  &__UnderTickerContainer {
     display: flex;
     flex-direction: column;
   }
 
-  &__UnderSliderSubtitle {
+  &__UnderTickerSubtitle {
     margin: 0 0 $expanded-gap-xs;
     grid-column: 1 / -1;
 

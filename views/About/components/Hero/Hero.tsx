@@ -58,10 +58,10 @@ export const Hero = () => {
         )}
       />
 
-      <Container className={styles.Hero__UnderSliderContainer}>
+      <Container className={styles.Hero__UnderTicker}>
         <div className={styles.Hero__Grid}>
-          <Text className={styles.Hero__UnderSliderSubtitle} type="h3" size="heading3">
-            {t('hero.sliderSubtitle')}
+          <Text className={styles.Hero__UnderTickerSubtitle} type="h3" size="heading3">
+            {t('hero.TickerSubtitle')}
           </Text>
         </div>
 
