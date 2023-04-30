@@ -98,7 +98,7 @@
     "stylelint": "^15.2.0",
     "stylelint-config-css-modules": "^4.2.0",
     "stylelint-config-idiomatic-order": "^9.0.0",
-    "stylelint-config-recommended-scss": "^10.0.0",
+    "stylelint-config-recommended-scss": "^11.0.0",
     "stylelint-scss": "^4.4.0",
     "typescript": "5.0.2"
   }
