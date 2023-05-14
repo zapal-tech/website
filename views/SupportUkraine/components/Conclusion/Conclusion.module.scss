@@ -1,0 +1,15 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.Conclusion {
+  display: flex;
+  max-width: 1140px;
+  flex-direction: column;
+  padding-top: $expanded-gap-xs;
+  gap: $gap-lg;
+
+  @include media(desktop) {
+    padding-top: $expanded-gap-xl;
+    gap: $gap-xl;
+  }
+}
