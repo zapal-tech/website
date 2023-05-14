@@ -1,0 +1,80 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+@import 'styles/colors';
+
+.Hero {
+  padding-top: $expanded-gap-md;
+  &__SubTitle {
+    width: 320px;
+    margin-bottom: $gap-lg;
+    &::before {
+
+      border: 2px solid #757575;
+      background-color: transparent;
+      content: '';
+    }
+    @include media(laptop) {
+      text-indent: $expanded-gap-lg;
+    }
+  }
+
+  &__BlueBG {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 7px solid $white;
+    border-radius: 50%;
+    background-color: $ukraine-blue;
+  }
+
+  &__UnderSubtitle {
+    margin-bottom: $gap-xl;
+  }
+
+  &__LinksBox {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: $gap-lg;
+    border-bottom: 1px solid $sonic-silver;
+    gap: 17px;
+
+    @include media(tablet) {
+      flex-direction: row;
+      gap: $gap-xl;
+    }
+    @include media(desktop) {
+      padding-bottom: $expanded-gap-md;
+      gap: $gap-xxl;
+    }
+  }
+
+  &__EmblemBox {
+    display: flex;
+    justify-content: center;
+    padding-top: $gap-lg;
+    padding-bottom: $gap-lg;
+    border-bottom: 1px solid $sonic-silver;
+    margin-bottom: $gap-xxs;
+
+    @include media(desktop) {
+      padding-top: $expanded-gap-sm;
+      padding-bottom: $expanded-gap-sm;
+    }
+  }
+
+  &__Emblem {
+    height: 176px;
+    fill: $white;
+  }
+
+  &__TitleSvg {
+    width: 336px;
+    height: 165px;
+  }
+
+  &__TitleBox {
+    @include media(desktop) {
+      margin-bottom: $expanded-gap-xs;
+    }
+  }
+}
