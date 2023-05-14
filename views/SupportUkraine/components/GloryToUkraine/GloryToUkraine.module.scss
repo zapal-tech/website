@@ -1,0 +1,29 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.GloryToUkraine {
+  &__Box {
+    position: relative;
+    padding-top: $expanded-gap-xs;
+
+    margin-bottom: $gap-xl + $gap-xxs;
+
+    @include media(desktop) {
+      padding-top: $expanded-gap-xl;
+    }
+  }
+
+  &__Svg {
+    @include media(phone) {
+      height: 140px;
+    }
+
+    @include media(laptop) {
+      height: 273px;
+    }
+
+    @include media(large-laptop) {
+      height: 380px;
+    }
+  }
+}
