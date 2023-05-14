@@ -1,0 +1,56 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.SecondVariant {
+  &__TextBox {
+    display: flex;
+    max-width: 1200px;
+    flex-direction: column;
+    margin-bottom: $gap-xxl;
+    gap: $gap-lg;
+
+    @include media(desktop) {
+      margin-bottom: $expanded-gap-md;
+      gap: $gap-xl;
+    }
+  }
+
+  &__CardList {
+    display: grid;
+    margin-bottom: $gap-xxl;
+    gap: $gap-md;
+    grid-template-columns: 1fr;
+
+    @include media(tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media(laptop) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @include media(desktop) {
+      width: 77%;
+      margin-bottom: $expanded-gap-md;
+      margin-left: auto;
+    }
+  }
+
+  &__CardListItem {
+    display: flex;
+    height: 160px;
+    align-items: flex-end;
+    justify-content: center;
+
+    @include media(desktop) {
+      height: 350px;
+    }
+  }
+
+  &__AfterListText {
+    display: flex;
+    max-width: 800px;
+    justify-content: center;
+    margin: 0 auto $expanded-gap-xs + $gap-sm;
+  }
+}
