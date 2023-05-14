@@ -1,0 +1,36 @@
+@import 'styles/mixins';
+@import 'styles/gaps';
+@import 'styles/colors';
+
+.Foreword {
+  padding-top: $expanded-gap-xs;
+
+  &__HeadingBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $gap-lg;
+    gap: $gap-lg;
+
+    @include media(tablet) {
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    @include media(desktop) {
+      margin-bottom: $expanded-gap-xs;
+    }
+  }
+
+  &__ArticleBox {
+    display: flex;
+    max-width: 1200px;
+    flex-direction: column;
+    margin-bottom: $gap-xxl + 11px;
+    gap: $gap-lg;
+
+    @include media(desktop) {
+      margin-bottom: $expanded-gap-md;
+    }
+  }
+}
