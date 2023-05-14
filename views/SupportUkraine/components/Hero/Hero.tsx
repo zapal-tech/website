@@ -34,12 +34,12 @@ export const Hero: React.FC = () => {
         )}
       </div>
       <Text className={styles.Hero__UnderSubtitle} size="heading3">
-        {t('hero.underSubtitle')}
+        Help Ukraine in the war with russia
       </Text>
       <div className={styles.Hero__LinksBox}>
-        <Link href="https://war.ukraine.ua/support-ukraine/">{t('hero.supportLinks.firstLink')}</Link>
-        <Link href="https://war.ukraine.ua/donate/">{t('hero.supportLinks.secondLink')}</Link>
-        <Link href="https://war.ukraine.ua/arm-ukraine-now/">{t('hero.supportLinks.thirdLink')}</Link>
+        <Link href="https://war.ukraine.ua/support-ukraine/">Support Ukraine</Link>
+        <Link href="https://war.ukraine.ua/donate/">Donate to Ukraine</Link>
+        <Link href="https://war.ukraine.ua/arm-ukraine-now/">Arm Ukraine</Link>
       </div>
       <div className={styles.Hero__EmblemBox}>
         <Emblem className={styles.Hero__Emblem} />
