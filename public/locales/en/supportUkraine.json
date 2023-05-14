@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "title": "Support Ukraine",
+    "subTitle": "From Abroad",
+    "underSubtitle": "Help Ukraine in the war with russia",
+    "supportLinks": {
+      "firstLink": "Support Ukraine",
+      "secondLink": "Donate to Ukraine",
+      "thirdLink": "Arm Ukraine"
+    }
+  },
+  "foreword": {
+    "title": "Foreword",
+    "readTime": "8 min read",
+    "firstArticle": "About 8 years ago, the Russian army had occupied Crimea and Donbas, immersing Ukraine in a state of war. But Putin never admitted his soldiers were involved. Until the 24th of February, 2022. That day a week ago, almost immediately after Putin announced war against Ukraine, the first bombardments in Kyiv, Kharkiv, Odesa, and Donbas began.",
+    "secondArticle": "In Ukraine and even across Europe, we have entered unprecedented times. Who could have imagined that a full-scale war involving massive bombardments and shellings of towns with millions of residents would take place in the 21st century?",
+    "thirdArticle": "We are writing this article on 3rd March, the 8th day of Ukraine’s resistance. Even now, the Russian army is bombarding our cities and villages, shelling our schools, universities, and hospitals, and killing hundreds of people, including children. Still, Ukrainians do everything in their power and even more to get the Russian occupiers out of their lands."
+  },
+  "tableOfContent": {
+    "title": "Table Of Content"
+  }
+}
