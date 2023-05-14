@@ -53,10 +53,10 @@ export const Navigation: React.FC = () => {
         title: t('contacts.title'),
         path: '/contacts',
       },
-      // {
-      //   title: t('supportUkraine.title'),
-      //   path: '/supportUkraine',
-      // },
+      {
+        title: t('supportUkraine.title'),
+        path: '/support-ukraine',
+      },
     ],
     [t],
   );
