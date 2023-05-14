@@ -1,0 +1,42 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.SupportUkrainianBusiness {
+  padding-top: $expanded-gap-xs;
+
+  @include media(desktop) {
+    padding-top: $expanded-gap-xl;
+  }
+
+  &__LinkBox {
+    display: flex;
+    max-width: 1140px;
+    flex-direction: column;
+    gap: $gap-xxs;
+  }
+
+  &__LinkText {
+    margin-left: 7vw;
+
+    @include media(tablet) {
+      margin-left: 4vw;
+    }
+
+    @include media(desktop) {
+      margin-left: 3vw;
+    }
+  }
+
+  &__TextBox {
+    display: flex;
+    max-width: 1140px;
+    flex-direction: column;
+    margin-bottom: $gap-lg;
+    gap: $gap-lg;
+
+    @include media(desktop) {
+      margin-bottom: $gap-xl;
+      gap: $gap-xl;
+    }
+  }
+}
