@@ -1,0 +1,41 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+@import 'styles/gaps';
+
+.AboutZapal {
+  display: flex;
+  max-width: 1200px;
+  flex-direction: column;
+  padding-top: $expanded-gap-xs;
+  gap: $gap-lg;
+
+  @include media(desktop) {
+    padding-top: $expanded-gap-xl;
+    gap: $gap-xl;
+  }
+
+  &__Title {
+    max-width: 980px;
+
+    @include media(desktop) {
+      margin-bottom: $expanded-gap-xs;
+    }
+  }
+
+  &__NeedestList {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__NeedestItem::before {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-right: $gap-xxs;
+    margin-bottom: 1px;
+    background: $white;
+    content: '';
+  }
+}
