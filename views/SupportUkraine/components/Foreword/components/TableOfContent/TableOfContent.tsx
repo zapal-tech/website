@@ -10,8 +10,8 @@ export const TableOfContent: React.FC = () => {
   return (
     <>
       {' '}
-      <Text className={styles.TableOfContent__Title} size="heading2">
-        TABLE OF CONTETS
+      <Text uppercase className={styles.TableOfContent__Title} size="heading2">
+        Table Of Content
       </Text>
       <div className={styles.TableOfContent__List}>
         <Text size="small">What About Edvantis?</Text>
