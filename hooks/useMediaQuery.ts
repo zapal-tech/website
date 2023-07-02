@@ -1,40 +1,18 @@
 import { useEffect, useState } from 'react';
 
-export function useMediaQuery(query: string): boolean {
-  const getMatches = (query: string): boolean => {
-    // Prevents SSR issues
-    if (typeof window !== 'undefined') return window.matchMedia(query).matches;
-
-    return false;
-  };
-
-  const [matches, setMatches] = useState<boolean>(getMatches(query));
-
-  function handleChange() {
-    setMatches(getMatches(query));
-  }
+export function useMediaQuery(query: string): boolean | null {
+  const [matches, setMatches] = useState<null | boolean>(null);
 
   useEffect(() => {
-    const matchMedia = window.matchMedia(query);
+    const mediaQueryList = window.matchMedia(query);
 
-    // Triggered at the first client-side load and if query changes
-    handleChange();
+    const listener = () => setMatches(!!mediaQueryList.matches);
 
-    // Listen matchMedia
-    if (matchMedia.addListener) {
-      matchMedia.addListener(handleChange);
-    } else {
-      matchMedia.addEventListener('change', handleChange);
-    }
+    listener();
 
-    return () => {
-      if (matchMedia.removeListener) {
-        matchMedia.removeListener(handleChange);
-      } else {
-        matchMedia.removeEventListener('change', handleChange);
-      }
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    mediaQueryList.addEventListener('change', listener);
+
+    return () => mediaQueryList.removeEventListener('change', listener);
   }, [query]);
 
   return matches;

@@ -391,6 +391,8 @@ export const TermsOfUse: React.FC<TermsOfUseProps> = () => (
         </Text>
       </Container>
 
+      <Divider className={styles.TermsOfUse__Divider} />
+
       <Container type="article" id={Section.SUBMISSIONS} className={styles.TermsOfUse__Article}>
         <Text type="h3" size="heading3">
           7. SUBMISSIONS
