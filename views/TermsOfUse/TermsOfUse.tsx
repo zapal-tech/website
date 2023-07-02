@@ -1,3 +1,5 @@
+import { ApiPage } from 'types/api';
+
 import { Container, Divider, Text } from 'components';
 import { OrderedList, OrderedListDataItem } from 'components/OrderedList/OrderedList';
 
@@ -73,7 +75,12 @@ const listOfContents: OrderedListDataItem[] = [
   { id: Section.CONTACT_US, children: <a href={'#' + Section.CONTACT_US}>CONTACT US</a> },
 ];
 
-export const TermsOfUse = () => (
+export type TermsOfUseProps = {
+  locale?: string;
+  page: ApiPage;
+};
+
+export const TermsOfUse: React.FC<TermsOfUseProps> = () => (
   <AppLayout>
     <div className={styles.TermsOfUse}>
       <Container className={styles.TermsOfUse__Article}>

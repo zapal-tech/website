@@ -1,17 +1,17 @@
 import { useTranslation } from 'next-i18next';
 import { useCallback, useEffect, useState } from 'react';
 
+import { Namespace } from 'configs/i18n';
+
 import { Location } from 'types/locations';
 
 import { createTimeString } from 'utils/time';
 
 import { Text } from 'components';
 
-import { Namespace } from 'i18n';
-
 import styles from './TabContent.module.scss';
 
-export const TabContent: React.FC<Location> = ({ address, contact, timeZone }) => {
+export const TabContent: React.FC<Location> = ({ attributes: { address, contact, timeZone } }) => {
   const { t } = useTranslation(Namespace.Contacts);
   const [currentLocationTime, setCurrentLocationTime] = useState('');
 
@@ -42,9 +42,9 @@ export const TabContent: React.FC<Location> = ({ address, contact, timeZone }) =
           </a>
         )}
 
-        {contact.phone && (
-          <a className={styles.TabContent__Link} href={'tel:' + contact.phone}>
-            <Text size="small">{contact.phone}</Text>
+        {contact.number && (
+          <a className={styles.TabContent__Link} href={'tel:' + contact.number}>
+            <Text size="small">{contact.number}</Text>
           </a>
         )}
       </div>

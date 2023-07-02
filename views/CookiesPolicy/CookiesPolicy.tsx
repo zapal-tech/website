@@ -1,10 +1,17 @@
+import { ApiPage } from 'types/api';
+
 import { Card, Container, Divider, Text } from 'components';
 
 import { AppLayout } from 'layouts';
 
 import styles from './CookiesPolicy.module.scss';
 
-export const CookiesPolicy = () => (
+export type CookiesPolicyProps = {
+  locale?: string;
+  page: ApiPage;
+};
+
+export const CookiesPolicy: React.FC<CookiesPolicyProps> = () => (
   <AppLayout>
     <div className={styles.CookiesPolicy}>
       <Container type="article" className={styles.CookiesPolicy__Article}>

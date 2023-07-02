@@ -43,8 +43,7 @@ $animation-multiplier: 2.85;
   height: auto;
   justify-content: space-between;
   aspect-ratio: 156/145;
-  mask-image: radial-gradient(ellipse at center, rgba($black, 0.25) 10%, transparent 68%),
-    url(../../../../../public/icons/logo.svg);
+  mask-image: radial-gradient(ellipse at center, rgba($black, 0.25) 10%, transparent 68%), url('/icons/logo.svg');
   mask-position: 50% 50%;
   mask-repeat: no-repeat;
   mask-size: 100%;

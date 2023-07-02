@@ -1,8 +1,10 @@
 import dynamic from 'next/dynamic';
 
+import { ApiPage } from 'types/api';
 import { Partner } from 'types/partners';
-import { ProjectPreview } from 'types/projects';
-import { TeamMemberPreview } from 'types/team';
+import { Project } from 'types/projects';
+import { TeamMember } from 'types/team';
+import { Technology } from 'types/technologies';
 
 import { AppLayout } from 'layouts';
 
@@ -16,9 +18,12 @@ const Projects = dynamic(() => import('./components/Projects/Projects').then((mo
 const Team = dynamic(() => import('./components/Team/Team').then((mod) => mod.Team));
 
 export type HomeProps = {
+  locale?: string;
+  page: ApiPage;
   partners: Partner[];
-  projectsPreview: ProjectPreview[];
-  teamPreview: TeamMemberPreview[];
+  projects: Project[];
+  team: TeamMember[];
+  technologies: Technology[];
 };
 
 export const Home: React.FC<HomeProps> = () => (

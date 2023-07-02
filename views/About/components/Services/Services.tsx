@@ -1,13 +1,13 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 
+import { Namespace } from 'configs/i18n';
+
 import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Button, Container, Text } from 'components';
 
 import { AboutProps } from 'views/About/About';
-
-import { Namespace } from 'i18n';
 
 import { ServiceCard } from './components/OurServiceCard/ServiceCard';
 
@@ -17,7 +17,10 @@ const ContactForm = dynamic(() => import('views/ContactForm/ContactForm').then((
 
 export const Services = () => {
   const { t } = useTranslation([Namespace.About, Namespace.Common]);
-  const { pageProps, openModal } = useGlobalContext<AboutProps>();
+  const {
+    pageProps: { services },
+    openModal,
+  } = useGlobalContext<AboutProps>();
 
   const openContactForm = () => openModal(ContactForm);
 
@@ -28,8 +31,8 @@ export const Services = () => {
       </Text>
 
       <div className={styles.Services__List}>
-        {pageProps.services.map((service) => (
-          <ServiceCard key={service.order} {...service} />
+        {services.map((service, idx) => (
+          <ServiceCard key={service.id} index={idx} {...service} />
         ))}
       </div>
 

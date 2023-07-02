@@ -1,18 +1,23 @@
-export type TeamMemberPreview = {
-  id: string;
+import { ApiImage } from './api';
+
+export type TeamMember = {
+  id: number;
+  attributes: TeamMemberAttributes;
+};
+
+export type TeamMemberAttributes = {
   firstName: string;
   lastName: string;
   title: string;
   fullTitle: string;
-  imageUrl: string;
+  image: ApiImage;
   order: number;
+  slug: string;
+  bio: string;
+  links: TeamMemberLink[];
 };
 
-export type TeamMember = TeamMemberPreview & {
-  email: string;
-  bio: string;
-  links?: {
-    name: string;
-    url: string;
-  }[];
+export type TeamMemberLink = {
+  title: string;
+  link: string;
 };

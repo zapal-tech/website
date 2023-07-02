@@ -1,28 +1,41 @@
-import { useWindowSize } from './useWindowSize';
+import { useEffect, useState } from 'react';
 
-type QueryDetails = {
-  min?: number;
-  max?: number;
-};
+export function useMediaQuery(query: string): boolean {
+  const getMatches = (query: string): boolean => {
+    // Prevents SSR issues
+    if (typeof window !== 'undefined') return window.matchMedia(query).matches;
 
-type Query = {
-  width?: QueryDetails;
-  height?: QueryDetails;
-};
+    return false;
+  };
 
-export const useMediaQuery = (query: Query): boolean => {
-  const { width, height } = useWindowSize();
+  const [matches, setMatches] = useState<boolean>(getMatches(query));
 
-  if (!width || !height) return true;
+  function handleChange() {
+    setMatches(getMatches(query));
+  }
 
-  const widthMin = query.width?.min;
-  const widthMax = query.width?.max;
+  useEffect(() => {
+    const matchMedia = window.matchMedia(query);
 
-  const heightMin = query.height?.min;
-  const heightMax = query.height?.max;
+    // Triggered at the first client-side load and if query changes
+    handleChange();
 
-  const widthMatch = (widthMin ? width >= widthMin : true) && (widthMax ? width <= widthMax : true);
-  const heightMatch = (heightMin ? height >= heightMin : true) && (heightMax ? height <= heightMax : true);
+    // Listen matchMedia
+    if (matchMedia.addListener) {
+      matchMedia.addListener(handleChange);
+    } else {
+      matchMedia.addEventListener('change', handleChange);
+    }
 
-  return Boolean(widthMatch && heightMatch);
-};
+    return () => {
+      if (matchMedia.removeListener) {
+        matchMedia.removeListener(handleChange);
+      } else {
+        matchMedia.removeEventListener('change', handleChange);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
+
+  return matches;
+}

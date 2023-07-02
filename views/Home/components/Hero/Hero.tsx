@@ -1,9 +1,9 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 
-import { Text } from 'components';
+import { Namespace } from 'configs/i18n';
 
-import { Namespace } from 'i18n';
+import { Text } from 'components';
 
 import styles from './Hero.module.scss';
 

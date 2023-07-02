@@ -1,9 +1,11 @@
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 
-import { Button, Card, Container, Text } from 'components';
+import { Namespace } from 'configs/i18n';
 
-import { Namespace } from 'i18n';
+import { Routes } from 'types/routes';
+
+import { Button, Card, Container, Text } from 'components';
 
 import styles from './AboutUs.module.scss';
 
@@ -11,7 +13,7 @@ export const AboutUs: React.FC = () => {
   const { t } = useTranslation(Namespace.Home);
   const router = useRouter();
 
-  const goToAboutUs = () => router.push('/about');
+  const goToAboutUs = () => router.push(Routes.About);
 
   return (
     <Container className={styles.AboutUs}>

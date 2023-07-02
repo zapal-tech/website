@@ -1,8 +1,8 @@
 import { useTranslation } from 'next-i18next';
 
-import { Text } from 'components';
+import { Namespace } from 'configs/i18n';
 
-import { Namespace } from 'i18n';
+import { Text } from 'components';
 
 import styles from './Error404Page.module.scss';
 

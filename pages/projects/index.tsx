@@ -1,21 +1,23 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { NextSeo } from 'next-seo';
 
-import { getProjects } from 'services/firestore';
+import { globalNamespaces, Namespace } from 'configs/i18n';
 
-// import { projects } from 'utils/projects';
+import { getProjects, getProjectsPage } from 'services/api';
+
+import { PageSeo } from 'components/PageSeo/PageSeo';
+
 import { Projects, ProjectsProps } from 'views/Projects/Projects';
 
-import { globalNamespaces, Namespace } from 'i18n';
-
 export const getStaticProps: GetStaticProps<ProjectsProps> = async ({ locale }) => {
-  const projects = await getProjects(locale);
+  const page = (await getProjectsPage(locale)).data;
+  const projects = (await getProjects(locale)).data;
 
   return {
     props: {
       ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Projects])),
+      locale,
+      page,
       projects,
     },
     revalidate: 3600,
@@ -23,11 +25,9 @@ export const getStaticProps: GetStaticProps<ProjectsProps> = async ({ locale }) 
 };
 
 export default function ProjectsPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { t } = useTranslation(Namespace.Titles);
-
   return (
     <>
-      <NextSeo title={t('projects') || undefined} />
+      <PageSeo locale={props.locale} {...props.page.attributes.seo} />
       <Projects {...props} />
     </>
   );

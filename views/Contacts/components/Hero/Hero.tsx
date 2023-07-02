@@ -1,10 +1,10 @@
 import { useTranslation } from 'next-i18next';
 
+import { Namespace } from 'configs/i18n';
+
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Container, Text } from 'components';
-
-import { Namespace } from 'i18n';
 
 import media from 'styles/media.module.scss';
 
@@ -13,7 +13,7 @@ import styles from './Hero.module.scss';
 export const Hero = () => {
   const { t } = useTranslation([Namespace.Contacts, Namespace.Common]);
 
-  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
+  const isLaptop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
 
   return (
     <>

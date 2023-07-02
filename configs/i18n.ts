@@ -14,24 +14,24 @@ export const supportedLanguages = Object.values(Language);
 export enum Namespace {
   Common = 'common',
   Navigation = 'navigation',
-  Languages = 'languages',
+  Languages = 'language',
   Footer = 'footer',
-  Home = 'home',
+  Home = 'home-page',
   Titles = 'titles',
-  Contacts = 'contacts',
-  ContactForm = 'contactForm',
-  Projects = 'projects',
-  About = 'about',
+  Contacts = 'contacts-page',
+  ContactForm = 'contact-form',
+  Projects = 'projects-page',
+  About = 'about-page',
+  Blog = 'blog-page',
 }
 
 export const defaultNamespace = Namespace.Common;
 export const namespaces = Object.values(Namespace);
 export const globalNamespaces = [
   Namespace.Common,
-  Namespace.Titles,
+  // Namespace.Titles,
   Namespace.Languages,
   Namespace.Navigation,
   Namespace.Footer,
   Namespace.ContactForm,
-  Namespace.About,
 ];

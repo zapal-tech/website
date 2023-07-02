@@ -1,22 +1,26 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { NextSeo } from 'next-seo';
 
-import { TermsOfUse } from 'views/TermsOfUse/TermsOfUse';
+import { globalNamespaces } from 'configs/i18n';
 
-import { globalNamespaces, Namespace } from 'i18n';
+import { getTermsOfUsePage } from 'services/api';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: { ...(await serverSideTranslations(locale!, [...globalNamespaces])) },
-});
+import { PageSeo } from 'components/PageSeo/PageSeo';
+
+import { TermsOfUse, TermsOfUseProps } from 'views/TermsOfUse/TermsOfUse';
+
+export const getStaticProps: GetStaticProps<TermsOfUseProps> = async ({ locale }) => {
+  const page = (await getTermsOfUsePage(locale)).data;
+
+  return {
+    props: { ...(await serverSideTranslations(locale!, globalNamespaces)), page },
+  };
+};
 
 export default function TermsOfUsePage(props: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { t } = useTranslation(Namespace.Titles);
-
   return (
     <>
-      <NextSeo title={t('termsOfUse') || undefined} />
+      <PageSeo locale={props.locale} {...props.page.attributes.seo} />
       <TermsOfUse {...props} />
     </>
   );

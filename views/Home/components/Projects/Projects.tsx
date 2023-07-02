@@ -1,12 +1,12 @@
 import { useTranslation } from 'next-i18next';
 
+import { Namespace } from 'configs/i18n';
+
 import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Container, Text } from 'components';
 
 import { HomeProps } from 'views/Home/Home';
-
-import { Namespace } from 'i18n';
 
 import { ProjectCard } from './components/ProjectCard/ProjectCard';
 
@@ -14,7 +14,9 @@ import styles from './Projects.module.scss';
 
 export const Projects: React.FC = () => {
   const { t } = useTranslation(Namespace.Home);
-  const { pageProps } = useGlobalContext<HomeProps>();
+  const {
+    pageProps: { projects },
+  } = useGlobalContext<HomeProps>();
 
   return (
     <Container className={styles.Projects}>
@@ -23,7 +25,7 @@ export const Projects: React.FC = () => {
       </Text>
 
       <div className={styles.Projects__List}>
-        {pageProps.projectsPreview.map((project) => (
+        {projects.map((project) => (
           <ProjectCard key={project.id} {...project} />
         ))}
       </div>

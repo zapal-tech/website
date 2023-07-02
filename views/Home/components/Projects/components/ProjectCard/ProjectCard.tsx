@@ -1,30 +1,29 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 
-import { ProjectPreview } from 'types/projects';
+import { Namespace } from 'configs/i18n';
+
+import { Project } from 'types/projects';
 
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Card, Text } from 'components';
 import { Image } from 'components/Image/Image';
 
-import { Namespace } from 'i18n';
-
 import media from 'styles/media.module.scss';
 
 import styles from './ProjectCard.module.scss';
 
-export const ProjectCard: React.FC<ProjectPreview> = ({ id, shortName, thumbnailImageUrl }) => {
+export const ProjectCard: React.FC<Project> = ({ attributes: { slug, name, shortName, thumbnailImage } }) => {
   const { t } = useTranslation(Namespace.Home);
-
-  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
+  const isLaptop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
 
   return (
-    <Link href={`/projects#${id}`} className={styles.ProjectCard} tabIndex={isLaptop ? -1 : undefined}>
+    <Link href={`/projects#${slug}`} className={styles.ProjectCard} tabIndex={isLaptop ? -1 : undefined}>
       <Image
         className={styles.ProjectCard__Image}
-        src={thumbnailImageUrl}
-        alt={`${shortName} project`}
+        image={thumbnailImage}
+        alt={`${shortName || name} project`}
         loading="eager"
       />
 
@@ -34,7 +33,7 @@ export const ProjectCard: React.FC<ProjectPreview> = ({ id, shortName, thumbnail
         cornerClassName={styles.ProjectCard__InnerCard__Dot}
       >
         <Text className={styles.ProjectCard__Name} type="span" size="heading3">
-          {shortName}
+          {shortName || name}
 
           {isLaptop && (
             <button className={styles.ProjectCard__Button}>

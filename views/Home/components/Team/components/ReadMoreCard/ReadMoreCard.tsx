@@ -1,9 +1,9 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 
-import { Card, Text } from 'components';
+import { Namespace } from 'configs/i18n';
 
-import { Namespace } from 'i18n';
+import { Card, Text } from 'components';
 
 import styles from './ReadMoreCard.module.scss';
 

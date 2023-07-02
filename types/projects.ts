@@ -1,12 +1,16 @@
-export type ProjectPreview = {
-  id: string;
-  shortName: string;
-  shortDescription: string;
-  thumbnailImageUrl: string;
-  order: number;
+import { ApiImage } from './api';
+
+export type Project = {
+  id: number;
+  attributes: ProjectAttributes;
 };
 
-export type Project = ProjectPreview & {
+export type ProjectAttributes = {
+  slug: string;
   name: string;
+  shortName?: string;
   description: string;
+  shortDescription?: string;
+  thumbnailImage: ApiImage;
+  order: number;
 };
