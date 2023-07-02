@@ -19,14 +19,7 @@
     "button": "Learn more"
   },
   "services": {
-    "title": "Our services",
-    "webDev": "Web apps development",
-    "mobDev": "Mobile apps development",
-    "techAudit": "Technical audit",
-    "DevOps": "DevOps services",
-    "UI/UX": "UI/UX Design",
-    "QA": "Quality Assurance services",
-    "ItConsult": "IT Consulting"
+    "title": "Our services"
   },
   "technologies": {
     "title": "We use"
