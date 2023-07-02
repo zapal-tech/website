@@ -21,6 +21,7 @@ export const PageSeo: React.FC<PageSeoProps> = ({
   const getAdditionalMetaTags = (): MetaTag[] | undefined => {
     const tags: MetaTag[] = [];
 
+    // TODO: Implement same flow for Facebook
     const twitter = metaSocial.find(({ socialNetwork }) => socialNetwork === 'Twitter');
 
     if (keywords) tags.push({ name: 'keywords', content: keywords });
@@ -50,15 +51,18 @@ export const PageSeo: React.FC<PageSeoProps> = ({
 
     if (twitter) {
       tags.push(
-        { name: 'twitter:card', content: twitter.image ? 'summary_large_image' : 'summary' },
+        { name: 'twitter:card', content: twitter.image?.data ? 'summary_large_image' : 'summary' },
         { name: 'twitter:site:id', content: '1607797381956771841' },
         { name: 'twitter:description', content: twitter.description },
         { name: 'twitter:title', content: twitter.title },
       );
 
-      if (twitter.image) tags.push({ name: 'twitter:image', content: twitter.image.data.attributes.url });
-      if (twitter.image?.data.attributes.alternativeText)
-        tags.push({ name: 'twitter:image:alt', content: twitter.image.data.attributes.alternativeText });
+      if (twitter.image?.data) {
+        tags.push({ name: 'twitter:image', content: twitter.image.data.attributes.url });
+
+        if (twitter.image?.data.attributes.alternativeText)
+          tags.push({ name: 'twitter:image:alt', content: twitter.image.data.attributes.alternativeText });
+      }
     }
 
     return tags.length ? tags : undefined;

@@ -17,7 +17,7 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
   return (
     <>
       <DefaultSeoComponent
-        defaultTitle="Zapal | Unlock Your Tech Future"
+        // defaultTitle="Zapal | Unlock Your Tech Future"
         titleTemplate="Zapal - %s | Unlock Your Tech Future"
         description={t('description', { ns: Namespace.Common })!}
         themeColor="#070707"
