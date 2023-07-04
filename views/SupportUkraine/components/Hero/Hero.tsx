@@ -6,12 +6,12 @@ import SupportUkraineLaptop from 'public/icons/support-ukraine-laptop.svg';
 import SupportUkraineLarge from 'public/icons/support-ukraine-large-phone.svg';
 import SupportUkrainePhone from 'public/icons/support-ukraine-phone.svg';
 
+import { Namespace } from 'configs/i18n';
+
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Button, Container, Text } from 'components';
 import { Link } from 'components/Link/Link';
-
-import { Namespace } from 'i18n';
 
 import media from 'styles/media.module.scss';
 
