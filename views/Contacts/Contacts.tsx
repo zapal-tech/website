@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import { MapProvider } from 'react-map-gl';
 
+import { ApiPage } from 'types/api';
 import { Location } from 'types/locations';
 
 import { AppLayout } from 'layouts';
@@ -12,6 +13,8 @@ import { Hero } from './components/Hero/Hero';
 const Locations = dynamic(() => import('./components/Locations/Locations').then((mod) => mod.Locations));
 
 export type ContactsProps = {
+  locale?: string;
+  page: ApiPage;
   locations: Location[];
 };
 

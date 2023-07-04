@@ -3,24 +3,25 @@ import Link from 'next/link';
 
 import LinkIcon from 'public/icons/link.svg';
 
+import { Routes } from 'types/routes';
+import { Service } from 'types/services';
+
 import { Divider, Text } from 'components';
+import { Image } from 'components/Image/Image';
 
 import styles from './ServiceItem.module.scss';
 
-export type ServiceItemProps = {
-  icon: React.FC<React.SVGProps<SVGSVGElement>>;
-  title: string;
-  href: string;
+export type ServiceItemProps = Service & {
   className?: ClassValue | ClassValue[];
 };
 
-export const ServiceItem: React.FC<ServiceItemProps> = ({ icon: Icon, title, href, className }) => (
-  <Link href={href} className={clsx(styles.ServiceItem, className)}>
+export const ServiceItem: React.FC<ServiceItemProps> = ({ className, attributes: { name, icon, slug } }) => (
+  <Link href={`${Routes.About}#${slug}`} className={clsx(styles.ServiceItem, className)}>
     <div className={styles.ServiceItem__Content}>
-      <Icon className={clsx(styles.ServiceItem__Icon)} />
+      <Image className={styles.ServiceItem__Icon} image={icon} alt="service decoration icon" unoptimized />
 
       <Text uppercase size="heading3" className={styles.ServiceItem__Text}>
-        {title}
+        {name}
       </Text>
 
       <LinkIcon className={clsx(styles.ServiceItem__Icon, styles['ServiceItem__Icon--Link'])} />

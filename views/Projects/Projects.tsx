@@ -2,20 +2,23 @@ import { useTranslation } from 'next-i18next';
 
 import CircleSvg from 'public/icons/projects-circle.svg';
 
-import { ProjectPreview } from 'types/projects';
+import { Namespace } from 'configs/i18n';
+
+import { ApiPage } from 'types/api';
+import { Project } from 'types/projects';
 
 import { Container, Text } from 'components';
 
 import { AppLayout } from 'layouts';
-
-import { Namespace } from 'i18n';
 
 import { ProjectCard } from './components/ProjectCard';
 
 import styles from './Projects.module.scss';
 
 export type ProjectsProps = {
-  projects: ProjectPreview[];
+  locale?: string;
+  page: ApiPage;
+  projects: Project[];
 };
 
 export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
@@ -37,7 +40,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
         <div className={styles.Projects__Grid}>
           {projects.map((project) => (
-            <ProjectCard key={project.shortName} {...project} className={styles.Projects__ProjectCard} />
+            <ProjectCard key={project.id} {...project} className={styles.Projects__ProjectCard} />
           ))}
         </div>
       </Container>

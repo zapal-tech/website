@@ -13,21 +13,21 @@ export type TabsProps = {
 };
 
 export const Tabs: React.FC<TabsProps> = ({ className }) => {
-  const { locations, currentLocation, currentLocationIndex, setCurrentLocationIndex } = useGlobalContext();
+  const { locations, currentLocation, currentLocationId, setCurrentLocationId } = useGlobalContext();
   const flyToCurrentLocation = useFlyToCurrentLocation();
 
-  const handleTabClick = (index: number) => {
-    if (index === currentLocationIndex) return flyToCurrentLocation();
+  const handleTabClick = (id: number) => {
+    if (id === currentLocationId) return flyToCurrentLocation();
 
-    setCurrentLocationIndex(index);
+    setCurrentLocationId(id);
   };
 
   return (
     <div className={clsx(styles.Tabs, className)}>
       <div className={styles.Tabs__ButtonsContainer}>
-        {locations?.map(({ name }, idx) => (
-          <TabButton key={name} active={idx === currentLocationIndex} onClick={() => handleTabClick(idx)}>
-            {name}
+        {locations?.map(({ id, attributes }) => (
+          <TabButton key={id} active={id === currentLocationId} onClick={() => handleTabClick(id)}>
+            {attributes.name}
           </TabButton>
         ))}
       </div>

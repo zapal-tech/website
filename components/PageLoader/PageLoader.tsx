@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import { Logo } from 'components/Logo/Logo';
+import { Logo } from '../Logo/Logo';
 
 import styles from './PageLoader.module.scss';
 

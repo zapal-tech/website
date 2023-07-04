@@ -2,9 +2,9 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { NextSeo } from 'next-seo';
 
-import { Error404Page } from 'views/Error404Page/Error404Page';
+import { Namespace } from 'configs/i18n';
 
-import { Namespace } from 'i18n';
+import { Error404Page } from 'views/Error404Page/Error404Page';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: { ...(await serverSideTranslations(locale!, [Namespace.Common])) },

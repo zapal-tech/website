@@ -1,31 +1,33 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { NextSeo } from 'next-seo';
 
-import { getLocations } from 'services/firestore';
+import { globalNamespaces, Namespace } from 'configs/i18n';
+
+import { getContactsPage, getLocations } from 'services/api';
+
+import { PageSeo } from 'components/PageSeo/PageSeo';
 
 import { Contacts, ContactsProps } from 'views/Contacts/Contacts';
 
-import { globalNamespaces, Namespace } from 'i18n';
-
 export const getStaticProps: GetStaticProps<ContactsProps> = async ({ locale }) => {
-  const locations = await getLocations(locale);
+  const page = (await getContactsPage(locale)).data;
+  const locations = (await getLocations(locale)).data;
 
   return {
     props: {
       ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Contacts])),
+      locale,
+      page,
       locations,
     },
+    revalidate: 3600,
   };
 };
 
 export default function ContactsPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { t } = useTranslation(Namespace.Titles);
-
   return (
     <>
-      <NextSeo title={t('contacts') || undefined} />
+      <PageSeo locale={props.locale} {...props.page.attributes.seo} />
       <Contacts {...props} />
     </>
   );

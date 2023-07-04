@@ -4,8 +4,6 @@
   "rules": {
     "selector-max-id": 1,
     "max-nesting-depth": 5,
-    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global", "export"] }],
-    "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["global", "export"] }],
     "selector-class-pattern": [
       "^(([A-Z][A-Za-z0-9]*)((__|--)[A-Z][A-Za-z0-9]?))*",
       { "message": "Class names should begin with uppercase, and cannot be separated by hyphens" }

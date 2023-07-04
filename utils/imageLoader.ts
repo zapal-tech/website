@@ -1,37 +1,29 @@
-import { ImageLoader, ImageLoaderProps } from 'next/image';
+import { ImageLoaderProps } from 'next/image';
 
-// { key: device width; value: [image width, image height] }
+import { ApiImage } from 'types/api';
+
+// { key: device width; value: image width }
 const sizes = {
-  '768': [300, 375],
-  '1024': [360, 450],
-  '1280': [400, 500],
-  '1440': [520, 650],
-  '1680': [600, 750],
-  '1920': [680, 850],
-  '2560': [720, 900],
-  '3840': [760, 950],
+  '1024': 700,
+  '1280': 750,
+  '1440': 800,
+  '1680': 850,
+  '1920': 900,
+  '2560': 950,
+  '3840': 1000,
 } as const;
 
-const getFirebaseStorageUrl = (src: string, deviceWidth?: number, noSize?: boolean) => {
-  const normalizedPath = (src.startsWith('/') ? src.slice(1) : src).replaceAll('/', '%2F');
-  const [fileName, fileExtension] = normalizedPath.split('.');
+const getCorrectSizeUrl = (image: ApiImage, deviceWidth: number) => {
+  const { formats, ext, url } = image.data.attributes;
 
-  let path = normalizedPath;
+  if (ext !== 'svg') {
+    const matchedSize = Object.entries(sizes).find(([deviceWidthMatch]) => Number(deviceWidthMatch) >= deviceWidth);
 
-  if (deviceWidth && !noSize && fileExtension !== 'svg') {
-    const imageSizeArr = Object.entries(sizes).find(([key]) => Number(key) >= deviceWidth)?.[1] || sizes['768'];
-
-    const size = `${imageSizeArr[0]}x${imageSizeArr[1]}`;
-
-    path = `${fileName}_${size}.${fileExtension}`;
+    return matchedSize ? formats[matchedSize[1].toString()].url : url;
   }
 
-  return `https://firebasestorage.googleapis.com/v0/b/${process.env.NEXT_PUBLIC_GOOGLE_FIREBASE_PROJECT_ID}.appspot.com/o/${path}?alt=media`;
+  return url;
 };
 
-export const imageLoader = ({ src, width, noSize }: ImageLoaderProps & { noSize?: boolean }) => {
-  const isExternal = src.startsWith('http');
-  const source = isExternal ? src : getFirebaseStorageUrl(src, width, noSize);
-
-  return source;
-};
+export const imageLoader = ({ src, image, width: deviceWidth }: ImageLoaderProps & { image?: ApiImage }) =>
+  image ? getCorrectSizeUrl(image, deviceWidth) : src;

@@ -4,10 +4,10 @@ import { Text } from 'components';
 
 import styles from './ServiceCard.module.scss';
 
-export type OurServiceCardProps = Service;
+export type OurServiceCardProps = Service & { order: number };
 
-export const ServiceCard: React.FC<OurServiceCardProps> = ({ id, order, name, description }) => (
-  <div id={id} className={styles.ServiceCard}>
+export const ServiceCard: React.FC<OurServiceCardProps> = ({ order, attributes: { slug, name, description } }) => (
+  <div id={slug} className={styles.ServiceCard}>
     <div className={styles.ServiceCard__TitleContainer}>
       <Text size="heading3" className={styles.ServiceCard__Order}>
         {order.toString().padStart(2, '0')}

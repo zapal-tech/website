@@ -1,3 +1,5 @@
+import { ApiPage } from 'types/api';
+
 import { Container, Divider, Text } from 'components';
 import { OrderedList, OrderedListDataItem } from 'components/OrderedList/OrderedList';
 
@@ -44,7 +46,7 @@ const listOfContents: OrderedListDataItem[] = [
     id: Section.WHEN_AND_WITH_WHOM_DO_WE_SHARE_YOUR_PERSONAL_INFORMATION,
     children: (
       <a href={'#' + Section.WHEN_AND_WITH_WHOM_DO_WE_SHARE_YOUR_PERSONAL_INFORMATION}>
-        WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?{' '}
+        WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?
       </a>
     ),
   },
@@ -119,7 +121,12 @@ const listOfContents: OrderedListDataItem[] = [
 const tableOfContentsId = 'table-of-contents';
 const withdrawConsentId = 'withdraw-consent';
 
-export const PrivacyPolicy = () => (
+export type PrivacyPolicyProps = {
+  locale?: string;
+  page: ApiPage;
+};
+
+export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = () => (
   <AppLayout>
     <div className={styles.PrivacyPolicy}>
       <Container className={styles.PrivacyPolicy__Article}>

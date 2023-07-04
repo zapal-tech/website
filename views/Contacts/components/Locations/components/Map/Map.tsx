@@ -43,9 +43,9 @@ export const Map: React.FC<MapProps> = ({ className, children, markers, ...props
   const [isLoaded, setIsLoaded] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const isLargeTablet = useMediaQuery({ width: { min: parseInt(media.breakpointLargeTablet) } });
-  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
-  const isLargeLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLargeLaptop) } });
+  const isLargeTablet = useMediaQuery(`(min-width: ${media.breakpointLargeTablet})`);
+  const isLaptop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
+  const isLargeLaptop = useMediaQuery(`(min-width: ${media.breakpointLargeLaptop})`);
 
   useEffect(() => {
     setIsMounted(true);
@@ -105,9 +105,12 @@ export const Map: React.FC<MapProps> = ({ className, children, markers, ...props
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
         attributionControl={false}
         onLoad={handleLoad}
+        reuseMaps
+        trackResize
+        preserveDrawingBuffer
         {...props}
       >
-        <CSSTransition addEndListener={() => void 0} classNames={'Fade'} in={!isFullscreen} unmountOnExit>
+        <CSSTransition addEndListener={() => void 0} classNames="Fade" in={!isFullscreen} timeout={300} unmountOnExit>
           {children}
         </CSSTransition>
 

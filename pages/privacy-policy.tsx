@@ -1,22 +1,25 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { NextSeo } from 'next-seo';
 
-import { PrivacyPolicy } from 'views/PrivacyPolicy/PrivacyPolicy';
+import { globalNamespaces } from 'configs/i18n';
 
-import { globalNamespaces, Namespace } from 'i18n';
+import { getPrivacyPolicyPage } from 'services/api';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: { ...(await serverSideTranslations(locale!, [...globalNamespaces])) },
-});
+import { PageSeo } from 'components/PageSeo/PageSeo';
 
+import { PrivacyPolicy, PrivacyPolicyProps } from 'views/PrivacyPolicy/PrivacyPolicy';
+
+export const getStaticProps: GetStaticProps<PrivacyPolicyProps> = async ({ locale }) => {
+  const page = (await getPrivacyPolicyPage(locale)).data;
+
+  return {
+    props: { ...(await serverSideTranslations(locale!, globalNamespaces)), locale, page },
+  };
+};
 export default function PrivacyPolicyPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { t } = useTranslation(Namespace.Titles);
-
   return (
     <>
-      <NextSeo title={t('privacyPolicy') || undefined} />
+      <PageSeo locale={props.locale} {...props.page.attributes.seo} />
       <PrivacyPolicy {...props} />
     </>
   );

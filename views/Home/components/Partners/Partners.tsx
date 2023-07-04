@@ -3,6 +3,10 @@ import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 import { Fragment } from 'react';
 
+import { Namespace } from 'configs/i18n';
+
+import { Partner } from 'types/partners';
+
 import { useGlobalContext } from 'hooks/useGlobalContext';
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
@@ -11,8 +15,6 @@ import { Image } from 'components/Image/Image';
 import { Ticker } from 'components/Ticker/Ticker';
 
 import { HomeProps } from 'views/Home/Home';
-
-import { Namespace } from 'i18n';
 
 import media from 'styles/media.module.scss';
 
@@ -27,7 +29,7 @@ export const Partners = () => {
   } = useGlobalContext<HomeProps>();
   const { t } = useTranslation([Namespace.Home, Namespace.Common]);
 
-  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
+  const isLaptop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
   const openContactForm = () => openModal(ContactForm);
 
   return (
@@ -55,24 +57,23 @@ export const Partners = () => {
         className={styles.Partners__Ticker}
         // TODO: remove this after adding more partners
         data={[...partners, ...partners]}
-        renderItem={(item, idx) => (
-          <Fragment key={item.id}>
+        renderItem={({ id, attributes: { image, name, website } }: Partner, idx) => (
+          <Fragment key={idx}>
             {idx % 3 ? null : (
               <div className={clsx(styles.Partners__TickerItem, styles['Partners__TickerItem--Placeholder'])} />
             )}
             <a
               target="_blank"
               rel="noreferrer"
-              href={item.url}
+              href={website}
               className={clsx(styles.Partners__TickerItem, idx % 3 === 2 && styles['Partners__TickerItem--Wide'])}
             >
               <Image
-                key={item.id}
                 className={styles.Partners__TickerImageContainer}
                 imageClassName={styles.Partners__TickerImage}
-                src={item.logoUrl}
-                alt={item.name}
-                noSize
+                image={image}
+                alt={name}
+                unoptimized
               />
             </a>
           </Fragment>

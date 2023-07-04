@@ -1,0 +1,39 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.Blog {
+  overflow: hidden;
+  padding-top: $expanded-gap-lg;
+
+  &__Title {
+    margin-bottom: $gap-xxl;
+  }
+
+  &__Grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: $gap-md * 2;
+
+    @include media(laptop) {
+      gap: $gap-xl;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media(desktop) {
+      gap: $gap-xxl;
+    }
+  }
+
+  &__Article {
+    &:nth-child(2n + 2) {
+      @include media(laptop) {
+        margin: 75% 0 -75%;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

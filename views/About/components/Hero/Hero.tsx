@@ -4,13 +4,13 @@ import dynamic from 'next/dynamic';
 
 import Circle from 'public/icons/circle.svg';
 
+import { Namespace } from 'configs/i18n';
+
 import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Button, Container, Text } from 'components';
 import { AlternantText } from 'components/AlternantText/AlternantText';
 import { Ticker } from 'components/Ticker/Ticker';
-
-import { Namespace } from 'i18n';
 
 import styles from './Hero.module.scss';
 
@@ -58,10 +58,10 @@ export const Hero = () => {
         )}
       />
 
-      <Container className={styles.Hero__SliderContainer}>
+      <Container className={styles.Hero__UnderTicker}>
         <div className={styles.Hero__Grid}>
-          <Text className={styles.Hero__SliderSubtitle} type="h3" size="heading3">
-            {t('hero.sliderSubtitle')}
+          <Text className={styles.Hero__UnderTickerSubtitle} type="h3" size="heading3">
+            {t('hero.tickerSubtitle')}
           </Text>
         </div>
 

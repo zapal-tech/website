@@ -3,12 +3,14 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo } from 'react';
 
+import { Namespace } from 'configs/i18n';
+
+import { Routes } from 'types/routes';
+
 import { useGlobalContext } from 'hooks/useGlobalContext';
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Text } from 'components';
-
-import { Namespace } from 'i18n';
 
 import media from 'styles/media.module.scss';
 
@@ -19,7 +21,17 @@ export const Navigation: React.FC = () => {
   const { t } = useTranslation(Namespace.Navigation);
   const router = useRouter();
 
-  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
+  const isLaptop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
+
+  useEffect(() => {
+    const handleStart = () => closeMobileMenu();
+
+    router.events.on('routeChangeStart', handleStart);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+    };
+  }, [router.events, router.asPath, closeMobileMenu]);
 
   useEffect(() => {
     const handleStart = () => closeMobileMenu();
@@ -35,27 +47,27 @@ export const Navigation: React.FC = () => {
     () => [
       {
         title: t('home.title'),
-        path: '/',
+        path: Routes.Home,
       },
       {
         title: t('about.title'),
-        path: '/about',
+        path: Routes.About,
       },
       {
         title: t('projects.title'),
-        path: '/projects',
+        path: Routes.Projects,
       },
       // {
       //   title: t('career.title'),
-      //   path: '/career',
+      //   path: Routes.Career,
       // },
       {
         title: t('contacts.title'),
-        path: '/contacts',
+        path: Routes.Contacts,
       },
       {
         title: t('supportUkraine.title'),
-        path: '/support-ukraine',
+        path: Routes.SupportUkraine,
       },
     ],
     [t],

@@ -5,7 +5,7 @@ import CloseIcon from 'public/icons/close.svg';
 
 import { useGlobalContext } from 'hooks/useGlobalContext';
 
-import { Portal } from 'components/Portal/Portal';
+import { Portal } from '../Portal/Portal';
 
 import styles from './Modal.module.scss';
 

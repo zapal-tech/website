@@ -1,7 +1,14 @@
+import { ApiImage } from './api';
+
 export type Partner = {
-  id: string;
+  id: number;
+  attributes: PartnerAttributes;
+};
+
+export type PartnerAttributes = {
   name: string;
-  url: string;
-  logoUrl: string;
+  website: string;
   order: number;
+  slug: string;
+  image: ApiImage;
 };

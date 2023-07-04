@@ -1,28 +1,19 @@
-import { useWindowSize } from './useWindowSize';
+import { useEffect, useState } from 'react';
 
-type QueryDetails = {
-  min?: number;
-  max?: number;
-};
+export function useMediaQuery(query: string): boolean | null {
+  const [matches, setMatches] = useState<null | boolean>(null);
 
-type Query = {
-  width?: QueryDetails;
-  height?: QueryDetails;
-};
+  useEffect(() => {
+    const mediaQueryList = window.matchMedia(query);
 
-export const useMediaQuery = (query: Query): boolean => {
-  const { width, height } = useWindowSize();
+    const listener = () => setMatches(!!mediaQueryList.matches);
 
-  if (!width || !height) return true;
+    listener();
 
-  const widthMin = query.width?.min;
-  const widthMax = query.width?.max;
+    mediaQueryList.addEventListener('change', listener);
 
-  const heightMin = query.height?.min;
-  const heightMax = query.height?.max;
+    return () => mediaQueryList.removeEventListener('change', listener);
+  }, [query]);
 
-  const widthMatch = (widthMin ? width >= widthMin : true) && (widthMax ? width <= widthMax : true);
-  const heightMatch = (heightMin ? height >= heightMin : true) && (heightMax ? height <= heightMax : true);
-
-  return Boolean(widthMatch && heightMatch);
-};
+  return matches;
+}
