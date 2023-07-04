@@ -6,7 +6,7 @@ import { Namespace, defaultLanguage } from 'configs/i18n';
 import { Routes } from 'types/routes';
 
 export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
-  const { t, i18n } = useTranslation([Namespace.Titles, Namespace.Common]);
+  const { t, i18n } = useTranslation(Namespace.Common);
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const langPath = i18n.language === defaultLanguage ? '' : `/${i18n.language}`;
@@ -19,7 +19,7 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
       <DefaultSeoComponent
         // defaultTitle="Zapal | Unlock Your Tech Future"
         titleTemplate="Zapal - %s | Unlock Your Tech Future"
-        description={t('description', { ns: Namespace.Common })!}
+        description={t('description')!}
         themeColor="#070707"
         languageAlternates={[{ hrefLang: 'uk', href: getAbsoluteUrl('/uk', false) }]}
         openGraph={{
@@ -58,11 +58,11 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
         type="Organization"
         name="Zapal"
         legalName="Zapal"
-        slogan={t('slogan', { ns: Namespace.Common })}
-        email={t('email', { ns: Namespace.Common })}
+        slogan={t('slogan')}
+        email={t('email')}
         contactPoint={[
           {
-            email: t('email', { ns: Namespace.Common }),
+            email: t('email'),
             url: getAbsoluteUrl(Routes.Contacts),
             contactType: 'customer support',
             availableLanguage: ['English', 'Ukrainian'],
