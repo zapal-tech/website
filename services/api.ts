@@ -122,6 +122,12 @@ export const getBlogPage = async (locale?: string): Promise<ApiResponse<ApiPage>
   return data;
 };
 
+export const getSupportUkrainePage = async (locale?: string): Promise<ApiResponse<ApiPage>> => {
+  const { data } = await api.get<ApiResponse<ApiPage>>('/support-ukraine-page', { params: { locale } });
+
+  return data;
+};
+
 export const getPrivacyPolicyPage = async (locale?: string): Promise<ApiResponse<ApiPage>> => {
   const { data } = await api.get<ApiResponse<ApiPage>>('/privacy-policy-page', { params: { locale } });
 

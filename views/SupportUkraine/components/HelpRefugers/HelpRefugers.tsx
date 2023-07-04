@@ -1,10 +1,12 @@
+import { SupportUkraineSections } from 'types/supportUkraine';
+
 import { Text } from 'components';
 
 import styles from './HelpRefugers.module.scss';
 
 export const HelpRefugers = () => {
   return (
-    <div className={styles.HelpRefugers}>
+    <div id={SupportUkraineSections.HelpRefugers} className={styles.HelpRefugers}>
       <Text className={styles.HelpRefugers__Title} size="heading2">
         6/ HELP REFUGEES IN YOUR COUNTRY
       </Text>

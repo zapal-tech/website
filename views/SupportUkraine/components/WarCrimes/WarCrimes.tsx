@@ -1,3 +1,5 @@
+import { SupportUkraineSections } from 'types/supportUkraine';
+
 import { Text } from 'components';
 import { Link } from 'components/Link/Link';
 
@@ -5,7 +7,7 @@ import styles from './WarCrimes.module.scss';
 
 export const WarCrimes = () => {
   return (
-    <div className={styles.FoundationItem}>
+    <div id={SupportUkraineSections.ProtestPeacefully} className={styles.FoundationItem}>
       <Text className={styles.FoundationItem__Title} size="heading2">
         3/ PROTEST PEACEFULLY TO DEMAND ADDITIONAL HELP FROM YOUR AUTHORITIES
       </Text>

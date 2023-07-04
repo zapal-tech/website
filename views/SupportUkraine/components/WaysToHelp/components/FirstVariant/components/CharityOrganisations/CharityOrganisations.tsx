@@ -1,5 +1,7 @@
 import Globus from 'public/icons/foreign-charity-organizations.svg';
 
+import { SupportUkraineSections } from 'types/supportUkraine';
+
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Text } from 'components';
@@ -11,7 +13,7 @@ import styles from './CharityOrganisations.module.scss';
 
 const NationalBankOfUkraine = () => {
   return (
-    <div className={styles.FoundationItem}>
+    <div id={SupportUkraineSections.NationalBankOfUkraine} className={styles.FoundationItem}>
       <Text className={styles.FoundationTitle} size="heading3">
         National Bank of Ukraine
       </Text>
@@ -45,7 +47,7 @@ const NationalBankOfUkraine = () => {
 
 const NGOComeBackAlive = () => {
   return (
-    <div className={styles.FoundationItem}>
+    <div id={SupportUkraineSections.NgoComeBackAlive} className={styles.FoundationItem}>
       <Text className={styles.FoundationItem__Title} size="heading3">
         NGO Come Back Alive
       </Text>
@@ -124,7 +126,7 @@ const DonateFromAbroad = () => {
 
 const SergiyPritulaFoundation = () => {
   return (
-    <div className={styles.FoundationItem}>
+    <div id={SupportUkraineSections.SergiyPritula} className={styles.FoundationItem}>
       <Text className={styles.FoundationItem__Title} size="heading3">
         Sergiy Prytula’s foundations
       </Text>
@@ -157,7 +159,7 @@ const SergiyPritulaFoundation = () => {
 
 const ArmySos = () => {
   return (
-    <div className={styles.FoundationItem}>
+    <div id={SupportUkraineSections.ArmySos} className={styles.FoundationItem}>
       <Text className={styles.FoundationItem__Title} size="heading3">
         Army SOS
       </Text>
@@ -180,7 +182,7 @@ const ArmySos = () => {
 
 const Hospitallers = () => {
   return (
-    <div className={styles.FoundationItem}>
+    <div id={SupportUkraineSections.Hospitallers} className={styles.FoundationItem}>
       <Text className={styles.FoundationItem__Title} size="heading3">
         Hospitallers
       </Text>
@@ -205,7 +207,7 @@ const Hospitallers = () => {
 
 const VoicesOfChildren = () => {
   return (
-    <div className={styles.FoundationItem}>
+    <div id={SupportUkraineSections.VoicesOfChildren} className={styles.FoundationItem}>
       <Text className={styles.FoundationItem__Title} size="heading3">
         Voices of Children
       </Text>
@@ -231,7 +233,7 @@ const VoicesOfChildren = () => {
 
 const UkraineCrisisMediaCenter = () => {
   return (
-    <div className={styles.FoundationItem}>
+    <div id={SupportUkraineSections.UkraineCrisisMediaCenter} className={styles.FoundationItem}>
       <Text className={styles.FoundationItem__Title} size="heading3">
         Ukraine Crisis Media Center
       </Text>
@@ -257,7 +259,7 @@ const UkraineCrisisMediaCenter = () => {
 
 const ForeignCharityOrganisations = () => {
   return (
-    <div className={styles.ForeignCharityOrganisations}>
+    <div id={SupportUkraineSections.ForeignCharityOrganisations} className={styles.ForeignCharityOrganisations}>
       <Text className={styles.ForeignCharityOrganisations__Title} size="heading2">
         Foreign charity organizations
       </Text>
@@ -268,7 +270,7 @@ const ForeignCharityOrganisations = () => {
 
 const HelpUsHelp = () => {
   return (
-    <div className={styles.FoundationItem}>
+    <div id={SupportUkraineSections.HelpUsHelp} className={styles.FoundationItem}>
       <Text className={styles.FoundationItem__Title} size="heading3">
         Help Us Help
       </Text>
@@ -287,7 +289,7 @@ const HelpUsHelp = () => {
 
 const WithUkraine = () => {
   return (
-    <div className={styles.FoundationItem}>
+    <div id={SupportUkraineSections.WithUkraine} className={styles.FoundationItem}>
       <Text size="heading3" className={styles.FoundationItem__Title}>
         With Ukraine
       </Text>
@@ -304,7 +306,7 @@ const WithUkraine = () => {
 
 const LelekaFoundation = () => {
   return (
-    <div className={styles.FoundationItem}>
+    <div id={SupportUkraineSections.LelekaFoundation} className={styles.FoundationItem}>
       <Text size="heading3" className={styles.FoundationItem__Title}>
         Leleka Foundation
       </Text>
@@ -345,7 +347,7 @@ const WarCrimes = () => {
 };
 
 export const CharityOrganisations = () => (
-  <div className={styles.UkraineBasedCharityOrganisations}>
+  <div id={SupportUkraineSections.UkrainianOrganizations} className={styles.UkraineBasedCharityOrganisations}>
     <Text className={styles.UkraineBasedCharityOrganisations__Title} size="heading2">
       Ukraine-Based Charity Organizations
     </Text>

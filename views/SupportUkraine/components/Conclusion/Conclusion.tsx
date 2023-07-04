@@ -1,10 +1,12 @@
+import { SupportUkraineSections } from 'types/supportUkraine';
+
 import { Text } from 'components';
 
 import styles from './Conclusion.module.scss';
 
 export const Conclusion = () => {
   return (
-    <div className={styles.Conclusion}>
+    <div id={SupportUkraineSections.Conclusion} className={styles.Conclusion}>
       <Text uppercase className={styles.Conclusion__Title} size="heading1">
         Conclusion
       </Text>

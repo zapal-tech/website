@@ -5,6 +5,8 @@ import Lego from 'public/icons/lego.svg';
 import Oracle from 'public/icons/oracle.svg';
 import Spotify from 'public/icons/spotify.svg';
 
+import { SupportUkraineSections } from 'types/supportUkraine';
+
 import { Text } from 'components';
 import { Link } from 'components/Link/Link';
 
@@ -14,7 +16,7 @@ const svgList = [Apple, Oracle, HandM, Jysk, Lego, Spotify];
 
 export const BanRussianBusiness = () => {
   return (
-    <div className={styles.BanRussianBusiness}>
+    <div id={SupportUkraineSections.BanRussianBusinesses} className={styles.BanRussianBusiness}>
       <div className={styles.BanRussianBusiness__ListBox}>
         <Text className={styles.BanRussianBusiness__FoundationTitle} size="heading2">
           4/ BAN RUSSIAN BUSINESS OR URGE OTHER BRANDS TO DO SO

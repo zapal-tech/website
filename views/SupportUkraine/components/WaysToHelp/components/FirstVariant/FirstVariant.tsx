@@ -1,3 +1,5 @@
+import { SupportUkraineSections } from 'types/supportUkraine';
+
 import { Text } from 'components';
 
 import { CharityOrganisations } from './components/CharityOrganisations/CharityOrganisations';
@@ -7,7 +9,7 @@ import styles from './FirstVariant.module.scss';
 export const FirstVariant = () => {
   return (
     <>
-      <div className={styles.FirstVariant}>
+      <div id={SupportUkraineSections.HumanitarianRelief} className={styles.FirstVariant}>
         <Text className={styles.FirstVariant__Titles} size="heading2">
           1/ DONATE MONEY FOR HUMANITARIAN OR MILITARY RELIEF
         </Text>

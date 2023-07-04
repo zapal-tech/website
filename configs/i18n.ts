@@ -22,7 +22,7 @@ export enum Namespace {
   Projects = 'projects-page',
   About = 'about-page',
   Blog = 'blog-page',
-  SupportUkraine = 'supportUkraine',
+  SupportUkraine = 'support-ukraine-page',
 }
 
 export const defaultNamespace = Namespace.Common;

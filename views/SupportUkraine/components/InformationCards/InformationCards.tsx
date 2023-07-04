@@ -1,3 +1,5 @@
+import { SupportUkraineSections } from 'types/supportUkraine';
+
 import { Card, Text } from 'components';
 
 import styles from './InformationCards.module.scss';
@@ -18,7 +20,7 @@ const officialMedias = [
 
 export const InformationCards = () => {
   return (
-    <div className={styles.SecondVariant}>
+    <div id={SupportUkraineSections.ReadAndShaireCredibleInformation} className={styles.SecondVariant}>
       <div className={styles.SecondVariant__TextBox}>
         <Text className={styles.SecondVariant__Title} size="heading2">
           2/ READ AND SHARE ONLY CREDIBLE INFORMATION ABOUT UKRAINE

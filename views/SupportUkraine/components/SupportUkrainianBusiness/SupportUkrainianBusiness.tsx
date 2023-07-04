@@ -1,3 +1,5 @@
+import { SupportUkraineSections } from 'types/supportUkraine';
+
 import { Text } from 'components';
 import { Link } from 'components/Link/Link';
 
@@ -5,7 +7,7 @@ import styles from './SupportUkrainianBusiness.module.scss';
 
 export const SupportUkrainianBusiness = () => {
   return (
-    <div className={styles.SupportUkrainianBusiness}>
+    <div id={SupportUkraineSections.SupportUkrainianBusinesses} className={styles.SupportUkrainianBusiness}>
       <div className={styles.SupportUkrainianBusiness__TextBox}>
         <Text className={styles.SupportUkrainianBusiness__Title} size="heading2">
           5/ SUPPORT UKRAINIAN BUSINESSES
