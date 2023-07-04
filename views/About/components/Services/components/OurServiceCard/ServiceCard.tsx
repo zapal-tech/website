@@ -4,13 +4,13 @@ import { Text } from 'components';
 
 import styles from './ServiceCard.module.scss';
 
-export type OurServiceCardProps = Service & { index: number };
+export type OurServiceCardProps = Service & { order: number };
 
-export const ServiceCard: React.FC<OurServiceCardProps> = ({ index, attributes: { slug, name, description } }) => (
+export const ServiceCard: React.FC<OurServiceCardProps> = ({ order, attributes: { slug, name, description } }) => (
   <div id={slug} className={styles.ServiceCard}>
     <div className={styles.ServiceCard__TitleContainer}>
       <Text size="heading3" className={styles.ServiceCard__Order}>
-        {(index + 1).toString().padStart(2, '0')}
+        {order.toString().padStart(2, '0')}
       </Text>
 
       <Text uppercase size="heading3" className={styles.ServiceCard__Title}>

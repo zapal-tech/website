@@ -32,7 +32,7 @@ export const Services = () => {
 
       <div className={styles.Services__List}>
         {services.map((service, idx) => (
-          <ServiceCard key={service.id} index={idx} {...service} />
+          <ServiceCard key={service.id} order={idx + 1} {...service} />
         ))}
       </div>
 

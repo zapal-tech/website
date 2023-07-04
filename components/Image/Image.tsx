@@ -39,8 +39,8 @@ export const Image: React.FC<ImageProps> = ({
       className={clsx(styles.Image__Image, imageClassName)}
       loader={(loaderProps) => imageLoader({ ...loaderProps, image })}
       fill
-      src={image?.data.attributes.url || src || ''}
-      unoptimized={image?.data.attributes.ext === 'svg' || unoptimized}
+      src={image?.data?.attributes?.url || src || ''}
+      unoptimized={image?.data?.attributes?.ext === 'svg' || unoptimized}
       {...props}
     />
     {children}

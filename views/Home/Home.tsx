@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { ApiPage } from 'types/api';
 import { Partner } from 'types/partners';
 import { Project } from 'types/projects';
+import { Service } from 'types/services';
 import { TeamMember } from 'types/team';
 import { Technology } from 'types/technologies';
 
@@ -22,6 +23,7 @@ export type HomeProps = {
   page: ApiPage;
   partners: Partner[];
   projects: Project[];
+  services: Service[];
   team: TeamMember[];
   technologies: Technology[];
 };

@@ -3,7 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { globalNamespaces, Namespace } from 'configs/i18n';
 
-import { getHomePage, getPartners, getProjects, getTeam, getTechnologies } from 'services/api';
+import { getHomePage, getPartners, getProjects, getServices, getTeam, getTechnologies } from 'services/api';
 
 import { PageSeo } from 'components/PageSeo/PageSeo';
 
@@ -13,6 +13,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
   const page = (await getHomePage(locale)).data;
   const partners = (await getPartners()).data;
   const projects = (await getProjects(locale)).data;
+  const services = (await getServices(locale)).data;
   const team = (await getTeam(locale)).data;
   const technologies = (await getTechnologies(locale)).data;
 
@@ -23,6 +24,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
       page,
       partners,
       projects,
+      services,
       team,
       technologies,
     },
