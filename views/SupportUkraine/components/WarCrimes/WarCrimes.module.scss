@@ -1,0 +1,43 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.FoundationItem {
+  display: flex;
+  max-width: 1200px;
+  flex-direction: column;
+  margin-bottom: $gap-xxl;
+  gap: $gap-lg;
+
+  @include media(desktop) {
+    margin-bottom: $expanded-gap-md;
+    gap: $gap-xl;
+  }
+
+  &__LinkList {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-lg;
+
+    @include media(desktop) {
+      gap: $gap-xl;
+    }
+  }
+
+  &__LinkBox {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xxs;
+  }
+
+  &__LinkText {
+    margin-left: 7vw;
+
+    @include media(tablet) {
+      margin-left: 4vw;
+    }
+
+    @include media(desktop) {
+      margin-left: 3vw;
+    }
+  }
+}

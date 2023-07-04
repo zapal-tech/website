@@ -33,6 +33,16 @@ export const Navigation: React.FC = () => {
     };
   }, [router.events, router.asPath, closeMobileMenu]);
 
+  useEffect(() => {
+    const handleStart = () => closeMobileMenu();
+
+    router.events.on('routeChangeStart', handleStart);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+    };
+  }, [router.events, router.asPath, closeMobileMenu]);
+
   const navLinks = useMemo(
     () => [
       {
@@ -51,14 +61,14 @@ export const Navigation: React.FC = () => {
       //   title: t('career.title'),
       //   path: Routes.Career,
       // },
+      // {
+      //   title: t('blog.title'),
+      //   path: Routes.Blog,
+      // },
       {
         title: t('contacts.title'),
         path: Routes.Contacts,
       },
-      // {
-      //   title: t('supportUkraine.title'),
-      //   path: Routes.SupportUkraine,
-      // },
     ],
     [t],
   );

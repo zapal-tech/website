@@ -1,0 +1,47 @@
+@import 'styles/gaps';
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.WaysToHelp {
+  padding-top: $expanded-gap-xs;
+
+  @include media(desktop) {
+    padding-top: $expanded-gap-md;
+  }
+
+  &__DonateFromAbroadLinkBox {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #757575;
+    margin-bottom: $gap-lg;
+    margin-left: auto;
+
+    @include media(laptop) {
+      width: 45%;
+    }
+
+    @include media(large-laptop) {
+      width: 60%;
+    }
+
+    @include media(desktop) {
+      width: 48%;
+      margin-top: $gap-xxl;
+      margin-bottom: $gap-xl + $gap-xxs;
+    }
+  }
+
+  &__DonateFromAbroadLinkSvg {
+    width: 30px;
+    height: 20px;
+    margin-bottom: 8px;
+    fill: $white;
+
+    @include media(tablet) {
+      display: none;
+    }
+  }
+}

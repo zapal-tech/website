@@ -17,21 +17,21 @@ export enum Namespace {
   Languages = 'language',
   Footer = 'footer',
   Home = 'home-page',
-  Titles = 'titles',
   Contacts = 'contacts-page',
   ContactForm = 'contact-form',
   Projects = 'projects-page',
   About = 'about-page',
   Blog = 'blog-page',
+  SupportUkraine = 'support-ukraine-page',
 }
 
 export const defaultNamespace = Namespace.Common;
 export const namespaces = Object.values(Namespace);
 export const globalNamespaces = [
   Namespace.Common,
-  // Namespace.Titles,
   Namespace.Languages,
   Namespace.Navigation,
   Namespace.Footer,
   Namespace.ContactForm,
+  Namespace.SupportUkraine,
 ];

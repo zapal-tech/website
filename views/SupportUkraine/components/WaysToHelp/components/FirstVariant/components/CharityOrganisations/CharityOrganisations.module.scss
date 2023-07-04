@@ -1,0 +1,146 @@
+@import 'styles/gaps';
+@import 'styles/mixins';
+@import 'styles/colors';
+
+.UkraineBasedCharityOrganisations {
+  &__Title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $gap-xxl;
+
+    @include media(desktop) {
+      margin-bottom: $expanded-gap-md;
+    }
+  }
+}
+
+.FoundationItem {
+  display: flex;
+  max-width: 1200px;
+  flex-direction: column;
+  margin-bottom: $gap-xxl;
+  gap: $gap-lg;
+
+  @include media(desktop) {
+    margin-bottom: $expanded-gap-md;
+    gap: $gap-xl;
+  }
+
+  &__LinkList {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-lg;
+
+    @include media(desktop) {
+      gap: $gap-xl;
+    }
+  }
+
+  &__LinkBox {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-xxs;
+  }
+
+  &__LinkText {
+    margin-left: 7vw;
+
+    @include media(tablet) {
+      margin-left: 4vw;
+    }
+
+    @include media(desktop) {
+      margin-left: 3vw;
+    }
+  }
+}
+
+.DonateFromAbroad {
+  &__Title {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: $gap-xxs;
+    border-bottom: 1px solid $sonic-silver;
+    margin-bottom: $gap-lg;
+
+    @include media(desktop) {
+      margin-bottom: $gap-xl;
+    }
+  }
+
+  &__Links {
+    display: flex;
+    max-width: 1140px;
+    flex-direction: column;
+    gap: $gap-lg;
+
+    @include media(desktop) {
+      gap: $gap-xl;
+    }
+  }
+
+  &__CryptoLinks {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $gap-xxl;
+    gap: $gap-xxs;
+
+    @include media(desktop) {
+      margin-bottom: $expanded-gap-md;
+      gap: $gap-sm;
+    }
+  }
+
+  &__CryptoLink {
+    display: flex;
+
+    color: $white;
+    gap: $gap-sm;
+    transition: 0.2s ease-in-out;
+
+    &::before {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+
+      background: $ukraine-blue;
+      content: '';
+    }
+
+    &:hover,
+    &:focus-visible {
+      &::before {
+        background: $ukraine-yellow;
+      }
+    }
+  }
+}
+
+.ForeignCharityOrganisations {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: $gap-xxl;
+  gap: $gap-sm;
+
+  @include media(tablet) {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include media(desktop) {
+    margin-bottom: $expanded-gap-md;
+  }
+
+  &__Title {
+    width: 188px;
+
+    @include media(tablet) {
+      width: auto;
+    }
+  }
+}
