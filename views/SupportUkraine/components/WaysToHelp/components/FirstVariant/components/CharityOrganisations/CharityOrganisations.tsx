@@ -71,7 +71,7 @@ const NGOComeBackAlive = () => {
 };
 
 const DonateFromAbroad = () => {
-  const isDesktop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
+  const isDesktop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
 
   return (
     <div className={styles.DonateFromAbroad}>
