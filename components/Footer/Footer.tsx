@@ -2,14 +2,15 @@ import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 
+import { Namespace } from 'configs/i18n';
+
 import { useGlobalContext } from 'hooks/useGlobalContext';
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Button, Container, Divider, Text } from 'components';
-import { AlternantText } from 'components/AlternantText/AlternantText';
-import { SocialLinks } from 'components/SocialLinks/SocialLinks';
 
-import { Namespace } from 'i18n';
+import { AlternantText } from '../AlternantText/AlternantText';
+import { SocialLinks } from '../SocialLinks/SocialLinks';
 
 import { Policies } from './components/Policies/Policies';
 
@@ -93,7 +94,7 @@ const Location = () => {
 export const Footer: React.FC = () => {
   const { t } = useTranslation(Namespace.Footer);
 
-  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
+  const isLaptop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
 
   return (
     <Container type="footer" className={styles.Footer}>

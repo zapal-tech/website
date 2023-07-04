@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import { CSSTransition } from 'react-transition-group';
 import * as yup from 'yup';
 
+import { Namespace } from 'configs/i18n';
+
 import { ContactFormState } from 'types/contactForm';
 
 import { useGlobalContext } from 'hooks/useGlobalContext';
@@ -13,8 +15,6 @@ import { useMediaQuery } from 'hooks/useMediaQuery';
 import { Button, Container, Text } from 'components';
 import { Input } from 'components/Input/Input';
 import { TextArea } from 'components/TextArea/TextArea';
-
-import { Namespace } from 'i18n';
 
 import media from 'styles/media.module.scss';
 
@@ -25,12 +25,12 @@ type MessageState = { isShow: boolean; type: 'error' | 'success' };
 export const ContactForm: React.FC = () => {
   const { t } = useTranslation([Namespace.ContactForm, Namespace.Common]);
   const { clearContactForm, closeModal, contactForm, setContactFormFieldValue } = useGlobalContext();
-  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
+  const isLaptop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
   const [messageState, setMessageState] = useState<MessageState>({ isShow: false, type: 'success' });
 
   const schema = useMemo(
     () =>
-      yup.object<ContactFormState>({
+      yup.object<ContactFormState>().shape({
         firstName: yup.string().required(t('validation.required')!),
         lastName: yup.string().required(t('validation.required')!),
         email: yup.string().email(t('validation.email')!).required(t('validation.required')!),

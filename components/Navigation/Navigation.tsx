@@ -1,60 +1,70 @@
-import clsx, { ClassValue } from 'clsx';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import { useMemo } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useMemo } from 'react';
 
+import { Namespace } from 'configs/i18n';
+
+import { Routes } from 'types/routes';
+
+import { useGlobalContext } from 'hooks/useGlobalContext';
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Text } from 'components';
-
-import { Namespace } from 'i18n';
 
 import media from 'styles/media.module.scss';
 
 import styles from './Navigation.module.scss';
 
-export type NavigationProps = {
-  className?: ClassValue | ClassValue[];
-  closeMobileMenu?: () => void;
-};
-
-export const Navigation: React.FC<NavigationProps> = ({ className, closeMobileMenu }) => {
+export const Navigation: React.FC = () => {
+  const { closeMobileMenu } = useGlobalContext();
   const { t } = useTranslation(Namespace.Navigation);
+  const router = useRouter();
 
-  const isLaptop = useMediaQuery({ width: { min: parseInt(media.breakpointLaptop) } });
+  const isLaptop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
+
+  useEffect(() => {
+    const handleStart = () => closeMobileMenu();
+
+    router.events.on('routeChangeStart', handleStart);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+    };
+  }, [router.events, router.asPath, closeMobileMenu]);
 
   const navLinks = useMemo(
     () => [
       {
         title: t('home.title'),
-        path: '/',
+        path: Routes.Home,
       },
       {
         title: t('about.title'),
-        path: '/about',
+        path: Routes.About,
       },
       {
         title: t('projects.title'),
-        path: '/projects',
+        path: Routes.Projects,
       },
       // {
       //   title: t('career.title'),
-      //   path: '/career',
+      //   path: Routes.Career,
       // },
       {
         title: t('contacts.title'),
-        path: '/contacts',
+        path: Routes.Contacts,
       },
       // {
       //   title: t('supportUkraine.title'),
-      //   path: '/supportUkraine',
+      //   path: Routes.SupportUkraine,
       // },
     ],
     [t],
   );
 
   return (
-    <nav className={clsx(styles.Navigation, className)}>
+    <nav className={styles.Navigation}>
       <ul className={styles.Navigation__List}>
         {navLinks.map(({ path, title }) => (
           <li key={path} className={styles.Navigation__ListItem}>

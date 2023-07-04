@@ -1,4 +1,4 @@
-import { createContext, useMemo, useState } from 'react';
+import { createContext, useEffect, useMemo, useState } from 'react';
 
 import { ContactFormState } from 'types/contactForm';
 import { Location } from 'types/locations';
@@ -33,8 +33,8 @@ export type GlobalContextProps<PageProps = Record<string, any>> = {
   closeModal: () => void;
   locations?: Location[];
   currentLocation?: Location;
-  currentLocationIndex: number;
-  setCurrentLocationIndex: (index: number) => void;
+  currentLocationId: number | null;
+  setCurrentLocationId: (index: number) => void;
   contactForm: ContactFormState;
   clearContactForm: () => void;
   setContactFormFieldValue: (field: ContactFormField) => void;
@@ -50,8 +50,8 @@ export const GlobalContext = createContext<GlobalContextProps>({
   closeModal: () => undefined,
   locations: undefined,
   currentLocation: undefined,
-  currentLocationIndex: 0,
-  setCurrentLocationIndex: () => undefined,
+  currentLocationId: 0,
+  setCurrentLocationId: () => undefined,
   contactForm: initialContactFormState,
   clearContactForm: () => undefined,
   setContactFormFieldValue: () => undefined,
@@ -63,12 +63,19 @@ export const GlobalContextProvider: React.FC<{ pageProps: Record<string, any> } 
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [modal, setModal] = useState(initialModalState);
-  const [currentLocationIndex, setCurrentLocationIndex] = useState(0);
+  const [currentLocationId, setCurrentLocationId] = useState<number | null>(null);
   const [contactForm, setContactForm] = useState(initialContactFormState);
   const currentLocation = useMemo<Location | undefined>(
-    () => pageProps?.locations?.[currentLocationIndex],
-    [pageProps, currentLocationIndex],
+    () =>
+      typeof currentLocationId === 'number' && pageProps.locations
+        ? (pageProps.locations as Location[]).find(({ id }) => id === currentLocationId)
+        : undefined,
+    [pageProps.locations, currentLocationId],
   );
+
+  useEffect(() => {
+    if (pageProps.locations?.[0]) setCurrentLocationId(pageProps.locations[0].id);
+  }, [pageProps.locations]);
 
   const openMobileMenu = () => setIsMobileMenuOpen(true);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
@@ -92,8 +99,8 @@ export const GlobalContextProvider: React.FC<{ pageProps: Record<string, any> } 
         closeModal,
         locations: pageProps?.locations,
         currentLocation,
-        currentLocationIndex,
-        setCurrentLocationIndex,
+        currentLocationId,
+        setCurrentLocationId,
         contactForm,
         clearContactForm,
         setContactFormFieldValue,

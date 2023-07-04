@@ -1,24 +1,37 @@
 export const mapId = 'locations' as const;
 export const defaultZoom = 14.2 as const;
 
+export type Address = {
+  id: number;
+  label: string;
+  link: string;
+};
+
 export type Coordinates = {
+  id: number;
   latitude: number;
   longitude: number;
 };
 
 type Contact = {
+  id: number;
   fullName: string;
   title: string;
   email: string;
-  phone: string;
+  number: string;
+};
+
+export type LocationAttributes = {
+  name: string;
+  slug: string;
+  address: Address;
+  contact: Contact;
+  coordinates: Coordinates;
+  timeZone: string;
+  order: number;
 };
 
 export type Location = {
-  id: string;
-  name: string;
-  address: { label: string; link: string };
-  coordinates: Coordinates;
-  timeZone: string;
-  contact: Contact;
-  order: number;
+  id: number;
+  attributes: LocationAttributes;
 };

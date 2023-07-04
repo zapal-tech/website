@@ -1,17 +1,11 @@
 import { useTranslation } from 'next-i18next';
-import {
-  DefaultSeo as DefaultSeoComponent,
-  DefaultSeoProps,
-  OrganizationJsonLd,
-  ImageJsonLd,
-  BrandJsonLd,
-  BreadcrumbJsonLd,
-} from 'next-seo';
-import { ItemListElements } from 'next-seo/lib/types';
+import { DefaultSeo as DefaultSeoComponent, DefaultSeoProps, OrganizationJsonLd, ImageJsonLd } from 'next-seo';
 
-import { Namespace, defaultLanguage } from 'i18n';
+import { Namespace, defaultLanguage } from 'configs/i18n';
 
-export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
+import { Routes } from 'types/routes';
+
+export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
   const { t, i18n } = useTranslation([Namespace.Titles, Namespace.Common]);
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -20,42 +14,13 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
   const getAbsoluteUrl = (path?: string, includeLangPath = true) =>
     new URL((includeLangPath ? langPath : '') + (path || '/'), baseUrl).href;
 
-  const breadcrumbs: ItemListElements[] = [
-    {
-      position: 1,
-      name: t('home'),
-      item: getAbsoluteUrl(),
-    },
-    {
-      position: 1,
-      name: t('about'),
-      item: getAbsoluteUrl('/about'),
-    },
-    {
-      position: 2,
-      name: t('services'),
-      item: getAbsoluteUrl('/about#services'),
-    },
-    {
-      position: 1,
-      name: t('projects'),
-      item: getAbsoluteUrl('/projects'),
-    },
-    {
-      position: 1,
-      name: t('contacts'),
-      item: getAbsoluteUrl('/contacts'),
-    },
-  ];
-
   return (
     <>
       <DefaultSeoComponent
-        defaultTitle="Zapal | Unlock Your Tech Future"
+        // defaultTitle="Zapal | Unlock Your Tech Future"
         titleTemplate="Zapal - %s | Unlock Your Tech Future"
         description={t('description', { ns: Namespace.Common })!}
         themeColor="#070707"
-        canonical={getAbsoluteUrl()}
         languageAlternates={[{ hrefLang: 'uk', href: getAbsoluteUrl('/uk', false) }]}
         openGraph={{
           type: 'website',
@@ -71,11 +36,6 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
             },
           ],
         }}
-        twitter={{
-          handle: '@ZapalTech',
-          site: '@ZapalTech',
-          cardType: 'summary_large_image',
-        }}
         additionalLinkTags={[
           { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' },
           { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
@@ -83,12 +43,14 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
           { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
           { rel: 'manifest', href: '/manifest.json' },
         ]}
-        additionalMetaTags={[
-          {
-            name: 'keywords',
-            content: t('keywords', { ns: Namespace.Common }),
-          },
-          { name: 'msapplication-TileColor', content: '#070707' },
+        additionalMetaTags={[{ name: 'msapplication-TileColor', content: '#070707' }]}
+      />
+
+      <ImageJsonLd
+        images={[
+          { contentUrl: getAbsoluteUrl('/logo.svg', false) },
+          { contentUrl: getAbsoluteUrl('/logo.webp', false) },
+          { contentUrl: getAbsoluteUrl('/logo.png', false) },
         ]}
       />
 
@@ -101,7 +63,7 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
         contactPoint={[
           {
             email: t('email', { ns: Namespace.Common }),
-            url: getAbsoluteUrl('/contacts'),
+            url: getAbsoluteUrl(Routes.Contacts),
             contactType: 'customer support',
             availableLanguage: ['English', 'Ukrainian'],
           },
@@ -143,24 +105,7 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = () => {
           postalCode: '01601',
           addressCountry: 'Ukraine',
         }}
-      />
-
-      <BreadcrumbJsonLd itemListElements={breadcrumbs} />
-
-      <BrandJsonLd
-        id=""
-        slogan={t('slogan', { ns: Namespace.Common })!}
-        name="Zapal"
-        logo={getAbsoluteUrl('/logo.webp', false)}
-        url={getAbsoluteUrl(undefined, false)}
-      />
-
-      <ImageJsonLd
-        images={[
-          { contentUrl: getAbsoluteUrl('/logo.svg', false) },
-          { contentUrl: getAbsoluteUrl('/logo.webp', false) },
-          { contentUrl: getAbsoluteUrl('/logo.png', false) },
-        ]}
+        {...props}
       />
     </>
   );

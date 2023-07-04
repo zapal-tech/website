@@ -19,34 +19,36 @@ import { Tabs } from './components/Tabs/Tabs';
 import styles from './Locations.module.scss';
 
 export const Locations = () => {
-  const { locations, currentLocation, setCurrentLocationIndex } = useGlobalContext<ContactsProps>();
+  const { locations, currentLocation, setCurrentLocationId } = useGlobalContext<ContactsProps>();
   const flyToCurrentLocation = useFlyToCurrentLocation();
 
   const markers: MarkerProps[] | undefined = useMemo(
     () =>
-      locations?.map(({ name, coordinates }, idx) => ({
+      locations?.map(({ id, attributes: { name, coordinates } }) => ({
         ...coordinates,
         children: (
           <PinIcon
             className={clsx(
               styles.Locations__Marker,
-              name === currentLocation?.name && styles['Locations__Marker--Active'],
+              name === currentLocation?.attributes.name && styles['Locations__Marker--Active'],
             )}
           />
         ),
         anchor: 'bottom',
         onClick: () => {
-          if (name === currentLocation?.name) return flyToCurrentLocation();
-          setCurrentLocationIndex(idx);
+          if (name === currentLocation?.attributes.name) return flyToCurrentLocation();
+          setCurrentLocationId(id);
         },
       })),
-    [currentLocation?.name, flyToCurrentLocation, locations, setCurrentLocationIndex],
+    [currentLocation?.attributes.name, flyToCurrentLocation, locations, setCurrentLocationId],
   );
+
+  if (!currentLocation) return null;
 
   return (
     <Container className={styles.Locations}>
       <Map
-        initialViewState={{ ...currentLocation!.coordinates, zoom: defaultZoom }}
+        initialViewState={{ ...currentLocation.attributes.coordinates, zoom: defaultZoom }}
         className={styles.Locations__Map}
         markers={markers}
       >

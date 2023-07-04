@@ -22,4 +22,39 @@
       grid-template-columns: 1fr 1fr;
     }
   }
+
+  &__Grid {
+    display: grid;
+    gap: $gap-md;
+    grid-template-columns: repeat(4, 1fr);
+
+    @include media(phone) {
+      gap: $gap-lg;
+    }
+
+    @include media(large-phone) {
+      gap: $gap-xxl;
+    }
+
+    @include media(tablet) {
+      gap: $expanded-gap-xs;
+    }
+
+    @include media(large-tablet) {
+      gap: $gap-md * 2;
+    }
+
+    @include media(laptop) {
+      gap: $gap-xxl;
+    }
+  }
+
+  &__GridItem {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  &__GridItemImage {
+    object-fit: contain;
+  }
 }

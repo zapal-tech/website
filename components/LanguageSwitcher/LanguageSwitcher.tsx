@@ -2,7 +2,7 @@ import clsx, { ClassValue } from 'clsx';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 
-import { Language, Namespace } from 'i18n';
+import { Language, Namespace } from 'configs/i18n';
 
 import styles from './LanguageSwitcher.module.scss';
 

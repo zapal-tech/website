@@ -2,9 +2,11 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { useMemo } from 'react';
 
-import { Text } from 'components';
+import { Namespace } from 'configs/i18n';
 
-import { Namespace } from 'i18n';
+import { Routes } from 'types/routes';
+
+import { Text } from 'components';
 
 import styles from './Policies.module.scss';
 
@@ -15,15 +17,15 @@ export const Policies: React.FC = () => {
     () => [
       {
         title: t('termsOfUse.title', { ns: Namespace.Navigation }),
-        path: '/terms-of-use',
+        path: Routes.TermsOfUse,
       },
       {
         title: t('privacyPolicy.title', { ns: Namespace.Navigation }),
-        path: '/privacy-policy',
+        path: Routes.PrivacyPolicy,
       },
       {
         title: t('cookiesPolicy.title', { ns: Namespace.Navigation }),
-        path: '/cookies-policy',
+        path: Routes.CookiesPolicy,
       },
       {
         title: t('sitemap.title', { ns: Namespace.Navigation }),

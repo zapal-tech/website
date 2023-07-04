@@ -1,21 +1,22 @@
 import { useTranslation } from 'next-i18next';
 
+import { Namespace } from 'configs/i18n';
+
 import { useGlobalContext } from 'hooks/useGlobalContext';
 
 import { Container, Text } from 'components';
 
 import { AboutProps } from 'views/About/About';
 
-import { Namespace } from 'i18n';
-
 import { TeamMemberCard } from './TeamMemberCard/TeamMemberCard';
 
 import styles from './Team.module.scss';
 
 export const Team = () => {
-  const { pageProps } = useGlobalContext<AboutProps>();
-
   const { t } = useTranslation(Namespace.About);
+  const {
+    pageProps: { team },
+  } = useGlobalContext<AboutProps>();
 
   return (
     <Container className={styles.Team}>
@@ -35,8 +36,8 @@ export const Team = () => {
       </div>
 
       <div className={styles.Team__Members}>
-        {pageProps.team.map((member) => (
-          <TeamMemberCard key={member.firstName} {...member} />
+        {team.map((member) => (
+          <TeamMemberCard key={member.id} {...member} />
         ))}
       </div>
     </Container>

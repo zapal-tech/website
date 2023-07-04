@@ -1,21 +1,22 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import nc from 'next-connect';
 
 import { ContactFormState } from 'types/contactForm';
 
-import { addContact } from 'services/firestore';
+import { addContact } from 'services/api';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'POST') {
-    const data = req.body as ContactFormState;
+const handler = nc<NextApiRequest, NextApiResponse>();
 
-    try {
-      await addContact(data);
+handler.post(async (req, res) => {
+  const data = req.body as ContactFormState;
 
-      return res.status(201).end('Created');
-    } catch (error) {
-      return res.status(500).end('Internal Server Error');
-    }
+  try {
+    await addContact(data);
+
+    return res.status(201).end('Created');
+  } catch (error) {
+    return res.status(500).end('Internal Server Error');
   }
+});
 
-  return res.status(405).end('Method not allowed');
-}
+export default handler;

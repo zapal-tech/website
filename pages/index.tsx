@@ -1,38 +1,41 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { NextSeo } from 'next-seo';
 
-import { projects } from 'utils/projects';
+import { globalNamespaces, Namespace } from 'configs/i18n';
 
-import { getPartners, getProjectsPreview, getTeamPreview } from 'services/firestore';
+import { getHomePage, getPartners, getProjects, getServices, getTeam, getTechnologies } from 'services/api';
+
+import { PageSeo } from 'components/PageSeo/PageSeo';
 
 import { Home, HomeProps } from 'views/Home/Home';
 
-import { globalNamespaces, Namespace } from 'i18n';
-
 export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
-  const partners = await getPartners();
-  const projectsPreview = await getProjectsPreview(locale);
-  const teamPreview = await getTeamPreview(locale);
+  const page = (await getHomePage(locale)).data;
+  const partners = (await getPartners()).data;
+  const projects = (await getProjects(locale)).data;
+  const services = (await getServices(locale)).data;
+  const team = (await getTeam(locale)).data;
+  const technologies = (await getTechnologies(locale)).data;
 
   return {
     props: {
       ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Home])),
+      locale,
+      page,
       partners,
-      teamPreview,
-      projectsPreview,
+      projects,
+      services,
+      team,
+      technologies,
     },
     revalidate: 3600,
   };
 };
 
 export default function HomePage(props: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { t } = useTranslation(Namespace.Titles);
-
   return (
     <>
-      <NextSeo title={t('home') || undefined} />
+      <PageSeo locale={props.locale} {...props.page.attributes.seo} />
       <Home {...props} />
     </>
   );

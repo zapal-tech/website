@@ -1,40 +1,37 @@
 // import Link from 'next/link';
 import clsx, { ClassValue } from 'clsx';
 
-import { ProjectPreview } from 'types/projects';
+import { Project } from 'types/projects';
 
 import { Text } from 'components';
 import { Image } from 'components/Image/Image';
 
 import styles from './ProjectCard.module.scss';
 
-export type ProjectCardProps = ProjectPreview & {
+export type ProjectCardProps = Project & {
   photoLoading?: 'eager' | 'lazy';
   className?: ClassValue | ClassValue[];
 };
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
-  id,
-  shortName,
-  shortDescription,
-  thumbnailImageUrl,
+  attributes: { slug, name, shortName, description, shortDescription, thumbnailImage },
   photoLoading,
   className,
 }) => (
-  <div id={id} className={clsx(styles.ProjectCard, className)}>
+  <div id={slug} className={clsx(styles.ProjectCard, className)}>
     <Image
-      src={thumbnailImageUrl}
+      image={thumbnailImage}
       alt={`${shortName} project`}
       className={styles.ProjectCard__Image}
       loading={photoLoading}
     />
 
     <Text size="heading3" className={styles.ProjectCard__Title}>
-      {shortName}
+      {shortName || name}
     </Text>
 
     <Text size="small" className={styles.ProjectCard__Subtitle}>
-      {shortDescription}
+      {shortDescription || description}
     </Text>
   </div>
 );

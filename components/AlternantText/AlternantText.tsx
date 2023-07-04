@@ -26,32 +26,40 @@ export const AlternantText: React.FC<AlternantTextProps> = ({
   alternantText,
   baseTextProps,
   alternantTextProps,
-}) => (
-  <div className={clsx(styles.AlternantText, className)}>
-    <Text className={clsx(styles.AlternantText__BaseText, baseTextClassName)} {...baseTextProps}>
-      {baseText.trim()}
-      {'\u00A0'}
-    </Text>
-
-    <Carousel
-      className={clsx(styles.AlternantText__Carousel, carouselClassName)}
-      axis="vertical"
-      infiniteLoop
-      interval={1500}
-      autoPlay
-      swipeable={false}
-      transitionTime={700}
-      showArrows={false}
-      showIndicators={false}
-      showThumbs={false}
-      showStatus={false}
-      stopOnHover={false}
-    >
-      {alternantText.map((word) => (
+}) => {
+  const children = alternantText?.length
+    ? alternantText.map((word) => (
         <Text key={word} className={clsx(styles.AlternantText__CarouselItem, itemClassName)} {...alternantTextProps}>
           {word}
         </Text>
-      ))}
-    </Carousel>
-  </div>
-);
+      ))
+    : [];
+
+  return (
+    <div className={clsx(styles.AlternantText, className)}>
+      <Text className={clsx(styles.AlternantText__BaseText, baseTextClassName)} {...baseTextProps}>
+        {baseText.trim()}
+        {'\u00A0'}
+      </Text>
+
+      {children.length ? (
+        <Carousel
+          className={clsx(styles.AlternantText__Carousel, carouselClassName)}
+          axis="vertical"
+          infiniteLoop
+          interval={1500}
+          autoPlay
+          swipeable={false}
+          transitionTime={700}
+          showArrows={false}
+          showIndicators={false}
+          showThumbs={false}
+          showStatus={false}
+          stopOnHover={false}
+        >
+          {children}
+        </Carousel>
+      ) : null}
+    </div>
+  );
+};

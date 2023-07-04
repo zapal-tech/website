@@ -10,17 +10,10 @@ import styles from './TeamMemberCard.module.scss';
 export type TeamMemberCardProps = TeamMember;
 
 export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
-  id,
-  imageUrl,
-  firstName,
-  lastName,
-  fullTitle,
-  title,
-  bio,
-  links,
+  attributes: { slug, image, firstName, lastName, fullTitle, title, bio, links },
 }) => (
-  <div className={styles.TeamMemberCard} id={id}>
-    <Image className={styles.TeamMemberCard__Photo} src={imageUrl} alt={`${firstName} ${lastName} photo`} />
+  <div className={styles.TeamMemberCard} id={slug}>
+    <Image className={styles.TeamMemberCard__Photo} image={image} alt={`${firstName} ${lastName} photo`} priority />
 
     <div className={styles.TeamMemberCard__Container}>
       <Text className={styles.TeamMemberCard__Name} size="heading3" type="h3">
@@ -47,12 +40,12 @@ export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 
       {links?.length && (
         <ul className={styles.TeamMemberCard__Links}>
-          {links.map(({ name, url }, idx) => (
-            <li key={url}>
+          {links.map(({ title, link }, idx) => (
+            <li key={link}>
               {!!idx && <Text> / </Text>}
 
-              <a className={styles.TeamMemberCard__Link} href={url} target="_blank" rel="noreferrer">
-                <Text>{name}</Text>
+              <a className={styles.TeamMemberCard__Link} href={link} target="_blank" rel="noreferrer">
+                <Text>{title}</Text>
               </a>
             </li>
           ))}

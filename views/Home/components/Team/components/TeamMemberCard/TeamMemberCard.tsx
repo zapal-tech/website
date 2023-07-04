@@ -2,20 +2,22 @@ import Link from 'next/link';
 
 import LinkIcon from 'public/icons/link.svg';
 
-import { TeamMemberPreview } from 'types/team';
+import { TeamMember } from 'types/team';
 
 import { Text } from 'components';
 import { Image } from 'components/Image/Image';
 
 import styles from './TeamMemberCard.module.scss';
 
-export type TeamMemberCardProps = TeamMemberPreview;
+export type TeamMemberCardProps = TeamMember;
 
-export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ id, imageUrl, firstName, lastName, title }) => (
-  <Link className={styles.TeamMemberCard} href={`/about#${id}`}>
+export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
+  attributes: { slug, image, firstName, lastName, title },
+}) => (
+  <Link className={styles.TeamMemberCard} href={`/about#${slug}`}>
     <Image
       className={styles.TeamMemberCard__Photo}
-      src={imageUrl}
+      image={image}
       alt={`${firstName} ${lastName} photo`}
       loading="eager"
     >

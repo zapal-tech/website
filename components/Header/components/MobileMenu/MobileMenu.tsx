@@ -1,9 +1,11 @@
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 import CloseIcon from 'public/icons/close.svg';
+
+import { Namespace } from 'configs/i18n';
 
 import { useGlobalContext } from 'hooks/useGlobalContext';
 
@@ -11,8 +13,6 @@ import { Container, Text } from 'components';
 import { LanguageSwitcher } from 'components/LanguageSwitcher/LanguageSwitcher';
 import { Navigation } from 'components/Navigation/Navigation';
 import { SocialLinks } from 'components/SocialLinks/SocialLinks';
-
-import { Namespace } from 'i18n';
 
 import { HeaderButton } from '../HeaderButton/HeaderButton';
 
@@ -23,7 +23,6 @@ const ContactForm = dynamic(() => import('views/ContactForm/ContactForm').then((
 export const MobileMenu: React.FC = () => {
   const { t } = useTranslation(Namespace.Common);
   const { isMobileMenuOpen, closeMobileMenu, openModal } = useGlobalContext();
-  const containerRef = useRef<HTMLElement>(null);
 
   const handleCloseButtonClick = () => closeMobileMenu();
   const openContactForm = () => {
@@ -44,17 +43,11 @@ export const MobileMenu: React.FC = () => {
   });
 
   useEffect(() => {
-    if (isMobileMenuOpen) containerRef.current?.focus();
-
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'auto';
   }, [isMobileMenuOpen]);
 
   return (
-    <Container
-      type="aside"
-      className={clsx(styles.MobileMenu, isMobileMenuOpen && styles['MobileMenu--Open'])}
-      ref={containerRef}
-    >
+    <Container type="aside" className={clsx(styles.MobileMenu, isMobileMenuOpen && styles['MobileMenu--Open'])}>
       <HeaderButton
         className={styles.MobileMenu__CloseButton}
         onClick={handleCloseButtonClick}
@@ -63,7 +56,7 @@ export const MobileMenu: React.FC = () => {
         <CloseIcon />
       </HeaderButton>
 
-      <Navigation closeMobileMenu={closeMobileMenu} />
+      <Navigation />
 
       <button className={styles.MobileMenu__ContactFormButton} onClick={openContactForm}>
         <Text size="heading3" uppercase>

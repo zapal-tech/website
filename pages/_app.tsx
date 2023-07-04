@@ -9,6 +9,10 @@ import { GlobalContextProvider } from 'contexts/GlobalContext';
 import { DefaultSeo } from 'components/DefaultSeo/DefaultSeo';
 import { PageLoader } from 'components/PageLoader/PageLoader';
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import nextI18NextConfig from '../next-i18next.config';
+
 import 'styles/index.scss';
 
 const ronaldFont = localFont({
@@ -55,4 +59,4 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   );
 };
 
-export default appWithTranslation(App);
+export default appWithTranslation(App, nextI18NextConfig);

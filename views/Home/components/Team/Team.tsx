@@ -1,14 +1,14 @@
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 
+import { Namespace } from 'configs/i18n';
+
 import { useGlobalContext } from 'hooks/useGlobalContext';
 import { useMediaQuery } from 'hooks/useMediaQuery';
 
 import { Container, Text } from 'components';
 
 import { HomeProps } from 'views/Home/Home';
-
-import { Namespace } from 'i18n';
 
 import { ReadMoreCard } from './components/ReadMoreCard/ReadMoreCard';
 import { TeamMemberCard } from './components/TeamMemberCard/TeamMemberCard';
@@ -20,10 +20,12 @@ import styles from './Team.module.scss';
 const Particles = dynamic(() => import('../Particles/Particles').then((mod) => mod.Particles), { ssr: false });
 
 export const Team = () => {
-  const { pageProps } = useGlobalContext<HomeProps>();
   const { t } = useTranslation(Namespace.Home);
+  const {
+    pageProps: { team },
+  } = useGlobalContext<HomeProps>();
 
-  const isTablet = useMediaQuery({ width: { min: parseInt(media.breakpointTablet) } });
+  const isTablet = useMediaQuery(`(min-width: ${media.breakpointTablet})`);
 
   return (
     <Container className={styles.Team}>
@@ -34,7 +36,7 @@ export const Team = () => {
       </Text>
 
       <div className={styles.Team__Members}>
-        {pageProps.teamPreview.map((member) => (
+        {team.map((member) => (
           <TeamMemberCard key={member.id} {...member} />
         ))}
 
