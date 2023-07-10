@@ -53,11 +53,11 @@ export const TableOfContent: React.FC = () => (
             NGO Come Back Alive
           </Link>
           <Link
-            key={SupportUkraineSections.SergiyPritula}
-            href={`#${SupportUkraineSections.SergiyPritula}`}
+            key={SupportUkraineSections.SerhiyPritula}
+            href={`#${SupportUkraineSections.SerhiyPritula}`}
             className={styles.TableOfContent__Link}
           >
-            Sergiy Prytula’s foundations
+            Serhiy Prytula’s foundations
           </Link>
           <Link
             key={SupportUkraineSections.ArmySos}
@@ -120,8 +120,8 @@ export const TableOfContent: React.FC = () => (
       </div>
 
       <Link
-        key={SupportUkraineSections.ReadAndShaireCredibleInformation}
-        href={`#${SupportUkraineSections.ReadAndShaireCredibleInformation}`}
+        key={SupportUkraineSections.ReadAndShareCredibleInformation}
+        href={`#${SupportUkraineSections.ReadAndShareCredibleInformation}`}
         className={styles.TableOfContent__Link}
       >
         2/ Read and Share Only Credible Information About Ukraine
@@ -148,8 +148,8 @@ export const TableOfContent: React.FC = () => (
         5/ Support Ukrainian Businesses
       </Link>
       <Link
-        key={SupportUkraineSections.HelpRefugers}
-        href={`#${SupportUkraineSections.HelpRefugers}`}
+        key={SupportUkraineSections.HelpRefugees}
+        href={`#${SupportUkraineSections.HelpRefugees}`}
         className={styles.TableOfContent__Link}
       >
         6/ Help Refugees in Your Country

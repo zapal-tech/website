@@ -2,53 +2,67 @@
 @import 'styles/gaps';
 @import 'styles/mixins';
 
+$block-gap: 3px;
+
 .ServiceItem {
-  margin: 0 0 5px;
+  margin: $block-gap 0 0;
   cursor: pointer;
 
-  @include media(laptop) {
-    margin: 0 0 $gap-xxs;
+  &__Icon {
+    width: min-content !important;
+    min-width: 23px;
+    height: auto;
+    aspect-ratio: 1;
+
+    @include media(laptop) {
+      min-width: 30px;
+    }
+
+    @include media(large-laptop) {
+      min-width: 35px;
+    }
+
+    img {
+      object-fit: contain !important;
+    }
   }
 
-  &__Icon {
-    width: 20px;
-    height: 20px;
+  &__Link {
+    width: 18px;
+    min-width: 18px;
+    height: auto;
+    margin: 0 0 0 auto;
     fill: $white;
     transition: all 0.3s ease-in-out;
 
     @include media(laptop) {
-      width: 30px;
-      height: 30px;
+      width: 22px;
+      min-width: 22px;
     }
 
-    &--Link {
-      width: 30px;
-      height: auto;
-      padding-left: $gap-xxs;
-      margin: 0 0 0 auto;
+    @include media(large-laptop) {
+      width: 25px;
+      min-width: 25px;
     }
   }
 
-  &:hover &__Icon,
-  &:focus-visible &__Icon {
+  &:hover &__Link,
+  &:focus-visible &__Link {
     fill: $rosso-corsa;
   }
 
   &__Text {
-    margin-left: $gap-sm;
-
-    @include media(laptop) {
-      margin-left: $gap-xl;
-    }
+    line-height: 1;
   }
 
   &__Content {
     display: flex;
-    align-items: baseline;
-    padding: 25px 0 $gap-md;
+    padding: 25px 0;
+    gap: $gap-sm;
 
     @include media(laptop) {
-      padding: $gap-lg 0 $gap-xl;
+      padding: $gap-lg 0;
+      gap: $gap-xl;
     }
   }
 }

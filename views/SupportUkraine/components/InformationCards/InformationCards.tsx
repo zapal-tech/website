@@ -20,7 +20,7 @@ const officialMedias = [
 
 export const InformationCards = () => {
   return (
-    <div id={SupportUkraineSections.ReadAndShaireCredibleInformation} className={styles.SecondVariant}>
+    <div id={SupportUkraineSections.ReadAndShareCredibleInformation} className={styles.SecondVariant}>
       <div className={styles.SecondVariant__TextBox}>
         <Text className={styles.SecondVariant__Title} size="heading2">
           2/ READ AND SHARE ONLY CREDIBLE INFORMATION ABOUT UKRAINE

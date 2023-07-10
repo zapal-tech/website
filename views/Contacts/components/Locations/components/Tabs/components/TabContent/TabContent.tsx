@@ -11,6 +11,17 @@ import { Text } from 'components';
 
 import styles from './TabContent.module.scss';
 
+type ContactLinkProps = {
+  title: string;
+  href: string;
+};
+
+const ContactLink: React.FC<ContactLinkProps> = ({ title, href }) => (
+  <a className={styles.TabContent__Link} href={href} target="_blank" rel="noopener noreferrer">
+    <Text size="small">{title}</Text>
+  </a>
+);
+
 export const TabContent: React.FC<Location> = ({ attributes: { address, contact, timeZone } }) => {
   const { t } = useTranslation(Namespace.Contacts);
   const [currentLocationTime, setCurrentLocationTime] = useState('');
@@ -27,26 +38,15 @@ export const TabContent: React.FC<Location> = ({ attributes: { address, contact,
 
   return (
     <div className={styles.TabContent}>
-      <a href={address.link} className={styles.TabContent__Link} rel="noreferrer">
-        <Text size="small">{address.label}</Text>
-      </a>
+      <ContactLink title={address.label} href={address.link} />
 
       <Text size="small" className={styles.TabContent__Time}>
         {t('locations.time')}: {currentLocationTime}
       </Text>
 
       <div className={styles.TabContent__ContactLinks}>
-        {contact.email && (
-          <a className={styles.TabContent__Link} href={'mailto:' + contact.email}>
-            <Text size="small">{contact.email}</Text>
-          </a>
-        )}
-
-        {contact.number && (
-          <a className={styles.TabContent__Link} href={'tel:' + contact.number}>
-            <Text size="small">{contact.number}</Text>
-          </a>
-        )}
+        {contact.email && <ContactLink title={contact.email} href={'mailto:' + contact.email} />}
+        {contact.number && <ContactLink title={contact.number} href={'tel:' + contact.number} />}
       </div>
 
       <div className={styles.TabContent__PersonInfo}>

@@ -4,12 +4,12 @@
 
 .Footer {
   display: grid;
-  padding-bottom: $gap-xl;
+  padding-bottom: $gap-xl !important;
   gap: $gap-md;
   grid-template-columns: 1fr;
 
   @include media(laptop) {
-    padding-bottom: $gap-xxl;
+    padding-bottom: $gap-xxl !important;
     gap: $expanded-gap-xs;
     grid-template-columns: 1fr min-content;
   }
