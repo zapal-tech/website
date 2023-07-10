@@ -39,6 +39,7 @@ export const Technologies: React.FC = () => {
               imageClassName={styles.Technologies__GridItemImage}
               image={technology.attributes.icon}
               alt={technology.attributes.title}
+              title={technology.attributes.title}
               unoptimized
             />
           ))}
