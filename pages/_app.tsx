@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import clsx from 'clsx';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
@@ -48,14 +49,18 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <div id="app" className={clsx(ronaldFont.className, ronaldFont.variable)}>
+    <>
       <DefaultSeo />
 
-      <GlobalContextProvider pageProps={pageProps}>
-        <Component {...pageProps} />
-        <PageLoader />
-      </GlobalContextProvider>
-    </div>
+      <div id="app" className={clsx(ronaldFont.className, ronaldFont.variable)}>
+        <GlobalContextProvider pageProps={pageProps}>
+          <Component {...pageProps} />
+          <PageLoader />
+        </GlobalContextProvider>
+      </div>
+
+      <Analytics />
+    </>
   );
 };
 

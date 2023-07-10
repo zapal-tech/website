@@ -9,7 +9,7 @@ import { BanRussianBusiness } from './components/BanRussianBusiness/BanRussianBu
 import { Conclusion } from './components/Conclusion/Conclusion';
 import { Foreword } from './components/Foreword/Foreword';
 import { GloryToUkraine } from './components/GloryToUkraine/GloryToUkraine';
-import { HelpRefugers } from './components/HelpRefugers/HelpRefugers';
+import { HelpRefugees } from './components/HelpRefugees/HelpRefugees';
 import { Hero } from './components/Hero/Hero';
 import { InformationCards } from './components/InformationCards/InformationCards';
 import { SupportUkrainianBusiness } from './components/SupportUkrainianBusiness/SupportUkrainianBusiness';
@@ -32,7 +32,7 @@ export const SupportUkraine: React.FC<SupportUkraineProps> = () => (
       <WarCrimes />
       <BanRussianBusiness />
       <SupportUkrainianBusiness />
-      <HelpRefugers />
+      <HelpRefugees />
       <Conclusion />
       <GloryToUkraine />
     </Container>

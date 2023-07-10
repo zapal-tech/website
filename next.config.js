@@ -39,6 +39,22 @@ const nextConfig = {
       },
     ],
   },
+  // async headers() {
+  //   const ContentSecurityPolicy = `
+  //     default-src 'self';
+  //     script-src 'self';
+  //     child-src example.com;
+  //     style-src 'self' example.com;
+  //     font-src 'self';
+  //   `
+
+  //   return [
+  //     {
+  //       key: 'Content-Security-Policy',
+  //       value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
+  //     }
+  //   ];
+  // },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,

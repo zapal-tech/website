@@ -4,7 +4,7 @@ export enum SupportUkraineSections {
   UkrainianOrganizations = 'UkrainianOrganizations',
   NationalBankOfUkraine = 'NationalBankOfUkraine',
   NgoComeBackAlive = 'NgoComeBackAlive',
-  SergiyPritula = 'SergiyPritula',
+  SerhiyPritula = 'SerhiyPritula',
   ArmySos = 'ArmySos',
   Hospitallers = 'Hospitallers',
   VoicesOfChildren = 'VoicesOfChildren',
@@ -13,12 +13,10 @@ export enum SupportUkraineSections {
   HelpUsHelp = 'HelpUsHelp',
   WithUkraine = 'WithUkraine',
   LelekaFoundation = 'LelekaFoundation',
-  ReadAndShaireCredibleInformation = 'ReadAndShaireCredibleInformation',
+  ReadAndShareCredibleInformation = 'ReadAndShareCredibleInformation',
   ProtestPeacefully = 'ProtestPeacefully',
   BanRussianBusinesses = 'BanRussianBusinesses',
   SupportUkrainianBusinesses = 'SupportUkrainianBusinesses',
-  HelpRefugers = 'HelpRefugers',
+  HelpRefugees = 'HelpRefugees',
   Conclusion = 'Conclusion',
 }
-
-// href={`#${SupportUkraineSections.First}`}

@@ -124,14 +124,14 @@ const DonateFromAbroad = () => {
   );
 };
 
-const SergiyPritulaFoundation = () => {
+const SerhiyPritulaFoundation = () => {
   return (
-    <div id={SupportUkraineSections.SergiyPritula} className={styles.FoundationItem}>
+    <div id={SupportUkraineSections.SerhiyPritula} className={styles.FoundationItem}>
       <Text className={styles.FoundationItem__Title} size="heading3">
-        Sergiy Prytula’s foundations
+        Serhiy Prytula’s foundations
       </Text>
       <Text size="small" className={styles.FoundationItem__Text}>
-        Sergiy Prytula is a Ukrainian TV presenter and public figure. Since the beginning of the Russian-Ukrainian war
+        Serhiy Prytula is a Ukrainian TV presenter and public figure. Since the beginning of the Russian-Ukrainian war
         in 2014, he has been actively volunteering to provide military aid to Ukrainian Armed Forces and humanitarian
         and financial assistance to children with cancer.
       </Text>
@@ -139,7 +139,7 @@ const SergiyPritulaFoundation = () => {
         There are two Prytula’s funds that you can support right now:
       </Text>
       <div className={styles.FoundationItem__LinkBox}>
-        <Link href="https://prytulafoundation.org/en">SERGIY PRYTULA CHARITY FOUNDATION</Link>
+        <Link href="https://prytulafoundation.org/en">SERHIY PRYTULA CHARITY FOUNDATION</Link>
         <Text size="small" className={styles.FoundationItem__LinkText}>
           you can help by finding and purchasing the items listed in the foundation’s itinerary, delivering them to one
           of their collection points (Lviv, Ukraine, or Przemysl, Poland), or helping them distribute the items within
@@ -355,7 +355,7 @@ export const CharityOrganisations = () => (
     <NationalBankOfUkraine />
     <NGOComeBackAlive />
     <DonateFromAbroad />
-    <SergiyPritulaFoundation />
+    <SerhiyPritulaFoundation />
     <ArmySos />
     <Hospitallers />
     <VoicesOfChildren />

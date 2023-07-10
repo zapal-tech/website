@@ -24,7 +24,7 @@ export const ServiceItem: React.FC<ServiceItemProps> = ({ className, attributes:
         {name}
       </Text>
 
-      <LinkIcon className={clsx(styles.ServiceItem__Icon, styles['ServiceItem__Icon--Link'])} />
+      <LinkIcon className={styles.ServiceItem__Link} />
     </div>
 
     <Divider className={styles.ServiceItem__Divider} />
