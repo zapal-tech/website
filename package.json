@@ -55,7 +55,7 @@
     "react-hook-form": "^7.45.0",
     "react-i18next": "^13.0.1",
     "react-map-gl": "^7.1.1",
-    "react-responsive-carousel": "3.2.21",
+    "react-responsive-carousel": "3.2.23",
     "react-transition-group": "^4.4.5",
     "react-tsparticles": "^2.10.1",
     "sharp": "^0.32.1",
@@ -104,6 +104,6 @@
     "stylelint-config-idiomatic-order": "^9.0.0",
     "stylelint-config-recommended-scss": "^12.0.0",
     "stylelint-scss": "^5.0.1",
-    "typescript": "5.1.3"
+    "typescript": "5.1.6"
   }
 }
