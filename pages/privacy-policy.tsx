@@ -16,6 +16,7 @@ export const getStaticProps: GetStaticProps<PrivacyPolicyProps> = async ({ local
     props: { ...(await serverSideTranslations(locale!, globalNamespaces)), locale, page },
   };
 };
+
 export default function PrivacyPolicyPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>

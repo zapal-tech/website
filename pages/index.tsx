@@ -14,7 +14,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
   const partners = (await getPartners()).data;
   const projects = (await getProjects(locale)).data;
   const services = (await getServices(locale)).data;
-  const team = (await getTeam(locale)).data;
+  const team = (await getTeam(locale, 5)).data;
   const technologies = (await getTechnologies(locale)).data;
 
   return {

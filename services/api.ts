@@ -43,8 +43,17 @@ export const getProject = async (id: number, locale?: string): Promise<ApiRespon
   return data;
 };
 
-export const getTeam = async (locale?: string): Promise<ApiResponse<TeamMember[]>> => {
-  const { data } = await api.get<ApiResponse<TeamMember[]>>('/team-members', { params: { locale } });
+export const getTeam = async (locale?: string, limit?: number): Promise<ApiResponse<TeamMember[]>> => {
+  const { data } = await api.get<ApiResponse<TeamMember[]>>('/team-members', {
+    params: {
+      locale,
+      pagination: limit
+        ? {
+            limit,
+          }
+        : undefined,
+    },
+  });
 
   return data;
 };
@@ -81,7 +90,6 @@ export const getArticles = async (locale?: string): Promise<ApiResponse<Article[
 
 export const geAllArticles = async (locale?: string): Promise<ApiResponse<Article[]>> => {
   const { data } = await api.get<ApiResponse<Article[]>>('/articles', { params: { locale } });
-  console.log(data);
 
   return data;
 };
@@ -142,6 +150,12 @@ export const getTermsOfUsePage = async (locale?: string): Promise<ApiResponse<Ap
 
 export const getCookiesPolicyPage = async (locale?: string): Promise<ApiResponse<ApiPage>> => {
   const { data } = await api.get<ApiResponse<ApiPage>>('/cookies-policy-page', { params: { locale } });
+
+  return data;
+};
+
+export const getSitemapPage = async (locale?: string): Promise<ApiResponse<ApiPage>> => {
+  const { data } = await api.get<ApiResponse<ApiPage>>('/sitemap-page', { params: { locale } });
 
   return data;
 };

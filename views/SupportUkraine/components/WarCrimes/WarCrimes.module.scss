@@ -30,14 +30,10 @@
   }
 
   &__LinkText {
-    margin-left: 7vw;
+    margin-left: 32px;
 
-    @include media(tablet) {
-      margin-left: 4vw;
-    }
-
-    @include media(desktop) {
-      margin-left: 3vw;
+    @include media(laptop) {
+      margin-left: 56px;
     }
   }
 }

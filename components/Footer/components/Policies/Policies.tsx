@@ -29,7 +29,7 @@ export const Policies: React.FC = () => {
       },
       {
         title: t('sitemap.title', { ns: Namespace.Navigation }),
-        path: '/sitemap.xml',
+        path: Routes.Sitemap,
       },
     ],
     [t],
