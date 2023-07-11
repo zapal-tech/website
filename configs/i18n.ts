@@ -23,6 +23,7 @@ export enum Namespace {
   About = 'about-page',
   Blog = 'blog-page',
   SupportUkraine = 'support-ukraine-page',
+  Sitemap = 'sitemap-page',
 }
 
 export const defaultNamespace = Namespace.Common;
@@ -33,5 +34,4 @@ export const globalNamespaces = [
   Namespace.Navigation,
   Namespace.Footer,
   Namespace.ContactForm,
-  Namespace.SupportUkraine,
 ];

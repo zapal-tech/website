@@ -1,0 +1,24 @@
+@import 'styles/gaps';
+@import 'styles/colors';
+
+.Sitemap {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-md;
+
+  &__List {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-sm;
+  }
+
+  &__Text {
+    display: inline;
+    transition: all 0.3s ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+      color: $rosso-corsa;
+    }
+  }
+}

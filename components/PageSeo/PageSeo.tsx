@@ -21,9 +21,6 @@ export const PageSeo: React.FC<PageSeoProps> = ({
   const getAdditionalMetaTags = (): MetaTag[] | undefined => {
     const tags: MetaTag[] = [];
 
-    // TODO: Implement same flow for Facebook
-    const twitter = metaSocial.find(({ socialNetwork }) => socialNetwork === 'Twitter');
-
     if (keywords) tags.push({ name: 'keywords', content: keywords });
     if (metaRobots) tags.push({ name: 'robots', content: metaRobots });
     if (metaViewport) tags.push({ name: 'viewport', content: metaViewport });
@@ -38,7 +35,7 @@ export const PageSeo: React.FC<PageSeoProps> = ({
 
     if (canonicalURL) tags.push({ name: 'og:url', content: canonicalURL });
 
-    if (metaImage)
+    if (metaImage?.data.attributes)
       tags.push(
         { name: 'og:image', content: metaImage.data.attributes.url },
         { name: 'og:image:width', content: `${metaImage.data.attributes.width}` },
@@ -46,8 +43,11 @@ export const PageSeo: React.FC<PageSeoProps> = ({
         { name: 'og:image:type', content: metaImage.data.attributes.mime },
       );
 
-    if (metaImage.data.attributes.alternativeText)
+    if (metaImage?.data.attributes.alternativeText)
       tags.push({ name: 'og:image:alt', content: metaImage.data.attributes.alternativeText });
+
+    // TODO: Implement same flow for Facebook
+    const twitter = metaSocial?.find(({ socialNetwork }) => socialNetwork === 'Twitter');
 
     if (twitter) {
       tags.push(
@@ -80,14 +80,16 @@ export const PageSeo: React.FC<PageSeoProps> = ({
           locale: 'en_US',
           url: new URL('/', process.env.NEXT_PUBLIC_SITE_URL).href,
           siteName: 'Zapal',
-          images: [
-            {
-              url: metaImage.data.attributes.url,
-              width: metaImage.data.attributes.width,
-              height: metaImage.data.attributes.height,
-              alt: metaImage.data.attributes.alternativeText || 'Zapal',
-            },
-          ],
+          images: metaImage?.data?.attributes
+            ? [
+                {
+                  url: metaImage.data.attributes.url,
+                  width: metaImage.data.attributes.width,
+                  height: metaImage.data.attributes.height,
+                  alt: metaImage.data.attributes.alternativeText || 'Zapal',
+                },
+              ]
+            : undefined,
         }}
       />
 

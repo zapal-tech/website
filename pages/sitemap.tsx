@@ -1,20 +1,27 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { NextSeo } from 'next-seo';
 
-import { Namespace } from 'configs/i18n';
+import { Namespace, globalNamespaces } from 'configs/i18n';
 
-import { SiteMapPage } from 'views/SitemapPage/SitemapPage';
+import { getSitemapPage } from 'services/api';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: { ...(await serverSideTranslations(locale!, [Namespace.Common])) },
-});
+import { PageSeo } from 'components/PageSeo/PageSeo';
 
-export default function Sitemap(props: InferGetStaticPropsType<typeof getStaticProps>) {
+import { Sitemap, SitemapProps } from 'views/Sitemap/Sitemap';
+
+export const getStaticProps: GetStaticProps<SitemapProps> = async ({ locale }) => {
+  const page = (await getSitemapPage(locale)).data;
+
+  return {
+    props: { ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Sitemap])), locale, page },
+  };
+};
+
+export default function SitemapPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <NextSeo title="sitemap" noindex nofollow />
-      <SiteMapPage {...props} />
+      <PageSeo locale={props.locale} {...props.page.attributes.seo} />
+      <Sitemap {...props} />
     </>
   );
 }
