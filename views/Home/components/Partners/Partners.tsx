@@ -39,13 +39,6 @@ export const Partners = () => {
           <Text className={styles.Partners__Title} type="h2" size="heading1" uppercase>
             {t('partners.title')}
           </Text>
-
-          {isLaptop ? (
-            <Text className={styles.Partners__AfterTitle}>
-              {t('partners.titleAfter.upper')} <br />
-              {t('partners.titleAfter.lower')}
-            </Text>
-          ) : null}
         </div>
 
         <Text className={styles.Partners__Subtitle} type="h3" size="heading3">

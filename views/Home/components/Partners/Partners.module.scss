@@ -18,21 +18,6 @@
     }
   }
 
-  &__AfterTitle {
-    width: 270px;
-    align-self: center;
-    color: $sonic-silver;
-
-    &::before {
-      margin-right: 5px;
-      content: '>';
-    }
-
-    @include media(large-laptop) {
-      align-self: flex-end;
-    }
-  }
-
   &__Subtitle {
     margin-bottom: $gap-xxl;
 
@@ -85,7 +70,16 @@
     }
   }
 
+  &__Ticker {
+    :global {
+      .child {
+        display: flex;
+      }
+    }
+  }
+
   &__TickerItem {
+    display: block;
     width: 100px;
     height: $gap-lg;
     padding: $gap-xxs;
