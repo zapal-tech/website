@@ -3,6 +3,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { Namespace, globalNamespaces } from 'configs/i18n';
 
+import { DEFAULT_REVALIDATE_TIME } from 'utils/constants';
+
 import { getSitemapPage } from 'services/api';
 
 import { PageSeo } from 'components/PageSeo/PageSeo';
@@ -14,6 +16,7 @@ export const getStaticProps: GetStaticProps<SitemapProps> = async ({ locale }) =
 
   return {
     props: { ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Sitemap])), locale, page },
+    revalidate: DEFAULT_REVALIDATE_TIME,
   };
 };
 

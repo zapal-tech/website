@@ -59,6 +59,7 @@
     "react-transition-group": "^4.4.5",
     "react-tsparticles": "^2.10.1",
     "sharp": "^0.32.2",
+    "sitemapper": "^3.2.6",
     "tsparticles-engine": "^2.10.1",
     "tsparticles-interaction-external-attract": "^2.10.1",
     "tsparticles-interaction-external-bubble": "^2.10.1",

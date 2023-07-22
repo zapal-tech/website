@@ -26,7 +26,7 @@ api.interceptors.response.use(
 );
 
 export const addContact = async (contact: ContactFormState) => {
-  const { data } = await api.post('/contacts', { data: contact });
+  const { data } = await api.post('/contacts', { data: contact }, { params: undefined });
 
   return data;
 };

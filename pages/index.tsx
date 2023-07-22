@@ -3,6 +3,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import { globalNamespaces, Namespace } from 'configs/i18n';
 
+import { DEFAULT_REVALIDATE_TIME } from 'utils/constants';
+
 import { getHomePage, getPartners, getProjects, getServices, getTeam, getTechnologies } from 'services/api';
 
 import { PageSeo } from 'components/PageSeo/PageSeo';
@@ -28,7 +30,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
       team,
       technologies,
     },
-    revalidate: 3600,
+    revalidate: DEFAULT_REVALIDATE_TIME,
   };
 };
 
