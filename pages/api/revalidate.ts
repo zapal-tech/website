@@ -12,7 +12,7 @@ const handler = nc<NextApiRequest, NextApiResponse>();
 
 handler.post(async (req, res) => {
   const apiTokenHeader = req.headers['Token'] as string | string[] | undefined;
-  const urlHeader = req.headers['Url'] as string | string[] | undefined;
+  const urlHeader = req.headers['Page-Url'] as string | string[] | undefined;
   const pageTypeHeader = req.headers['Page-Type'] as 'main' | 'blog' | 'projects' | 'all' | string[] | undefined;
 
   const isValidApiTokenHeader =
@@ -25,10 +25,10 @@ handler.post(async (req, res) => {
 
   if (!isValidApiTokenHeader) return res.status(401).send('Invalid token');
 
-  if (!urlHeader && !pageTypeHeader) return res.status(400).send("No 'Url' or 'Page-Type' header");
-  if (urlHeader && pageTypeHeader) return res.status(400).send("Can't have both 'Url' and 'Page-Type' header");
+  if (!urlHeader && !pageTypeHeader) return res.status(400).send("No 'Page-Url' or 'Page-Type' header");
+  if (urlHeader && pageTypeHeader) return res.status(400).send("Can't have both 'Page-Url' and 'Page-Type' header");
 
-  if (urlHeader && !isValidUrlHeader) return res.status(400).send("Invalid 'Url' header");
+  if (urlHeader && !isValidUrlHeader) return res.status(400).send("Invalid 'Page-Url' header");
   if (pageTypeHeader && !isValidPageTypeHeader) return res.status(400).send("Invalid 'Page-Type' header");
 
   if (isValidPageTypeHeader && !isValidUrlHeader)

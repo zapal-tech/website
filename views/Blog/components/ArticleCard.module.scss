@@ -1,0 +1,38 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.ArticleCard {
+  &__Image {
+    border-radius: $gap-xxs;
+    margin: 0 0 $gap-xs;
+    aspect-ratio: 16/9;
+
+    @include media(laptop) {
+      margin: 0 0 $gap-sm;
+    }
+  }
+
+  &__Title {
+    @include media(laptop) {
+      font-size: 1.125rem;
+    }
+
+    @include media(large-laptop) {
+      font-size: 1.625rem;
+    }
+    display: -webkit-box;
+
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 1;
+    text-overflow: ellipsis;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover &__Title,
+  &:focus-visible &__Title {
+    color: $text-color-default-hover;
+  }
+}

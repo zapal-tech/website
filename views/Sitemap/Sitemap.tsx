@@ -1,67 +1,63 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import { useMemo } from 'react';
 
 import { Namespace } from 'configs/i18n';
 
 import { ApiPage } from 'types/api';
+import { Page } from 'types/page';
 import { Routes } from 'types/routes';
 
-import { Container, Divider, Text } from 'components';
+import { Container, Text } from 'components';
 
 import { AppLayout } from 'layouts';
 
 import styles from './Sitemap.module.scss';
 
-export type SitemapProps = {
-  locale?: string;
+export type SitemapProps = Page<{
   page: ApiPage;
-};
+}>;
 
 export const Sitemap: React.FC<SitemapProps> = () => {
   const { t } = useTranslation([Namespace.Sitemap, Namespace.Navigation]);
 
-  const links = useMemo(
-    () => [
-      {
-        title: t('home.title', { ns: Namespace.Navigation }),
-        href: Routes.Home,
-      },
-      {
-        title: t('about.title', { ns: Namespace.Navigation }),
-        href: Routes.About,
-      },
-      // {
-      //   title: t('blog.title', { ns: Namespace.Navigation }),
-      //   href: Routes.Blog,
-      // },
-      {
-        title: t('projects.title', { ns: Namespace.Navigation }),
-        href: Routes.Projects,
-      },
-      {
-        title: t('contacts.title', { ns: Namespace.Navigation }),
-        href: Routes.Contacts,
-      },
-      {
-        title: t('supportUkraine.title', { ns: Namespace.Navigation }),
-        href: Routes.SupportUkraine,
-      },
-      {
-        title: t('termsOfUse.title', { ns: Namespace.Navigation }),
-        href: Routes.TermsOfUse,
-      },
-      {
-        title: t('privacyPolicy.title', { ns: Namespace.Navigation }),
-        href: Routes.PrivacyPolicy,
-      },
-      {
-        title: t('cookiesPolicy.title', { ns: Namespace.Navigation }),
-        href: Routes.CookiesPolicy,
-      },
-    ],
-    [t],
-  );
+  const links = [
+    {
+      title: t('home.title', { ns: Namespace.Navigation }),
+      href: Routes.Home,
+    },
+    {
+      title: t('about.title', { ns: Namespace.Navigation }),
+      href: Routes.About,
+    },
+    // {
+    //   title: t('blog.title', { ns: Namespace.Navigation }),
+    //   href: Routes.Blog,
+    // },
+    {
+      title: t('projects.title', { ns: Namespace.Navigation }),
+      href: Routes.Projects,
+    },
+    {
+      title: t('contacts.title', { ns: Namespace.Navigation }),
+      href: Routes.Contacts,
+    },
+    {
+      title: t('supportUkraine.title', { ns: Namespace.Navigation }),
+      href: Routes.SupportUkraine,
+    },
+    {
+      title: t('termsOfUse.title', { ns: Namespace.Navigation }),
+      href: Routes.TermsOfUse,
+    },
+    {
+      title: t('privacyPolicy.title', { ns: Namespace.Navigation }),
+      href: Routes.PrivacyPolicy,
+    },
+    {
+      title: t('cookiesPolicy.title', { ns: Namespace.Navigation }),
+      href: Routes.CookiesPolicy,
+    },
+  ];
 
   return (
     <AppLayout>

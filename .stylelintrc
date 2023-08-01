@@ -3,7 +3,7 @@
   "plugins": ["stylelint-scss"],
   "rules": {
     "selector-max-id": 1,
-    "max-nesting-depth": 5,
+    "max-nesting-depth": 7,
     "selector-class-pattern": [
       "^(([A-Z][A-Za-z0-9]*)((__|--)[A-Z][A-Za-z0-9]?))*",
       { "message": "Class names should begin with uppercase, and cannot be separated by hyphens" }
