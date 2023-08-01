@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
-import { useEffect } from 'react';
 
 import { GlobalContextProvider } from 'contexts/GlobalContext';
 
@@ -43,25 +42,19 @@ const ronaldFont = localFont({
   ],
 });
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => {
-  useEffect(() => {
-    if (!navigator.userAgent.includes('Mac OS')) document.body.classList.add('CustomScrollbar');
-  }, []);
+const App: React.FC<AppProps> = ({ Component, pageProps }) => (
+  <>
+    <DefaultSeo />
 
-  return (
-    <>
-      <DefaultSeo />
+    <div id="app" className={clsx(ronaldFont.className, ronaldFont.variable)}>
+      <GlobalContextProvider pageProps={pageProps}>
+        <Component {...pageProps} />
+        <PageLoader />
+      </GlobalContextProvider>
+    </div>
 
-      <div id="app" className={clsx(ronaldFont.className, ronaldFont.variable)}>
-        <GlobalContextProvider pageProps={pageProps}>
-          <Component {...pageProps} />
-          <PageLoader />
-        </GlobalContextProvider>
-      </div>
-
-      <Analytics />
-    </>
-  );
-};
+    <Analytics />
+  </>
+);
 
 export default appWithTranslation(App, nextI18NextConfig);

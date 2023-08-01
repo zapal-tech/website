@@ -2,8 +2,15 @@
 @import 'styles/mixins';
 
 .Blog {
-  overflow: hidden;
-  padding-top: $expanded-gap-lg;
+  padding-top: $expanded-gap-xs;
+
+  @include media(laptop) {
+    padding-top: $expanded-gap-lg;
+  }
+
+  @include media(large-laptop) {
+    padding-top: $expanded-gap-xl;
+  }
 
   &__Title {
     margin-bottom: $gap-xxl;
@@ -13,27 +20,38 @@
     position: relative;
     z-index: 2;
     display: grid;
-    gap: $gap-md * 2;
+    gap: $gap-sm;
 
-    @include media(laptop) {
-      gap: $gap-xl;
+    @include media(tablet) {
       grid-template-columns: 1fr 1fr;
     }
 
+    @include media(laptop) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    @include media(large-laptop) {
+      gap: $gap-md;
+    }
+
     @include media(desktop) {
-      gap: $gap-xxl;
+      gap: $gap-lg;
     }
   }
 
-  &__Article {
-    &:nth-child(2n + 2) {
-      @include media(laptop) {
-        margin: 75% 0 -75%;
-      }
+  &__Pagination {
+    margin-top: $gap-lg;
 
-      &:last-child {
-        margin-bottom: 0;
-      }
+    @include media(tablet) {
+      margin-top: $gap-xl;
+    }
+
+    @include media(laptop) {
+      margin-top: $expanded-gap-xs;
+    }
+
+    @include media(large-laptop) {
+      margin-top: $expanded-gap-sm;
     }
   }
 }

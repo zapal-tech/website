@@ -64,8 +64,9 @@
     left: -1500px;
     width: 1374px;
     height: 1374px;
+    border-radius: 50%;
     background: $orioles-orange;
-    filter: blur(315.247px);
+    filter: blur(315px);
 
     @include media(laptop) {
       top: 535px;

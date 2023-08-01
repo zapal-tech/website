@@ -7,8 +7,8 @@ export type ContainerProps = {
   type?: 'div' | 'section' | 'article' | 'main' | 'aside' | 'footer' | 'header';
   id?: string;
   className?: ClassValue | ClassValue[];
+  style?: React.CSSProperties;
   children: React.ReactNode;
-  ref?: React.Ref<HTMLElement>;
 };
 
 export const Container: React.FC<ContainerProps> = ({ type = 'div', className, children, ...props }) =>

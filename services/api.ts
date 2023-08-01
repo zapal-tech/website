@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { ApiPage, ApiResponse } from 'types/api';
+import { ApiMetaPagination, ApiPage, ApiResponse } from 'types/api';
 import { Article } from 'types/articles';
 import { ContactFormState } from 'types/contactForm';
 import { Location } from 'types/locations';
@@ -9,6 +9,8 @@ import { Project } from 'types/projects';
 import { Service } from 'types/services';
 import { TeamMember } from 'types/team';
 import { Technology } from 'types/technologies';
+
+import { ARTICLES_PER_PAGE } from 'utils/constants';
 
 const api = axios.create({
   baseURL: process.env.API_URL,
@@ -26,13 +28,22 @@ api.interceptors.response.use(
 );
 
 export const addContact = async (contact: ContactFormState) => {
-  const { data } = await api.post('/contacts', { data: contact });
+  const { data } = await api.post('/contacts', { data: contact }, { params: undefined });
 
   return data;
 };
 
 export const getProjects = async (locale?: string): Promise<ApiResponse<Project[]>> => {
   const { data } = await api.get<ApiResponse<Project[]>>('/projects', { params: { locale } });
+
+  return data;
+};
+
+// Return 500 projects to make sure we get all of them (there are less than 500 projects)
+export const geAllProjects = async (locale?: string): Promise<ApiResponse<Project[]>> => {
+  const { data } = await api.get<ApiResponse<Project[]>>('/projects', {
+    params: { locale, pagination: { start: 0, limit: 500 } },
+  });
 
   return data;
 };
@@ -82,14 +93,23 @@ export const getTechnologies = async (locale?: string): Promise<ApiResponse<Tech
   return data;
 };
 
-export const getArticles = async (locale?: string): Promise<ApiResponse<Article[]>> => {
-  const { data } = await api.get<ApiResponse<Article[]>>('/articles', { params: { locale } });
+export const getArticles = async (
+  locale?: string,
+  page = 1,
+  pageSize = ARTICLES_PER_PAGE,
+): Promise<ApiResponse<Article[], ApiMetaPagination>> => {
+  const { data } = await api.get<ApiResponse<Article[], ApiMetaPagination>>('/articles', {
+    params: { locale, pagination: { page, pageSize } },
+  });
 
   return data;
 };
 
-export const geAllArticles = async (locale?: string): Promise<ApiResponse<Article[]>> => {
-  const { data } = await api.get<ApiResponse<Article[]>>('/articles', { params: { locale } });
+// Return 500 articles to make sure we get all of them (there are less than 500 articles)
+export const getAllArticles = async (locale?: string): Promise<ApiResponse<Article[]>> => {
+  const { data } = await api.get<ApiResponse<Article[]>>('/articles', {
+    params: { locale, pagination: { start: 0, limit: 500 } },
+  });
 
   return data;
 };

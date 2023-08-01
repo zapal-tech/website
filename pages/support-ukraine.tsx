@@ -9,14 +9,15 @@ import { PageSeo } from 'components/PageSeo/PageSeo';
 
 import { SupportUkraine, SupportUkraineProps } from 'views/SupportUkraine/SupportUkraine';
 
-export const getStaticProps: GetStaticProps<SupportUkraineProps> = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<SupportUkraineProps> = async ({ locale, defaultLocale }) => {
   const page = (await getSupportUkrainePage(locale)).data;
 
   return {
     props: {
       ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.SupportUkraine])),
-      locale,
       page,
+      locale,
+      defaultLocale,
     },
   };
 };
@@ -24,7 +25,12 @@ export const getStaticProps: GetStaticProps<SupportUkraineProps> = async ({ loca
 export default function SupportUkrainePage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <PageSeo locale={props.locale} {...props.page.attributes.seo} />
+      <PageSeo
+        generateTopLevelBreadcrumbs
+        locale={props.locale}
+        defaultLocale={props.defaultLocale}
+        {...props.page.attributes.seo}
+      />
       <SupportUkraine {...props} />
     </>
   );

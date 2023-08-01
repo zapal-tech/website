@@ -19,7 +19,7 @@
   }
 
   &__Control {
-    color: $white;
+    color: $text-color-default;
     cursor: pointer;
     font-size: 1.625rem;
     font-weight: 400;
@@ -62,7 +62,7 @@
       @include media(laptop) {
         border-color: $rosso-corsa;
         background: $rosso-corsa;
-        color: $white;
+        color: $text-color-default;
       }
     }
 
@@ -80,7 +80,7 @@
         @include media(laptop) {
           border-color: $rosso-corsa;
           background: $rosso-corsa;
-          color: $white;
+          color: $text-color-default;
         }
       }
     }

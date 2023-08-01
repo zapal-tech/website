@@ -1,0 +1,161 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.Technology {
+  display: block;
+  overflow: visible;
+  width: 100%;
+  aspect-ratio: 1;
+
+  // Image component (image container)
+  &__ImageContainer {
+    aspect-ratio: 1;
+  }
+
+  // Image component (img itself)
+  &__Image {
+    object-fit: contain !important;
+  }
+
+  // Corner UI element
+  &__Corner {
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+    will-change: opacity;
+
+    @media screen and (min-width: 1440px) {
+      width: $gap-md;
+      height: $gap-md;
+    }
+  }
+
+  &:hover &__Corner,
+  &:focus-visible &__Corner {
+    opacity: 1;
+  }
+
+  &__InnerContainer {
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  &__Icon {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    display: grid;
+    height: 100%;
+    padding: $gap-xs;
+    aspect-ratio: 1;
+    place-items: center;
+    // Delay z-index reset transition to prevent flickering
+    transition: z-index 0.3s step-end;
+    will-change: z-index;
+
+    @include media(laptop) {
+      padding: $gap-sm;
+    }
+  }
+
+  &:hover &__Icon,
+  &:focus-visible &__Icon {
+    z-index: 2;
+    // Reset z-index transition
+    transition: none;
+  }
+
+  &__DescriptionContainer {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding-left: calc(100% - $gap-sm);
+    background: $jet-black;
+    box-shadow: 0 0 $gap-sm -5px rgba($jet-black, 1);
+    gap: $gap-xxs;
+    opacity: 0;
+    // Transition "out" animation
+    transition: height 0.15s ease-in-out 0.05s, width 0.15s ease-in-out 0.05s, opacity 0.1s ease-in 0.05s,
+      z-index 0.3s step-end 0.05s;
+    will-change: width, height, opacity, z-index;
+
+    @include media(large-laptop) {
+      // padding-left: calc(100% - $gap-sm);
+      gap: $gap-sm;
+    }
+  }
+
+  &:hover &__DescriptionContainer,
+  &:focus-visible &__DescriptionContainer {
+    opacity: 1;
+    // Transition "in" animation
+    transition: opacity 0.15s ease, width 0.2s ease-in-out 0.2s, height 0.2s ease-in-out 0.2s;
+
+    @include media(laptop) {
+      z-index: 1;
+      width: 500px;
+      height: 230px;
+    }
+
+    @include media(large-laptop) {
+      width: 600px;
+      height: 250px;
+    }
+  }
+
+  &__Title,
+  &__Description {
+    display: block;
+    padding-left: $gap-sm;
+    opacity: 0;
+    transition: opacity 0.1s ease-out;
+    will-change: opacity;
+
+    @include media(large-laptop) {
+      padding-left: $gap-md;
+    }
+  }
+
+  &__Title {
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  &__Description {
+    line-height: 1.25;
+
+    @include media(large-laptop) {
+      line-height: 1.125;
+    }
+  }
+
+  &:hover &__Title,
+  &:focus-visible &__Title,
+  &:hover &__Description,
+  &:focus-visible &__Description {
+    @include media(laptop) {
+      opacity: 1;
+    }
+  }
+
+  &:hover &__Title,
+  &:focus-visible &__Title {
+    transition: opacity 0.2s ease-in 0.3s;
+  }
+
+  &:hover &__Description,
+  &:focus-visible &__Description {
+    transition: opacity 0.2s ease-in 0.45s;
+  }
+}

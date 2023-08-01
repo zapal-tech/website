@@ -45,14 +45,14 @@
   }
 
   &__Link {
-    color: $white;
+    color: $link-color-default;
     font-size: 1.125rem;
     font-weight: 500;
     line-height: 1.3;
     transition: color 0.3s ease-in-out;
 
     &:hover {
-      color: $rosso-corsa;
+      color: $link-color-default-hover;
     }
   }
 }

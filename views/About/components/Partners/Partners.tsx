@@ -6,8 +6,6 @@ import { Namespace } from 'configs/i18n';
 
 import { Partner } from 'types/partners';
 
-import { useGlobalContext } from 'hooks/useGlobalContext';
-
 import { Container, Text } from 'components';
 import { Image } from 'components/Image/Image';
 import { Ticker } from 'components/Ticker/Ticker';
@@ -16,24 +14,17 @@ import { AboutProps } from 'views/About/About';
 
 import styles from './Partners.module.scss';
 
-export const Partners = () => {
-  const {
-    pageProps: { partners },
-  } = useGlobalContext<AboutProps>();
+type PartnersProps = Pick<AboutProps, 'partners'>;
+
+export const Partners: React.FC<PartnersProps> = ({ partners }) => {
   const { t } = useTranslation(Namespace.About);
 
   return (
-    <div>
-      <Container className={styles.Partners}>
-        <div className={styles.Partners__Container}>
-          <Text className={styles.Partners__Title} uppercase size="heading1" type="h2">
-            {t('partners.title')}
-          </Text>
-
-          <Text className={styles.Partners__Subtitle} uppercase size="tiny">
-            {t('partners.subtitle')}
-          </Text>
-        </div>
+    <div className={styles.Partners}>
+      <Container>
+        <Text className={styles.Partners__Title} uppercase size="heading1" type="h2">
+          {t('partners.title')}
+        </Text>
       </Container>
 
       {
@@ -41,16 +32,20 @@ export const Partners = () => {
           className={styles.Partners__Ticker}
           // TODO: remove this after adding more partners
           data={[...partners, ...partners]}
-          renderItem={({ id, attributes: { image, name, website } }: Partner, idx) => (
+          renderItem={({ id, attributes: { image, name, website, viewType } }: Partner, idx) => (
             <Fragment key={idx}>
               {idx % 3 ? null : (
                 <div className={clsx(styles.Partners__TickerItem, styles['Partners__TickerItem--Placeholder'])} />
               )}
+
               <a
                 target="_blank"
                 rel="noreferrer"
                 href={website}
-                className={clsx(styles.Partners__TickerItem, idx % 3 === 2 && styles['Partners__TickerItem--Wide'])}
+                className={clsx(
+                  styles.Partners__TickerItem,
+                  viewType === 'big' && styles['Partners__TickerItem--Wide'],
+                )}
               >
                 <Image
                   className={styles.Partners__TickerImageContainer}

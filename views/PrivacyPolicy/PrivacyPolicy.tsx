@@ -1,4 +1,5 @@
 import { ApiPage } from 'types/api';
+import { Page } from 'types/page';
 
 import { Container, Divider, Text } from 'components';
 import { OrderedList, OrderedListDataItem } from 'components/OrderedList/OrderedList';
@@ -121,10 +122,9 @@ const listOfContents: OrderedListDataItem[] = [
 const tableOfContentsId = 'table-of-contents';
 const withdrawConsentId = 'withdraw-consent';
 
-export type PrivacyPolicyProps = {
-  locale?: string;
+export type PrivacyPolicyProps = Page<{
   page: ApiPage;
-};
+}>;
 
 export const PrivacyPolicy: React.FC<PrivacyPolicyProps> = () => (
   <AppLayout>

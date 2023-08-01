@@ -26,15 +26,15 @@
     height: 35px;
     border: 0;
     background: transparent;
-    color: $white;
+    color: $text-color-default;
     -webkit-tap-highlight-color: transparent;
 
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
-      color: $white !important;
-      -webkit-text-fill-color: $white !important;
+      color: $text-color-default !important;
+      -webkit-text-fill-color: $text-color-default !important;
       transition: background-color 5000000s ease-in-out 0s; // F*ck you Chrome :)
     }
 
@@ -71,7 +71,7 @@
     right: 0;
     bottom: 0;
     height: 1px;
-    background: $white;
+    background: $text-color-default;
 
     @include media(large-laptop) {
       height: 2px;
@@ -81,7 +81,7 @@
   &--HasValue + &__Placeholder,
   &__Field:focus ~ &__Placeholder,
   &__Field:not(:placeholder-shown) ~ &__Placeholder {
-    color: $white;
+    color: $text-color-default;
     cursor: default;
     transform: translateY(calc(-100% - 1rem)) scale(0.75);
 

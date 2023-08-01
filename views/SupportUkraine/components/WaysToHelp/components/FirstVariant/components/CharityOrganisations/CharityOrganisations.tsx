@@ -75,16 +75,17 @@ const DonateFromAbroad = () => {
 
   return (
     <div className={styles.DonateFromAbroad}>
-      {isDesktop ? (
-        <div className={styles.DonateFromAbroad__Title}>
-          <Text size="heading3">Donate from abroad via</Text>
-          <Text size="heading3">this link</Text>
-        </div>
-      ) : (
-        <div className={styles.DonateFromAbroad__Title}>
+      <div className={styles.DonateFromAbroad__Title}>
+        {/* TODO: Remove useMediaQuery and use CSS for such purposes to prevent client-side rendering and use SSR */}
+        {isDesktop ? (
+          <>
+            <Text size="heading3">Donate from abroad via</Text>
+            <Text size="heading3">this link</Text>
+          </>
+        ) : (
           <Text size="heading3">Donate from abroad via this link</Text>
-        </div>
-      )}
+        )}
+      </div>
 
       <div className={styles.DonateFromAbroad__Links}>
         <Text size="small" className={styles.DonateFromAbroad__Text}>

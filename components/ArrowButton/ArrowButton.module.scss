@@ -1,0 +1,53 @@
+@import 'styles/colors';
+@import 'styles/mixins';
+
+.ArrowButton {
+  display: grid;
+  width: 50px;
+  border: 1px solid $text-color-secondary;
+  border-radius: 100px;
+  aspect-ratio: 1;
+  cursor: pointer;
+  place-items: center;
+  transition: all 0.2s ease-in-out;
+
+  @include media(laptop) {
+    width: 70px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: $text-color-secondary-hover;
+  }
+
+  svg {
+    height: 1rem;
+    fill: $text-color-default;
+    transform-origin: 40% 50%;
+
+    @include media(laptop) {
+      height: 1.25rem;
+    }
+  }
+
+  &--Left svg {
+    transform: rotate(180deg);
+  }
+
+  &--Up svg {
+    transform: rotate(-90deg);
+  }
+
+  &--Down svg {
+    transform: rotate(90deg);
+  }
+
+  &:disabled {
+    border-color: $text-color-secondary-disabled;
+    cursor: not-allowed;
+
+    svg {
+      fill: $text-color-secondary-disabled;
+    }
+  }
+}

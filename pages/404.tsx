@@ -4,17 +4,17 @@ import { NextSeo } from 'next-seo';
 
 import { Namespace } from 'configs/i18n';
 
-import { Error404Page } from 'views/Error404Page/Error404Page';
+import { Error404 } from 'views/Error404/Error404';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: { ...(await serverSideTranslations(locale!, [Namespace.Common])) },
+export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => ({
+  props: { ...(await serverSideTranslations(locale!, [Namespace.Common])), locale, defaultLocale },
 });
 
-export default function Error404(props: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Error404Page(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <NextSeo title="404" noindex nofollow />
-      <Error404Page {...props} />
+      <Error404 {...props} />
     </>
   );
 }

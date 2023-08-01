@@ -7,3 +7,4 @@ Host: https://www.zapal.tech
 
 # Sitemaps
 Sitemap: https://www.zapal.tech/sitemap.xml
+Sitemap: https://www.zapal.tech/server-sitemap-index.xml

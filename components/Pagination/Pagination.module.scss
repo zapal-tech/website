@@ -1,0 +1,62 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+$item-color: $white;
+$item-color-current: $orioles-orange;
+$item-color-disabled: $sonic-silver;
+
+$item-border-color: $orioles-orange;
+$item-border-color-current: $white;
+$item-border-color-disabled: $sonic-silver;
+
+.Pagination {
+  display: flex;
+  justify-content: center;
+  user-select: none;
+
+  &__List {
+    display: flex;
+    align-items: center;
+    gap: $gap-xxs;
+
+    @include media(laptop) {
+      gap: $gap-sm;
+    }
+  }
+
+  &__Link {
+    display: block;
+    padding: 4px;
+    color: $link-color-default;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+
+    @include media(laptop) {
+      padding: 10px;
+      font-size: 1.3rem;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: $link-color-default-hover;
+    }
+
+    &--Current {
+      color: $link-color-default-hover;
+      pointer-events: none;
+    }
+
+    &--Disabled {
+      color: $link-color-default-disabled;
+      pointer-events: none;
+    }
+  }
+
+  &__Item:first-child &__Link,
+  &__Item:last-child &__Link {
+    padding: 0;
+  }
+}

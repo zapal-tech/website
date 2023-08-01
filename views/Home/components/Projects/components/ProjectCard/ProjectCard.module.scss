@@ -36,15 +36,17 @@
     transition: all 0.25s ease-in-out;
 
     @include media(laptop) {
-      border-radius: 7px;
+      border-radius: 7px !important;
     }
 
-    &__Dot {
+    & &__Dot {
       display: none;
       width: $gap-xxs;
       height: $gap-xxs;
       border-radius: 50%;
       background: $white;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
 
       @include media(laptop) {
         display: block;
@@ -60,6 +62,14 @@
     }
   }
 
+  &:hover &__InnerCard__Dot,
+  &:focus-within &__InnerCard__Dot,
+  &:focus-visible &__InnerCard__Dot {
+    @include media(laptop) {
+      opacity: 1;
+    }
+  }
+
   &__Image {
     object-fit: cover;
   }
@@ -67,7 +77,7 @@
   &__Name {
     position: relative;
     text-align: center;
-    text-shadow: 0 0 5px rgba($black, 0.3);
+    text-shadow: 0 0 5px rgba($black, 0.5);
 
     @include media(large-tablet) {
       text-shadow: 0 0 15px rgba($black, 0.4);
@@ -78,17 +88,24 @@
     position: absolute;
     bottom: 0;
     left: 50%;
-    width: max-content;
+    display: none;
+    width: 0;
     cursor: pointer;
     opacity: 0;
     transform: translate(-50%, 100%);
     transition: all 0.2s ease-in-out;
+
+    @include media(laptop) {
+      display: block;
+      width: max-content;
+    }
   }
 
   &:hover &__Button,
-  &:focus-visible &__Button,
-  &:focus-within &__Button {
-    opacity: 1;
+  &:focus-visible &__Button {
+    @include media(laptop) {
+      opacity: 1;
+    }
   }
 
   &__ButtonText {
@@ -96,8 +113,8 @@
     transition: all 0.2s ease-in-out;
   }
 
-  &__Button:hover &__ButtonText,
-  &__Button:focus-visible &__ButtonText {
+  &:focus-visible &__ButtonText,
+  &__Button:hover &__ButtonText {
     border-color: $white;
   }
 }

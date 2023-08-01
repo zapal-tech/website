@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 
 import { ApiPage } from 'types/api';
+import { Page } from 'types/page';
 import { Partner } from 'types/partners';
 import { Project } from 'types/projects';
 import { Service } from 'types/services';
@@ -18,24 +19,23 @@ const Partners = dynamic(() => import('./components/Partners/Partners').then((mo
 const Projects = dynamic(() => import('./components/Projects/Projects').then((mod) => mod.Projects));
 const Team = dynamic(() => import('./components/Team/Team').then((mod) => mod.Team));
 
-export type HomeProps = {
-  locale?: string;
+export type HomeProps = Page<{
   page: ApiPage;
   partners: Partner[];
   projects: Project[];
   services: Service[];
   team: TeamMember[];
   technologies: Technology[];
-};
+}>;
 
-export const Home: React.FC<HomeProps> = () => (
+export const Home: React.FC<HomeProps> = ({ partners, projects, services, team, technologies }) => (
   <AppLayout>
     <Hero />
     <AboutUs />
-    <Services />
-    <Technologies />
-    <Projects />
-    <Partners />
-    <Team />
+    <Services services={services} />
+    <Technologies technologies={technologies} />
+    <Projects projects={projects} />
+    <Partners partners={partners} />
+    <Team team={team} />
   </AppLayout>
 );

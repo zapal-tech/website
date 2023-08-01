@@ -32,7 +32,7 @@ $block-gap: 3px;
     min-width: 18px;
     height: auto;
     margin: 0 0 0 auto;
-    fill: $white;
+    fill: $link-color-default;
     transition: all 0.3s ease-in-out;
 
     @include media(laptop) {
@@ -48,7 +48,7 @@ $block-gap: 3px;
 
   &:hover &__Link,
   &:focus-visible &__Link {
-    fill: $rosso-corsa;
+    fill: $link-color-default-hover;
   }
 
   &__Text {

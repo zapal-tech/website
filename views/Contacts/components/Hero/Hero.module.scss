@@ -7,6 +7,12 @@
     margin-top: $expanded-gap-sm;
   }
 
+  &__Divider {
+    @include media(laptop) {
+      display: none;
+    }
+  }
+
   &__Subtitle {
     color: $jet-black;
     -webkit-text-stroke: 1px $sonic-silver;
@@ -35,7 +41,7 @@
   }
 
   &__Link {
-    color: $white;
+    color: $link-color-default;
     transition: all 0.3s ease-in-out;
 
     & > * {
@@ -44,7 +50,7 @@
 
     &:hover,
     &:focus-visible {
-      color: $orioles-orange;
+      color: $link-color-default-hover;
     }
   }
 }

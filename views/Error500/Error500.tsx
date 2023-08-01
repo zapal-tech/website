@@ -4,14 +4,14 @@ import { Namespace } from 'configs/i18n';
 
 import { Text } from 'components';
 
-import styles from './Error500Page.module.scss';
+import styles from './Error500.module.scss';
 
-export const Error500Page = () => {
+export const Error500 = () => {
   const { t } = useTranslation(Namespace.Common);
 
   return (
-    <div className={styles.Error500Page}>
-      <Text type="h1" size="heading1" className={styles.Error500Page__Text}>
+    <div className={styles.Error500}>
+      <Text type="h1" size="heading1" className={styles.Error500__Text}>
         500
       </Text>
 

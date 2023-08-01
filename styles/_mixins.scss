@@ -1,5 +1,6 @@
 @use 'sass:list';
 @import './media';
+@import './typography';
 
 @mixin pseudo($content: '', $display: block, $position: absolute) {
   position: $position;
@@ -54,5 +55,95 @@
     @media only screen and (min-width: $breakpoint-desktop) {
       @content;
     }
+  }
+}
+
+@mixin text-heading1 {
+  font-size: $heading1-font-size;
+  font-weight: $heading1-font-weight;
+  line-height: $heading1-line-height;
+
+  @include media(laptop) {
+    font-size: $heading1-font-size-laptop;
+  }
+
+  @include media(large-laptop) {
+    font-size: $heading1-font-size-large-laptop;
+  }
+}
+
+@mixin text-heading2 {
+  font-size: $heading2-font-size;
+  font-weight: $heading2-font-weight;
+  line-height: $heading2-line-height;
+
+  @include media(laptop) {
+    font-size: $heading2-font-size-laptop;
+    font-weight: $heading2-font-weight-laptop;
+  }
+
+  @include media(large-laptop) {
+    font-size: $heading2-font-size-large-laptop;
+  }
+}
+
+@mixin text-heading3 {
+  font-size: $heading3-font-size;
+  font-weight: $heading3-font-weight;
+  line-height: $heading3-line-height;
+
+  @include media(laptop) {
+    font-size: $heading3-font-size-laptop;
+    font-weight: $heading3-font-weight-laptop;
+  }
+
+  @include media(large-laptop) {
+    font-size: $heading3-font-size-large-laptop;
+  }
+}
+
+@mixin text-default {
+  font-size: $default-font-size;
+  font-weight: $default-font-weight;
+  line-height: $default-line-height;
+
+  @include media(laptop) {
+    font-size: $default-font-size-laptop;
+    line-height: $default-line-height-laptop;
+  }
+
+  @include media(large-laptop) {
+    font-size: $default-font-size-large-laptop;
+  }
+}
+
+@mixin text-small {
+  font-size: $small-font-size;
+  font-weight: $small-font-weight;
+  line-height: $small-line-height;
+
+  @include media(laptop) {
+    font-size: $small-font-size-laptop;
+    font-weight: $small-font-weight-laptop;
+    line-height: $small-line-height-laptop;
+  }
+
+  @include media(large-laptop) {
+    font-size: $small-font-size-large-laptop;
+  }
+}
+
+@mixin text-tiny {
+  font-size: $tiny-font-size;
+  font-weight: $tiny-font-weight;
+  line-height: $tiny-line-height;
+
+  @include media(laptop) {
+    font-size: $tiny-font-size-laptop;
+    font-weight: $tiny-font-weight-laptop;
+  }
+
+  @include media(large-laptop) {
+    font-size: $tiny-font-size-large-laptop;
   }
 }

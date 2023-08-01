@@ -14,7 +14,15 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className })
   const { t, i18n } = useTranslation(Namespace.Languages);
   const router = useRouter();
 
-  const handleChangeLanguage = (language: Language) => router.push(router.pathname, undefined, { locale: language });
+  const handleChangeLanguage = (language: Language) =>
+    router.push(
+      {
+        pathname: router.pathname,
+        query: router.query,
+      },
+      undefined,
+      { locale: language },
+    );
 
   return (
     <div className={clsx(styles.LanguageSwitcher, className)} aria-label="Language switcher">

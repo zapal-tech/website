@@ -5,21 +5,16 @@ import { Namespace } from 'configs/i18n';
 
 import { Project } from 'types/projects';
 
-import { useMediaQuery } from 'hooks/useMediaQuery';
-
 import { Card, Text } from 'components';
 import { Image } from 'components/Image/Image';
-
-import media from 'styles/media.module.scss';
 
 import styles from './ProjectCard.module.scss';
 
 export const ProjectCard: React.FC<Project> = ({ attributes: { slug, name, shortName, thumbnailImage } }) => {
   const { t } = useTranslation(Namespace.Home);
-  const isLaptop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
 
   return (
-    <Link href={`/projects#${slug}`} className={styles.ProjectCard} tabIndex={isLaptop ? -1 : undefined}>
+    <Link href={`/projects#${slug}`} className={styles.ProjectCard}>
       <Image
         className={styles.ProjectCard__Image}
         image={thumbnailImage}
@@ -35,13 +30,11 @@ export const ProjectCard: React.FC<Project> = ({ attributes: { slug, name, short
         <Text className={styles.ProjectCard__Name} type="span" size="heading3">
           {shortName || name}
 
-          {isLaptop && (
-            <button className={styles.ProjectCard__Button}>
-              <Text className={styles.ProjectCard__ButtonText} type="span" size="small">
-                {t('projects.cardButton')}
-              </Text>
-            </button>
-          )}
+          <button className={styles.ProjectCard__Button} tabIndex={-1}>
+            <Text className={styles.ProjectCard__ButtonText} type="span" size="small">
+              {t('projects.cardButton')}
+            </Text>
+          </button>
         </Text>
       </Card>
     </Link>

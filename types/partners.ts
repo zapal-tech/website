@@ -11,4 +11,5 @@ export type PartnerAttributes = {
   order: number;
   slug: string;
   image: ApiImage;
+  viewType: 'default' | 'big';
 };

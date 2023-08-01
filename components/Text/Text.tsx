@@ -10,7 +10,7 @@ export type TextProps = {
   className?: ClassValue | ClassValue[];
   children: React.ReactNode;
   id?: string;
-};
+} & React.HTMLAttributes<HTMLParagraphElement | HTMLHeadingElement | HTMLSpanElement>;
 
 export const Text: React.FC<TextProps> = ({
   type = 'p',
