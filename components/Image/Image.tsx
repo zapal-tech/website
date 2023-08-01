@@ -14,15 +14,15 @@ interface StaticRequire {
 
 type StaticImport = StaticImageData | StaticRequire;
 
-export type ImageProps = Omit<ImageComponentProps, 'src'> &
+export type ImageProps = Omit<ImageComponentProps, 'src' | 'alt'> &
   React.PropsWithChildren & {
     image?: ApiImage;
     className?: string;
     imageClassName?: string;
     src?: string | StaticImport;
+    alt?: string;
   };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Image: React.FC<ImageProps> = ({
   children,
   className,
@@ -32,6 +32,7 @@ export const Image: React.FC<ImageProps> = ({
   image,
   src,
   unoptimized,
+  alt,
   ...props
 }) => (
   <div className={clsx(styles.Image, className)}>
@@ -40,6 +41,7 @@ export const Image: React.FC<ImageProps> = ({
       loader={(loaderProps) => imageLoader({ ...loaderProps, image })}
       fill
       src={image?.data?.attributes?.url || src || ''}
+      alt={alt || image?.data?.attributes?.alternativeText || ''}
       unoptimized={image?.data?.attributes?.ext === 'svg' || unoptimized}
       {...props}
     />

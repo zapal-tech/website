@@ -5,6 +5,8 @@ import { Namespace, defaultLanguage } from 'configs/i18n';
 
 import { Routes } from 'types/routes';
 
+import colors from 'styles/colors.module.scss';
+
 export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
   const { t, i18n } = useTranslation(Namespace.Common);
 
@@ -20,7 +22,7 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
         // defaultTitle="Zapal | Unlock Your Tech Future"
         titleTemplate="Zapal - %s | Unlock Your Tech Future"
         description={t('description')!}
-        themeColor="#070707"
+        themeColor={colors.defaultBackgroundColor}
         languageAlternates={[{ hrefLang: 'uk', href: getAbsoluteUrl('/uk', false) }]}
         openGraph={{
           type: 'website',
@@ -43,7 +45,7 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
           { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
           { rel: 'manifest', href: '/manifest.json' },
         ]}
-        additionalMetaTags={[{ name: 'msapplication-TileColor', content: '#070707' }]}
+        additionalMetaTags={[{ name: 'msapplication-TileColor', content: colors.defaultBackgroundColor }]}
       />
 
       <ImageJsonLd

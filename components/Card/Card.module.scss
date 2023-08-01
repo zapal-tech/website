@@ -11,12 +11,16 @@
   border-radius: $gap-xxs;
 
   @include media(large-phone) {
-    padding: $gap-md;
+    &:not(.Card--Small) {
+      padding: $gap-md;
+    }
   }
 
   @include media(laptop) {
-    padding: $gap-xl;
-    border-radius: $gap-sm;
+    &:not(.Card--Small) {
+      padding: $gap-xl;
+      border-radius: $gap-sm;
+    }
   }
 
   &--FullFrame {
@@ -34,13 +38,17 @@
     border: 2px solid transparent;
 
     @include media(large-phone) {
-      width: $gap-md;
-      height: $gap-md;
+      &:not(.Card__Corner--Small) {
+        width: $gap-md;
+        height: $gap-md;
+      }
     }
 
     @include media(laptop) {
-      width: $gap-xl;
-      height: $gap-xl;
+      &:not(.Card__Corner--Small) {
+        width: $gap-xl;
+        height: $gap-xl;
+      }
     }
 
     &--TopLeft {
@@ -51,7 +59,9 @@
       border-top-left-radius: $gap-xxs;
 
       @include media(laptop) {
-        border-top-left-radius: $gap-sm;
+        &:not(.Card__Corner--Small) {
+          border-top-left-radius: $gap-sm;
+        }
       }
     }
 
@@ -63,7 +73,9 @@
       border-top-right-radius: $gap-xxs;
 
       @include media(laptop) {
-        border-top-right-radius: $gap-sm;
+        &:not(.Card__Corner--Small) {
+          border-top-right-radius: $gap-sm;
+        }
       }
     }
 
@@ -75,7 +87,9 @@
       border-bottom-left-radius: $gap-xxs;
 
       @include media(laptop) {
-        border-bottom-left-radius: $gap-sm;
+        &:not(.Card__Corner--Small) {
+          border-bottom-left-radius: $gap-sm;
+        }
       }
     }
 
@@ -87,7 +101,9 @@
       border-bottom-right-radius: $gap-xxs;
 
       @include media(laptop) {
-        border-bottom-right-radius: $gap-sm;
+        &:not(.Card__Corner--Small) {
+          border-bottom-right-radius: $gap-sm;
+        }
       }
     }
   }

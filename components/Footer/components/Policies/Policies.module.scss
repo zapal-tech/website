@@ -34,7 +34,7 @@
   & &__Link {
     padding: 0 0 5px;
     border-bottom: 1px solid transparent;
-    color: $white;
+    color: $link-color-default;
     transition: all 0.2s ease-in-out;
 
     @include media(laptop) {

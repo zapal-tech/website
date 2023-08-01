@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   background-color: $orioles-orange;
-  color: $white;
+  color: $text-color-default;
 
   @include media(laptop) {
     height: 32px;

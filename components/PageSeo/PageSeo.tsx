@@ -1,13 +1,20 @@
-import { NextSeo } from 'next-seo';
-import { MetaTag } from 'next-seo/lib/types';
+import { BreadcrumbJsonLd, NextSeo } from 'next-seo';
+import { ItemListElements, MetaTag } from 'next-seo/lib/types';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import { ApiSeo } from 'types/api';
+import { Page } from 'types/page';
 
-export type PageSeoProps = ApiSeo & { locale?: string };
+export type PageSeoProps = ApiSeo &
+  Page<{
+    generateTopLevelBreadcrumbs?: boolean;
+    breadcrumbs?: ItemListElements[];
+  }>;
 
 export const PageSeo: React.FC<PageSeoProps> = ({
   locale,
+  defaultLocale,
   metaTitle,
   metaDescription,
   metaImage,
@@ -17,7 +24,11 @@ export const PageSeo: React.FC<PageSeoProps> = ({
   keywords,
   metaSocial,
   structuredData,
+  generateTopLevelBreadcrumbs = false,
+  breadcrumbs,
 }) => {
+  const router = useRouter();
+
   const getAdditionalMetaTags = (): MetaTag[] | undefined => {
     const tags: MetaTag[] = [];
 
@@ -26,7 +37,10 @@ export const PageSeo: React.FC<PageSeoProps> = ({
     if (metaViewport) tags.push({ name: 'viewport', content: metaViewport });
 
     tags.push(
-      { name: 'og:title', content: metaTitle },
+      {
+        name: 'og:title',
+        content: metaTitle ? `Zapal - ${metaTitle} | Unlock Your Tech Future` : 'Zapal | Unlock Your Tech Future',
+      },
       { name: 'og:description', content: metaDescription },
       { name: 'og:type', content: 'website' },
       { name: 'og:site_name', content: 'Zapal' },
@@ -68,10 +82,26 @@ export const PageSeo: React.FC<PageSeoProps> = ({
     return tags.length ? tags : undefined;
   };
 
+  const getURL = (): string => {
+    const prefix = locale === defaultLocale ? '' : `/${locale}`;
+
+    return new URL(prefix + router.pathname, process.env.NEXT_PUBLIC_SITE_URL).href;
+  };
+
+  const topLevelBreadcrumbs: ItemListElements[] = [
+    {
+      position: 1,
+      name: metaTitle,
+      item: getURL(),
+    },
+  ];
+
   return (
     <>
       <NextSeo
         title={metaTitle}
+        defaultTitle="Zapal | Unlock Your Tech Future"
+        titleTemplate="Zapal - %s | Unlock Your Tech Future"
         description={metaDescription}
         canonical={canonicalURL || undefined}
         additionalMetaTags={getAdditionalMetaTags()}
@@ -92,6 +122,12 @@ export const PageSeo: React.FC<PageSeoProps> = ({
             : undefined,
         }}
       />
+
+      {generateTopLevelBreadcrumbs && !breadcrumbs?.length && (
+        <BreadcrumbJsonLd itemListElements={topLevelBreadcrumbs} />
+      )}
+
+      {breadcrumbs?.length && <BreadcrumbJsonLd itemListElements={breadcrumbs} />}
 
       {structuredData && (
         <Head>
