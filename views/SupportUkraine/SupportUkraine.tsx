@@ -1,4 +1,5 @@
 import { ApiPage } from 'types/api';
+import { Page } from 'types/page';
 
 import { Container } from 'components';
 
@@ -16,10 +17,9 @@ import { SupportUkrainianBusiness } from './components/SupportUkrainianBusiness/
 import { WarCrimes } from './components/WarCrimes/WarCrimes';
 import { WaysToHelp } from './components/WaysToHelp/WaysToHelp';
 
-export type SupportUkraineProps = {
-  locale?: string;
+export type SupportUkraineProps = Page<{
   page: ApiPage;
-};
+}>;
 
 export const SupportUkraine: React.FC<SupportUkraineProps> = () => (
   <AppLayout>

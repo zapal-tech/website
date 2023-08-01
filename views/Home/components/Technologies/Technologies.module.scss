@@ -2,6 +2,8 @@
 @import 'styles/mixins';
 
 .Technologies {
+  overflow: visible;
+
   &__Title {
     margin: 0 0 $gap-lg;
 
@@ -11,11 +13,15 @@
   }
 
   &__AnimationBlock {
-    display: flex;
-    align-items: center;
+    display: none;
+
+    @include media(large-tablet) {
+      display: flex;
+      align-items: center;
+    }
   }
 
-  &__TechBox {
+  &__Content {
     @include media(large-tablet) {
       display: grid;
       gap: $gap-lg;
@@ -41,20 +47,15 @@
     }
 
     @include media(large-tablet) {
+      gap: $gap-lg;
+    }
+
+    @media screen and (min-width: 1440px) {
       gap: $gap-md * 2;
     }
 
-    @include media(laptop) {
+    @include media(large-laptop) {
       gap: $gap-xxl;
     }
-  }
-
-  &__GridItem {
-    width: 100%;
-    aspect-ratio: 1;
-  }
-
-  &__GridItemImage {
-    object-fit: contain !important;
   }
 }

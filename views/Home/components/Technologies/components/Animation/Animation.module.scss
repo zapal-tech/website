@@ -54,6 +54,7 @@ $animation-multiplier: 2.85;
     border-radius: 3px;
     animation: audioWave 4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
     background: $orioles-orange;
+    will-change: transform;
 
     &:nth-child(2n) {
       animation-delay: 0.8s;

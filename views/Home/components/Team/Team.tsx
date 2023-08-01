@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
 
@@ -19,13 +20,10 @@ import styles from './Team.module.scss';
 
 const Particles = dynamic(() => import('../Particles/Particles').then((mod) => mod.Particles), { ssr: false });
 
-export const Team = () => {
-  const { t } = useTranslation(Namespace.Home);
-  const {
-    pageProps: { team },
-  } = useGlobalContext<HomeProps>();
+type TeamProps = Pick<HomeProps, 'team'>;
 
-  const isTablet = useMediaQuery(`(min-width: ${media.breakpointTablet})`);
+export const Team: React.FC<TeamProps> = ({ team }) => {
+  const { t } = useTranslation(Namespace.Home);
 
   return (
     <Container className={styles.Team}>
@@ -40,10 +38,10 @@ export const Team = () => {
           <TeamMemberCard key={member.id} {...member} />
         ))}
 
-        {isTablet && <ReadMoreCard />}
+        <ReadMoreCard className={clsx(styles.Team__ReadMoreCard, styles['Team__ReadMoreCard--Tablet'])} />
       </div>
 
-      {!isTablet && <ReadMoreCard />}
+      <ReadMoreCard className={clsx(styles.Team__ReadMoreCard, styles['Team__ReadMoreCard--Default'])} />
     </Container>
   );
 };

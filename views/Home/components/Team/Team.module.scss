@@ -34,6 +34,8 @@ $particles-mask: radial-gradient(circle, $jet-black 30%, transparent 70%);
   }
 
   &__Members {
+    position: relative;
+    z-index: 1;
     display: grid;
     overflow: auto;
     width: 100%;
@@ -63,6 +65,24 @@ $particles-mask: radial-gradient(circle, $jet-black 30%, transparent 70%);
 
     @include media(laptop) {
       width: 70%;
+    }
+  }
+
+  &__ReadMoreCard {
+    &--Default {
+      display: inline;
+
+      @include media(tablet) {
+        display: none;
+      }
+    }
+
+    &--Tablet {
+      display: none;
+
+      @include media(tablet) {
+        display: block;
+      }
     }
   }
 }

@@ -3,38 +3,11 @@
 @import 'styles/mixins';
 
 .Partners {
-  @include media(laptop) {
-    display: flex;
-    height: 126px;
-    margin-bottom: $expanded-gap-sm;
-    gap: $gap-xl;
-  }
-
   &__Title {
     margin-bottom: $gap-lg;
 
     @include media(laptop) {
       margin-bottom: $expanded-gap-sm;
-    }
-  }
-
-  &__Subtitle {
-    margin-bottom: $gap-xxl;
-
-    @include media(laptop) {
-      width: 490px;
-      margin-bottom: $expanded-gap-md;
-      margin-left: 18%;
-      text-indent: $expanded-gap-xs;
-    }
-
-    @include media(large-laptop) {
-      width: 760px;
-    }
-
-    @include media(desktop) {
-      width: 790px;
-      text-indent: 80px;
     }
   }
 
@@ -86,6 +59,7 @@
     border-radius: $gap-lg;
     margin: 0 $gap-xs / 2 0;
     background: $white;
+    -webkit-user-drag: none;
 
     @include media(laptop) {
       width: 250px;
@@ -104,8 +78,7 @@
 
     &--Placeholder {
       width: auto;
-      border-radius: 50%;
-      aspect-ratio: 1/1;
+      aspect-ratio: 1;
       background: $rosso-corsa;
     }
   }
@@ -124,5 +97,6 @@
     height: 100% !important;
     filter: brightness(0);
     object-fit: contain !important;
+    -webkit-user-drag: none;
   }
 }

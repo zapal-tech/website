@@ -29,7 +29,7 @@
     right: $gap-sm;
     bottom: $gap-sm;
     width: $gap-sm;
-    fill: $white;
+    fill: $text-color-default;
 
     @include media(laptop) {
       right: $gap-md;
@@ -49,7 +49,7 @@
 
   &:hover &__Icon,
   &:focus-visible &__Icon {
-    fill: $orioles-orange;
+    fill: $text-color-default-hover;
     opacity: 1;
   }
 
@@ -57,6 +57,6 @@
   &:hover &__Title,
   &:focus-visible &__Name,
   &:focus-visible &__Title {
-    color: $orioles-orange;
+    color: $text-color-default-hover;
   }
 }
