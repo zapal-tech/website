@@ -70,7 +70,7 @@
 
   &__Link {
     height: max-content;
-    color: $white;
+    color: $link-color-default;
     transition: all 0.3s ease-in-out;
 
     & > * {
@@ -79,7 +79,7 @@
 
     &:hover,
     &:focus-visible {
-      color: $orioles-orange;
+      color: $link-color-default-hover;
     }
   }
 }

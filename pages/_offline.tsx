@@ -1,20 +1,23 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { NextSeo } from 'next-seo';
 
 import { Namespace } from 'configs/i18n';
 
-import { Error500 } from 'views/Error500/Error500';
+import { Offline } from 'views/Offline/Offline';
 
 export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => ({
   props: { ...(await serverSideTranslations(locale!, [Namespace.Common])), locale, defaultLocale },
 });
 
-export default function Error500Page(props: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function OfflinePage(props: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { t } = useTranslation(Namespace.Common);
+
   return (
     <>
-      <NextSeo title="500" noindex nofollow />
-      <Error500 {...props} />
+      <NextSeo title={t('offline.metaTitle')} noindex nofollow />
+      <Offline {...props} />
     </>
   );
 }

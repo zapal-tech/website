@@ -5,6 +5,7 @@ import CircleSvg from 'public/icons/projects-circle.svg';
 import { Namespace } from 'configs/i18n';
 
 import { ApiPage } from 'types/api';
+import { Page } from 'types/page';
 import { Project } from 'types/projects';
 
 import { Container, Text } from 'components';
@@ -15,11 +16,10 @@ import { ProjectCard } from './components/ProjectCard';
 
 import styles from './Projects.module.scss';
 
-export type ProjectsProps = {
-  locale?: string;
+export type ProjectsProps = Page<{
   page: ApiPage;
   projects: Project[];
-};
+}>;
 
 export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const { t } = useTranslation(Namespace.Projects);

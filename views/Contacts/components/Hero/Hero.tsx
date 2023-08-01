@@ -2,18 +2,12 @@ import { useTranslation } from 'next-i18next';
 
 import { Namespace } from 'configs/i18n';
 
-import { useMediaQuery } from 'hooks/useMediaQuery';
-
 import { Container, Text } from 'components';
-
-import media from 'styles/media.module.scss';
 
 import styles from './Hero.module.scss';
 
 export const Hero = () => {
   const { t } = useTranslation([Namespace.Contacts, Namespace.Common]);
-
-  const isLaptop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
 
   return (
     <>
@@ -23,7 +17,7 @@ export const Hero = () => {
         </Text>
 
         <Text className={styles.Hero__Subtitle} size="heading1" type="h2" uppercase>
-          {t('hero.subtitle.upper')} {!isLaptop && <br />} {t('hero.subtitle.lower')}
+          {t('hero.subtitle.upper')} <br className={styles.Hero__Divider} /> {t('hero.subtitle.lower')}
         </Text>
       </Container>
 

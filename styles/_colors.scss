@@ -9,6 +9,18 @@ $sonic-silver: #757575;
 $ukraine-blue: #0057b7;
 $ukraine-yellow: #ffd700;
 
-$default-text-color: $white;
+$text-color-default: $white;
+$text-color-default-hover: $orioles-orange;
+
+$text-color-secondary: $orioles-orange;
+$text-color-secondary-hover: $rosso-corsa;
+$text-color-secondary-disabled: $sonic-silver;
+
+$link-color-default: $white;
+$link-color-default-hover: $rosso-corsa;
+$link-color-default-disabled: $sonic-silver;
+
+$link-color-secondary: $orioles-orange;
+$link-color-secondary-hover: $rosso-corsa;
 
 $default-background-color: $jet-black;

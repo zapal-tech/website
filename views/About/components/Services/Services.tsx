@@ -15,18 +15,17 @@ import styles from './Services.module.scss';
 
 const ContactForm = dynamic(() => import('views/ContactForm/ContactForm').then((mod) => mod.ContactForm));
 
-export const Services = () => {
+type ServicesProps = Pick<AboutProps, 'services'>;
+
+export const Services: React.FC<ServicesProps> = ({ services }) => {
   const { t } = useTranslation([Namespace.About, Namespace.Common]);
-  const {
-    pageProps: { services },
-    openModal,
-  } = useGlobalContext<AboutProps>();
+  const { openModal } = useGlobalContext();
 
   const openContactForm = () => openModal(ContactForm);
 
   return (
     <Container>
-      <Text className={styles.Services__Title} size="heading1" type="h2" uppercase>
+      <Text id="services" className={styles.Services__Title} size="heading1" type="h2" uppercase>
         {t('services.title')}
       </Text>
 

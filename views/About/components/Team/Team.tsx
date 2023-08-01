@@ -2,8 +2,6 @@ import { useTranslation } from 'next-i18next';
 
 import { Namespace } from 'configs/i18n';
 
-import { useGlobalContext } from 'hooks/useGlobalContext';
-
 import { Container, Text } from 'components';
 
 import { AboutProps } from 'views/About/About';
@@ -12,11 +10,10 @@ import { TeamMemberCard } from './TeamMemberCard/TeamMemberCard';
 
 import styles from './Team.module.scss';
 
-export const Team = () => {
+type TeamProps = Pick<AboutProps, 'team'>;
+
+export const Team: React.FC<TeamProps> = ({ team }) => {
   const { t } = useTranslation(Namespace.About);
-  const {
-    pageProps: { team },
-  } = useGlobalContext<AboutProps>();
 
   return (
     <Container className={styles.Team}>

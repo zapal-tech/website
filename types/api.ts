@@ -1,12 +1,21 @@
-export type ApiResponse<T> = {
+export type ApiResponse<T, M = object> = {
   data: T;
-  meta?: Record<string, any>;
+  meta: M;
+};
+
+export type ApiMetaPagination<T = object> = T & {
+  pagination: {
+    page: number;
+    pageCount: number;
+    pageSize: number;
+    total: number;
+  };
 };
 
 export type ApiImage = {
   data: {
     id: number;
-    attributes: ApiImageAttributes;
+    attributes: ApiBaseAttributes<ApiImageAttributes>;
   };
 };
 
@@ -22,12 +31,14 @@ export type ApiBaseImageAttributes = {
   width: number;
 };
 
-export type ApiImageAttributes = ApiBaseImageAttributes & {
-  alternativeText: string | null;
-  caption: string | null;
-  formats: Record<string, ApiBaseImageAttributes>;
-  previewUrl: string | null;
-};
+export type ApiImageAttributes = ApiBaseAttributes<
+  ApiBaseImageAttributes & {
+    alternativeText: string | null;
+    caption: string | null;
+    formats: Record<string, ApiBaseImageAttributes>;
+    previewUrl: string | null;
+  }
+>;
 
 export type ApiSeoSocial = {
   id: number;
@@ -50,13 +61,18 @@ export type ApiSeo = {
   structuredData: Record<string, any> | null;
 };
 
-export type ApiPage = {
-  id: number;
-  attributes: ApiPageAttributes;
-};
-
-export type ApiPageAttributes = {
+export type ApiPageAttributes = ApiBaseAttributes<{
   translation: Record<string, any>;
   seo: ApiSeo;
   locale: string;
+}>;
+
+export type ApiBaseAttributes<T> = T & {
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type ApiPage = {
+  id: number;
+  attributes: ApiPageAttributes;
 };

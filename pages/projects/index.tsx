@@ -11,16 +11,17 @@ import { PageSeo } from 'components/PageSeo/PageSeo';
 
 import { Projects, ProjectsProps } from 'views/Projects/Projects';
 
-export const getStaticProps: GetStaticProps<ProjectsProps> = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<ProjectsProps> = async ({ locale, defaultLocale }) => {
   const page = (await getProjectsPage(locale)).data;
   const projects = (await getProjects(locale)).data;
 
   return {
     props: {
       ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Projects])),
-      locale,
       page,
       projects,
+      locale,
+      defaultLocale,
     },
     revalidate: DEFAULT_REVALIDATE_TIME,
   };
@@ -29,7 +30,12 @@ export const getStaticProps: GetStaticProps<ProjectsProps> = async ({ locale }) 
 export default function ProjectsPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <PageSeo locale={props.locale} {...props.page.attributes.seo} />
+      <PageSeo
+        generateTopLevelBreadcrumbs
+        locale={props.locale}
+        defaultLocale={props.defaultLocale}
+        {...props.page.attributes.seo}
+      />
       <Projects {...props} />
     </>
   );

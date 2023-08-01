@@ -11,11 +11,16 @@ import { PageSeo } from 'components/PageSeo/PageSeo';
 
 import { Sitemap, SitemapProps } from 'views/Sitemap/Sitemap';
 
-export const getStaticProps: GetStaticProps<SitemapProps> = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<SitemapProps> = async ({ locale, defaultLocale }) => {
   const page = (await getSitemapPage(locale)).data;
 
   return {
-    props: { ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Sitemap])), locale, page },
+    props: {
+      ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Sitemap])),
+      page,
+      locale,
+      defaultLocale,
+    },
     revalidate: DEFAULT_REVALIDATE_TIME,
   };
 };
@@ -23,7 +28,12 @@ export const getStaticProps: GetStaticProps<SitemapProps> = async ({ locale }) =
 export default function SitemapPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <PageSeo locale={props.locale} {...props.page.attributes.seo} />
+      <PageSeo
+        generateTopLevelBreadcrumbs
+        locale={props.locale}
+        defaultLocale={props.defaultLocale}
+        {...props.page.attributes.seo}
+      />
       <Sitemap {...props} />
     </>
   );

@@ -16,26 +16,38 @@ body {
     background: rgba($rosso-corsa, 0.8);
     color: $white;
   }
+
+  @include media(laptop) {
+    ::-webkit-scrollbar {
+      width: 3px;
+      height: 2px;
+    }
+
+    &::-webkit-scrollbar-button:vertical:decrement {
+      height: 32px;
+      border: 0;
+      // width: 2px;
+      background-color: $orioles-orange;
+
+      @include media(desktop) {
+        height: 40px;
+      }
+    }
+
+    ::-webkit-scrollbar-track {
+      background: $jet-black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: $orioles-orange;
+
+      &:hover {
+        background: $rosso-corsa;
+      }
+    }
+  }
 }
 
 * {
   font-weight: inherit;
-}
-
-.CustomScrollbar {
-  &::-webkit-scrollbar {
-    width: 2px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: $jet-black;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: $orioles-orange;
-
-    &:hover {
-      background: $rosso-corsa;
-    }
-  }
 }

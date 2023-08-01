@@ -4,14 +4,14 @@ import { Namespace } from 'configs/i18n';
 
 import { Text } from 'components';
 
-import styles from './Error404Page.module.scss';
+import styles from './Error404.module.scss';
 
-export const Error404Page = () => {
+export const Error404 = () => {
   const { t } = useTranslation(Namespace.Common);
 
   return (
-    <div className={styles.Error404Page}>
-      <Text type="h1" size="heading1" className={styles.Error404Page__Text}>
+    <div className={styles.Error404}>
+      <Text type="h1" size="heading1" className={styles.Error404__Text}>
         404
       </Text>
 
