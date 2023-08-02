@@ -1,10 +1,10 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { ArticleJsonLd } from 'next-seo';
 
 import { globalNamespaces, Namespace } from 'configs/i18n';
 
-import { DEFAULT_REVALIDATE_TIME } from 'utils/constants';
+import { BLOG_REVALIDATE_TIME } from 'utils/constants';
 
 import { getArticles, getBlogPage } from 'services/api';
 
@@ -25,6 +25,7 @@ export const getStaticProps: GetStaticProps<BlogProps> = async ({ locale, defaul
       articles,
       locale,
       defaultLocale,
+      revalidate: BLOG_REVALIDATE_TIME,
     },
   };
 };
