@@ -3,7 +3,7 @@
 @import 'styles/mixins';
 
 .ArticleCard {
-  &__Image {
+  & &__Image {
     border-radius: $gap-xxs;
     margin: 0 0 $gap-xs;
     aspect-ratio: 16/9;
@@ -13,7 +13,7 @@
     }
   }
 
-  &__Title {
+  & &__Title {
     @include media(laptop) {
       font-size: 1.125rem;
     }
@@ -21,8 +21,8 @@
     @include media(large-laptop) {
       font-size: 1.625rem;
     }
-    display: -webkit-box;
 
+    display: -webkit-box;
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;

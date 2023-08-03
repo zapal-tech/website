@@ -2,7 +2,7 @@
 @import 'styles/mixins';
 
 .ProjectCard {
-  &__Image {
+  & &__Image {
     border-radius: $gap-xxs;
     margin: 0 0 $gap-sm;
     aspect-ratio: 1/1;
@@ -13,7 +13,7 @@
     }
   }
 
-  &__Title {
+  & &__Title {
     margin: 0 0 $gap-xxs;
 
     @include media(laptop) {
@@ -21,7 +21,7 @@
     }
   }
 
-  &__Subtitle {
+  & &__Subtitle {
     display: -webkit-box;
     overflow: hidden;
     -webkit-box-orient: vertical;

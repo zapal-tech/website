@@ -231,8 +231,8 @@ $level-padding: $gap-md;
             background: linear-gradient(
               to right,
               transparent 5%,
-              $orioles-orange 5%,
-              $orioles-orange 95%,
+              rgba($orioles-orange, 0.8) 5%,
+              rgba($orioles-orange, 0.8) 95%,
               transparent 95%
             );
             background-clip: content-box;
@@ -384,7 +384,13 @@ $level-padding: $gap-md;
 
       &::-webkit-scrollbar-thumb {
         border-radius: 100px;
-        background: linear-gradient(to right, transparent 5%, $orioles-orange 5%, $orioles-orange 95%, transparent 95%);
+        background: linear-gradient(
+          to right,
+          transparent 5%,
+          rgba($orioles-orange, 0.8) 5%,
+          rgba($orioles-orange, 0.8) 95%,
+          transparent 95%
+        );
         background-clip: content-box;
 
         &:hover {

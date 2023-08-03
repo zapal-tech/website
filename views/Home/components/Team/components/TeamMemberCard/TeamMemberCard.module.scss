@@ -6,13 +6,13 @@
   display: flex;
   flex-direction: column;
 
-  &__Icon,
-  &__Name,
-  &__Title {
+  & &__Icon,
+  & &__Name,
+  & &__Title {
     transition: all 0.2s ease-in-out;
   }
 
-  &__Photo {
+  & &__Photo {
     position: relative;
     border-radius: $gap-xxs;
     margin: 0 0 $gap-sm;
@@ -24,7 +24,7 @@
     }
   }
 
-  &__Icon {
+  & &__Icon {
     position: absolute;
     right: $gap-sm;
     bottom: $gap-sm;
@@ -39,7 +39,7 @@
     }
   }
 
-  &__Name {
+  & &__Name {
     margin: 0 0 5px;
 
     @include media(laptop) {
