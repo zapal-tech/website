@@ -24,6 +24,7 @@
 
   &__Link {
     display: flex;
+    align-items: baseline;
     gap: $gap-xxs;
 
     &::before {

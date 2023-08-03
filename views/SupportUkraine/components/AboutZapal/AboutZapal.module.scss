@@ -28,14 +28,21 @@
     gap: 5px;
   }
 
-  &__NeedestItem::before {
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    margin-right: $gap-xxs;
-    margin-bottom: 1px;
-    background: $white;
-    content: '';
+  &__NeedestItem {
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: -15px;
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      margin-right: $gap-xxs;
+      margin-bottom: 1px;
+      background: $white;
+      content: '';
+      transform: translateY(-50%);
+    }
   }
 }
