@@ -3,6 +3,27 @@
 @import 'styles/media';
 @import 'styles/mixins';
 
+@keyframes wave-before {
+  0%,
+  100% {
+    left: -5px;
+  }
+
+  50% {
+    left: 100%;
+  }
+}
+
+@keyframes wave-after {
+  0%,
+  100% {
+    right: -15px;
+  }
+
+  50% {
+    right: 100%;
+  }
+}
 .AboutUs {
   &__Box {
     max-width: 100%;
@@ -33,11 +54,16 @@
     margin-bottom: $gap-md;
 
     @include media(laptop) {
-      width: 1250px;
+      width: 765px;
       max-width: 100%;
       margin-bottom: 75px;
       margin-left: auto;
-      text-indent: 185px;
+      text-indent: 125px;
+    }
+
+    @include media(large-laptop) {
+      width: 1025px;
+      text-indent: 170px;
     }
   }
 
@@ -60,13 +86,18 @@
       @include pseudo();
 
       border-radius: 50%;
+      animation-timing-function: cubic-bezier(0, 1.2, 1, -0.2);
       background: $white;
     }
 
     &::before {
       top: -5px;
+      left: 0;
       width: 10px;
       height: 10px;
+      animation: wave-before 3s infinite;
+      animation-delay: 1.8s;
+      will-change: left;
     }
 
     &::after {
@@ -74,6 +105,8 @@
       right: 0;
       width: 30px;
       height: 30px;
+      animation: wave-after 3s infinite;
+      will-change: right;
     }
   }
 

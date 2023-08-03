@@ -6,13 +6,13 @@
   height: auto;
   aspect-ratio: 1/1;
 
-  &__Card {
+  & &__Card {
     align-items: center;
     justify-content: center;
   }
 
-  &__Text,
-  &__Corner {
+  & &__Text,
+  & &__Corner {
     transition: all 0.2s ease-in-out;
   }
 

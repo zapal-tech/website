@@ -20,7 +20,7 @@
     gap: $gap-xxl;
   }
 
-  &__TitleContainer {
+  & &__TitleContainer {
     display: flex;
     gap: $gap-xs;
 
@@ -29,7 +29,7 @@
     }
   }
 
-  &__Order {
+  & &__Order {
     color: $sonic-silver;
 
     &::after {
@@ -37,7 +37,7 @@
     }
   }
 
-  &__Description {
+  & &__Description {
     @include media(large-laptop) {
       max-width: 600px;
     }

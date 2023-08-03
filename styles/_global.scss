@@ -27,7 +27,7 @@ body {
       height: 32px;
       border: 0;
       // width: 2px;
-      background-color: $orioles-orange;
+      background-color: rgba($orioles-orange, 0.8);
 
       @include media(desktop) {
         height: 40px;
@@ -39,7 +39,7 @@ body {
     }
 
     ::-webkit-scrollbar-thumb {
-      background: $orioles-orange;
+      background-color: rgba($orioles-orange, 0.8);
 
       &:hover {
         background: $rosso-corsa;

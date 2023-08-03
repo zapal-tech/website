@@ -48,10 +48,11 @@ $largeLaptopMargin: $expanded-gap-sm;
     @include media(large-laptop) {
       left: $largeLaptopMargin;
       width: calc(50% - $largeLaptopMargin);
-      min-width: 820px;
+      min-width: 830px;
     }
 
     @include media(desktop) {
+      min-width: 850px;
       padding: 35px $gap-xl $gap-xl;
       border-radius: $gap-sm;
     }

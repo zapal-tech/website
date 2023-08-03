@@ -11,9 +11,9 @@ import {
 const handler = nc<NextApiRequest, NextApiResponse>();
 
 handler.post(async (req, res) => {
-  const apiTokenHeader = req.headers['Token'] as string | string[] | undefined;
-  const urlHeader = req.headers['Page-Url'] as string | string[] | undefined;
-  const pageTypeHeader = req.headers['Page-Type'] as 'main' | 'blog' | 'projects' | 'all' | string[] | undefined;
+  const apiTokenHeader = req.headers['token'] as string | string[] | undefined;
+  const urlHeader = req.headers['page-url'] as string | string[] | undefined;
+  const pageTypeHeader = req.headers['page-type'] as 'main' | 'blog' | 'projects' | 'all' | string[] | undefined;
 
   const isValidApiTokenHeader =
     apiTokenHeader && typeof apiTokenHeader === 'string' && apiTokenHeader === process.env.REVALIDATE_API_TOKEN;
