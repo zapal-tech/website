@@ -1,6 +1,6 @@
 import clsx, { ClassValue } from 'clsx';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Mapbox, {
   MapProps as MapboxProps,
   NavigationControl,
@@ -47,6 +47,30 @@ export const Map: React.FC<MapProps> = ({ className, children, markers, ...props
   const isLaptop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
   const isLargeLaptop = useMediaQuery(`(min-width: ${media.breakpointLargeLaptop})`);
 
+  const setupPaddings = useCallback(
+    (mapContainer: MapRef) => {
+      setTimeout(() => {
+        if (isFullscreen) return mapContainer.easeTo({ padding: { left: 0, right: 0, top: 0, bottom: 0 } }).resize();
+
+        if (isLargeLaptop)
+          return mapContainer
+            .easeTo({ padding: { left: paddingLeftLargeLaptop, right: 0, top: 0, bottom: 0 } })
+            .resize();
+
+        if (isLaptop)
+          return mapContainer.easeTo({ padding: { left: paddingLeftLaptop, right: 0, top: 0, bottom: 0 } }).resize();
+
+        if (isLargeTablet)
+          return mapContainer
+            .easeTo({ padding: { left: paddingLeftLargeTablet, right: 0, top: 0, bottom: 0 } })
+            .resize();
+
+        mapContainer.easeTo({ padding: { left: 0, right: 0, top: 0, bottom: paddingBottomMobile } }).resize();
+      }, 250);
+    },
+    [isLargeLaptop, isLaptop, isLargeTablet, isFullscreen],
+  );
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -58,29 +82,19 @@ export const Map: React.FC<MapProps> = ({ className, children, markers, ...props
 
     if (!mapContainer) return;
 
-    const setupPaddings = () => {
-      if (isFullscreen) return mapContainer.easeTo({ padding: { left: 0, right: 0, top: 0, bottom: 0 } });
+    setupPaddings(mapContainer);
+  }, [isLoaded, setupPaddings]);
 
-      if (isLargeLaptop)
-        return mapContainer.easeTo({ padding: { left: paddingLeftLargeLaptop, right: 0, top: 0, bottom: 0 } });
+  useEffect(() => {
+    const mapContainer = mapRef.current;
+    if (!mapContainer) return;
 
-      if (isLaptop) return mapContainer.easeTo({ padding: { left: paddingLeftLaptop, right: 0, top: 0, bottom: 0 } });
-
-      if (isLargeTablet)
-        return mapContainer.easeTo({ padding: { left: paddingLeftLargeTablet, right: 0, top: 0, bottom: 0 } });
-
-      mapContainer.easeTo({ padding: { left: 0, right: 0, top: 0, bottom: paddingBottomMobile } });
-    };
-
-    setupPaddings();
-  }, [isLoaded, isLargeLaptop, isLaptop, isLargeTablet, isFullscreen]);
+    if (!isFullscreen) setupPaddings(mapContainer);
+  }, [mapRef, isFullscreen, setupPaddings]);
 
   useEffect(() => {
     const handleFullscreen = () => {
-      const mapContainer = mapRef.current;
-      const isFullscreen = document.fullscreenElement?.id === mapId;
-
-      if (!mapContainer) return;
+      const isFullscreen = mapRef.current ? document.fullscreenElement?.id === mapId : false;
 
       setIsFullscreen(isFullscreen);
     };
