@@ -1,11 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { CSSTransition } from 'react-transition-group';
 import * as yup from 'yup';
 
-import { Namespace } from 'configs/i18n';
+import { Namespace, defaultLanguage } from 'configs/i18n';
 
 import { ContactFormState } from 'types/contactForm';
 
@@ -23,7 +24,8 @@ import styles from './ContactForm.module.scss';
 type MessageState = { isShow: boolean; type: 'error' | 'success' };
 
 export const ContactForm: React.FC = () => {
-  const { t } = useTranslation([Namespace.ContactForm, Namespace.Common]);
+  const { t, i18n } = useTranslation([Namespace.ContactForm, Namespace.Common]);
+  const router = useRouter();
   const { clearContactForm, closeModal, contactForm, setContactFormFieldValue } = useGlobalContext();
   const isLaptop = useMediaQuery(`(min-width: ${media.breakpointLaptop})`);
   const [messageState, setMessageState] = useState<MessageState>({ isShow: false, type: 'success' });
@@ -32,7 +34,7 @@ export const ContactForm: React.FC = () => {
     () =>
       yup.object<ContactFormState>().shape({
         firstName: yup.string().required(t('validation.required')!),
-        lastName: yup.string().required(t('validation.required')!),
+        lastName: yup.string(),
         email: yup.string().email(t('validation.email')!).required(t('validation.required')!),
         company: yup.string(),
         message: yup.string().required(t('validation.required')!),
@@ -65,7 +67,11 @@ export const ContactForm: React.FC = () => {
     const res = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        ...data,
+        comeFromPage: router.pathname,
+        comeFromLanguage: i18n.language || defaultLanguage,
+      }),
     });
 
     if (res.status === 201) {
@@ -156,7 +162,6 @@ export const ContactForm: React.FC = () => {
               onChange={handleChange}
               autoComplete="family-name"
               placeholder={t('form.lastName')}
-              required
             />
 
             <Input

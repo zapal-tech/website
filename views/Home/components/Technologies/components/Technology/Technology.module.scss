@@ -9,17 +9,17 @@
   aspect-ratio: 1;
 
   // Image component (image container)
-  &__ImageContainer {
+  & &__ImageContainer {
     aspect-ratio: 1;
   }
 
   // Image component (img itself)
-  &__Image {
+  & &__Image {
     object-fit: contain !important;
   }
 
   // Corner UI element
-  &__Corner {
+  & &__Corner {
     opacity: 0;
     transition: opacity 0.2s ease-in;
     will-change: opacity;
@@ -35,7 +35,7 @@
     opacity: 1;
   }
 
-  &__InnerContainer {
+  & &__InnerContainer {
     position: relative;
     overflow: visible;
     width: 100%;
@@ -43,7 +43,7 @@
     padding: 0;
   }
 
-  &__Icon {
+  & &__Icon {
     position: absolute;
     z-index: 0;
     top: 0;
@@ -69,7 +69,7 @@
     transition: none;
   }
 
-  &__DescriptionContainer {
+  & &__DescriptionContainer {
     position: absolute;
     z-index: 0;
     top: 0;
@@ -114,8 +114,8 @@
     }
   }
 
-  &__Title,
-  &__Description {
+  & &__Title,
+  & &__Description {
     display: block;
     padding-left: $gap-sm;
     opacity: 0;
@@ -127,12 +127,12 @@
     }
   }
 
-  &__Title {
+  & &__Title {
     line-height: 1;
     white-space: nowrap;
   }
 
-  &__Description {
+  & &__Description {
     line-height: 1.25;
 
     @include media(large-laptop) {

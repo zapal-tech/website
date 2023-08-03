@@ -16,8 +16,8 @@
     border-radius: $gap-sm;
   }
 
-  &__Image,
-  &__InnerCard {
+  & &__Image,
+  & &__InnerCard {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -26,7 +26,7 @@
     transform: translate(-50%, -50%);
   }
 
-  &__InnerCard {
+  & &__InnerCard {
     display: flex;
     width: 70%;
     height: auto;
@@ -39,7 +39,7 @@
       border-radius: 7px !important;
     }
 
-    & &__Dot {
+    &__Dot {
       display: none;
       width: $gap-xxs !important;
       height: $gap-xxs !important;
@@ -70,11 +70,11 @@
     }
   }
 
-  &__Image {
+  & &__Image {
     object-fit: cover;
   }
 
-  &__Name {
+  & &__Name {
     position: relative;
     text-align: center;
     text-shadow: 0 0 5px rgba($black, 0.5);
@@ -84,7 +84,7 @@
     }
   }
 
-  &__Button {
+  & &__Button {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -108,13 +108,13 @@
     }
   }
 
-  &__ButtonText {
+  & &__ButtonText {
     border-bottom: 1px solid transparent;
     transition: all 0.2s ease-in-out;
   }
 
   &:focus-visible &__ButtonText,
-  &__Button:hover &__ButtonText {
+  & &__Button:hover &__ButtonText {
     border-color: $white;
   }
 }

@@ -14,7 +14,7 @@
     grid-template-rows: 1fr;
   }
 
-  &__Photo {
+  & &__Photo {
     border-radius: $gap-xxs;
     aspect-ratio: 1/1;
 
@@ -23,11 +23,11 @@
     }
   }
 
-  &__Name {
+  & &__Name {
     margin: 0 0 $gap-xxs;
   }
 
-  &__Title {
+  & &__Title {
     color: $sonic-silver;
 
     &--MarginBottom {
@@ -39,7 +39,7 @@
     }
   }
 
-  &__Bio {
+  & &__Bio {
     &--MarginBottom {
       margin: 0 0 $gap-sm;
 
@@ -49,7 +49,7 @@
     }
   }
 
-  &__Links {
+  & &__Links {
     &,
     & > li {
       display: flex;
@@ -57,7 +57,7 @@
     }
   }
 
-  &__Link {
+  & &__Link {
     & > * {
       transition: all 0.2s ease-in-out;
     }

@@ -27,27 +27,35 @@
       gap: $gap-lg;
       grid-template-columns: 1fr 1fr;
     }
+
+    @include media(laptop) {
+      gap: $gap-xxl;
+    }
   }
 
   &__Grid {
     display: grid;
-    gap: $gap-md;
+    margin-right: -$gap-xs;
+    margin-left: -$gap-xs;
+    gap: $gap-xxs;
     grid-template-columns: repeat(4, 1fr);
 
     @include media(phone) {
-      gap: $gap-lg;
+      gap: $gap-sm;
     }
 
     @include media(large-phone) {
-      gap: $gap-xxl;
+      gap: 5vw;
     }
 
     @include media(tablet) {
-      gap: $expanded-gap-xs;
+      gap: $gap-xxs;
+      grid-template-columns: repeat(8, 1fr);
     }
 
     @include media(large-tablet) {
       gap: $gap-lg;
+      grid-template-columns: repeat(4, 1fr);
     }
 
     @media screen and (min-width: 1440px) {
@@ -55,6 +63,8 @@
     }
 
     @include media(large-laptop) {
+      margin-right: -$gap-sm;
+      margin-left: -$gap-sm;
       gap: $gap-xxl;
     }
   }
