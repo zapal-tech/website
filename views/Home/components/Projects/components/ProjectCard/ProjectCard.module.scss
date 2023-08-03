@@ -41,9 +41,9 @@
 
     & &__Dot {
       display: none;
-      width: $gap-xxs;
-      height: $gap-xxs;
-      border-radius: 50%;
+      width: $gap-xxs !important;
+      height: $gap-xxs !important;
+      border-radius: 50% !important;
       background: $white;
       opacity: 0;
       transition: opacity 0.2s ease-in-out;
