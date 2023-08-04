@@ -13,7 +13,7 @@ export const SupportUkrainianBusiness = () => {
           5/ SUPPORT UKRAINIAN BUSINESSES
         </Text>
         <Text className={styles.SupportUkrainianBusiness__Text} size="small">
-          As we weaken the Russian economy, we need to strengthen the Ukrainian economy as well. The effects of war will
+          As we weaken the russian economy, we need to strengthen the Ukrainian economy as well. The effects of war will
           be felt in every area of the lives of Ukrainians. The situation may worsen if foreign companies and partners
           stop collaborating with our companies.
         </Text>
@@ -30,7 +30,7 @@ export const SupportUkrainianBusiness = () => {
       </div>
 
       <div className={styles.SupportUkrainianBusiness__LinkBox}>
-        <Link href="https://en.wikipedia.org/wiki/Category:Ukrainian_brands">UKRAINIAN BRANDS</Link>
+        <Link href="https://support-ukrainian-business.super.site/">UKRAINIAN BRANDS</Link>
         <Text size="small" className={styles.SupportUkrainianBusiness__LinkText}>
           In addition, you can support Ukraine’s economy by purchasing goods and services from Ukrainian companies. Here
           is a list of Ukrainian brands that ship their products to countries outside Ukraine.
