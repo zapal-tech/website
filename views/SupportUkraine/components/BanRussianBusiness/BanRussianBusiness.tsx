@@ -27,7 +27,7 @@ const svgList = [
   },
 ];
 
-export const BanRussianBusiness = () => {
+export const BanRussianBusiness = () => (
   <div id={SupportUkraineSections.BanRussianBusinesses} className={styles.BanRussianBusiness}>
     <div className={styles.BanRussianBusiness__ListBox}>
       <Text className={styles.BanRussianBusiness__FoundationTitle} size="heading2">
@@ -91,5 +91,5 @@ export const BanRussianBusiness = () => {
         list provided by Yale School of Management shows which businesses exited or chose to stay in the russian market.
       </Text>
     </div>
-  </div>;
-};
+  </div>
+);
