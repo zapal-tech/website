@@ -38,7 +38,7 @@ export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
         </Text>
       )}
 
-      {links?.length && (
+      {links?.length ? (
         <ul className={styles.TeamMemberCard__Links}>
           {links.map(({ title, link }, idx) => (
             <li key={link}>
@@ -50,7 +50,7 @@ export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
             </li>
           ))}
         </ul>
-      )}
+      ) : null}
     </div>
   </div>
 );

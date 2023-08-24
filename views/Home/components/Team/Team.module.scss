@@ -1,15 +1,26 @@
 @import 'styles/colors';
 @import 'styles/gaps';
 @import 'styles/mixins';
+@import 'styles/variables';
 
 $particles-mask: radial-gradient(circle, $jet-black 30%, transparent 70%);
 
 .Team {
   position: relative;
-  padding-bottom: $gap-xl;
 
-  @include media(laptop) {
-    padding-bottom: 0;
+  & &__Section {
+    &:not(:last-child) {
+      padding-bottom: 0;
+    }
+
+    &:last-child {
+      padding-top: 0;
+      padding-bottom: $gap-xl;
+
+      @include media(laptop) {
+        padding-bottom: 0;
+      }
+    }
   }
 
   &__Particles {
@@ -33,16 +44,63 @@ $particles-mask: radial-gradient(circle, $jet-black 30%, transparent 70%);
     }
   }
 
+  &__MembersContainer {
+    position: relative;
+
+    &::-webkit-scrollbar {
+      height: 0;
+    }
+
+    &::before,
+    &::after {
+      @include pseudo();
+      z-index: 2;
+
+      top: 0;
+      bottom: 0;
+      width: $gap-sm;
+      height: 100%;
+
+      @include media(phone) {
+        width: $gap-lg;
+      }
+
+      @include media(tablet) {
+        display: none;
+      }
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, $jet-black, cubic-bezier(0.5, 0, 0.7, 1), transparent);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, $jet-black, cubic-bezier(0.5, 0, 0.7, 1), transparent);
+    }
+  }
+
   &__Members {
     position: relative;
     z-index: 1;
     display: grid;
     overflow: auto;
     width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
     margin: 0 0 $expanded-gap-xs;
     gap: $gap-lg;
     grid-auto-columns: 80%;
     grid-auto-flow: column;
+
+    @media screen and (max-width < 768px) {
+      padding: 0 $gap-sm;
+
+      @include media(phone) {
+        padding: 0 $gap-lg;
+      }
+    }
 
     @include media(large-phone) {
       grid-auto-columns: 75%;

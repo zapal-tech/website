@@ -24,7 +24,7 @@ export const Technology: React.FC<TechnologyType> = ({ attributes: { icon, title
         frameType="corner"
         small
       >
-        <Text type="h3" className={styles.Technology__Title} size="small">
+        <Text className={styles.Technology__Title} size="small">
           {title}
         </Text>
 

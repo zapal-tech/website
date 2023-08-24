@@ -18,8 +18,8 @@
       "url": "/about"
     },
     {
-      "name": "Services",
-      "url": "/about#services"
+      "name": "Projects",
+      "url": "/projects"
     },
     {
       "name": "Contacts",
@@ -29,6 +29,6 @@
   "start_url": "/",
   "orientation": "any",
   "theme_color": "#F84C0B",
-  "background_color": "#070707",
+  "background_color": "#020202",
   "display": "standalone"
 }

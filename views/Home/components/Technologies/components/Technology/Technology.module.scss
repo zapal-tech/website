@@ -4,12 +4,19 @@
 
 .Technology {
   display: block;
-  overflow: visible;
+  overflow: hidden;
   width: 100%;
   aspect-ratio: 1;
 
+  @include media(laptop) {
+    overflow: visible;
+  }
+
   // Image component (image container)
   & &__ImageContainer {
+    width: auto !important;
+    height: 100% !important;
+    padding: 0;
     aspect-ratio: 1;
   }
 
@@ -48,11 +55,9 @@
     z-index: 0;
     top: 0;
     left: 0;
-    display: grid;
     height: 100%;
     padding: $gap-xs;
     aspect-ratio: 1;
-    place-items: center;
     // Delay z-index reset transition to prevent flickering
     transition: z-index 0.3s step-end;
     will-change: z-index;

@@ -27,7 +27,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   return (
     <AppLayout>
       <Container className={styles.Projects}>
-        <Text className={styles.Projects__Title} type="h2" size="heading1" uppercase>
+        <Text className={styles.Projects__Title} type="h1" size="heading1" uppercase>
           {t('title')}
         </Text>
         <div className={styles.Projects__SubtitleContainer}>

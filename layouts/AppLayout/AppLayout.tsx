@@ -1,3 +1,4 @@
+import clsx, { ClassValue } from 'clsx';
 import dynamic from 'next/dynamic';
 
 import { Header } from 'components/Header/Header';
@@ -8,14 +9,15 @@ const Footer = dynamic(() => import('components/Footer/Footer').then((mod) => mo
 const Modal = dynamic(() => import('components/Modal/Modal').then((mod) => mod.Modal));
 const MetaPixel = dynamic(() => import('components/MetaPixel/MetaPixel').then((mod) => mod.MetaPixel));
 
-export interface AppLayoutProps {
-  children: React.ReactNode;
-}
+export type AppLayoutProps = React.PropsWithChildren<{
+  className?: ClassValue | ClassValue[];
+  mainClassName?: ClassValue | ClassValue[];
+}>;
 
-export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => (
-  <div className={styles.AppLayout}>
+export const AppLayout: React.FC<AppLayoutProps> = ({ children, className, mainClassName }) => (
+  <div className={clsx(styles.AppLayout, className)}>
     <Header />
-    <main className={styles.AppLayout__Main}>{children}</main>
+    <main className={clsx(styles.AppLayout__Main, mainClassName)}>{children}</main>
     <Footer />
 
     <MetaPixel />

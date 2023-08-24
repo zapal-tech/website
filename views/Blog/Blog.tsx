@@ -26,7 +26,7 @@ export const Blog: React.FC<BlogProps> = ({ articles }) => {
   return (
     <AppLayout>
       <Container className={styles.Blog}>
-        <Text className={styles.Blog__Title} type="h2" size="heading1" uppercase>
+        <Text className={styles.Blog__Title} type="h1" size="heading1" uppercase>
           {t('title')}
         </Text>
 

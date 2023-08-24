@@ -4,11 +4,11 @@
 .Services {
   display: flex;
   flex-direction: column;
-  margin-bottom: $gap-lg;
+  padding-bottom: $gap-lg;
   gap: $gap-lg;
 
   @include media(laptop) {
-    margin-bottom: $gap-xl;
+    padding-bottom: $gap-xl;
   }
 
   &__Icons {
