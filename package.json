@@ -31,11 +31,13 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
+    "@studio-freight/react-lenis": "^0.0.26",
     "@svgr/webpack": "^8.0.1",
     "@vercel/analytics": "^1.0.1",
     "axios": "^1.4.0",
     "clsx": "^2.0.0",
     "firebase": "^9.23.0",
+    "framer-motion": "^10.16.2",
     "highlight.js": "^11.8.0",
     "html-react-parser": "^4.2.0",
     "i18next": "^23.2.8",

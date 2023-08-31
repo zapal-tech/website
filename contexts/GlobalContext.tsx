@@ -1,3 +1,4 @@
+import { useLenis } from '@studio-freight/react-lenis';
 import { createContext, useEffect, useMemo, useState } from 'react';
 
 import { ContactFormState } from 'types/contactForm';
@@ -65,6 +66,7 @@ export const GlobalContextProvider: React.FC<{ pageProps: Record<string, any> } 
   const [modal, setModal] = useState(initialModalState);
   const [currentLocationId, setCurrentLocationId] = useState<number | null>(null);
   const [contactForm, setContactForm] = useState(initialContactFormState);
+
   const currentLocation = useMemo<Location | undefined>(
     () =>
       typeof currentLocationId === 'number' && pageProps.locations

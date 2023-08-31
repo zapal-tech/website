@@ -1,0 +1,11 @@
+@import 'styles/colors';
+
+@import './components/Hero/Hero.module';
+
+.Home {
+  &__Main {
+    & > * {
+      background: $jet-black;
+    }
+  }
+}

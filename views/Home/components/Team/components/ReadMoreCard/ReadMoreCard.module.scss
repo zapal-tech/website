@@ -1,5 +1,6 @@
 @import 'styles/colors';
 @import 'styles/gaps';
+@import 'styles/mixins';
 
 .ReadMoreCard {
   width: 100%;
@@ -9,9 +10,31 @@
   & &__Card {
     align-items: center;
     justify-content: center;
+
+    @include media(laptop) {
+      display: block;
+    }
   }
 
-  & &__Text,
+  & &__Text {
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+
+    @include media(laptop) {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 189px;
+      text-align: center;
+      transform: translateY(-50%);
+      will-change: width, color;
+    }
+
+    @include media(laptop) {
+      width: 273px;
+    }
+  }
+
   & &__Corner {
     transition: all 0.2s ease-in-out;
   }
@@ -19,6 +42,10 @@
   &:hover &__Text,
   &:focus-visible &__Text {
     color: $orioles-orange;
+
+    @include media(laptop) {
+      width: 100%;
+    }
   }
 
   &:hover &__Corner,

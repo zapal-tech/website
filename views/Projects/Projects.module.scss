@@ -46,6 +46,7 @@
       height: 400px;
       transform: rotate(180deg);
     }
+
     @include media(desktop) {
       top: -240px;
       right: -$expanded-gap-sm;
@@ -73,7 +74,7 @@
   &__ProjectCard {
     &:nth-child(2n + 2) {
       @include media(laptop) {
-        margin: 75% 0 -75%;
+        margin: 60% 0 -60%;
       }
 
       &:last-child {

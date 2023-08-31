@@ -12,6 +12,8 @@ import { AppLayout } from 'layouts';
 
 import { Hero } from './components/Hero/Hero';
 
+import styles from './Home.module.scss';
+
 const AboutUs = dynamic(() => import('./components/AboutUs/AboutUs').then((mod) => mod.AboutUs));
 const Services = dynamic(() => import('./components/Services/Services').then((mod) => mod.Services));
 const Technologies = dynamic(() => import('./components/Technologies/Technologies').then((mod) => mod.Technologies));
@@ -29,7 +31,7 @@ export type HomeProps = Page<{
 }>;
 
 export const Home: React.FC<HomeProps> = ({ partners, projects, services, team, technologies }) => (
-  <AppLayout>
+  <AppLayout mainClassName={styles.Home__Main}>
     <Hero />
     <AboutUs />
     <Services services={services} />

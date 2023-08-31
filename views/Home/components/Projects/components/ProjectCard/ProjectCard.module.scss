@@ -6,7 +6,7 @@
   position: relative;
   overflow: hidden;
   border-radius: $gap-xxs;
-  aspect-ratio: 7/5;
+  aspect-ratio: 5/4;
 
   @include media(tablet) {
     aspect-ratio: 4/3;
@@ -14,6 +14,7 @@
 
   @include media(laptop) {
     border-radius: $gap-sm;
+    aspect-ratio: 5/4;
   }
 
   & &__Image,
@@ -32,25 +33,20 @@
     height: auto;
     align-items: center;
     justify-content: center;
+    border-radius: 6px !important;
     aspect-ratio: 55/41;
-    transition: all 0.25s ease-in-out;
-
-    @include media(laptop) {
-      border-radius: 7px !important;
-    }
+    background: rgb($jet-black, 0.9);
+    opacity: 0;
+    transition: opacity ease-out 0.25s;
+    will-change: opacity;
 
     &__Dot {
-      display: none;
+      display: block;
       width: $gap-xxs !important;
       height: $gap-xxs !important;
       border-radius: 50% !important;
       background: $white;
-      opacity: 0;
-      transition: opacity 0.2s ease-in-out;
-
-      @include media(laptop) {
-        display: block;
-      }
+      transition: opacity ease-out 0.25s;
     }
   }
 
@@ -58,30 +54,27 @@
   &:focus-within &__InnerCard,
   &:focus-visible &__InnerCard {
     @include media(laptop) {
-      background: rgb($jet-black, 0.9);
-    }
-  }
-
-  &:hover &__InnerCard__Dot,
-  &:focus-within &__InnerCard__Dot,
-  &:focus-visible &__InnerCard__Dot {
-    @include media(laptop) {
       opacity: 1;
     }
   }
 
   & &__Image {
     object-fit: cover;
+    transition: filter ease-out 0.25s;
+    will-change: filter;
+  }
+
+  &:hover &__Image,
+  &:focus-within &__Image,
+  &:focus-visible &__Image {
+    @include media(laptop) {
+      filter: blur(8px);
+    }
   }
 
   & &__Name {
     position: relative;
     text-align: center;
-    text-shadow: 0 0 5px rgba($black, 0.5);
-
-    @include media(large-tablet) {
-      text-shadow: 0 0 15px rgba($black, 0.4);
-    }
   }
 
   & &__Button {
@@ -93,7 +86,7 @@
     cursor: pointer;
     opacity: 0;
     transform: translate(-50%, 100%);
-    transition: all 0.2s ease-in-out;
+    transition: all ease-in-out 0.2s;
 
     @include media(laptop) {
       display: block;
@@ -110,7 +103,7 @@
 
   & &__ButtonText {
     border-bottom: 1px solid transparent;
-    transition: all 0.2s ease-in-out;
+    transition: border-color ease-in-out 0.2s;
   }
 
   &:focus-visible &__ButtonText,

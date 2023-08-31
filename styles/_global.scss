@@ -23,17 +23,6 @@ body {
       height: 2px;
     }
 
-    &::-webkit-scrollbar-button:vertical:decrement {
-      height: 32px;
-      border: 0;
-      // width: 2px;
-      background-color: rgba($orioles-orange, 0.8);
-
-      @include media(desktop) {
-        height: 40px;
-      }
-    }
-
     ::-webkit-scrollbar-track {
       background: $jet-black;
     }
@@ -50,4 +39,26 @@ body {
 
 * {
   font-weight: inherit;
+}
+
+// Lenis recommended styles
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

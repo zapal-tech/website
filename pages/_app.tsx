@@ -1,3 +1,4 @@
+import { Lenis } from '@studio-freight/react-lenis';
 import { Analytics } from '@vercel/analytics/react';
 import clsx from 'clsx';
 import { appWithTranslation } from 'next-i18next';
@@ -42,16 +43,24 @@ const ronaldFont = localFont({
   ],
 });
 
+if (typeof window !== 'undefined') {
+  // reset scroll position
+  window.scrollTo(0, 0);
+  window.history.scrollRestoration = 'manual';
+}
+
 const App: React.FC<AppProps> = ({ Component, pageProps }) => (
   <>
     <DefaultSeo />
 
-    <div id="app" className={clsx(ronaldFont.className, ronaldFont.variable)}>
-      <GlobalContextProvider pageProps={pageProps}>
-        <Component {...pageProps} />
-        <PageLoader />
-      </GlobalContextProvider>
-    </div>
+    <Lenis root>
+      <div id="app" className={clsx(ronaldFont.className, ronaldFont.variable)}>
+        <GlobalContextProvider pageProps={pageProps}>
+          <Component {...pageProps} />
+          <PageLoader />
+        </GlobalContextProvider>
+      </div>
+    </Lenis>
 
     <Analytics />
   </>

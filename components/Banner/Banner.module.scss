@@ -20,6 +20,7 @@
   &__Text {
     position: relative;
     padding-right: 22px;
+    line-height: 0.85;
 
     @include media(laptop) {
       padding-right: 28px;
@@ -31,7 +32,7 @@
 
     &::after {
       @include pseudo();
-      top: 50%;
+      top: 47%;
       right: 0;
       width: 15px;
       height: 15px;
