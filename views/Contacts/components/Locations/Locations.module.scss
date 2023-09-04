@@ -19,7 +19,7 @@ $largeLaptopMargin: $expanded-gap-sm;
     width: calc(100% - $defaultMargin * 2);
     padding: 10px 25px 25px;
     border-radius: $gap-xxs;
-    background: rgba($jet-black, 0.9);
+    background: rgba($black, 0.9);
     font-family: var(--Ronald-font) !important; // Mapbox override
     transform: translateX(-50%);
 

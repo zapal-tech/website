@@ -3,7 +3,7 @@
 @import 'styles/mixins';
 @import 'styles/variables';
 
-$particles-mask: radial-gradient(circle, $jet-black 30%, transparent 70%);
+$particles-mask: radial-gradient(circle, $black 30%, transparent 70%);
 
 .Team {
   position: relative;
@@ -72,12 +72,12 @@ $particles-mask: radial-gradient(circle, $jet-black 30%, transparent 70%);
 
     &::before {
       left: 0;
-      background: linear-gradient(to right, $jet-black, cubic-bezier(0.5, 0, 0.7, 1), transparent);
+      background: linear-gradient(to right, $black, cubic-bezier(0.5, 0, 0.7, 1), transparent);
     }
 
     &::after {
       right: 0;
-      background: linear-gradient(to left, $jet-black, cubic-bezier(0.5, 0, 0.7, 1), transparent);
+      background: linear-gradient(to left, $black, cubic-bezier(0.5, 0, 0.7, 1), transparent);
     }
   }
 

@@ -22,6 +22,10 @@
       "url": "/projects"
     },
     {
+      "name": "Blog",
+      "url": "/blog"
+    },
+    {
       "name": "Contacts",
       "url": "/contacts"
     }
@@ -29,6 +33,6 @@
   "start_url": "/",
   "orientation": "any",
   "theme_color": "#F84C0B",
-  "background_color": "#020202",
+  "background_color": "#000000",
   "display": "standalone"
 }

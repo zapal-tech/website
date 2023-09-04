@@ -5,7 +5,7 @@ import colors from 'styles/colors.module.scss';
 export const calendlyInlineConfig: Props = {
   url: process.env.NEXT_PUBLIC_CALENDLY_URL as string,
   pageSettings: {
-    backgroundColor: colors.jetBlack,
+    backgroundColor: colors.black,
     textColor: colors.white,
     primaryColor: colors.oriolesOrange,
     hideGdprBanner: true,

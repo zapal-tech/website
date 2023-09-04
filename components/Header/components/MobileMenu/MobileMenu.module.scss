@@ -17,7 +17,7 @@ $mobile-safe-area-bottom: $gap-xl;
   flex-direction: column;
   padding-bottom: $mobile-safe-area-bottom + $gap-lg;
   backdrop-filter: saturate(110%) blur($blur-zero);
-  background: rgba($jet-black, 0.85);
+  background: rgba($black, 0.85);
   // filter: blur($blur-md) opacity(0.1);
   transition: /* filter ease-out 0.3s, */ backdrop-filter 0.25s linear, transform 0.2s cubic-bezier(0.65, 0, 0.45, 1);
   will-change: /* filter */ transform backdrop-filter;

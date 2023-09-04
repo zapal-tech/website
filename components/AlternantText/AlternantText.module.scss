@@ -2,7 +2,7 @@
 @import 'styles/gaps';
 @import 'styles/mixins';
 
-$mask: linear-gradient(to bottom, transparent 0%, $jet-black 3%, $jet-black 97%, transparent 100%);
+$mask: linear-gradient(to bottom, transparent 0%, $black 3%, $black 97%, transparent 100%);
 
 .AlternantText {
   display: flex;

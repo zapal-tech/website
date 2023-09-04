@@ -30,7 +30,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: $jet-black;
+  background: $black;
   filter: opacity(0) blur($blur-sm);
   transition: filter 0.3s ease-out;
   will-change: filter;
@@ -40,19 +40,12 @@
   }
 
   // Invert this gradient to make the barber pole spin the other way
-  // Before: linear-gradient($logo-angle, $jet-black, $jet-black 30%, transparent 30%, transparent 60%, $jet-black 87%);
+  // Before: linear-gradient($logo-angle, $black, $black 30%, transparent 30%, transparent 60%, $black 87%);
 
   &__Logo {
     animation: BarberPoleMobile 0.7s linear infinite;
-    background: $jet-black;
-    mask-image: linear-gradient(
-      $logo-angle,
-      $jet-black,
-      $jet-black 30%,
-      transparent 30%,
-      transparent 55%,
-      $jet-black 82%
-    );
+    background: $black;
+    mask-image: linear-gradient($logo-angle, $black, $black 30%, transparent 30%, transparent 55%, $black 82%);
     mask-size: 115px 55px;
     pointer-events: none;
 

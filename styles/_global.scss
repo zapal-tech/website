@@ -3,7 +3,7 @@
 
 html,
 body {
-  background: $jet-black;
+  background: $black;
   font-size: 16px;
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
@@ -24,7 +24,7 @@ body {
     }
 
     ::-webkit-scrollbar-track {
-      background: $jet-black;
+      background: $black;
     }
 
     ::-webkit-scrollbar-thumb {

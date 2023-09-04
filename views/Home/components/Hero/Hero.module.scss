@@ -2,8 +2,8 @@
 @import 'styles/gaps';
 @import 'styles/mixins';
 
-$bottom-gradient: linear-gradient(to bottom, transparent 85%, $jet-black);
-$bottom-mask: linear-gradient(to bottom, $jet-black 88%, transparent 98%);
+$bottom-gradient: linear-gradient(to bottom, transparent 85%, $black);
+$bottom-mask: linear-gradient(to bottom, $black 88%, transparent 98%);
 
 .Hero {
   position: relative;
