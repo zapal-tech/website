@@ -10,4 +10,5 @@ export enum Routes {
   CookiesPolicy = '/cookies-policy',
   SupportUkraine = '/support-ukraine',
   Sitemap = '/sitemap',
+  ScheduleMeeting = '/schedule-meeting',
 }

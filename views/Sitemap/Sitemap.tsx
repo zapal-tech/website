@@ -29,17 +29,21 @@ export const Sitemap: React.FC<SitemapProps> = () => {
       title: t('about.title', { ns: Namespace.Navigation }),
       href: Routes.About,
     },
-    // {
-    //   title: t('blog.title', { ns: Namespace.Navigation }),
-    //   href: Routes.Blog,
-    // },
     {
       title: t('projects.title', { ns: Namespace.Navigation }),
       href: Routes.Projects,
     },
     {
+      title: t('blog.title', { ns: Namespace.Navigation }),
+      href: Routes.Blog,
+    },
+    {
       title: t('contacts.title', { ns: Namespace.Navigation }),
       href: Routes.Contacts,
+    },
+    {
+      title: t('scheduleMeeting.title', { ns: Namespace.Navigation }),
+      href: Routes.ScheduleMeeting,
     },
     {
       title: t('supportUkraine.title', { ns: Namespace.Navigation }),

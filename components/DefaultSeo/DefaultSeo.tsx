@@ -1,5 +1,11 @@
 import { useTranslation } from 'next-i18next';
-import { DefaultSeo as DefaultSeoComponent, DefaultSeoProps, OrganizationJsonLd, ImageJsonLd } from 'next-seo';
+import {
+  DefaultSeo as DefaultSeoComponent,
+  DefaultSeoProps,
+  OrganizationJsonLd,
+  ImageJsonLd,
+  LocalBusinessJsonLd,
+} from 'next-seo';
 
 import { Namespace, defaultLanguage } from 'configs/i18n';
 
@@ -46,6 +52,7 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
           { rel: 'manifest', href: '/manifest.json' },
         ]}
         additionalMetaTags={[{ name: 'msapplication-TileColor', content: colors.defaultBackgroundColor }]}
+        {...props}
       />
 
       <ImageJsonLd
@@ -62,12 +69,14 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
         legalName="Zapal"
         slogan={t('slogan')}
         email={t('email')}
+        telephone={t('phone')}
         contactPoint={[
           {
             email: t('email'),
             url: getAbsoluteUrl(Routes.Contacts),
             contactType: 'customer support',
             availableLanguage: ['English', 'Ukrainian'],
+            telephone: t('phone'),
           },
         ]}
         url={getAbsoluteUrl(undefined, false)}
@@ -92,6 +101,11 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
             addressCountry: 'Ukraine',
           },
         }}
+        hasMap={
+          'https://www.google.com/maps/place/Zapal/@50.4486861,30.4807515,14z/data=!4m6!3m5!1s0x40d4cf1e30b79a8f:0xded51b7b7e3e05a2!8m2!3d50.4376149!4d30.5273295!16s%2Fg%2F11vb6h63yb'
+        }
+        latitude={50.43761674349085}
+        longitude={30.527328695563476}
         sameAs={[
           'https://github.com/zapal-tech',
           'https://linkedin.com/company/zapal',
@@ -101,13 +115,12 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
         ]}
         address={{
           type: 'PostalAddress',
-          streetAddress: 'Mechnykova St, 2, Parus Business Centre',
+          streetAddress: 'Mechnykova St, 2, Kyiv',
           addressLocality: 'Kyiv',
           addressRegion: 'UA',
           postalCode: '01601',
           addressCountry: 'Ukraine',
         }}
-        {...props}
       />
     </>
   );

@@ -179,3 +179,9 @@ export const getSitemapPage = async (locale?: string): Promise<ApiResponse<ApiPa
 
   return data;
 };
+
+export const getScheduleMeetingPage = async (locale?: string): Promise<ApiResponse<ApiPage>> => {
+  const { data } = await api.get<ApiResponse<ApiPage>>('/schedule-meeting-page', { params: { locale } });
+
+  return data;
+};

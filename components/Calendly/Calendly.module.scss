@@ -9,18 +9,18 @@
   }
 
   iframe {
-    height: 1080px !important;
+    height: 1240px !important;
 
     @include media(phone) {
-      height: 1060px !important;
+      height: 1180px !important;
     }
 
     @include media(large-phone) {
-      height: 1120px !important;
+      height: 1200px !important;
     }
 
     @include media(laptop) {
-      height: 660px !important;
+      height: 800px !important;
     }
   }
 }

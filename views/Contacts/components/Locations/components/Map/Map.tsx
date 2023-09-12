@@ -76,6 +76,13 @@ export const Map: React.FC<MapProps> = ({ className, children, markers, ...props
   }, []);
 
   useEffect(() => {
+    const mapHTMLContainer = document.getElementById(mapId);
+
+    // Prevent Lenis from scroll while zooming map
+    mapHTMLContainer?.setAttribute('data-lenis-prevent', '');
+  }, [isMounted, mapRef]);
+
+  useEffect(() => {
     if (!isLoaded) return;
 
     const mapContainer = mapRef.current;
