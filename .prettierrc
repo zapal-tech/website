@@ -3,6 +3,8 @@
   "bracketSpacing": true,
   "endOfLine": "lf",
   "importOrder": [
+    "^(react|react-dom)$",
+    "<THIRD_PARTY_MODULES>",
     "^(^public$)|(^public/(.*)$)$",
     "^(^configs$)|(^configs/(.*)$)$",
     "^(^types$)|(^types/(.*)$)$",
@@ -25,6 +27,8 @@
     "^\\./(.*\\.(css|scss))$"
   ],
   "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "printWidth": 120,
   "proseWrap": "always",
   "semi": true,

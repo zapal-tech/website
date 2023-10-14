@@ -24,12 +24,12 @@ const nextConfig = {
   i18n,
   images: {
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
+    contentDispositionType: 'inline',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    deviceSizes: [1024, 1280, 1440, 1680, 1920, 2560, 3840],
-    imageSizes: [700, 750, 800, 850, 900, 950, 1000],
+    deviceSizes: [1680, 1920, 2560, 3840],
+    imageSizes: [700, 800, 1200, 1600],
     formats: ['image/webp'],
-    minimumCacheTTL: 60 * 10,
+    minimumCacheTTL: 60 * 24,
     remotePatterns: [
       {
         protocol: 'https',
