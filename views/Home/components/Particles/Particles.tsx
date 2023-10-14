@@ -1,5 +1,6 @@
-import clsx, { ClassValue } from 'clsx';
 import { useCallback } from 'react';
+
+import clsx, { ClassValue } from 'clsx';
 import ReactParticles from 'react-tsparticles';
 import { Engine } from 'tsparticles-engine';
 import { loadExternalAttractInteraction } from 'tsparticles-interaction-external-attract';
@@ -9,11 +10,11 @@ import { loadBaseMover } from 'tsparticles-move-base';
 import { loadParallaxMover } from 'tsparticles-move-parallax';
 import { loadLineShape } from 'tsparticles-shape-line';
 import { loadSquareShape } from 'tsparticles-shape-square';
-import { loadAngleUpdater } from 'tsparticles-updater-angle';
 import { loadColorUpdater } from 'tsparticles-updater-color';
 import { loadLifeUpdater } from 'tsparticles-updater-life';
 import { loadOpacityUpdater } from 'tsparticles-updater-opacity';
 import { loadOutModesUpdater } from 'tsparticles-updater-out-modes';
+import { loadRotateUpdater } from 'tsparticles-updater-rotate';
 import { loadSizeUpdater } from 'tsparticles-updater-size';
 import { loadStrokeColorUpdater } from 'tsparticles-updater-stroke-color';
 
@@ -37,7 +38,7 @@ export const Particles: React.FC<ParticlesProps> = ({ id, className, onInit }) =
       await loadSquareShape(engine);
       await loadLineShape(engine);
 
-      await loadAngleUpdater(engine);
+      await loadRotateUpdater(engine);
       await loadSizeUpdater(engine);
       await loadStrokeColorUpdater(engine);
       await loadOutModesUpdater(engine);

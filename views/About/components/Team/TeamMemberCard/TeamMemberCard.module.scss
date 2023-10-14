@@ -40,6 +40,8 @@
   }
 
   & &__Bio {
+    white-space: pre-line;
+
     &--MarginBottom {
       margin: 0 0 $gap-sm;
 

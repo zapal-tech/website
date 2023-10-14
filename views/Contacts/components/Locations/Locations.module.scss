@@ -9,8 +9,8 @@ $largeLaptopMargin: $expanded-gap-sm;
 
 .Locations {
   position: relative;
-  padding-right: 0;
-  padding-left: 0;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
 
   &__Tabs {
     position: absolute;
