@@ -1,1 +1,9 @@
 @import 'styles/colors';
+
+.Ticker {
+  :global {
+    .rfm-child {
+      display: flex !important;
+    }
+  }
+}
