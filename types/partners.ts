@@ -1,15 +1,10 @@
-import { ApiImage } from './api';
+import { ApiBaseProperties, ApiImage } from './api';
 
-export type Partner = {
-  id: number;
-  attributes: PartnerAttributes;
-};
-
-export type PartnerAttributes = {
-  name: string;
-  website: string;
-  order: number;
+export type Partner = ApiBaseProperties<{
   slug: string;
-  image: ApiImage;
+  order: number;
+  name: string;
+  url: string;
+  logo: ApiImage;
   viewType: 'default' | 'big';
-};
+}>;

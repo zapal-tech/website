@@ -1,16 +1,19 @@
-import { ApiImage } from './api';
+import { ApiBaseProperties, ApiImage } from './api';
 
-export type Project = {
-  id: number;
-  attributes: ProjectAttributes;
+export type Project = ApiBaseProperties<{
+  order: number;
+  slug: string;
+  preview: ProjectPreview;
+  content: ProjectContent;
+}>;
+
+export type ProjectPreview = {
+  name: string;
+  description: string;
+  image: ApiImage;
 };
 
-export type ProjectAttributes = {
-  slug: string;
+export type ProjectContent = {
   name: string;
-  shortName?: string;
   description: string;
-  shortDescription?: string;
-  thumbnailImage: ApiImage;
-  order: number;
 };
