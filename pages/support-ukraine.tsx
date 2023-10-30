@@ -10,7 +10,7 @@ import { PageSeo } from 'components/PageSeo/PageSeo';
 import { SupportUkraine, SupportUkraineProps } from 'views/SupportUkraine/SupportUkraine';
 
 export const getStaticProps: GetStaticProps<SupportUkraineProps> = async ({ locale, defaultLocale }) => {
-  const page = (await getSupportUkrainePage(locale)).data;
+  const page = await getSupportUkrainePage(locale);
 
   return {
     props: {
@@ -29,7 +29,7 @@ export default function SupportUkrainePage(props: InferGetStaticPropsType<typeof
         generateTopLevelBreadcrumbs
         locale={props.locale}
         defaultLocale={props.defaultLocale}
-        {...props.page.attributes.seo}
+        {...props.page.meta}
       />
       <SupportUkraine {...props} />
     </>

@@ -11,7 +11,7 @@ import { CookiesPolicy } from 'views/CookiesPolicy/CookiesPolicy';
 import { CookiesPolicyProps } from 'views/CookiesPolicy/CookiesPolicy';
 
 export const getStaticProps: GetStaticProps<CookiesPolicyProps> = async ({ locale, defaultLocale }) => {
-  const page = (await getCookiesPolicyPage(locale)).data;
+  const page = await getCookiesPolicyPage(locale);
 
   return {
     props: { ...(await serverSideTranslations(locale!, globalNamespaces)), page, locale, defaultLocale },
@@ -25,7 +25,7 @@ export default function CookiesPolicyPage(props: InferGetStaticPropsType<typeof 
         generateTopLevelBreadcrumbs
         locale={props.locale}
         defaultLocale={props.defaultLocale}
-        {...props.page.attributes.seo}
+        {...props.page.meta}
       />
       <CookiesPolicy {...props} />
     </>

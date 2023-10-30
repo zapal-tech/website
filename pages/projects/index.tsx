@@ -1,7 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import { globalNamespaces, Namespace } from 'configs/i18n';
+import { Namespace, globalNamespaces } from 'configs/i18n';
 
 import { DEFAULT_REVALIDATE_TIME } from 'utils/constants';
 
@@ -12,8 +12,8 @@ import { PageSeo } from 'components/PageSeo/PageSeo';
 import { Projects, ProjectsProps } from 'views/Projects/Projects';
 
 export const getStaticProps: GetStaticProps<ProjectsProps> = async ({ locale, defaultLocale }) => {
-  const page = (await getProjectsPage(locale)).data;
-  const projects = (await getProjects(locale)).data;
+  const page = await getProjectsPage(locale);
+  const projects = (await getProjects(locale)).docs;
 
   return {
     props: {
@@ -34,7 +34,7 @@ export default function ProjectsPage(props: InferGetStaticPropsType<typeof getSt
         generateTopLevelBreadcrumbs
         locale={props.locale}
         defaultLocale={props.defaultLocale}
-        {...props.page.attributes.seo}
+        {...props.page.meta}
       />
       <Projects {...props} />
     </>

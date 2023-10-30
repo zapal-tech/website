@@ -1,14 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nc from 'next-connect';
 
-import { ContactFormState } from 'types/contactForm';
+import { ContactFormDto } from 'types/contactForm';
 
 import { addContact } from 'services/api';
 
 const handler = nc<NextApiRequest, NextApiResponse>();
 
 handler.post(async (req, res) => {
-  const data = req.body as ContactFormState;
+  const data = req.body as ContactFormDto;
 
   try {
     await addContact(data);

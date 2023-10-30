@@ -11,7 +11,7 @@ import { PageSeo } from 'components/PageSeo/PageSeo';
 import { ScheduleMeeting, ScheduleMeetingProps } from 'views/ScheduleMeeting/ScheduleMeeting';
 
 export const getStaticProps: GetStaticProps<ScheduleMeetingProps> = async ({ locale, defaultLocale }) => {
-  const page = (await getScheduleMeetingPage(locale)).data;
+  const page = await getScheduleMeetingPage(locale);
 
   return {
     props: {
@@ -29,7 +29,7 @@ export default function ScheduleMeetingPage(props: InferGetStaticPropsType<typeo
         generateTopLevelBreadcrumbs
         locale={props.locale}
         defaultLocale={props.defaultLocale}
-        {...props.page.attributes.seo}
+        {...props.page.meta}
       />
       <ScheduleMeeting {...props} />
     </>

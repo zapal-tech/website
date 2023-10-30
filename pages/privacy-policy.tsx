@@ -10,7 +10,7 @@ import { PageSeo } from 'components/PageSeo/PageSeo';
 import { PrivacyPolicy, PrivacyPolicyProps } from 'views/PrivacyPolicy/PrivacyPolicy';
 
 export const getStaticProps: GetStaticProps<PrivacyPolicyProps> = async ({ locale, defaultLocale }) => {
-  const page = (await getPrivacyPolicyPage(locale)).data;
+  const page = await getPrivacyPolicyPage(locale);
 
   return {
     props: { ...(await serverSideTranslations(locale!, globalNamespaces)), page, locale, defaultLocale },
@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage(props: InferGetStaticPropsType<typeof 
         generateTopLevelBreadcrumbs
         locale={props.locale}
         defaultLocale={props.defaultLocale}
-        {...props.page.attributes.seo}
+        {...props.page.meta}
       />
       <PrivacyPolicy {...props} />
     </>

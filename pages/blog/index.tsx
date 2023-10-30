@@ -2,27 +2,43 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { ArticleJsonLd } from 'next-seo';
 
-import { globalNamespaces, Namespace } from 'configs/i18n';
+import { Namespace, globalNamespaces } from 'configs/i18n';
+
+import { ApiCollectionResponse } from 'types/api';
 
 import { BLOG_REVALIDATE_TIME } from 'utils/constants';
 
-import { getArticles, getBlogPage } from 'services/api';
+import { getBlogPage, getBlogPosts } from 'services/api';
 
 import { PageSeo } from 'components/PageSeo/PageSeo';
 
-import { Blog, BlogProps } from 'views/Blog/Blog';
+import { Blog, BlogProps, OmitedBlogPost } from 'views/Blog/Blog';
 
 export const getStaticProps: GetStaticProps<BlogProps> = async ({ locale, defaultLocale, params }) => {
-  const page = (await getBlogPage(locale)).data;
+  const page = await getBlogPage(locale);
 
   const currentPage = params?.page ? Number(params.page) : undefined;
-  const articles = await getArticles(locale, currentPage);
+  const blogPosts = await getBlogPosts(locale, currentPage);
+
+  const omitedBlogPostsDocs = blogPosts.docs.map((blogPost) => {
+    const omitedBlogPost: OmitedBlogPost = { ...blogPost };
+    const omitedBlogPostContent: any = { ...blogPost.content };
+
+    delete omitedBlogPostContent.content;
+    delete omitedBlogPostContent.description;
+
+    omitedBlogPost.content = omitedBlogPostContent;
+
+    return omitedBlogPost as OmitedBlogPost;
+  });
+
+  const omitedBlogPosts: ApiCollectionResponse<OmitedBlogPost> = { ...blogPosts, docs: omitedBlogPostsDocs };
 
   return {
     props: {
       ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Blog])),
       page,
-      articles,
+      blogPosts: omitedBlogPosts,
       locale,
       defaultLocale,
       revalidate: BLOG_REVALIDATE_TIME,
@@ -37,22 +53,18 @@ export default function BlogPage(props: InferGetStaticPropsType<typeof getStatic
         generateTopLevelBreadcrumbs
         locale={props.locale}
         defaultLocale={props.defaultLocale}
-        {...props.page.attributes.seo}
+        {...props.page.meta}
       />
       <Blog {...props} />
 
       <ArticleJsonLd
         type="Blog"
-        url={props.page.attributes.seo.canonicalURL!}
-        title={props.page.attributes.seo.metaTitle}
-        description={props.page.attributes.seo.metaDescription}
-        images={
-          props.page.attributes.seo.metaImage.data.attributes.url
-            ? [props.page.attributes.seo.metaImage.data.attributes.url]
-            : []
-        }
-        datePublished={props.page.attributes.createdAt}
-        dateModified={props.page.attributes.updatedAt}
+        url={props.page.meta.canonical!}
+        title={props.page.meta.title!}
+        description={props.page.meta.description!}
+        images={props.page.meta.photo?.url ? [props.page.meta.photo?.url] : []}
+        datePublished={props.page.createdAt}
+        dateModified={props.page.updatedAt}
         authorName={{
           name: 'Zapal',
           type: 'Organization',

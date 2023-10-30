@@ -6,10 +6,10 @@ import { Routes } from 'types/routes';
 
 import { getLocalizedSlugPaths } from 'utils/localizedSlugPaths';
 
-import { getAllArticles } from 'services/api';
+import { getAllBlogPosts } from 'services/api';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const paths = await getLocalizedSlugPaths(getAllArticles, ctx.locales!, ctx.defaultLocale);
+  const paths = await getLocalizedSlugPaths(getAllBlogPosts, ctx.locales!, ctx.defaultLocale);
 
   const slugAvailableLocales = paths.reduce<Record<string, Array<string | undefined>>>((acc, { params, locale }) => {
     if (!acc[params.slug] || !acc[params.slug].includes(locale)) {
@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     return acc;
   }, {});
 
-  const { data: entities } = await getAllArticles(ctx.locale);
+  const { data: entities } = await getAllBlogPosts(ctx.locale);
 
   const fields: ISitemapField[] = Object.entries(slugAvailableLocales).map(([slug, locales]) => {
     const entity = entities.find((entity) => entity.attributes.slug === slug);
