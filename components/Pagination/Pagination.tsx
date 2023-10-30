@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import queryString from 'querystring';
 
-import { ARTICLES_PER_PAGE } from 'utils/constants';
+import { BLOG_POSTS_PER_PAGE } from 'utils/constants';
 import { getPageNumbers } from 'utils/getPaginationPageNumbers';
 
 import { ArrowButton } from 'components/ArrowButton/ArrowButton';
@@ -23,7 +23,7 @@ export const Pagination: React.FC<PaginationProps> = ({ className, total = 0 }) 
   const router = useRouter();
 
   const currentPage = Number(router.query.page || 1);
-  const pageSize = Number(router.query.size || ARTICLES_PER_PAGE);
+  const pageSize = Number(router.query.size || BLOG_POSTS_PER_PAGE);
   const isLastPage = currentPage * pageSize >= total;
   const pageNumbers = getPageNumbers({ currentPage, pageSize, total });
 

@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import ImageComponent, { ImageProps as ImageComponentProps, StaticImageData } from 'next/image';
+import { createPngDataUri } from 'unlazy/blurhash';
 
 import { ApiImage } from 'types/api';
 
@@ -40,9 +41,11 @@ export const Image: React.FC<ImageProps> = ({
       className={clsx(styles.Image__Image, imageClassName)}
       loader={(loaderProps) => imageLoader({ ...loaderProps, image })}
       fill
-      src={image?.data?.attributes?.url || src || ''}
-      alt={alt || image?.data?.attributes?.alternativeText || ''}
-      unoptimized={image?.data?.attributes?.ext === 'svg' || unoptimized}
+      src={image?.url || src || ''}
+      alt={alt || image?.alt || ''}
+      unoptimized={image?.mimeType === 'image/svg+xml' || unoptimized}
+      placeholder={image?.blurhash ? 'blur' : 'empty'}
+      blurDataURL={image?.blurhash ? createPngDataUri(image.blurhash) : undefined}
       {...props}
     />
     {children}

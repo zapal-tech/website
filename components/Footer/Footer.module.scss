@@ -20,31 +20,23 @@
   }
 
   & &__Title {
-    max-width: 350px;
+    white-space: pre-line;
 
     @include media(laptop) {
-      max-width: 650px;
       line-height: 0.9;
     }
 
     @include media(large-laptop) {
-      max-width: 1010px;
       margin-right: -$expanded-gap-xs;
     }
   }
 
   & &__Subtitle {
-    max-width: 240px;
     align-self: flex-start;
-    white-space: pre-wrap;
+    white-space: pre-line;
 
     @include media(laptop) {
-      max-width: 350px;
       margin: 0 0 $expanded-gap-xs;
-    }
-
-    @include media(large-laptop) {
-      max-width: 465px;
     }
   }
 

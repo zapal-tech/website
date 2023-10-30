@@ -2,9 +2,9 @@ import { useTranslation } from 'next-i18next';
 import {
   DefaultSeo as DefaultSeoComponent,
   DefaultSeoProps,
-  OrganizationJsonLd,
   ImageJsonLd,
   LocalBusinessJsonLd,
+  OrganizationJsonLd,
 } from 'next-seo';
 
 import { Namespace, defaultLanguage } from 'configs/i18n';
@@ -14,7 +14,7 @@ import { Routes } from 'types/routes';
 import colors from 'styles/colors.module.scss';
 
 export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
-  const { t, i18n } = useTranslation(Namespace.Common);
+  const { t, i18n } = useTranslation([Namespace.Common, Namespace.General]);
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const langPath = i18n.language === defaultLanguage ? '' : `/${i18n.language}`;
@@ -68,15 +68,15 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
         name="Zapal"
         legalName="Zapal"
         slogan={t('slogan')}
-        email={t('email')}
-        telephone={t('phone')}
+        email={t('email', { ns: Namespace.General })}
+        telephone={t('phone', { ns: Namespace.General })}
         contactPoint={[
           {
-            email: t('email'),
+            email: t('email', { ns: Namespace.General }),
             url: getAbsoluteUrl(Routes.Contacts),
             contactType: 'customer support',
             availableLanguage: ['English', 'Ukrainian'],
-            telephone: t('phone'),
+            telephone: t('phone', { ns: Namespace.General }),
           },
         ]}
         url={getAbsoluteUrl(undefined, false)}
