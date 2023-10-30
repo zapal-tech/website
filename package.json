@@ -21,7 +21,7 @@
     "dev": "node -r dotenv/config ./node_modules/.bin/next dev",
     "build": "node -r dotenv/config ./node_modules/.bin/next build",
     "build:analyze": "ANALYZE=true node -r dotenv/config ./node_modules/.bin/next build",
-    "postbuild": "next-sitemap",
+    "postbuild": "node -r dotenv/config ./node_modules/.bin/next-sitemap",
     "start": "node -r dotenv/config ./node_modules/.bin/next start",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}'",
     "lint": "eslint './**/*.{js,jsx,ts,tsx,json}'",
