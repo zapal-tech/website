@@ -1,13 +1,8 @@
-import { ApiImage } from './api';
+import { ApiBaseProperties, ApiImage } from './api';
 
-export type TechnologyAttributes = {
-  title: string;
+export type Technology = ApiBaseProperties<{
+  name: string;
   description: string;
   slug: string;
-  icon: ApiImage;
-};
-
-export type Technology = {
-  id: number;
-  attributes: TechnologyAttributes;
-};
+  logo: ApiImage;
+}>;

@@ -23,6 +23,7 @@
     width: 315px;
     max-width: 100%;
     margin: 0 0 200px;
+    white-space: pre-line;
 
     @include media(laptop) {
       width: 350px;
@@ -33,7 +34,7 @@
     }
 
     @include media(desktop) {
-      width: 600px;
+      width: 620px;
     }
   }
 

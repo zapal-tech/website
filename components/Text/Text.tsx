@@ -1,10 +1,11 @@
-import clsx, { ClassValue } from 'clsx';
 import React from 'react';
+
+import clsx, { ClassValue } from 'clsx';
 
 import styles from './Text.module.scss';
 
 export type TextProps = {
-  type?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
+  type?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'figcaption';
   size?: 'heading1' | 'heading2' | 'heading3' | 'default' | 'small' | 'tiny';
   uppercase?: boolean;
   className?: ClassValue | ClassValue[];

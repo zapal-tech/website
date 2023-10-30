@@ -1,4 +1,5 @@
 import { useCallback, useEffect } from 'react';
+
 import { useMap } from 'react-map-gl';
 
 import { Location, defaultZoom, mapId } from 'types/locations';
@@ -13,7 +14,7 @@ export const useFlyToCurrentLocation = () => {
     () =>
       currentLocation &&
       map?.flyTo({
-        center: [currentLocation.attributes.coordinates.longitude, currentLocation.attributes.coordinates.latitude],
+        center: currentLocation.coordinates,
         zoom: defaultZoom,
       }),
     [currentLocation, map],

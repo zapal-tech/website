@@ -10,10 +10,17 @@ import styles from './TeamMemberCard.module.scss';
 export type TeamMemberCardProps = TeamMember;
 
 export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
-  attributes: { slug, image, firstName, lastName, fullTitle, title, bio, links },
+  slug,
+  photo,
+  firstName,
+  lastName,
+  fullTitle,
+  title,
+  about,
+  links,
 }) => (
   <div className={styles.TeamMemberCard} id={slug}>
-    <Image className={styles.TeamMemberCard__Photo} image={image} alt={`${firstName} ${lastName} photo`} priority />
+    <Image className={styles.TeamMemberCard__Photo} image={photo} alt={`${firstName} ${lastName} photo`} priority />
 
     <div className={styles.TeamMemberCard__Container}>
       <Text className={styles.TeamMemberCard__Name} size="heading3" type="h3">
@@ -23,29 +30,29 @@ export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
       <Text
         className={clsx(
           styles.TeamMemberCard__Title,
-          (bio || links?.length) && styles['TeamMemberCard__Title--MarginBottom'],
+          (about || links?.length) && styles['TeamMemberCard__Title--MarginBottom'],
         )}
       >
         {fullTitle || title}
       </Text>
 
-      {bio && (
+      {about && (
         <Text
           className={clsx(styles.TeamMemberCard__Bio, links?.length && styles['TeamMemberCard__Bio--MarginBottom'])}
           size="small"
         >
-          {bio}
+          {about}
         </Text>
       )}
 
       {links?.length ? (
         <ul className={styles.TeamMemberCard__Links}>
-          {links.map(({ title, link }, idx) => (
-            <li key={link}>
+          {links.map(({ name, url }, idx) => (
+            <li key={url}>
               {!!idx && <Text> / </Text>}
 
-              <a className={styles.TeamMemberCard__Link} href={link} target="_blank" rel="noreferrer">
-                <Text>{title}</Text>
+              <a className={styles.TeamMemberCard__Link} href={url} target="_blank" rel="noreferrer">
+                <Text>{name}</Text>
               </a>
             </li>
           ))}

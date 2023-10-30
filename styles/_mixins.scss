@@ -1,6 +1,8 @@
 @use 'sass:list';
 @import './media';
 @import './typography';
+@import './colors';
+@import './gaps';
 
 @mixin pseudo($content: '', $display: block, $position: absolute) {
   position: $position;
@@ -102,6 +104,21 @@
   }
 }
 
+@mixin text-heading4 {
+  font-size: $heading4-font-size;
+  font-weight: $heading4-font-weight;
+  line-height: $heading4-line-height;
+  text-transform: uppercase;
+
+  @include media(laptop) {
+    font-size: $heading4-font-size-laptop;
+  }
+
+  @include media(large-laptop) {
+    font-size: $heading4-font-size-large-laptop;
+  }
+}
+
 @mixin text-default {
   font-size: $default-font-size;
   font-weight: $default-font-weight;
@@ -145,5 +162,348 @@
 
   @include media(large-laptop) {
     font-size: $tiny-font-size-large-laptop;
+  }
+}
+
+@mixin dynamic-content-styles {
+  $code-background-color: #252525;
+
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  --indent-level: #{$gap-sm};
+
+  @include media(laptop) {
+    --indent-level: #{$gap-md};
+  }
+
+  @include media(large-laptop) {
+    --indent-level: #{$gap-lg};
+  }
+
+  :global {
+    .align-left {
+      text-align: left;
+    }
+
+    .align-center {
+      text-align: center;
+    }
+
+    .align-right {
+      text-align: right;
+    }
+
+    .align-justify {
+      text-align: justify;
+    }
+
+    .align-start {
+      text-align: start;
+    }
+
+    .align-end {
+      text-align: end;
+    }
+
+    .indent:has(.indent) {
+      padding-left: 0 !important;
+    }
+
+    @for $i from 1 through 10 {
+      .indent-level-#{$i} {
+        padding-left: calc(var(--indent-level) * #{$i});
+      }
+    }
+  }
+
+  h2 {
+    @include text-heading2;
+
+    margin: $gap-lg 0 $gap-md;
+
+    @include media(laptop) {
+      margin: $gap-xl 0 $gap-lg;
+    }
+  }
+
+  h3 {
+    @include text-heading3;
+
+    margin: $gap-md 0 $gap-sm;
+
+    @include media(laptop) {
+      margin: $gap-lg 0 $gap-md;
+    }
+  }
+
+  h4 {
+    @include text-heading4;
+
+    margin: $gap-md 0 $gap-sm;
+
+    @include media(laptop) {
+      margin: $gap-lg 0 $gap-md;
+    }
+  }
+
+  p,
+  blockquote {
+    @include text-default;
+    margin-bottom: $gap-xs;
+
+    font-weight: 500;
+
+    @include media(laptop) {
+      margin-bottom: $gap-sm;
+    }
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  u {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+
+    @include media(laptop) {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  s {
+    text-decoration: line-through;
+  }
+
+  sup {
+    vertical-align: super;
+  }
+
+  sub {
+    vertical-align: sub;
+  }
+
+  a {
+    color: $link-color-secondary;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+    transition:
+      color 0.1s ease-in-out,
+      text-decoration-color 0.1s ease-in-out;
+
+    &:hover {
+      text-decoration-color: $link-color-secondary;
+    }
+
+    @include media(large-laptop) {
+      text-decoration-thickness: 3px;
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: $gap-xxs;
+    margin: 0 auto;
+    margin-bottom: $gap-sm;
+    object-fit: contain;
+
+    @include media(tablet) {
+      width: 70%;
+    }
+
+    @include media(laptop) {
+      margin-bottom: $gap-md;
+    }
+  }
+
+  hr {
+    height: 1px;
+    border: none;
+    margin: $gap-xxl 0 $gap-md;
+    background: $text-color-default;
+
+    @include media(laptop) {
+      margin: $expanded-gap-md 0 $gap-xl;
+    }
+  }
+
+  input[type='checkbox'] {
+    position: relative;
+    display: inline-block;
+    height: 0.73rem;
+    border: 1px solid $text-color-default-hover;
+    border-radius: 2px;
+    aspect-ratio: 1;
+
+    @include media(laptop) {
+      height: 0.8rem;
+      border-radius: 3px;
+    }
+
+    @include media(large-laptop) {
+      height: 1rem;
+    }
+
+    &:checked {
+      background: $text-color-default-hover;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 70%;
+        aspect-ratio: 1;
+        background: $text-color-default;
+        content: '';
+        mask: url('/icons/check.svg') no-repeat 50% 50%;
+        mask-size: contain;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  li {
+    @include text-default;
+
+    display: list-item;
+    line-height: 1.375 !important;
+
+    p {
+      line-height: inherit;
+    }
+
+    &::marker {
+      content: unset;
+      font: inherit;
+    }
+  }
+
+  ul,
+  ol {
+    margin-bottom: $gap-sm;
+
+    @include media(laptop) {
+      margin-bottom: $gap-lg;
+    }
+
+    ul,
+    ol {
+      margin-bottom: 7px;
+    }
+
+    & > li:has(ul[data-list-type='check']) > input[type='checkbox'],
+    & > li:has(ol) > span[data-type='number'] {
+      display: none;
+    }
+
+    & > li:not(:has(ul, ol)) {
+      display: grid;
+      align-items: center;
+      grid-template-columns: var(--indent-level) 1fr;
+
+      span {
+        display: inline-block;
+      }
+
+      span[data-type='bullet'] {
+        width: 0.3rem;
+        border-radius: 100px;
+        aspect-ratio: 1;
+        background: $white;
+
+        @include media(laptop) {
+          width: 0.35rem;
+        }
+
+        @include media(large-laptop) {
+          width: 0.5rem;
+        }
+      }
+    }
+  }
+
+  blockquote {
+    position: relative;
+    padding-left: var(--indent-level);
+    margin-bottom: $gap-xs;
+    font-style: italic;
+
+    @include media(laptop) {
+      margin-bottom: $gap-md;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 4px;
+      background: $sonic-silver;
+      content: '';
+    }
+  }
+
+  code {
+    padding: 0.1rem 0.2rem;
+    background: $code-background-color;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: inherit;
+    font-size: 0.93rem;
+    line-height: inherit;
+    white-space: pre-line;
+
+    @include media(laptop) {
+      font-size: 1.05rem;
+    }
+
+    @include media(large-laptop) {
+      font-size: 1.42rem;
+    }
+  }
+
+  pre {
+    display: block;
+    max-width: 100%;
+    padding: 1.2rem;
+    margin-bottom: $gap-xs;
+    background: $code-background-color;
+    overflow-x: auto;
+
+    & code {
+      padding: 0;
+      overflow-x: auto;
+      white-space: pre;
+      @include text-small;
+
+      @include media(laptop) {
+        @include text-tiny;
+      }
+    }
+
+    @include media(laptop) {
+      margin-bottom: $gap-sm;
+
+      &::-webkit-scrollbar {
+        height: 2px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: $rosso-corsa;
+      }
+    }
   }
 }

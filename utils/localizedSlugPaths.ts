@@ -1,9 +1,9 @@
-import { ApiResponse } from 'types/api';
+import { ApiCollectionResponse } from 'types/api';
 
 type SlugPathType = { params: { slug: string }; locale?: string };
 
-export const getLocalizedSlugPaths = async <T extends { attributes: { slug: string } }>(
-  getEntities: (locale?: string) => Promise<ApiResponse<T[]>>,
+export const getLocalizedSlugPaths = async <T extends { slug: string }>(
+  getEntities: (locale?: string) => Promise<ApiCollectionResponse<T>>,
   locales: string[],
   defaultLocale?: string,
 ): Promise<SlugPathType[]> => {
@@ -11,7 +11,7 @@ export const getLocalizedSlugPaths = async <T extends { attributes: { slug: stri
 
   for (const locale of locales) {
     const data = await getEntities(locale)
-      .then((res) => res.data)
+      .then((res) => res.docs)
       .catch(() => undefined);
 
     if (data) entities[locale] = data;
@@ -20,7 +20,7 @@ export const getLocalizedSlugPaths = async <T extends { attributes: { slug: stri
   const paths: SlugPathType[] = Object.entries(entities).reduce<SlugPathType[]>((acc, [locale, entities]) => {
     const result = [...acc];
 
-    const localePaths = entities.map(({ attributes: { slug } }) => ({
+    const localePaths = entities.map(({ slug }) => ({
       params: { slug },
       locale,
     }));

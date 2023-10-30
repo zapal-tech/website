@@ -21,7 +21,7 @@ import styles from './Footer.module.scss';
 const ContactForm = dynamic(() => import('views/ContactForm/ContactForm').then((mod) => mod.ContactForm));
 
 const Subtitle = () => {
-  const { t } = useTranslation(Namespace.Footer);
+  const { t } = useTranslation([Namespace.Footer, Namespace.General]);
 
   return (
     <Text className={styles.Footer__Subtitle} size="heading3">
@@ -32,7 +32,7 @@ const Subtitle = () => {
 
 const MadeByZapal = () => {
   const { t } = useTranslation(Namespace.Footer);
-
+  return null;
   return (
     <AlternantText
       className={styles.Footer__MadeByZapal}
@@ -60,19 +60,23 @@ const BecomeAClient = () => {
 };
 
 const Email = () => {
-  const { t } = useTranslation(Namespace.Common);
+  const { t } = useTranslation([Namespace.Common, Namespace.General]);
 
   return (
     <Text size="heading3" className={styles.Footer__Email}>
-      <a href={`mailto:${t('projectEmail.email')}?subject=${t('projectEmail.subject')}&body=${t('projectEmail.body')}`}>
-        {t('projectEmail.email')}
+      <a
+        href={`mailto:${t('email', { ns: Namespace.General })}?subject=${t('projectEmail.subject')}&body=${t(
+          'projectEmail.body',
+        )}`}
+      >
+        {t('email', { ns: Namespace.General })}
       </a>
     </Text>
   );
 };
 
 const Phone = () => {
-  const { t } = useTranslation(Namespace.Common);
+  const { t } = useTranslation(Namespace.General);
 
   return (
     <Text size="small" className={styles.Footer__Phone}>

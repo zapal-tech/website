@@ -6,10 +6,18 @@ body {
   background: $black;
   font-size: 16px;
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 80px;
+
+  @include media(phone) {
+    scroll-padding-top: 90px;
+  }
 
   @include media(laptop) {
     scroll-padding-top: 120px;
+  }
+
+  @include media(large-laptop) {
+    scroll-padding-top: 133px;
   }
 
   ::selection {

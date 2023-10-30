@@ -1,14 +1,9 @@
-import { ApiImage } from './api';
+import { ApiBaseProperties, ApiImage } from './api';
 
-export type Service = {
-  id: number;
-  attributes: ServiceAttributes;
-};
-
-export type ServiceAttributes = {
+export type Service = ApiBaseProperties<{
+  order: number;
   slug: string;
   name: string;
   description: string;
   icon: ApiImage;
-  order: number;
-};
+}>;

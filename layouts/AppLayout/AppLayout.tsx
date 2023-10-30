@@ -1,8 +1,9 @@
+import { useEffect } from 'react';
+
 import { useLenis } from '@studio-freight/react-lenis';
 import clsx, { ClassValue } from 'clsx';
 import dynamic from 'next/dynamic';
 import Router from 'next/router';
-import { useEffect } from 'react';
 
 import { useGlobalContext } from 'hooks/useGlobalContext';
 
@@ -12,7 +13,7 @@ import styles from './AppLayout.module.scss';
 
 const Footer = dynamic(() => import('components/Footer/Footer').then((mod) => mod.Footer));
 const Modal = dynamic(() => import('components/Modal/Modal').then((mod) => mod.Modal));
-const MetaPixel = dynamic(() => import('components/MetaPixel/MetaPixel').then((mod) => mod.MetaPixel));
+// const MetaPixel = dynamic(() => import('components/MetaPixel/MetaPixel').then((mod) => mod.MetaPixel));
 
 export type AppLayoutProps = React.PropsWithChildren<{
   className?: ClassValue | ClassValue[];
@@ -51,7 +52,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children, className, mainC
       <main className={clsx(styles.AppLayout__Main, mainClassName)}>{children}</main>
       <Footer />
 
-      <MetaPixel />
+      {/* <MetaPixel /> */}
       <Modal />
     </div>
   );

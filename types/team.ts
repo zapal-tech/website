@@ -1,23 +1,19 @@
-import { ApiImage } from './api';
+import { ApiBaseProperties, ApiImage } from './api';
 
-export type TeamMember = {
-  id: number;
-  attributes: TeamMemberAttributes;
-};
-
-export type TeamMemberAttributes = {
+export type TeamMember = ApiBaseProperties<{
   firstName: string;
   lastName: string;
   title: string;
   fullTitle: string;
-  image: ApiImage;
+  photo: ApiImage;
   order: number;
   slug: string;
-  bio: string;
+  about: string;
   links: TeamMemberLink[];
-};
+}>;
 
 export type TeamMemberLink = {
-  title: string;
-  link: string;
+  id: string;
+  name: string;
+  url: string;
 };

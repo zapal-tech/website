@@ -11,14 +11,12 @@ import styles from './TeamMemberCard.module.scss';
 
 export type TeamMemberCardProps = TeamMember;
 
-export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
-  attributes: { slug, image, firstName, lastName, title },
-}) => (
+export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ slug, photo, firstName, lastName, title }) => (
   <Link className={styles.TeamMemberCard} href={`/about#${slug}`}>
     <Image
       className={styles.TeamMemberCard__Photo}
-      image={image}
-      alt={`${firstName} ${lastName} photo`}
+      image={photo}
+      alt={photo.alt ? `${photo.alt} photo` : `${firstName} ${lastName} photo`}
       loading="eager"
     >
       <LinkIcon className={styles.TeamMemberCard__Icon} />

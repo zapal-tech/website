@@ -1,4 +1,3 @@
-import 'highlight.js/styles/monokai-sublime.css';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -9,47 +8,47 @@ import { Namespace, globalNamespaces } from 'configs/i18n';
 
 import { Routes } from 'types/routes';
 
-import { ARTICLE_REVALIDATE_TIME } from 'utils/constants';
+import { BLOG_POST_REVALIDATE_TIME } from 'utils/constants';
 import { getLocalizedSlugPaths } from 'utils/localizedSlugPaths';
+import { parseLexicalState } from 'utils/parseLexicalState';
 
-import { getAllArticles, getArticle } from 'services/api';
+import { getAllBlogPosts, getBlogPostBySlug } from 'services/api';
 
 import { PageSeo } from 'components/PageSeo/PageSeo';
 
-import { Article, ArticleProps } from 'views/Article/Article';
+import { BlogPost, BlogPostProps } from 'views/BlogPost/BlogPost';
 import { Error404 } from 'views/Error404/Error404';
 
-export const getStaticProps: GetStaticProps<ArticleProps> = async ({ locale, defaultLocale, params }) => {
-  const article = Number.isNaN(Number(params?.slug))
-    ? await getArticle(params?.slug as string, locale)
-        .then((res) => res.data)
-        .catch(() => null)
-    : null;
+export const getStaticProps: GetStaticProps<BlogPostProps> = async ({ locale, defaultLocale, params }) => {
+  const blogPost = params?.slug ? await getBlogPostBySlug(params?.slug as string, locale) : null;
+
+  const blogPostStringifiedHTML = blogPost?.content.content ? await parseLexicalState(blogPost.content.content) : null;
 
   return {
     props: {
       ...(await serverSideTranslations(locale!, [...globalNamespaces])),
-      article: article!,
+      blogPost,
+      blogPostStringifiedHTML,
       locale,
       defaultLocale,
     },
-    revalidate: ARTICLE_REVALIDATE_TIME,
+    revalidate: BLOG_POST_REVALIDATE_TIME,
   };
 };
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async ({ defaultLocale, locales }) => {
-  const paths = await getLocalizedSlugPaths(getAllArticles, locales!, defaultLocale);
+  const paths = await getLocalizedSlugPaths(getAllBlogPosts, locales!, defaultLocale);
 
   // We'll pre-render only these paths at build time.
   // fallback: 'blocking' will server-render pages on-demand if the path doesn't exist.
   return { paths, fallback: 'blocking' };
 };
 
-export default function ArticlePage(props: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function BlogPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation(Namespace.Navigation);
   const router = useRouter();
 
-  if (!router.isFallback && !props.article) return <Error404 />;
+  if (!router.isFallback && !props.blogPost?.id) return <Error404 />;
 
   const getURL = (path = router.pathname): string => {
     const prefix = props.locale === props.defaultLocale ? '' : `/${props.locale}`;
@@ -57,12 +56,20 @@ export default function ArticlePage(props: InferGetStaticPropsType<typeof getSta
     return new URL(prefix + path, process.env.NEXT_PUBLIC_SITE_URL).href;
   };
 
+  const blogPost = props.blogPost!;
+
   return (
     <>
       <PageSeo
         locale={props.locale}
         defaultLocale={props.defaultLocale}
-        {...props.article.attributes.seo}
+        {...{
+          title: blogPost.meta.title || blogPost.content.title,
+          description: blogPost.meta.description || blogPost.content.title,
+          photo: blogPost.meta.photo || blogPost.content.cover,
+          canonical: blogPost.meta.canonical,
+          keywords: blogPost.meta.keywords,
+        }}
         breadcrumbs={[
           {
             position: 1,
@@ -71,30 +78,27 @@ export default function ArticlePage(props: InferGetStaticPropsType<typeof getSta
           },
           {
             position: 2,
-            name: props.article.attributes.title,
+            name: blogPost.content.title,
             item: getURL(),
           },
         ]}
       />
-      <Article {...props} />
+      <BlogPost {...props} />
 
       <ArticleJsonLd
         type="BlogPosting"
-        url={props.article.attributes.seo.canonicalURL!}
-        title={props.article.attributes.title}
-        description={props.article.attributes.seo.metaDescription}
-        images={
-          props.article.attributes.cover?.data.attributes.url
-            ? [props.article.attributes.cover?.data.attributes.url]
-            : []
-        }
-        datePublished={props.article.attributes.publishedAt}
-        dateModified={props.article.attributes.updatedAt}
+        url={blogPost.meta.canonical!}
+        title={blogPost.content.title}
+        description={blogPost.meta.description!}
+        images={blogPost.content?.cover?.url ? [blogPost.content.cover.url] : []}
+        datePublished={blogPost.createdAt}
+        dateModified={blogPost.updatedAt}
+        publisherName="Zapal"
         publisherLogo={process.env.NEXT_PUBLIC_SITE_URL + '/logo.svg'}
         isAccessibleForFree
         authorName={{
-          name: 'Zapal',
-          type: 'Organization',
+          name: blogPost.content.author.name,
+          type: 'Person',
         }}
       />
     </>

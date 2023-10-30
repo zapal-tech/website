@@ -12,7 +12,7 @@ import { PageSeo } from 'components/PageSeo/PageSeo';
 import { Sitemap, SitemapProps } from 'views/Sitemap/Sitemap';
 
 export const getStaticProps: GetStaticProps<SitemapProps> = async ({ locale, defaultLocale }) => {
-  const page = (await getSitemapPage(locale)).data;
+  const page = await getSitemapPage(locale);
 
   return {
     props: {
@@ -32,7 +32,7 @@ export default function SitemapPage(props: InferGetStaticPropsType<typeof getSta
         generateTopLevelBreadcrumbs
         locale={props.locale}
         defaultLocale={props.defaultLocale}
-        {...props.page.attributes.seo}
+        {...props.page.meta}
       />
       <Sitemap {...props} />
     </>

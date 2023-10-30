@@ -10,7 +10,7 @@ import { PageSeo } from 'components/PageSeo/PageSeo';
 import { TermsOfUse, TermsOfUseProps } from 'views/TermsOfUse/TermsOfUse';
 
 export const getStaticProps: GetStaticProps<TermsOfUseProps> = async ({ locale, defaultLocale }) => {
-  const page = (await getTermsOfUsePage(locale)).data;
+  const page = await getTermsOfUsePage(locale);
 
   return {
     props: { ...(await serverSideTranslations(locale!, globalNamespaces)), page, locale, defaultLocale },
@@ -24,7 +24,7 @@ export default function TermsOfUsePage(props: InferGetStaticPropsType<typeof get
         generateTopLevelBreadcrumbs
         locale={props.locale}
         defaultLocale={props.defaultLocale}
-        {...props.page.attributes.seo}
+        {...props.page.meta}
       />
       <TermsOfUse {...props} />
     </>

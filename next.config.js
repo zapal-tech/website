@@ -33,9 +33,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'firebasestorage.googleapis.com',
-        port: '',
-        pathname: `/${process.env.GOOGLE_FIREBASE_STORAGE_BUCKET}/**`,
+        hostname: new URL(process.env.CMS_URL).hostname,
+        pathname: '/**',
       },
     ],
   },

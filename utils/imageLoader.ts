@@ -3,27 +3,24 @@ import { ImageLoaderProps } from 'next/image';
 import { ApiImage } from 'types/api';
 
 // { key: device width; value: image width }
-const sizes = {
-  '1024': 700,
-  '1280': 750,
-  '1440': 800,
-  '1680': 850,
-  '1920': 900,
-  '2560': 950,
-  '3840': 1000,
+export const deviceWidthSizes = {
+  '1680': 700,
+  '1920': 800,
+  '2560': 1200,
+  '3840': 1600,
 } as const;
 
 const getCorrectSizeUrl = (image: ApiImage, deviceWidth: number) => {
-  const { formats, ext, url } = image.data.attributes;
+  const { sizes, mimeType, url } = image;
 
-  if (ext !== 'svg') {
-    const matchedSize = Object.entries(sizes).find(([deviceWidthMatch]) => Number(deviceWidthMatch) >= deviceWidth);
+  if (!sizes || mimeType === 'image/svg+xml') return url;
 
-    return matchedSize ? formats[matchedSize[1].toString()].url : url;
-  }
+  const matchedSize = Object.entries(deviceWidthSizes).find(
+    ([deviceWidthMatch]) => Number(deviceWidthMatch) >= deviceWidth,
+  );
 
-  return url;
+  return matchedSize ? sizes[matchedSize[1].toString()].url : url;
 };
 
 export const imageLoader = ({ src, image, width: deviceWidth }: ImageLoaderProps & { image?: ApiImage }) =>
-  image ? getCorrectSizeUrl(image, deviceWidth) : src;
+  image?.sizes ? getCorrectSizeUrl(image, deviceWidth) : src;

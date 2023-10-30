@@ -1,7 +1,8 @@
+import { Fragment } from 'react';
+
 import clsx from 'clsx';
 import { useTranslation } from 'next-i18next';
 import dynamic from 'next/dynamic';
-import { Fragment } from 'react';
 
 import { Namespace } from 'configs/i18n';
 
@@ -39,7 +40,7 @@ export const Partners: React.FC<PartnersProps> = ({ partners }) => {
         className={styles.Partners__Ticker}
         // TODO: remove this after adding more partners
         data={[...partners, ...partners]}
-        renderItem={({ id, attributes: { image, name, website, viewType } }: Partner, idx) => (
+        renderItem={({ logo, name, url, viewType }: Partner, idx) => (
           <Fragment key={idx}>
             {idx % 3 ? null : (
               <div className={clsx(styles.Partners__TickerItem, styles['Partners__TickerItem--Placeholder'])} />
@@ -47,14 +48,14 @@ export const Partners: React.FC<PartnersProps> = ({ partners }) => {
 
             <a
               target="_blank"
-              rel="noreferrer"
-              href={website}
+              rel="nofollow noopener noreferrer"
+              href={url}
               className={clsx(styles.Partners__TickerItem, viewType === 'big' && styles['Partners__TickerItem--Wide'])}
             >
               <Image
                 className={styles.Partners__TickerImageContainer}
                 imageClassName={styles.Partners__TickerImage}
-                image={image}
+                image={logo}
                 alt={name}
                 unoptimized
               />

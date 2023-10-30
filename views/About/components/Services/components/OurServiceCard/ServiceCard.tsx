@@ -4,9 +4,9 @@ import { Text } from 'components';
 
 import styles from './ServiceCard.module.scss';
 
-export type OurServiceCardProps = Service & { order: number };
+export type OurServiceCardProps = Service;
 
-export const ServiceCard: React.FC<OurServiceCardProps> = ({ order, attributes: { slug, name, description } }) => (
+export const ServiceCard: React.FC<OurServiceCardProps> = ({ order, slug, name, description }) => (
   <div id={slug} className={styles.ServiceCard}>
     <div className={styles.ServiceCard__TitleContainer}>
       <Text size="heading3" className={styles.ServiceCard__Order}>
