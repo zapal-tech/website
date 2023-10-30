@@ -19,20 +19,18 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     return acc;
   }, {});
 
-  const { data: entities } = await getAllBlogPosts(ctx.locale);
+  const entities = await getAllBlogPosts(ctx.locale);
 
   const fields: ISitemapField[] = Object.entries(slugAvailableLocales).map(([slug, locales]) => {
-    const entity = entities.find((entity) => entity.attributes.slug === slug);
+    const entity = entities.docs.find((entity) => entity.slug === slug);
 
     const defaultUrl = process.env.NEXT_PUBLIC_SITE_URL + join('/', Routes.Blog, slug);
 
     return {
       loc: defaultUrl,
-      lastmod: entity?.attributes.updatedAt
-        ? new Date(entity.attributes.updatedAt).toISOString()
-        : new Date().toISOString(),
+      lastmod: entity?.updatedAt ? new Date(entity.updatedAt).toISOString() : new Date().toISOString(),
       changefreq: 'daily',
-      priority: 0.7,
+      priority: 0.8,
       alternateRefs: locales.map((locale) => {
         const href = locale ? process.env.NEXT_PUBLIC_SITE_URL + join('/', locale, Routes.Blog, slug) : defaultUrl;
 
@@ -41,11 +39,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       news: entity
         ? {
             publicationName: 'Zapal',
-            publicationLanguage: entity?.attributes.locale,
-            date: entity.attributes.createdAt
-              ? new Date(entity.attributes.createdAt).toISOString()
-              : new Date().toISOString(),
-            title: entity.attributes.title!,
+            publicationLanguage: ctx.locale!,
+            date: entity.createdAt ? new Date(entity.createdAt).toISOString() : new Date().toISOString(),
+            title: entity.content.title!,
           }
         : undefined,
     };

@@ -31,7 +31,7 @@ export const Services: React.FC<ServicesProps> = ({ services }) => {
 
       <div className={styles.Services__List}>
         {services.map((service, idx) => (
-          <ServiceCard key={service.id} order={idx + 1} {...service} />
+          <ServiceCard key={service.id} {...service} order={idx + 1} />
         ))}
       </div>
 

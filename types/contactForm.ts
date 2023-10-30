@@ -1,8 +1,8 @@
 export type ContactFormState = {
   firstName: string;
-  lastName: string;
+  lastName?: string;
   email: string;
-  company: string;
+  company?: string;
   message: string;
 };
 

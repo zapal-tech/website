@@ -15,7 +15,7 @@ import {
 } from './richTextNodeFormat';
 import type { SerializedLexicalNode } from './types';
 
-function getLinkForPage(doc) {
+function getLinkForPage(doc: unknown) {
   console.log(doc);
 
   return 'implement this';
@@ -75,7 +75,7 @@ export function parseLexicalRichText(children: SerializedLexicalNode[], parent?:
         case NodeType.LINK:
           // eslint-disable-next-line no-case-declarations
           const attributes: {
-            doc?;
+            doc?: unknown;
             linkType?: 'custom' | 'internal';
             newTab?: boolean;
             rel?: string[];
@@ -134,7 +134,7 @@ export function parseLexicalRichText(children: SerializedLexicalNode[], parent?:
         case NodeType.HEADING: {
           const tagNumber = Number(node.tag[1]);
           const tag = tagNumber < 6 ? `h${tagNumber + 1}` : 'h6';
-          let id = generateId(node.children[0].text!);
+          let id = generateId(node.children![0].text!);
 
           if (usedIds.includes(id)) id = `${id}-${usedIds.length + 1}`;
 
