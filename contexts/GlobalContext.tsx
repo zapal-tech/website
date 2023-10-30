@@ -1,4 +1,3 @@
-import { useLenis } from '@studio-freight/react-lenis';
 import { createContext, useEffect, useMemo, useState } from 'react';
 
 import { ContactFormState } from 'types/contactForm';
@@ -34,8 +33,8 @@ export type GlobalContextProps<PageProps = Record<string, any>> = {
   closeModal: () => void;
   locations?: Location[];
   currentLocation?: Location;
-  currentLocationId: number | null;
-  setCurrentLocationId: (index: number) => void;
+  currentLocationId: string | null;
+  setCurrentLocationId: (id: string) => void;
   contactForm: ContactFormState;
   clearContactForm: () => void;
   setContactFormFieldValue: (field: ContactFormField) => void;
@@ -51,8 +50,8 @@ export const GlobalContext = createContext<GlobalContextProps>({
   closeModal: () => undefined,
   locations: undefined,
   currentLocation: undefined,
-  currentLocationId: 0,
-  setCurrentLocationId: () => undefined,
+  currentLocationId: null,
+  setCurrentLocationId: () => null,
   contactForm: initialContactFormState,
   clearContactForm: () => undefined,
   setContactFormFieldValue: () => undefined,
@@ -64,12 +63,12 @@ export const GlobalContextProvider: React.FC<{ pageProps: Record<string, any> } 
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [modal, setModal] = useState(initialModalState);
-  const [currentLocationId, setCurrentLocationId] = useState<number | null>(null);
+  const [currentLocationId, setCurrentLocationId] = useState<string | null>(null);
   const [contactForm, setContactForm] = useState(initialContactFormState);
 
   const currentLocation = useMemo<Location | undefined>(
     () =>
-      typeof currentLocationId === 'number' && pageProps.locations
+      typeof currentLocationId === 'string' && pageProps.locations
         ? (pageProps.locations as Location[]).find(({ id }) => id === currentLocationId)
         : undefined,
     [pageProps.locations, currentLocationId],

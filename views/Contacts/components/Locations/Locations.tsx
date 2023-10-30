@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import { useMemo } from 'react';
+
+import clsx from 'clsx';
 import { MarkerProps } from 'react-map-gl';
 
 import PinIcon from 'public/icons/pin.svg';
@@ -24,23 +25,24 @@ export const Locations = () => {
 
   const markers: MarkerProps[] | undefined = useMemo(
     () =>
-      locations?.map(({ id, attributes: { name, coordinates } }) => ({
-        ...coordinates,
+      locations?.map(({ id, name, coordinates }) => ({
+        longitude: coordinates[0],
+        latitude: coordinates[1],
         children: (
           <PinIcon
             className={clsx(
               styles.Locations__Marker,
-              name === currentLocation?.attributes.name && styles['Locations__Marker--Active'],
+              name === currentLocation?.name && styles['Locations__Marker--Active'],
             )}
           />
         ),
         anchor: 'bottom',
         onClick: () => {
-          if (name === currentLocation?.attributes.name) return flyToCurrentLocation();
+          if (name === currentLocation?.name) return flyToCurrentLocation();
           setCurrentLocationId(id);
         },
       })),
-    [currentLocation?.attributes.name, flyToCurrentLocation, locations, setCurrentLocationId],
+    [currentLocation?.name, flyToCurrentLocation, locations, setCurrentLocationId],
   );
 
   if (!currentLocation) return null;
@@ -48,7 +50,11 @@ export const Locations = () => {
   return (
     <Container className={styles.Locations}>
       <Map
-        initialViewState={{ ...currentLocation.attributes.coordinates, zoom: defaultZoom }}
+        initialViewState={{
+          longitude: currentLocation.coordinates[0],
+          latitude: currentLocation.coordinates[1],
+          zoom: defaultZoom,
+        }}
         className={styles.Locations__Map}
         markers={markers}
       >

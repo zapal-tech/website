@@ -14,24 +14,26 @@ export type ProjectCardProps = Project & {
 };
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
-  attributes: { slug, name, shortName, description, shortDescription, thumbnailImage },
+  slug,
+  preview: { name, description, image },
+  content,
   photoLoading,
   className,
 }) => (
   <div id={slug} className={clsx(styles.ProjectCard, className)}>
     <Image
-      image={thumbnailImage}
-      alt={`${shortName} project`}
+      image={image}
+      alt={`${name || content.name} project`}
       className={styles.ProjectCard__Image}
       loading={photoLoading}
     />
 
     <Text size="heading3" className={styles.ProjectCard__Title}>
-      {shortName || name}
+      {name || content.name}
     </Text>
 
     <Text size="small" className={styles.ProjectCard__Subtitle}>
-      {shortDescription || description}
+      {description || content.description}
     </Text>
   </div>
 );

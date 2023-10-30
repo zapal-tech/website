@@ -1,0 +1,153 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.BlogPost {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+
+  &__Header {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: min-content;
+    flex-direction: column;
+    gap: $gap-xs;
+
+    @include media(laptop) {
+      min-height: 70vh;
+      gap: $gap-sm;
+    }
+
+    & > * {
+      z-index: 1;
+    }
+  }
+
+  &__Title {
+    padding-top: $gap-sm;
+    line-height: 1;
+
+    @include media(phone) {
+      padding-top: $gap-lg;
+    }
+
+    @include media(tablet) {
+      padding-top: $gap-xxl;
+    }
+
+    @include media(laptop) {
+      padding-top: 0;
+    }
+  }
+
+  &__Title,
+  &__Description {
+    text-shadow: 0 0 5px rgba($black, 0.5);
+  }
+
+  &__Description {
+    white-space: pre-line;
+  }
+
+  &__BackgroundImage {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    border-radius: $gap-xxs;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+
+    @include media(laptop) {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      max-width: unset;
+      height: 100%;
+      border-radius: unset;
+      margin: 0;
+      aspect-ratio: unset;
+
+      // Slowly fade out the image as it reaches the bottom of the page, but keep 20% of top almost fully opaque
+      mask-image: linear-gradient(to bottom, $black, cubic-bezier(0.45, -0.1, 0.7, 1), rgba($black, 0));
+    }
+  }
+
+  &__ContentWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    @include media(laptop) {
+      padding-top: $expanded-gap-sm;
+    }
+  }
+
+  &__Content {
+    width: 100%;
+    max-width: 1000px;
+    color: $text-color-default;
+
+    @include dynamic-content-styles;
+  }
+
+  &__Footer {
+    padding-top: 0 !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin-top: $gap-sm * 2;
+
+    @include media(laptop) {
+      margin-top: $gap-xxl;
+    }
+
+    @include media(large-laptop) {
+      margin-top: $expanded-gap-sm;
+    }
+  }
+
+  &__Author {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: $gap-sm;
+  }
+
+  &__AuthorInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    @include media(large-laptop) {
+      gap: 5px;
+    }
+
+    @include media(large-laptop) {
+      gap: 8px;
+    }
+  }
+
+  & &__AuthorName,
+  & &__AuthorEmail {
+    margin-bottom: 0;
+  }
+
+  & &__AuthorEmail a {
+    hyphens: auto;
+  }
+
+  & &__AuthorPhoto {
+    display: block;
+    width: 13vw;
+    min-width: 80px;
+    max-width: 140px;
+    height: auto;
+    border-radius: 1000px;
+    aspect-ratio: 1;
+  }
+}

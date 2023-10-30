@@ -1,5 +1,6 @@
-import { useTranslation } from 'next-i18next';
 import { useCallback, useEffect, useState } from 'react';
+
+import { useTranslation } from 'next-i18next';
 
 import { Namespace } from 'configs/i18n';
 
@@ -22,7 +23,7 @@ const ContactLink: React.FC<ContactLinkProps> = ({ title, href }) => (
   </a>
 );
 
-export const TabContent: React.FC<Location> = ({ attributes: { address, contact, timeZone } }) => {
+export const TabContent: React.FC<Location> = ({ address, fullName, title, email, phone, timeZone }) => {
   const { t } = useTranslation(Namespace.Contacts);
   const [currentLocationTime, setCurrentLocationTime] = useState('');
 
@@ -45,13 +46,13 @@ export const TabContent: React.FC<Location> = ({ attributes: { address, contact,
       </Text>
 
       <div className={styles.TabContent__ContactLinks}>
-        {contact.email && <ContactLink title={contact.email} href={'mailto:' + contact.email} />}
-        {contact.number && <ContactLink title={contact.number} href={'tel:' + contact.number} />}
+        {email && <ContactLink title={email} href={'mailto:' + email} />}
+        {phone && <ContactLink title={phone} href={'tel:' + phone} />}
       </div>
 
       <div className={styles.TabContent__PersonInfo}>
-        <Text size="small">{contact.fullName}</Text>
-        <Text size="small">{contact.title}</Text>
+        <Text size="small">{fullName}</Text>
+        <Text size="small">{title}</Text>
       </div>
     </div>
   );

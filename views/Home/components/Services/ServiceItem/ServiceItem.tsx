@@ -15,7 +15,7 @@ export type ServiceItemProps = Service & {
   className?: ClassValue | ClassValue[];
 };
 
-export const ServiceItem: React.FC<ServiceItemProps> = ({ className, attributes: { name, icon, slug } }) => (
+export const ServiceItem: React.FC<ServiceItemProps> = ({ className, name, icon, slug }) => (
   <Link href={`${Routes.About}#${slug}`} className={clsx(styles.ServiceItem, className)}>
     <div className={styles.ServiceItem__Content}>
       <Image className={styles.ServiceItem__Icon} image={icon} alt="service decoration icon" unoptimized />

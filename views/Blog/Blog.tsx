@@ -2,8 +2,8 @@ import { useTranslation } from 'next-i18next';
 
 import { Namespace } from 'configs/i18n';
 
-import { ApiMetaPagination, ApiPage, ApiResponse } from 'types/api';
-import { Article } from 'types/articles';
+import { ApiCollectionResponse, ApiPage } from 'types/api';
+import { BlogPost, BlogPostContent } from 'types/blog';
 import { Page } from 'types/page';
 
 import { Container, Text } from 'components';
@@ -11,16 +11,19 @@ import { Pagination } from 'components/Pagination/Pagination';
 
 import { AppLayout } from 'layouts';
 
-import { ArticleCard } from './components/ArticleCard';
+import { BlogPostCard } from './components/BlogPostCard';
 
 import styles from './Blog.module.scss';
 
+type OmitedBlogPostContent = Omit<BlogPostContent, 'content' | 'description'>;
+export type OmitedBlogPost = Omit<BlogPost, 'content'> & { content: OmitedBlogPostContent };
+
 export type BlogProps = Page<{
   page: ApiPage;
-  articles: ApiResponse<Article[], ApiMetaPagination>;
+  blogPosts: ApiCollectionResponse<OmitedBlogPost>;
 }>;
 
-export const Blog: React.FC<BlogProps> = ({ articles }) => {
+export const Blog: React.FC<BlogProps> = ({ blogPosts }) => {
   const { t } = useTranslation(Namespace.Blog);
 
   return (
@@ -31,14 +34,12 @@ export const Blog: React.FC<BlogProps> = ({ articles }) => {
         </Text>
 
         <div className={styles.Blog__Grid}>
-          {articles.data.map((article) => (
-            <ArticleCard key={article.id} {...article} />
+          {blogPosts.docs.map(({ id, slug, content: { title, cover } }) => (
+            <BlogPostCard key={id} slug={slug} title={title} cover={cover} />
           ))}
         </div>
 
-        {articles.meta.pagination.pageCount > 1 && (
-          <Pagination className={styles.Blog__Pagination} total={articles.meta.pagination.total} />
-        )}
+        {blogPosts.hasNextPage && <Pagination className={styles.Blog__Pagination} total={blogPosts.totalPages} />}
       </Container>
     </AppLayout>
   );

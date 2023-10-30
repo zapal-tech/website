@@ -38,6 +38,8 @@
   }
 
   & &__Description {
+    white-space: pre-line;
+
     @include media(large-laptop) {
       max-width: 600px;
     }

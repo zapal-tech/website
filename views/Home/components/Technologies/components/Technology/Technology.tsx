@@ -5,14 +5,14 @@ import { Image } from 'components/Image/Image';
 
 import styles from './Technology.module.scss';
 
-export const Technology: React.FC<TechnologyType> = ({ attributes: { icon, title, description } }) => (
+export const Technology: React.FC<TechnologyType> = ({ logo, name, description }) => (
   <li className={styles.Technology} tabIndex={0}>
     <div className={styles.Technology__InnerContainer}>
       <div className={styles.Technology__Icon}>
         <Image
           className={styles.Technology__ImageContainer}
           imageClassName={styles.Technology__Image}
-          image={icon}
+          image={logo}
           unoptimized
         />
       </div>
@@ -25,7 +25,7 @@ export const Technology: React.FC<TechnologyType> = ({ attributes: { icon, title
         small
       >
         <Text className={styles.Technology__Title} size="small">
-          {title}
+          {name}
         </Text>
 
         <Text className={styles.Technology__Description} size="tiny">
