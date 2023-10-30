@@ -1,78 +1,59 @@
-export type ApiResponse<T, M = object> = {
-  data: T;
-  meta: M;
+export type ApiCollectionResponse<T> = {
+  docs: T[];
+} & ApiPagination;
+
+export type ApiPagination = {
+  totalDocs: number;
+  limit: number;
+  totalPages: number;
+  page: number;
+  pagingCounter: number;
+  hasPrevPage: boolean;
+  hasNextPage: boolean;
+  prevPage: null | number;
+  nextPage: null | number;
 };
 
-export type ApiMetaPagination<T = object> = T & {
-  pagination: {
-    page: number;
-    pageCount: number;
-    pageSize: number;
-    total: number;
-  };
-};
-
-export type ApiImage = {
-  data: {
-    id: number;
-    attributes: ApiBaseAttributes<ApiImageAttributes>;
-  };
-};
-
-export type ApiBaseImageAttributes = {
-  ext: string;
-  hash: string;
-  height: number;
-  mime: string;
-  name: string;
-  path: string | null;
-  size: number;
-  url: string;
-  width: number;
-};
-
-export type ApiImageAttributes = ApiBaseAttributes<
-  ApiBaseImageAttributes & {
-    alternativeText: string | null;
-    caption: string | null;
-    formats: Record<string, ApiBaseImageAttributes>;
-    previewUrl: string | null;
+export type ApiImage = ApiBaseProperties<
+  ApiBaseImageProperties & {
+    alt?: string;
+    prefix?: string;
+    blurhash?: string;
+    sizes?: Record<string, ApiBaseImageProperties>;
   }
 >;
 
-export type ApiSeoSocial = {
-  id: number;
-  socialNetwork: 'Twitter' | 'Facebook';
-  title: string;
-  description: string;
-  image: ApiImage | null;
+export type ApiBaseImageProperties = {
+  filename: string;
+  mimeType: string;
+  filesize: number;
+  width: number;
+  height: number;
+  url: string;
 };
 
-export type ApiSeo = {
-  id: number;
-  canonicalURL: string | null;
-  keywords: string | null;
-  metaDescription: string;
-  metaImage: ApiImage;
-  metaRobots: string | null;
-  metaSocial: ApiSeoSocial[];
-  metaTitle: string;
-  metaViewport: string | null;
-  structuredData: Record<string, any> | null;
+export type ApiMeta = {
+  title?: string;
+  canonical?: string;
+  keywords?: string;
+  description?: string;
+  photo?: ApiImage;
+  // structuredData: Record<string, any> | null;
 };
 
-export type ApiPageAttributes = ApiBaseAttributes<{
+export type ApiPageContent = {
   translation: Record<string, any>;
-  seo: ApiSeo;
-  locale: string;
-}>;
+};
 
-export type ApiBaseAttributes<T> = T & {
+export type ApiBaseProperties<T> = T & {
+  id: string;
   createdAt: string;
   updatedAt: string;
 };
 
-export type ApiPage = {
-  id: number;
-  attributes: ApiPageAttributes;
-};
+export type ApiPage = ApiBaseProperties<{
+  content: ApiPageContent;
+  meta: ApiMeta;
+  globalType: string;
+  _status: 'published' | 'draft';
+}>;

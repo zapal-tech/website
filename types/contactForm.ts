@@ -5,3 +5,8 @@ export type ContactFormState = {
   company: string;
   message: string;
 };
+
+export type ContactFormDto = ContactFormState & {
+  comeFromPage?: string;
+  comeFromLanguage?: string;
+};

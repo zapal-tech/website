@@ -13,8 +13,9 @@ export const supportedLanguages = Object.values(Language);
 
 export enum Namespace {
   Common = 'common',
+  General = 'general',
   Navigation = 'navigation',
-  Languages = 'language',
+  Languages = 'languages',
   Footer = 'footer',
   Home = 'home-page',
   Contacts = 'contacts-page',
@@ -31,6 +32,7 @@ export const defaultNamespace = Namespace.Common;
 export const namespaces = Object.values(Namespace);
 export const globalNamespaces = [
   Namespace.Common,
+  Namespace.General,
   Namespace.Languages,
   Namespace.Navigation,
   Namespace.Footer,
