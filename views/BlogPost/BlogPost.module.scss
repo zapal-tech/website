@@ -149,5 +149,9 @@
     height: auto;
     border-radius: 1000px;
     aspect-ratio: 1;
+
+    img {
+      object-fit: cover;
+    }
   }
 }

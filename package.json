@@ -33,6 +33,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
     "@lexical/utils": "^0.12.2",
+    "@payloadcms/live-preview-react": "^0.1.5",
     "@studio-freight/react-lenis": "^0.0.36",
     "@svgr/webpack": "^8.1.0",
     "@tryghost/kg-lexical-html-renderer": "^0.3.42",

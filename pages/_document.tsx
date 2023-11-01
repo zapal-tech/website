@@ -1,4 +1,4 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import { Head, Html, Main, NextScript } from 'next/document';
 import Script from 'next/script';
 
 const gTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
@@ -7,6 +7,9 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <link rel="preconnect" href={process.env.NEXT_PUBLIC_CMS_URL} />
+        <link rel="dns-prefetch" href={process.env.NEXT_PUBLIC_CMS_URL} />
+
         {process.env.NODE_ENV === 'production' && (
           <>
             <Script

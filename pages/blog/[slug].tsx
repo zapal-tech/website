@@ -1,3 +1,6 @@
+import { useMemo } from 'react';
+
+import { useLivePreview } from '@payloadcms/live-preview-react';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -6,6 +9,7 @@ import { useRouter } from 'next/router';
 
 import { Namespace, globalNamespaces } from 'configs/i18n';
 
+import { BlogPost as BlogPostType } from 'types/blog';
 import { Routes } from 'types/routes';
 
 import { BLOG_POST_REVALIDATE_TIME } from 'utils/constants';
@@ -22,7 +26,7 @@ import { Error404 } from 'views/Error404/Error404';
 export const getStaticProps: GetStaticProps<BlogPostProps> = async ({ locale, defaultLocale, params }) => {
   const blogPost = params?.slug ? await getBlogPostBySlug(params?.slug as string, locale) : null;
 
-  const blogPostStringifiedHTML = blogPost?.content.content ? await parseLexicalState(blogPost.content.content) : null;
+  const blogPostStringifiedHTML = blogPost?.content.content ? parseLexicalState(blogPost.content.content) : null;
 
   return {
     props: {
@@ -48,6 +52,12 @@ export default function BlogPage(props: InferGetStaticPropsType<typeof getStatic
   const { t } = useTranslation(Namespace.Navigation);
   const router = useRouter();
 
+  const { data } = useLivePreview<BlogPostType | null>({
+    serverURL: process.env.NEXT_PUBLIC_CMS_URL || '',
+    depth: 5,
+    initialData: props.blogPost,
+  });
+
   if (!router.isFallback && !props.blogPost?.id) return <Error404 />;
 
   const getURL = (path = router.pathname): string => {
@@ -57,6 +67,10 @@ export default function BlogPage(props: InferGetStaticPropsType<typeof getStatic
   };
 
   const blogPost = props.blogPost!;
+  const blogPostStringifiedHTML =
+    data?.content.content && JSON.stringify(data?.content.content) !== JSON.stringify(blogPost.content.content)
+      ? parseLexicalState(data.content.content)
+      : props.blogPostStringifiedHTML;
 
   return (
     <>
@@ -83,7 +97,7 @@ export default function BlogPage(props: InferGetStaticPropsType<typeof getStatic
           },
         ]}
       />
-      <BlogPost {...props} />
+      <BlogPost blogPost={{ ...blogPost, ...data }} blogPostStringifiedHTML={blogPostStringifiedHTML} />
 
       <ArticleJsonLd
         type="BlogPosting"
