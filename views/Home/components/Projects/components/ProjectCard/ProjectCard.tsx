@@ -5,6 +5,8 @@ import { Namespace } from 'configs/i18n';
 
 import { Project } from 'types/projects';
 
+import { homePageProjectCoverImageSize } from 'utils/imageSizes';
+
 import { Card, Text } from 'components';
 import { Image } from 'components/Image/Image';
 
@@ -15,7 +17,13 @@ export const ProjectCard: React.FC<Project> = ({ slug, preview: { name, image } 
 
   return (
     <Link href={`/projects#${slug}`} className={styles.ProjectCard}>
-      <Image className={styles.ProjectCard__Image} image={image} alt={`${name} project`} loading="eager" />
+      <Image
+        className={styles.ProjectCard__Image}
+        image={image}
+        alt={`${name} project`}
+        sizes={homePageProjectCoverImageSize}
+        loading="eager"
+      />
 
       <Card
         className={styles.ProjectCard__InnerCard}

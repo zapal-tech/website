@@ -79,10 +79,10 @@
   }
 
   &__ButtonText {
-    padding: 0;
+    padding: 2px 0 0;
 
     @media only screen and (min-width: 340px) {
-      padding: 0 8px;
+      padding: 2px 8px 0;
     }
   }
 

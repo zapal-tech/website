@@ -3,12 +3,6 @@ import { ApiBaseProperties } from './api';
 export const mapId = 'locations' as const;
 export const defaultZoom = 14.2 as const;
 
-export type Address = {
-  id: number;
-  label: string;
-  link: string;
-};
-
 export type Coordinates = [longitude: number, latitude: number];
 
 export type Location = ApiBaseProperties<{
@@ -19,7 +13,8 @@ export type Location = ApiBaseProperties<{
   title: string;
   email: string;
   phone: string;
-  address: Address;
+  address: string;
+  url: string;
   coordinates: Coordinates;
   timeZone: string;
 }>;

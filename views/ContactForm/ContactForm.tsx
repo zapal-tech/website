@@ -1,7 +1,8 @@
+import { useEffect, useMemo, useRef, useState } from 'react';
+
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import { useEffect, useMemo, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { CSSTransition } from 'react-transition-group';
 import * as yup from 'yup';
@@ -69,7 +70,7 @@ export const ContactForm: React.FC = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         ...data,
-        comeFromPage: router.pathname,
+        comeFromPage: router.asPath,
         comeFromLanguage: i18n.language || defaultLanguage,
       }),
     });

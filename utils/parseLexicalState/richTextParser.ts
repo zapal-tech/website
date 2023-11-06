@@ -3,6 +3,7 @@ import escapeHTML from 'escape-html';
 import { ApiBaseImageProperties, ApiImage } from 'types/api';
 
 import { deviceWidthSizes } from 'utils/imageLoader';
+import { fullWidthImageSize } from 'utils/imageSizes';
 
 import { generateId } from './generateId';
 import {
@@ -60,7 +61,7 @@ export function parseLexicalRichText(children: SerializedLexicalNode[], parent?:
                 .map(([key, value]) => `${value?.url} ${key}w`)
                 .join(', ');
 
-              return `<img alt="${alt}" loading="eager" decoding="async" sizes="100vw" srcset="${srcset}" src="${imageSizes[0][1].url}">`;
+              return `<img alt="${alt}" loading="eager" decoding="async" sizes=${fullWidthImageSize} srcset="${srcset}" src="${imageSizes[0][1].url}">`;
             }
 
             return `<img src="${node.value.url}" loading="eager" decoding="async" alt="${alt}" />`;

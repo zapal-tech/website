@@ -1,0 +1,243 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.Project {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+
+  &__Header {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100svh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $gap-xs;
+
+    @include media(large-phone) {
+      padding-top: 0 !important;
+    }
+
+    @include media(laptop) {
+      padding-bottom: 0;
+    }
+
+    & > * {
+      z-index: 1;
+    }
+  }
+
+  &__Name {
+    line-height: 1;
+  }
+
+  &__Name,
+  &__Description {
+    text-align: center;
+    text-shadow: 0 0 5px rgba($black, 0.5);
+  }
+
+  &__Description {
+    white-space: pre-line;
+  }
+
+  &__BackgroundImage {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    height: 100%;
+    margin: 0;
+
+    // Slowly fade out the image as it reaches the bottom of the page, but keep 20% of top almost fully opaque
+    mask-image: linear-gradient(to bottom, $black, cubic-bezier(0.55, -0.1, 0.65, 1), rgba($black, 0));
+    // mask-mode: luminance;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__Content {
+    width: 100%;
+
+    @include media(laptop) {
+      padding-top: $expanded-gap-sm;
+    }
+  }
+
+  &__Layout {
+    // @include dynamic-content-styles;
+
+    & > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    :global {
+      .rich-text {
+        @include dynamic-content-styles;
+      }
+
+      .circle-element {
+        position: relative;
+        z-index: 0;
+        overflow: visible;
+        width: 0;
+        height: 0;
+      }
+
+      .circle-element__circle {
+        position: absolute;
+        z-index: 0;
+        height: auto;
+        border-radius: 50%;
+        aspect-ratio: 1;
+        transform: translate(-50%, -50%);
+      }
+
+      .slide-image {
+        overflow: hidden;
+        width: 100%;
+        max-width: 1000px;
+        height: 100%;
+        max-height: 70svh;
+        padding: 0 !important;
+        margin: auto;
+
+        img {
+          position: relative !important;
+          overflow: hidden;
+          width: auto !important;
+          height: auto !important;
+          border-radius: $gap-xxs;
+          object-fit: contain !important;
+
+          @include media(laptop) {
+            border-radius: $gap-sm;
+          }
+        }
+      }
+
+      .row {
+        display: grid;
+        margin-bottom: $gap-sm;
+        gap: $gap-sm;
+
+        @include media(tablet) {
+          margin-bottom: $gap-lg;
+          gap: $gap-lg $gap-sm;
+        }
+
+        @include media(large-tablet) {
+          margin-bottom: $gap-lg;
+          gap: $gap-xxl $gap-lg;
+        }
+
+        @for $i from 1 through 4 {
+          &.row--columns-#{$i} {
+            @include media(tablet) {
+              grid-template-columns: repeat(#{$i}, 1fr);
+            }
+          }
+        }
+      }
+
+      .column {
+        .media {
+          &--image {
+            overflow: hidden;
+            width: 100%;
+            height: auto;
+            padding: 0 !important;
+
+            img {
+              position: relative !important;
+              width: 100% !important;
+              height: auto !important;
+              object-fit: contain !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__Details {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 100%;
+    gap: $gap-sm;
+
+    @include media(large-phone) {
+      gap: $gap-md;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media(large-tablet) {
+      gap: $gap-lg;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__Cell {
+      position: relative;
+      padding-top: 9px;
+
+      @include media(laptop) {
+        padding-top: 11px;
+      }
+
+      @include media(large-laptop) {
+        padding-top: 16px;
+      }
+
+      p {
+        position: relative;
+        z-index: 1;
+      }
+
+      &__Title {
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        color: #444 !important;
+        font-weight: 700 !important;
+        line-height: 0.9 !important;
+        text-transform: uppercase;
+        user-select: none;
+      }
+    }
+  }
+
+  &__Link {
+    @include text-heading4;
+
+    display: block;
+    margin: $gap-xl 0 $expanded-gap-xs;
+
+    @include media(tablet) {
+      margin: $gap-xxl 0 $expanded-gap-sm;
+    }
+
+    svg {
+      transform: translateY(calc(-50% + 2px));
+
+      @include media(laptop) {
+        transform: translateY(calc(-50% - 3px));
+      }
+
+      @include media(large-laptop) {
+        transform: translateY(calc(-50% + 4px));
+      }
+    }
+  }
+}

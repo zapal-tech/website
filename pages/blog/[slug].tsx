@@ -1,5 +1,3 @@
-import { useMemo } from 'react';
-
 import { useLivePreview } from '@payloadcms/live-preview-react';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
@@ -48,7 +46,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async ({ default
   return { paths, fallback: 'blocking' };
 };
 
-export default function BlogPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function BlogPostPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation(Namespace.Navigation);
   const router = useRouter();
 

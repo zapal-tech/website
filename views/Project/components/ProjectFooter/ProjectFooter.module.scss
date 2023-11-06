@@ -1,0 +1,142 @@
+@import 'styles/colors';
+@import 'styles/gaps';
+@import 'styles/mixins';
+
+.ProjectFooter {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: $expanded-gap-sm;
+  gap: $gap-sm;
+
+  @include media(tablet) {
+    padding-top: $expanded-gap-md;
+    gap: $gap-md;
+  }
+
+  @include media(laptop) {
+    padding-top: 200px;
+  }
+
+  @include media(large-laptop) {
+    padding-top: $expanded-gap-xl;
+  }
+
+  &__Headline {
+    text-transform: uppercase;
+  }
+
+  &__Contact {
+    display: grid;
+    gap: $gap-sm;
+
+    @include media(large-phone) {
+      grid-template-columns: 2fr 3fr;
+    }
+
+    @include media(tablet) {
+      gap: $gap-md;
+      grid-template-columns: 1fr 2fr;
+    }
+
+    @include media(large-tablet) {
+      grid-template-columns: 1fr 3fr;
+    }
+
+    @include media(large-laptop) {
+      gap: $gap-lg;
+    }
+  }
+
+  &__InfoWrapper {
+    display: grid;
+    align-content: space-between;
+    gap: $gap-sm;
+    grid-auto-rows: min-content;
+  }
+
+  &__Info {
+    @include media(tablet) {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+  }
+
+  &__PhotoCard {
+    overflow: hidden;
+    max-width: 500px;
+    padding: 0 !important;
+    aspect-ratio: 1;
+  }
+
+  &__Photo {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+  }
+
+  &__Name {
+    margin: 0 0 $gap-xxs;
+  }
+
+  &__Title {
+    margin: 0 0 $gap-sm;
+    color: $sonic-silver;
+  }
+
+  &__Description {
+    white-space: pre-line;
+  }
+
+  &__Actions {
+    @include text-heading2;
+
+    display: grid;
+    font-weight: 600;
+    gap: 6px;
+    line-height: 1;
+    text-transform: uppercase;
+
+    @include media(large-phone) {
+      display: block;
+      margin-bottom: -6px;
+    }
+
+    @include media(laptop) {
+      margin-bottom: -8px;
+    }
+
+    @include media(large-laptop) {
+      margin-bottom: -11px;
+    }
+  }
+
+  &__Or,
+  &__Action {
+    display: block;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    text-transform: uppercase;
+
+    @include media(large-phone) {
+      display: inline;
+    }
+  }
+
+  &__Or {
+    display: inline-block;
+  }
+
+  &__Action {
+    color: $link-color-secondary;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: $link-color-secondary-hover;
+    }
+  }
+}
