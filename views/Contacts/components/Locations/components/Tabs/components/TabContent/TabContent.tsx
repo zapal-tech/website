@@ -23,7 +23,7 @@ const ContactLink: React.FC<ContactLinkProps> = ({ title, href }) => (
   </a>
 );
 
-export const TabContent: React.FC<Location> = ({ address, fullName, title, email, phone, timeZone }) => {
+export const TabContent: React.FC<Location> = ({ address, url, fullName, title, email, phone, timeZone }) => {
   const { t } = useTranslation(Namespace.Contacts);
   const [currentLocationTime, setCurrentLocationTime] = useState('');
 
@@ -39,7 +39,7 @@ export const TabContent: React.FC<Location> = ({ address, fullName, title, email
 
   return (
     <div className={styles.TabContent}>
-      <ContactLink title={address.label} href={address.link} />
+      <ContactLink title={address} href={url} />
 
       <Text size="small" className={styles.TabContent__Time}>
         {t('locations.time')}: {currentLocationTime}

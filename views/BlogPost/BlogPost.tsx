@@ -1,7 +1,8 @@
 import { BlogPost as BlogPostType } from 'types/blog';
 import { Page } from 'types/page';
 
-import { parseBlogPostContent } from 'utils/parseBlogPost';
+import { blogPostPageCoverImageSize } from 'utils/imageSizes';
+import { parseHtmlStringToJsx } from 'utils/parseHtmlStringToJsx';
 
 import { Container, Text } from 'components';
 import { Image } from 'components/Image/Image';
@@ -33,12 +34,14 @@ export const BlogPost: React.FC<BlogPostProps> = ({ blogPost, blogPostStringifie
 
           <Text className={styles.BlogPost__Description}>{description}</Text>
 
-          {cover?.url && <Image className={styles.BlogPost__BackgroundImage} image={cover} />}
+          {cover?.url && (
+            <Image className={styles.BlogPost__BackgroundImage} image={cover} sizes={blogPostPageCoverImageSize} />
+          )}
         </Container>
 
         <Container className={styles.BlogPost__ContentWrapper}>
           <section className={styles.BlogPost__Content}>
-            {parseBlogPostContent(blogPostStringifiedHTML)}
+            {parseHtmlStringToJsx(blogPostStringifiedHTML)}
 
             {author?.name && (
               <Container type="footer" className={styles.BlogPost__Footer}>
