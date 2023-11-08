@@ -5,7 +5,7 @@ import { BlogPost } from 'types/blog';
 import { ContactFormState } from 'types/contactForm';
 import { Location } from 'types/locations';
 import { Partner } from 'types/partners';
-import { Project } from 'types/projects';
+import { Project, ProjectFooter } from 'types/projects';
 import { Service } from 'types/services';
 import { TeamMember } from 'types/team';
 import { Technology } from 'types/technologies';
@@ -30,7 +30,15 @@ api.interceptors.response.use(
 );
 
 export const addContact = async (contact: ContactFormState) => {
-  const { data } = await api.post('/contact-form-leads', { data: contact }, { params: undefined });
+  const { data } = await api.post('/contact-form-leads', contact, { params: undefined });
+
+  return data;
+};
+
+export const getProjectFooter = async (locale?: string): Promise<ProjectFooter> => {
+  const { data } = await api.get<ProjectFooter>('/globals/project-footer', {
+    params: { locale },
+  });
 
   return data;
 };
@@ -44,7 +52,7 @@ export const getProjects = async (locale?: string): Promise<ApiCollectionRespons
 };
 
 // Return 500 projects to make sure we get all of them (there are less than 500 projects)
-export const geAllProjects = async (locale?: string): Promise<ApiCollectionResponse<Project>> => {
+export const getAllProjects = async (locale?: string): Promise<ApiCollectionResponse<Project>> => {
   const { data } = await api.get<ApiCollectionResponse<Project>>('/projects', {
     params: { locale, ...whereStatusPublished, limit: 500 },
   });
@@ -141,6 +149,12 @@ export const getAboutPage = async (locale?: string): Promise<ApiPage> => {
 
 export const getContactsPage = async (locale?: string): Promise<ApiPage> => {
   const { data } = await api.get<ApiPage>('/globals/contacts-page', { params: { locale } });
+
+  return data;
+};
+
+export const getProjectPage = async (locale?: string): Promise<ApiPage> => {
+  const { data } = await api.get<ApiPage>('/globals/project-page', { params: { locale } });
 
   return data;
 };

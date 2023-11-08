@@ -1,7 +1,11 @@
 // import Link from 'next/link';
 import clsx, { ClassValue } from 'clsx';
+import Link from 'next/link';
 
 import { Project } from 'types/projects';
+import { Routes } from 'types/routes';
+
+import { projectsPageProjectCoverImageSize } from 'utils/imageSizes';
 
 import { Text } from 'components';
 import { Image } from 'components/Image/Image';
@@ -20,12 +24,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   photoLoading,
   className,
 }) => (
-  <div id={slug} className={clsx(styles.ProjectCard, className)}>
+  <Link href={`${Routes.Projects}/${slug}`} target="_blank" className={clsx(styles.ProjectCard, className)}>
     <Image
       image={image}
       alt={`${name || content.name} project`}
       className={styles.ProjectCard__Image}
       loading={photoLoading}
+      sizes={projectsPageProjectCoverImageSize}
     />
 
     <Text size="heading3" className={styles.ProjectCard__Title}>
@@ -35,5 +40,5 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <Text size="small" className={styles.ProjectCard__Subtitle}>
       {description || content.description}
     </Text>
-  </div>
+  </Link>
 );

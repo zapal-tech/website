@@ -3,6 +3,7 @@ import escapeHTML from 'escape-html';
 import { ApiBaseImageProperties, ApiImage } from 'types/api';
 
 import { deviceWidthSizes } from 'utils/imageLoader';
+import { fullWidthImageSize } from 'utils/imageSizes';
 
 import { generateId } from './generateId';
 import {
@@ -60,10 +61,10 @@ export function parseLexicalRichText(children: SerializedLexicalNode[], parent?:
                 .map(([key, value]) => `${value?.url} ${key}w`)
                 .join(', ');
 
-              return `<img alt="${alt}" loading="lazy" decoding="async" sizes="100vw" srcset="${srcset}" src="${imageSizes[0][1].url}">`;
+              return `<img alt="${alt}" loading="eager" decoding="async" sizes=${fullWidthImageSize} srcset="${srcset}" src="${imageSizes[0][1].url}">`;
             }
 
-            return `<img src="${node.value.url}" loading="lazy" decoding="async" alt="${alt}" />`;
+            return `<img src="${node.value.url}" loading="eager" decoding="async" alt="${alt}" />`;
           }
 
           if (node.value.url)
@@ -134,13 +135,12 @@ export function parseLexicalRichText(children: SerializedLexicalNode[], parent?:
         case NodeType.HEADING: {
           const tagNumber = Number(node.tag[1]);
           const tag = tagNumber < 6 ? `h${tagNumber + 1}` : 'h6';
-          let id = generateId(node.children![0].text!);
+          let id = node.children?.[0]?.text ? generateId(node.children[0].text) : '';
 
-          if (usedIds.includes(id)) id = `${id}-${usedIds.length + 1}`;
+          if (id && usedIds.includes(id)) id = `${id}-${usedIds.length + 1}`;
+          if (id) usedIds.push(id);
 
-          usedIds.push(id);
-
-          return `<${tag} id="${id}" class="${getAlignClassName(node)} ${getIndentClassName(
+          return `<${tag} ${id ? `id="${id}"` : ''} class="${getAlignClassName(node)} ${getIndentClassName(
             node,
           )}">${serializedChildren}</${tag}>`;
         }

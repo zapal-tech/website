@@ -61,12 +61,12 @@
     display: grid;
     gap: $gap-md * 2;
 
-    @include media(laptop) {
-      gap: $gap-xl;
+    @include media(tablet) {
+      gap: $gap-xl $gap-lg;
       grid-template-columns: 1fr 1fr;
     }
 
-    @include media(desktop) {
+    @include media(large-laptop) {
       gap: $gap-xxl;
     }
   }

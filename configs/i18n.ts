@@ -21,6 +21,7 @@ export enum Namespace {
   Contacts = 'contacts-page',
   ContactForm = 'contact-form',
   Projects = 'projects-page',
+  Project = 'project-page',
   About = 'about-page',
   Blog = 'blog-page',
   SupportUkraine = 'support-ukraine-page',

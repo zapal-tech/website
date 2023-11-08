@@ -24,7 +24,7 @@ const nextConfig = {
   i18n,
   images: {
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'inline',
+    contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     deviceSizes: [1680, 1920, 2560, 3840],
     imageSizes: [700, 800, 1200, 1600],
@@ -38,22 +38,41 @@ const nextConfig = {
       },
     ],
   },
-  // async headers() {
-  //   const ContentSecurityPolicy = `
-  //     default-src 'self';
-  //     script-src 'self';
-  //     child-src example.com;
-  //     style-src 'self' example.com;
-  //     font-src 'self';
-  //   `
+  async headers() {
+    const ContentSecurityPolicy = `
+      default-src 'self';
+      style-src 'self' 'unsafe-inline';
+      script-src 'self' 'report-sample' ${
+        process.env.NODE_ENV === 'development' ? "'unsafe-eval' " : ''
+      }https://api.mapbox.com https://connect.facebook.net https://va.vercel-scripts.com https://vitals.vercel-insights.com;
+      img-src 'self' data: ${process.env.NEXT_PUBLIC_CMS_URL};
+      font-src 'self';
+      object-src 'none';
+      child-src 'self';
+      frame-src 'self' calendly.com;
+      frame-ancestors 'self' ${process.env.NEXT_PUBLIC_CMS_URL};
+      connect-src 'self' *.mapbox.com https://connect.facebook.net https://va.vercel-scripts.com https://vitals.vercel-insights.com;
+      manifest-src 'self';
+      base-uri 'self';
+      form-action 'self';
+      media-src 'self';
+      worker-src 'self' blob:;
+      block-all-mixed-content;
+      upgrade-insecure-requests;
+    `;
 
-  //   return [
-  //     {
-  //       key: 'Content-Security-Policy',
-  //       value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
-  //     }
-  //   ];
-  // },
+    return [
+      {
+        source: '/(.*?)',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim(),
+          },
+        ],
+      },
+    ];
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,

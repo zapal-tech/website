@@ -1,13 +1,14 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
+
 import clsx, { ClassValue } from 'clsx';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { useCallback, useEffect, useRef, useState } from 'react';
 import Mapbox, {
-  MapProps as MapboxProps,
-  NavigationControl,
   FullscreenControl,
   MapRef,
-  MarkerProps,
+  MapProps as MapboxProps,
   Marker,
+  MarkerProps,
+  NavigationControl,
 } from 'react-map-gl';
 import { CSSTransition } from 'react-transition-group';
 

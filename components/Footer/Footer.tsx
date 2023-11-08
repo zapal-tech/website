@@ -32,7 +32,7 @@ const Subtitle = () => {
 
 const MadeByZapal = () => {
   const { t } = useTranslation(Namespace.Footer);
-  return null;
+
   return (
     <AlternantText
       className={styles.Footer__MadeByZapal}

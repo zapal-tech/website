@@ -2,6 +2,8 @@ import clsx from 'clsx';
 
 import { TeamMember } from 'types/team';
 
+import { aboutPageTeamMemberPhotoSize } from 'utils/imageSizes';
+
 import { Text } from 'components';
 import { Image } from 'components/Image/Image';
 
@@ -20,7 +22,12 @@ export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
   links,
 }) => (
   <div className={styles.TeamMemberCard} id={slug}>
-    <Image className={styles.TeamMemberCard__Photo} image={photo} alt={`${firstName} ${lastName} photo`} priority />
+    <Image
+      className={styles.TeamMemberCard__Photo}
+      image={photo}
+      alt={`${firstName} ${lastName} photo`}
+      sizes={aboutPageTeamMemberPhotoSize}
+    />
 
     <div className={styles.TeamMemberCard__Container}>
       <Text className={styles.TeamMemberCard__Name} size="heading3" type="h3">

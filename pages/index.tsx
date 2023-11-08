@@ -1,5 +1,6 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 
 import { Namespace, globalNamespaces } from 'configs/i18n';
 
@@ -38,6 +39,10 @@ export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale, defaul
 export default function HomePage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
+      <Head>
+        <link rel="preload" href="/images/hero-bg.webp" as="image" />
+      </Head>
+
       <PageSeo
         generateTopLevelBreadcrumbs
         locale={props.locale}

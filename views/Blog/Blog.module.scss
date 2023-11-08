@@ -26,6 +26,10 @@
       grid-template-columns: 1fr 1fr;
     }
 
+    @include media(large-tablet) {
+      gap: $gap-lg;
+    }
+
     @include media(laptop) {
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }

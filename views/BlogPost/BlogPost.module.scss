@@ -76,6 +76,11 @@
       // Slowly fade out the image as it reaches the bottom of the page, but keep 20% of top almost fully opaque
       mask-image: linear-gradient(to bottom, $black, cubic-bezier(0.45, -0.1, 0.7, 1), rgba($black, 0));
     }
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
   }
 
   &__ContentWrapper {
@@ -149,5 +154,10 @@
     height: auto;
     border-radius: 1000px;
     aspect-ratio: 1;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
   }
 }

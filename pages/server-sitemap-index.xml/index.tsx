@@ -2,7 +2,10 @@ import { GetServerSideProps } from 'next';
 import { getServerSideSitemapIndexLegacy } from 'next-sitemap';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  return getServerSideSitemapIndexLegacy(ctx, [process.env.NEXT_PUBLIC_SITE_URL + '/blog-sitemap.xml']);
+  return getServerSideSitemapIndexLegacy(ctx, [
+    process.env.NEXT_PUBLIC_SITE_URL + '/blog-sitemap.xml',
+    process.env.NEXT_PUBLIC_SITE_URL + '/projects-sitemap.xml',
+  ]);
 };
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function

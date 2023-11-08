@@ -130,7 +130,7 @@
     gap: $gap-xxl;
 
     @include media(tablet) {
-      gap: $gap-xl;
+      gap: $gap-lg;
       grid-template-columns: 1fr 1fr;
     }
 

@@ -166,7 +166,9 @@
 }
 
 @mixin dynamic-content-styles {
-  $code-background-color: #252525;
+  $code-background-color: #333;
+
+  color: $text-color-default;
 
   & > *:first-child {
     margin-top: 0;
