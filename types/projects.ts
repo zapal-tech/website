@@ -242,7 +242,7 @@ type LayoutBlock =
                       blockType: 'rich-text';
                     }
                   | {
-                      media: string | ProjectAsset;
+                      media: string | ApiImage;
                       id?: string | null;
                       blockName?: string | null;
                       blockType: 'media';
@@ -267,7 +267,7 @@ export type ColumnBlock =
       blockType: 'rich-text';
     }
   | {
-      media: ApiImage;
+      media: string | ApiImage;
       id?: string | null;
       blockName?: string | null;
       blockType: 'media';

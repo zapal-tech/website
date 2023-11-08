@@ -29,10 +29,12 @@ const getRadialGradientStyleProps = (item: ProjectContent['layout'][0], key: Bre
   const isBlurPresent = isNotNullOrUndefined(item[key].blur?.value) && isNotNullOrUndefined(item[key].blur?.unit);
 
   return `
-    ${isYPresent ? `top: ${getCssValue(item[key].y!)};` : ''}
-    ${isXPresent ? `top: ${getCssValue(item[key].x!)};` : ''}
-    ${isDiameterPresent ? `width: ${getCssValue(item[key].diameter!)};` : ''}
-    ${isBlurPresent ? `filter: blur(${getCssValue(item[key].blur!)})` : ''}
+    ${isYPresent ? `top: ${getCssValue(item[key].y as Record<'value' | 'unit', string | number>)};` : ''}
+    ${isXPresent ? `top: ${getCssValue(item[key].x as Record<'value' | 'unit', string | number>)};` : ''}
+    ${
+      isDiameterPresent ? `width: ${getCssValue(item[key].diameter as Record<'value' | 'unit', string | number>)};` : ''
+    }
+    ${isBlurPresent ? `filter: blur(${getCssValue(item[key].blur as Record<'value' | 'unit', string | number>)})` : ''}
   `;
 };
 
@@ -77,7 +79,7 @@ export const parseProjectLayout = (layout: ProjectContent['layout'] | ColumnBloc
         break;
 
       case 'media': {
-        if (item.media.mimeType?.includes('image'))
+        if (typeof item.media !== 'string' && item.media.mimeType?.includes('image'))
           parsedLayout += `<img class="media media--image" data-media='${JSON.stringify(item.media)}' />`;
 
         break;

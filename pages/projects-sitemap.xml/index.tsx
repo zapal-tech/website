@@ -41,7 +41,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             publicationName: 'Zapal',
             publicationLanguage: ctx.locale!,
             date: entity.createdAt ? new Date(entity.createdAt).toISOString() : new Date().toISOString(),
-            title: entity.content.title!,
+            title: entity.content.name,
           }
         : undefined,
     };
