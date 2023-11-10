@@ -51,7 +51,9 @@ const nextConfig = {
       child-src 'self';
       frame-src 'self' calendly.com;
       frame-ancestors 'self' ${process.env.NEXT_PUBLIC_CMS_URL};
-      connect-src 'self' *.mapbox.com https://connect.facebook.net https://va.vercel-scripts.com https://vitals.vercel-insights.com;
+      connect-src 'self' *.mapbox.com ${
+        process.env.NEXT_PUBLIC_CMS_URL
+      } https://connect.facebook.net https://va.vercel-scripts.com https://vitals.vercel-insights.com;
       manifest-src 'self';
       base-uri 'self';
       form-action 'self';
