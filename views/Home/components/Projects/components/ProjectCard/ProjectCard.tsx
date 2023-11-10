@@ -16,7 +16,7 @@ export const ProjectCard: React.FC<Project> = ({ slug, preview: { name, image } 
   const { t } = useTranslation(Namespace.Home);
 
   return (
-    <Link href={`/projects#${slug}`} className={styles.ProjectCard}>
+    <Link href={`/projects/${slug}`} target="_blank" className={styles.ProjectCard}>
       <Image
         className={styles.ProjectCard__Image}
         image={image}
