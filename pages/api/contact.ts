@@ -9,8 +9,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
       await axios.post('/contact-form-leads', data, {
-        baseURL: 'https://cms.zapal.tech/api',
-        headers: { Authorization: process.env.API_KEY },
+        baseURL: process.env.NEXT_PUBLIC_API_URL,
+        // Using "public" API key here because Vercel completely fucked up env vars management!
+        headers: { Authorization: process.env.NEXT_PUBLIC_API_KEY },
       });
 
       return res.status(201).end('Created');
