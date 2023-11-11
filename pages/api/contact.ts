@@ -1,18 +1,15 @@
-import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import { ContactFormDto } from 'types/contactForm';
+
+import { addContact } from 'services/api';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const data = req.body as ContactFormDto;
 
     try {
-      await axios.post('/contact-form-leads', data, {
-        baseURL: process.env.NEXT_PUBLIC_API_URL,
-        // Using "public" API key here because Vercel completely fucked up env vars management!
-        headers: { Authorization: process.env.NEXT_PUBLIC_API_KEY },
-      });
+      await addContact(data);
 
       return res.status(201).end('Created');
     } catch (error) {
