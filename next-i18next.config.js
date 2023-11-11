@@ -11,9 +11,9 @@ module.exports = {
   /** @type {import('i18next-http-backend').HttpBackendOptions} **/
   backend: {
     // load: 'languageOnly',
-    loadPath: `${process.env.API_URL}/globals/{{ns}}?locale={{lng}}&depth=10`,
+    loadPath: `${process.env.NEXT_PUBLIC_API_URL}/globals/{{ns}}?locale={{lng}}&depth=10`,
     crossDomain: true,
-    customHeaders: { Authorization: process.env.API_KEY },
+    customHeaders: { Authorization: process.env.NEXT_PUBLIC_API_KEY },
     parse: (data) => {
       const parsedData = JSON.parse(data);
 

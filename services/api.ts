@@ -15,8 +15,8 @@ import { BLOG_POSTS_PER_PAGE } from 'utils/constants';
 const whereStatusPublished = { where: { _status: { equals: 'published' } } };
 
 const api = axios.create({
-  baseURL: process.env.API_URL,
-  headers: { Authorization: process.env.API_KEY },
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  headers: { Authorization: process.env.NEXT_PUBLIC_API_KEY },
   params: { sort: 'order', limit: 24 },
 });
 
