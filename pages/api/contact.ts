@@ -7,18 +7,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'POST') {
     const data = req.body as ContactFormDto;
 
-    console.log(process.env.API_URL);
-
     try {
       await axios.post('/contact-form-leads', data, {
-        baseURL: process.env.API_URL,
+        baseURL: 'https://cms.zapal.tech/api',
         headers: { Authorization: process.env.API_KEY },
       });
 
       return res.status(201).end('Created');
     } catch (error) {
-      console.error(error);
-
       return res.status(500).end('Internal Server Error');
     }
   }
