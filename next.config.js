@@ -73,6 +73,10 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: '/api/(.*)',
+        headers: [],
+      },
     ];
   },
   webpack(config) {
