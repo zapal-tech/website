@@ -35,7 +35,7 @@ export const PageSeo: React.FC<PageSeoProps> = ({
     tags.push(
       {
         name: 'og:title',
-        content: title ? `Zapal - ${title} | Unlock Your Tech Future` : 'Zapal | Unlock Your Tech Future',
+        content: title ? `${title} - Zapal | Unlock Your Tech Future` : 'Zapal | Unlock Your Tech Future',
       },
       { name: 'og:description', content: description || '' },
       { name: 'og:type', content: 'website' },

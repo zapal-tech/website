@@ -29,7 +29,7 @@ export type ProjectProps = Page<
 export const Project: React.FC<ProjectProps> = ({ name, description, image, details, footer, layoutHtmlString }) => {
   const { t } = useTranslation(Namespace.Project);
 
-  if (!name) return null;
+  if (!name || !details || !layoutHtmlString) return null;
 
   return (
     <ProjectLayout mainClassName={styles.Project}>
@@ -38,7 +38,7 @@ export const Project: React.FC<ProjectProps> = ({ name, description, image, deta
           {name}
         </Text>
 
-        <Text className={styles.Project__Description}>{description}</Text>
+        {description && <Text className={styles.Project__Description}>{description}</Text>}
 
         {image?.url && <Image className={styles.Project__BackgroundImage} image={image} />}
       </Container>
@@ -101,7 +101,7 @@ export const Project: React.FC<ProjectProps> = ({ name, description, image, deta
 
         <div className={styles.Project__Layout}>{parseHtmlStringToJsx(layoutHtmlString)}</div>
 
-        <ProjectFooter {...footer} />
+        {footer && <ProjectFooter {...footer} />}
       </Container>
     </ProjectLayout>
   );
