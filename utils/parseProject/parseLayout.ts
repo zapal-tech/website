@@ -30,7 +30,7 @@ const getRadialGradientStyleProps = (item: ProjectContent['layout'][0], key: Bre
 
   return `
     ${isYPresent ? `top: ${getCssValue(item[key].y as Record<'value' | 'unit', string | number>)};` : ''}
-    ${isXPresent ? `top: ${getCssValue(item[key].x as Record<'value' | 'unit', string | number>)};` : ''}
+    ${isXPresent ? `left: ${getCssValue(item[key].x as Record<'value' | 'unit', string | number>)};` : ''}
     ${
       isDiameterPresent ? `width: ${getCssValue(item[key].diameter as Record<'value' | 'unit', string | number>)};` : ''
     }

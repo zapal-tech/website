@@ -218,6 +218,22 @@
         padding-left: calc(var(--indent-level) * #{$i});
       }
     }
+
+    .carousel-root {
+      .slider {
+        margin: $gap-lg 0;
+
+        @include media(laptop) {
+          margin: $gap-xl 0;
+        }
+      }
+    }
+  }
+
+  h2,
+  h3,
+  h4 {
+    line-height: 1.5 !important;
   }
 
   h2 {
@@ -253,9 +269,10 @@
   p,
   blockquote {
     @include text-default;
-    margin-bottom: $gap-xs;
 
+    margin-bottom: $gap-xs;
     font-weight: 500;
+    line-height: 1.7 !important;
 
     @include media(laptop) {
       margin-bottom: $gap-sm;
