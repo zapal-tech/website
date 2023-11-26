@@ -220,12 +220,10 @@
     }
 
     .carousel-root {
-      .slider {
-        margin: $gap-lg 0;
+      margin: $gap-lg 0;
 
-        @include media(laptop) {
-          margin: $gap-xl 0;
-        }
+      @include media(laptop) {
+        margin: $gap-xl 0;
       }
     }
   }
