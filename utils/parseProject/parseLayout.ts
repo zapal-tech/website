@@ -72,11 +72,14 @@ export const parseProjectLayout = (layout: ProjectContent['layout'] | ColumnBloc
 
   layout.map((item) => {
     switch (item.blockType) {
-      case 'rich-text':
+      case 'rich-text': {
+        if (!item.content) break;
+
         parsedLayout += `<div class="rich-text">${parseLexicalState(
           item.content as unknown as SerializedEditorState,
         )}</div>`;
         break;
+      }
 
       case 'media': {
         if (typeof item.media !== 'string' && item.media.mimeType?.includes('image'))

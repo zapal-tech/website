@@ -1,6 +1,6 @@
 import escapeHTML from 'escape-html';
 
-import { ApiBaseImageProperties, ApiImage } from 'types/api';
+import { ApiBaseImageProperties } from 'types/api';
 
 import { deviceWidthSizes } from 'utils/imageLoader';
 import { fullWidthImageSize } from 'utils/imageSizes';
