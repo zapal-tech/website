@@ -38,6 +38,18 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/.well-known/matrix/:path*',
+        destination: 'https://matrix.zapal.tech/.well-known/matrix/:path*',
+      },
+      {
+        source: '/_matrix/client/:path*',
+        destination: 'https://matrix.zapal.tech/_matrix/client/:path*',
+      },
+    ];
+  },
   async headers() {
     const ContentSecurityPolicy = `
       default-src 'self';
