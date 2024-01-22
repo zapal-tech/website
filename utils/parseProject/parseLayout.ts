@@ -82,7 +82,7 @@ export const parseProjectLayout = (layout: ProjectContent['layout'] | ColumnBloc
       }
 
       case 'media': {
-        if (typeof item.media !== 'string' && item.media.mimeType?.includes('image'))
+        if (item.media && typeof item.media !== 'string' && item.media.mimeType?.includes('image'))
           parsedLayout += `<img class="media media--image" data-media='${JSON.stringify(item.media)}' />`;
 
         break;

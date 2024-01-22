@@ -50,10 +50,10 @@ export default function BlogPostPage(props: InferGetStaticPropsType<typeof getSt
   const { t } = useTranslation(Namespace.Navigation);
   const router = useRouter();
 
-  const { data } = useLivePreview<BlogPostType | null>({
+  const { data } = useLivePreview<BlogPostType | Record<string, any>>({
     serverURL: process.env.NEXT_PUBLIC_CMS_URL || '',
-    depth: 5,
-    initialData: props.blogPost,
+    depth: 10,
+    initialData: props.blogPost || {},
   });
 
   if (!router.isFallback && !props.blogPost?.id) return <Error404 />;

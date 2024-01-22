@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import { useLivePreview } from '@payloadcms/live-preview-react';
 import countries from 'assets/countries.json';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
@@ -9,7 +11,7 @@ import { useRouter } from 'next/router';
 import { Namespace, globalNamespaces } from 'configs/i18n';
 
 import { ApiMeta } from 'types/api';
-import { ProjectContent, Project as ProjectType } from 'types/projects';
+import { ProjectContent } from 'types/projects';
 import { Routes } from 'types/routes';
 
 import { BLOG_POST_REVALIDATE_TIME } from 'utils/constants';
@@ -23,7 +25,7 @@ import { PageSeo } from 'components/PageSeo/PageSeo';
 import { Error404 } from 'views/Error404/Error404';
 import { Project, ProjectProps } from 'views/Project/Project';
 
-export const getStaticProps: GetStaticProps<ProjectProps> = async ({ locale, defaultLocale, params }) => {
+export const getStaticProps: GetStaticProps<{ project: ProjectProps }> = async ({ locale, defaultLocale, params }) => {
   const project = params?.slug ? await getProjectBySlug(params?.slug as string, locale) : null;
   const footer = await getProjectFooter(locale);
 
@@ -35,17 +37,19 @@ export const getStaticProps: GetStaticProps<ProjectProps> = async ({ locale, def
   const data = {
     props: {
       ...(await serverSideTranslations(locale!, [...globalNamespaces, Namespace.Project])),
-      ...(project?.content || ({} as any as ProjectContent))!,
-      meta: project?.meta || ({} as any as ApiMeta),
-      layoutHtmlString,
-      footer,
-      locale,
-      defaultLocale,
+      project: {
+        ...(project?.content as any as ProjectContent),
+        layoutHtmlString,
+        footer,
+        locale,
+        defaultLocale,
+        meta: project?.meta || ({} as any as ApiMeta),
+      },
     },
     revalidate: BLOG_POST_REVALIDATE_TIME,
   };
 
-  if (data.props?.details && parsedCountry) data.props.details.country = parsedCountry;
+  if (data.props.project?.details && parsedCountry) data.props.project.details.country = parsedCountry;
 
   return data;
 };
@@ -62,47 +66,51 @@ export default function ProjectPage(props: InferGetStaticPropsType<typeof getSta
   const { t } = useTranslation(Namespace.Navigation);
   const router = useRouter();
 
-  const { data } = useLivePreview<ProjectType | null>({
+  const { data } = useLivePreview<any>({
     serverURL: process.env.NEXT_PUBLIC_CMS_URL || '',
-    depth: 5,
+    depth: 10,
     initialData: null,
   });
 
-  if (!router.isFallback && !props.name) return <Error404 />;
-
   const getURL = (path = router.pathname): string => {
-    const prefix = props.locale === props.defaultLocale ? '' : `/${props.locale}`;
+    const prefix = props?.project.locale === props?.project.defaultLocale ? '' : `/${props?.project.locale}`;
 
     return new URL(prefix + path, process.env.NEXT_PUBLIC_SITE_URL).href;
   };
 
   const layoutHtmlString =
-    data?.content.layout && JSON.stringify(data?.content.layout) !== JSON.stringify(props.layout)
+    data?.content?.layout && JSON.stringify(data?.content?.layout) !== JSON.stringify(props.project?.layout)
       ? parseProjectLayout(data.content.layout)
-      : props.layoutHtmlString;
+      : props?.project.layoutHtmlString;
 
-  const passedData = {
-    footer: props.footer,
-    details: data?.content.details || props.details,
-    name: data?.content.name || props.name,
-    description: data?.content.description || props.description,
-    image: data?.content.image || props.image,
-    layout: data?.content.layout || props.layout,
-    meta: data?.meta || props.meta,
-    layoutHtmlString,
-  };
+  const passedData = useMemo(
+    () => ({
+      ...props.project,
+      ...(data?.content ? data.content : {}),
+      name: data?.content?.name || props.project?.name,
+      description: data?.content?.description || props.project?.description,
+      image: props.project?.image,
+      meta: data?.meta || props.project?.meta,
+      layoutHtmlString,
+      footer: props.project?.footer,
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [props.project, data?.content, data?.content?.name, data?.content?.description, data?.meta, layoutHtmlString],
+  );
+
+  if (!router.isFallback && !props?.project.name) return <Error404 />;
 
   return (
     <>
       <PageSeo
-        locale={props.locale}
-        defaultLocale={props.defaultLocale}
+        locale={props.project.locale}
+        defaultLocale={props.project.defaultLocale}
         {...{
-          title: props.meta.title || props.name,
-          description: props.meta.description || props.description,
-          photo: props.meta.photo || props.image,
-          canonical: props.meta.canonical,
-          keywords: props.meta.keywords,
+          title: props.project.meta.title || props.project.name,
+          description: props.project.meta.description || props.project.description,
+          photo: props.project.meta.photo || props.project.image,
+          canonical: props.project.meta.canonical,
+          keywords: props.project.meta.keywords,
         }}
         breadcrumbs={[
           {
@@ -112,7 +120,7 @@ export default function ProjectPage(props: InferGetStaticPropsType<typeof getSta
           },
           {
             position: 2,
-            name: props.meta.title || props.name,
+            name: props.project.meta.title || props.project.name,
             item: getURL(),
           },
         ]}
