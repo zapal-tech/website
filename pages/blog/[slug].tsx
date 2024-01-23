@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import { useLivePreview } from '@payloadcms/live-preview-react';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useTranslation } from 'next-i18next';
@@ -50,13 +52,11 @@ export default function BlogPostPage(props: InferGetStaticPropsType<typeof getSt
   const { t } = useTranslation(Namespace.Navigation);
   const router = useRouter();
 
-  const { data } = useLivePreview<BlogPostType | Record<string, any>>({
+  const { data } = useLivePreview<any>({
     serverURL: process.env.NEXT_PUBLIC_CMS_URL || '',
     depth: 10,
-    initialData: props.blogPost || {},
+    initialData: null,
   });
-
-  if (!router.isFallback && !props.blogPost?.id) return <Error404 />;
 
   const getURL = (path = router.pathname): string => {
     const prefix = props.locale === props.defaultLocale ? '' : `/${props.locale}`;
@@ -64,11 +64,23 @@ export default function BlogPostPage(props: InferGetStaticPropsType<typeof getSt
     return new URL(prefix + path, process.env.NEXT_PUBLIC_SITE_URL).href;
   };
 
-  const blogPost = props.blogPost!;
-  const blogPostStringifiedHTML =
-    data?.content.content && JSON.stringify(data?.content.content) !== JSON.stringify(blogPost.content.content)
-      ? parseLexicalState(data.content.content)
-      : props.blogPostStringifiedHTML;
+  const blogPostStringifiedHTML = useMemo(
+    () =>
+      data?.content.content && JSON.stringify(data?.content.content) !== JSON.stringify(props.blogPost?.content.content)
+        ? parseLexicalState(data.content.content)
+        : props.blogPostStringifiedHTML,
+    [data, props.blogPostStringifiedHTML, props.blogPost?.content.content],
+  );
+
+  const passedData = useMemo(
+    () => ({
+      ...props.blogPost,
+      ...data,
+    }),
+    [props.blogPost, data],
+  );
+
+  if (!router.isFallback && !props.blogPost?.id) return <Error404 />;
 
   return (
     <>
@@ -76,11 +88,11 @@ export default function BlogPostPage(props: InferGetStaticPropsType<typeof getSt
         locale={props.locale}
         defaultLocale={props.defaultLocale}
         {...{
-          title: blogPost.meta.title || blogPost.content.title,
-          description: blogPost.meta.description || blogPost.content.title,
-          photo: blogPost.meta.photo || blogPost.content.cover,
-          canonical: blogPost.meta.canonical,
-          keywords: blogPost.meta.keywords,
+          title: props.blogPost?.meta.title || props.blogPost?.content.title,
+          description: props.blogPost?.meta.description || props.blogPost?.content.title,
+          photo: props.blogPost?.meta.photo || props.blogPost?.content.cover,
+          canonical: props.blogPost?.meta.canonical,
+          keywords: props.blogPost?.meta.keywords,
         }}
         breadcrumbs={[
           {
@@ -90,26 +102,26 @@ export default function BlogPostPage(props: InferGetStaticPropsType<typeof getSt
           },
           {
             position: 2,
-            name: blogPost.content.title,
+            name: props.blogPost?.content.title || '',
             item: getURL(),
           },
         ]}
       />
-      <BlogPost blogPost={{ ...blogPost, ...data }} blogPostStringifiedHTML={blogPostStringifiedHTML} />
+      <BlogPost blogPost={passedData} blogPostStringifiedHTML={blogPostStringifiedHTML} />
 
       <ArticleJsonLd
         type="BlogPosting"
-        url={blogPost.meta.canonical!}
-        title={blogPost.content.title}
-        description={blogPost.meta.description!}
-        images={blogPost.content?.cover?.url ? [blogPost.content.cover.url] : []}
-        datePublished={blogPost.createdAt}
-        dateModified={blogPost.updatedAt}
+        url={props.blogPost?.meta.canonical || ''}
+        title={props.blogPost?.content.title || ''}
+        description={props.blogPost?.meta.description || ''}
+        images={props.blogPost?.content?.cover?.url ? [props.blogPost?.content.cover.url] : []}
+        datePublished={props.blogPost?.createdAt || ''}
+        dateModified={props.blogPost?.updatedAt}
         publisherName="Zapal"
         publisherLogo={process.env.NEXT_PUBLIC_SITE_URL + '/logo.svg'}
         isAccessibleForFree
         authorName={{
-          name: blogPost.content.author.name,
+          name: props.blogPost?.content.author.name,
           type: 'Person',
         }}
       />
