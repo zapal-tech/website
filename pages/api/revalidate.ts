@@ -55,6 +55,8 @@ handler.post(async (req, res) => {
 
   try {
     for (const url of revalidationUrls) {
+      console.info(`Revalidating url: ${url}`);
+
       await res.revalidate(url);
     }
 
