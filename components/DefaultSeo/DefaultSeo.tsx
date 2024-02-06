@@ -45,10 +45,11 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
           ],
         }}
         additionalLinkTags={[
-          { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' },
-          { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
-          { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
-          { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+          { rel: 'shortcut icon', href: '/favicon.ico?v=1', type: 'image/x-icon' },
+          { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png?v=1' },
+          { rel: 'mask-icon', href: '/safari-pinned-tab.svg' },
+          { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png?v=1' },
+          { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png?v=1' },
           { rel: 'manifest', href: '/manifest.json' },
         ]}
         additionalMetaTags={[{ name: 'msapplication-TileColor', content: colors.defaultBackgroundColor }]}

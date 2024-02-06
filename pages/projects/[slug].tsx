@@ -85,7 +85,7 @@ export default function ProjectPage(props: InferGetStaticPropsType<typeof getSta
 
   const passedData = useMemo(
     () => ({
-      ...props.project,
+      ...(props.project || {}),
       ...(data?.content ? data.content : {}),
       name: data?.content?.name || props.project?.name,
       description: data?.content?.description || props.project?.description,
