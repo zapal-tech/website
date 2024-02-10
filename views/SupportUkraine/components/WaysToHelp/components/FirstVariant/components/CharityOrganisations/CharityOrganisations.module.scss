@@ -65,6 +65,16 @@
     }
   }
 
+  &__TitleLink {
+    color: $orioles-orange;
+    transition: 0.2s ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+      color: $rosso-corsa;
+    }
+  }
+
   &__Links {
     display: flex;
     max-width: 1140px;
@@ -90,10 +100,8 @@
 
   &__CryptoLink {
     display: flex;
-
     color: $white;
     gap: $gap-sm;
-    transition: 0.2s ease-in-out;
 
     &::before {
       display: inline-block;
@@ -101,15 +109,21 @@
       height: 20px;
       border-radius: 50%;
       aspect-ratio: 1/1;
-
       background: $ukraine-blue;
       content: '';
+      transition: 0.2s ease-in-out;
     }
 
-    &:hover,
-    &:focus-visible {
-      &::before {
-        background: $ukraine-yellow;
+    &:hover::before,
+    &:focus-visible::before {
+      background: $ukraine-yellow;
+    }
+
+    & > span {
+      word-break: normal;
+
+      & > span {
+        word-break: break-all;
       }
     }
   }

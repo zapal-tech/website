@@ -24,6 +24,7 @@
 
   &__Link {
     display: flex;
+    align-items: baseline;
     gap: $gap-xxs;
 
     &::before {
@@ -33,10 +34,20 @@
       aspect-ratio: 1/1;
       background: $ukraine-yellow;
       content: '';
+      transition: 0.2s ease-in-out;
     }
+
+    &:hover,
+    &:focus-visible {
+      color: $rosso-corsa;
+      &::before {
+        background: $ukraine-blue;
+      }
+    }
+    transition: 0.2s ease-in-out;
   }
 
-  &__BrendsBlock {
+  &__BrandsBlock {
     display: flex;
     flex-direction: column;
     gap: $gap-lg;
@@ -47,7 +58,7 @@
     }
   }
 
-  &__BrendsTextBox {
+  &__BrandsTextBox {
     display: flex;
     max-width: 770px;
     flex-direction: column;
@@ -75,7 +86,7 @@
     }
   }
 
-  &__GlobalBrendItem {
+  &__GlobalBrandItem {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,7 +101,7 @@
     }
   }
 
-  &__GlobalBrendsList {
+  &__GlobalBrandsList {
     display: grid;
     margin-bottom: $gap-xxl;
     gap: 20px;
@@ -102,7 +113,12 @@
     }
   }
 
-  &__GlobalBrendSvg {
+  &__GlobalBrandLink {
+    display: grid;
+    place-items: center;
+  }
+
+  &__GlobalBrandSvg {
     width: 40%;
     // @include media(laptop) {
     //   height: 60px;

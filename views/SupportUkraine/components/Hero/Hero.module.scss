@@ -68,6 +68,11 @@
   &__Emblem {
     height: 176px;
     fill: $white;
+    transition: all 0.15s ease-in;
+
+    &:hover {
+      fill: $rosso-corsa;
+    }
   }
 
   &__TitleSvg {
