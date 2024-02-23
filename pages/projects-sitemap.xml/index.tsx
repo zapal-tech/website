@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const fields: ISitemapField[] = Object.entries(slugAvailableLocales).map(([slug, locales]) => {
     const entity = entities.docs.find((entity) => entity.slug === slug);
 
-    const defaultUrl = process.env.NEXT_PUBLIC_SITE_URL + join('/', Routes.Blog, slug);
+    const defaultUrl = process.env.NEXT_PUBLIC_SITE_URL + join('/', Routes.Projects, slug);
 
     return {
       loc: defaultUrl,
@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       changefreq: 'daily',
       priority: 0.8,
       alternateRefs: locales.map((locale) => {
-        const href = locale ? process.env.NEXT_PUBLIC_SITE_URL + join('/', locale, Routes.Blog, slug) : defaultUrl;
+        const href = locale ? process.env.NEXT_PUBLIC_SITE_URL + join('/', locale, Routes.Projects, slug) : defaultUrl;
 
         return { href, hreflang: locale || ctx.defaultLocale! };
       }),

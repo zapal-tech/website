@@ -102,11 +102,6 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
             addressCountry: 'Ukraine',
           },
         }}
-        hasMap={
-          'https://www.google.com/maps/place/Zapal/@50.4486861,30.4807515,14z/data=!4m6!3m5!1s0x40d4cf1e30b79a8f:0xded51b7b7e3e05a2!8m2!3d50.4376149!4d30.5273295!16s%2Fg%2F11vb6h63yb'
-        }
-        latitude={50.43761674349085}
-        longitude={30.527328695563476}
         sameAs={[
           'https://github.com/zapal-tech',
           'https://linkedin.com/company/zapal',
