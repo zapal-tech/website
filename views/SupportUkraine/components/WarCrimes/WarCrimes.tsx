@@ -13,15 +13,15 @@ export const WarCrimes = () => {
       </Text>
       <Text className={styles.FoundationItem__Text} size="small">
         We have already greatly benefited from the assistance your countries have already provided us in resisting
-        Russian aggression. Military and financial aid help Ukraine become stronger, increasing its resistance to
-        Russian aggression. The sanctions affect the economy of russia, making it harder and harder to allocate funds
+        russian aggression. Military and financial aid help Ukraine become stronger, increasing its resistance to
+        russian aggression. The sanctions affect the economy of russia, making it harder and harder to allocate funds
         for their occupying army at the expense of the russian people’s wellbeing.
       </Text>
       <div className={styles.FoundationItem__LinkBox}>
         <Link href="https://warcrimes.gov.ua/">WAR CRIMES</Link>
         <Text size="small" className={styles.FoundationItem__LinkText}>
           Your authorities can still take many steps to resolve the situation. Besides starting an unprovoked war,
-          Russia is also committing numerous war crimes. You can demand more financial, military, and humanitarian help
+          russia is also committing numerous war crimes. You can demand more financial, military, and humanitarian help
           from authorities in order to prevent war crimes from happening.
         </Text>
       </div>

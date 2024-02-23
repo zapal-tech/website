@@ -138,7 +138,7 @@ export const TableOfContent: React.FC = () => (
         href={`#${SupportUkraineSections.BanRussianBusinesses}`}
         className={styles.TableOfContent__Link}
       >
-        4/ Ban Russian Business or Urge Other Brands To Do So
+        4/ Ban russian Business or Urge Other Brands To Do So
       </Link>
       <Link
         key={SupportUkraineSections.SupportUkrainianBusinesses}
