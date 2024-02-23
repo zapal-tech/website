@@ -56,7 +56,7 @@ const nextConfig = {
       style-src 'self' 'unsafe-inline';
       script-src 'self' 'report-sample' ${
         process.env.NODE_ENV === 'development' ? "'unsafe-eval' " : ''
-      }https://api.mapbox.com https://connect.facebook.net https://va.vercel-scripts.com https://vitals.vercel-insights.com;
+      }https://api.mapbox.com https://connect.facebook.net https://va.vercel-scripts.com https://vitals.vercel-insights.com https://www.googletagmanager.com;
       img-src 'self' data: ${process.env.NEXT_PUBLIC_CMS_URL};
       font-src 'self';
       object-src 'none';
@@ -65,7 +65,7 @@ const nextConfig = {
       frame-ancestors 'self' ${process.env.NEXT_PUBLIC_CMS_URL};
       connect-src 'self' *.mapbox.com ${
         process.env.NEXT_PUBLIC_CMS_URL
-      } https://connect.facebook.net https://va.vercel-scripts.com https://vitals.vercel-insights.com;
+      } https://connect.facebook.net https://va.vercel-scripts.com https://vitals.vercel-insights.com https://www.googletagmanager.com;
       manifest-src 'self';
       base-uri 'self';
       form-action 'self';
