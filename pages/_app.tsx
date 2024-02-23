@@ -1,3 +1,4 @@
+import { GoogleTagManager } from '@next/third-parties/google';
 import { Lenis } from '@studio-freight/react-lenis';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -53,6 +54,7 @@ if (typeof window !== 'undefined') {
 const App: React.FC<AppProps> = ({ Component, pageProps }) => (
   <>
     <DefaultSeo />
+    <GoogleTagManager gtmId={'GTM-PQGQVPJ'} />
 
     <Lenis root>
       <div id="app" className={clsx(ronaldFont.className, ronaldFont.variable)}>
