@@ -3,1351 +3,1544 @@
     "value": "af",
     "name": {
       "en": "Afghanistan",
-      "uk": "Афганістан"
+      "uk": "Афганістан",
+      "fr": "Afghanistan"
     }
   },
   {
     "value": "al",
     "name": {
       "en": "Albania",
-      "uk": "Албанія"
+      "uk": "Албанія",
+      "fr": "Albanie"
     }
   },
   {
     "value": "dz",
     "name": {
       "en": "Algeria",
-      "uk": "Алжир"
+      "uk": "Алжир",
+      "fr": "Algérie"
     }
   },
   {
     "value": "ad",
     "name": {
       "en": "Andorra",
-      "uk": "Андорра"
+      "uk": "Андорра",
+      "fr": "Andorre"
     }
   },
   {
     "value": "ao",
     "name": {
       "en": "Angola",
-      "uk": "Ангола"
+      "uk": "Ангола",
+      "fr": "Angola"
     }
   },
   {
     "value": "ag",
     "name": {
       "en": "Antigua and Barbuda",
-      "uk": "Антигуа і Барбуда"
+      "uk": "Антигуа і Барбуда",
+      "fr": "Antigua-Et-Barbuda"
     }
   },
   {
     "value": "ar",
     "name": {
       "en": "Argentina",
-      "uk": "Аргентина"
+      "uk": "Аргентина",
+      "fr": "Argentine"
     }
   },
   {
     "value": "am",
     "name": {
       "en": "Armenia",
-      "uk": "Вірменія"
+      "uk": "Вірменія",
+      "fr": "Arménie"
     }
   },
   {
     "value": "au",
     "name": {
       "en": "Australia",
-      "uk": "Австралія"
+      "uk": "Австралія",
+      "fr": "Australie"
     }
   },
   {
     "value": "at",
     "name": {
       "en": "Austria",
-      "uk": "Австрія"
+      "uk": "Австрія",
+      "fr": "Autriche"
     }
   },
   {
     "value": "az",
     "name": {
       "en": "Azerbaijan",
-      "uk": "Азербайджан"
+      "uk": "Азербайджан",
+      "fr": "Azerbaïdjan"
     }
   },
   {
     "value": "bs",
     "name": {
       "en": "Bahamas",
-      "uk": "Багамські Острови"
+      "uk": "Багамські Острови",
+      "fr": "Bahamas"
     }
   },
   {
     "value": "bh",
     "name": {
       "en": "Bahrain",
-      "uk": "Бахрейн"
+      "uk": "Бахрейн",
+      "fr": "Bahreïn"
     }
   },
   {
     "value": "bd",
     "name": {
       "en": "Bangladesh",
-      "uk": "Бангладеш"
+      "uk": "Бангладеш",
+      "fr": "Bangladesh"
     }
   },
   {
     "value": "bb",
     "name": {
       "en": "Barbados",
-      "uk": "Барбадос"
+      "uk": "Барбадос",
+      "fr": "Barbad"
     }
   },
   {
     "value": "by",
     "name": {
       "en": "Belarus",
-      "uk": "Білорусь"
+      "uk": "Білорусь",
+      "fr": "Biélorussie"
     }
   },
   {
     "value": "be",
     "name": {
       "en": "Belgium",
-      "uk": "Бельгія"
+      "uk": "Бельгія",
+      "fr": "Belgique"
     }
   },
   {
     "value": "bz",
     "name": {
       "en": "Belize",
-      "uk": "Беліз"
+      "uk": "Беліз",
+      "fr": "Belize"
     }
   },
   {
     "value": "bj",
     "name": {
       "en": "Benin",
-      "uk": "Бенін"
+      "uk": "Бенін",
+      "fr": "Bénin"
     }
   },
   {
     "value": "bt",
     "name": {
       "en": "Bhutan",
-      "uk": "Бутан"
+      "uk": "Бутан",
+      "fr": "Bhoutan"
     }
   },
   {
     "value": "bo",
     "name": {
       "en": "Bolivia (Plurinational State of)",
-      "uk": "Болівія"
+      "uk": "Болівія",
+      "fr": "État Plurinational De Bolivie"
     }
   },
   {
     "value": "ba",
     "name": {
       "en": "Bosnia and Herzegovina",
-      "uk": "Боснія і Герцеговина"
+      "uk": "Боснія і Герцеговина",
+      "fr": "Bosnie-Herzégovine"
     }
   },
   {
     "value": "bw",
     "name": {
       "en": "Botswana",
-      "uk": "Ботсвана"
+      "uk": "Ботсвана",
+      "fr": "Botswana"
     }
   },
   {
     "value": "br",
     "name": {
       "en": "Brazil",
-      "uk": "Бразилія"
+      "uk": "Бразилія",
+      "fr": "Brésil"
     }
   },
   {
     "value": "bn",
     "name": {
       "en": "Brunei Darussalam",
-      "uk": "Бруней"
+      "uk": "Бруней",
+      "fr": "Brunei Darussalam"
     }
   },
   {
     "value": "bg",
     "name": {
       "en": "Bulgaria",
-      "uk": "Болгарія"
+      "uk": "Болгарія",
+      "fr": "Bulgarie"
     }
   },
   {
     "value": "bf",
     "name": {
       "en": "Burkina Faso",
-      "uk": "Буркіна-Фасо"
+      "uk": "Буркіна-Фасо",
+      "fr": "Burkina Faso"
     }
   },
   {
     "value": "bi",
     "name": {
       "en": "Burundi",
-      "uk": "Бурунді"
+      "uk": "Бурунді",
+      "fr": "Burundi"
     }
   },
   {
     "value": "cv",
     "name": {
       "en": "Cabo Verde",
-      "uk": "Кабо-Верде"
+      "uk": "Кабо-Верде",
+      "fr": "Cap-Vert"
     }
   },
   {
     "value": "kh",
     "name": {
       "en": "Cambodia",
-      "uk": "Камбоджа"
+      "uk": "Камбоджа",
+      "fr": "Cambodge"
     }
   },
   {
     "value": "cm",
     "name": {
       "en": "Cameroon",
-      "uk": "Камерун"
+      "uk": "Камерун",
+      "fr": "Cameroun"
     }
   },
   {
     "value": "ca",
     "name": {
       "en": "Canada",
-      "uk": "Канада"
+      "uk": "Канада",
+      "fr": "Canada"
     }
   },
   {
     "value": "cf",
     "name": {
       "en": "Central African Republic",
-      "uk": "Центральноафриканська Республіка"
+      "uk": "Центральноафриканська Республіка",
+      "fr": "République Centrafricaine"
     }
   },
   {
     "value": "td",
     "name": {
       "en": "Chad",
-      "uk": "Чад"
+      "uk": "Чад",
+      "fr": "Tchad"
     }
   },
   {
     "value": "cl",
     "name": {
       "en": "Chile",
-      "uk": "Чилі"
+      "uk": "Чилі",
+      "fr": "Chili"
     }
   },
   {
     "value": "cn",
     "name": {
       "en": "China",
-      "uk": "Китайська Народна Республіка"
+      "uk": "Китайська Народна Республіка",
+      "fr": "Chine"
     }
   },
   {
     "value": "co",
     "name": {
       "en": "Colombia",
-      "uk": "Колумбія"
+      "uk": "Колумбія",
+      "fr": "Colombie"
     }
   },
   {
     "value": "km",
     "name": {
       "en": "Comoros",
-      "uk": "Коморські Острови"
+      "uk": "Коморські Острови",
+      "fr": "Comores"
     }
   },
   {
     "value": "cg",
     "name": {
       "en": "Congo",
-      "uk": "Республіка Конго"
+      "uk": "Республіка Конго",
+      "fr": "Congo"
     }
   },
   {
     "value": "cd",
     "name": {
       "en": "Democratic Republic of the Congo",
-      "uk": "ДР Конго"
+      "uk": "ДР Конго",
+      "fr": "République Démocratique Du Congo"
     }
   },
   {
     "value": "cr",
     "name": {
       "en": "Costa Rica",
-      "uk": "Коста-Рика"
+      "uk": "Коста-Рика",
+      "fr": "Costa Rica"
     }
   },
   {
     "value": "ci",
     "name": {
       "en": "Côte d'Ivoire",
-      "uk": "Кот-д'Івуар"
+      "uk": "Кот-д'Івуар",
+      "fr": "Côte D'Ivoire"
     }
   },
   {
     "value": "hr",
     "name": {
       "en": "Croatia",
-      "uk": "Хорватія"
+      "uk": "Хорватія",
+      "fr": "Croatie"
     }
   },
   {
     "value": "cu",
     "name": {
       "en": "Cuba",
-      "uk": "Куба"
+      "uk": "Куба",
+      "fr": "Cuba"
     }
   },
   {
     "value": "cy",
     "name": {
       "en": "Cyprus",
-      "uk": "Кіпр"
+      "uk": "Кіпр",
+      "fr": "Chypre"
     }
   },
   {
     "value": "cz",
     "name": {
       "en": "Czechia",
-      "uk": "Чехія"
+      "uk": "Чехія",
+      "fr": "République Tchèque"
     }
   },
   {
     "value": "dk",
     "name": {
       "en": "Denmark",
-      "uk": "Данія"
+      "uk": "Данія",
+      "fr": "Denmark"
     }
   },
   {
     "value": "dj",
     "name": {
       "en": "Djibouti",
-      "uk": "Джибуті"
+      "uk": "Джибуті",
+      "fr": "Djibouti"
     }
   },
   {
     "value": "dm",
     "name": {
       "en": "Dominica",
-      "uk": "Домініка"
+      "uk": "Домініка",
+      "fr": "Dominique"
     }
   },
   {
     "value": "do",
     "name": {
       "en": "Dominican Republic",
-      "uk": "Домініканська Республіка"
+      "uk": "Домініканська Республіка",
+      "fr": "République Dominicaine"
     }
   },
   {
     "value": "ec",
     "name": {
       "en": "Ecuador",
-      "uk": "Еквадор"
+      "uk": "Еквадор",
+      "fr": "Équateur"
     }
   },
   {
     "value": "eg",
     "name": {
       "en": "Egypt",
-      "uk": "Єгипет"
+      "uk": "Єгипет",
+      "fr": "Égypte"
     }
   },
   {
     "value": "sv",
     "name": {
       "en": "El Salvador",
-      "uk": "Сальвадор"
+      "uk": "Сальвадор",
+      "fr": "République Du Salvador"
     }
   },
   {
     "value": "gq",
     "name": {
       "en": "Equatorial Guinea",
-      "uk": "Екваторіальна Гвінея"
+      "uk": "Екваторіальна Гвінея",
+      "fr": "Guinée Équatoriale"
     }
   },
   {
     "value": "er",
     "name": {
       "en": "Eritrea",
-      "uk": "Еритрея"
+      "uk": "Еритрея",
+      "fr": "Érythrée"
     }
   },
   {
     "value": "ee",
     "name": {
       "en": "Estonia",
-      "uk": "Естонія"
+      "uk": "Естонія",
+      "fr": "Estonie"
     }
   },
   {
     "value": "sz",
     "name": {
       "en": "Eswatini",
-      "uk": "Есватіні"
+      "uk": "Есватіні",
+      "fr": "Swaziland"
     }
   },
   {
     "value": "et",
     "name": {
       "en": "Ethiopia",
-      "uk": "Ефіопія"
+      "uk": "Ефіопія",
+      "fr": "Éthiopie"
     }
   },
   {
     "value": "fj",
     "name": {
       "en": "Fiji",
-      "uk": "Фіджі"
+      "uk": "Фіджі",
+      "fr": "Fidji"
     }
   },
   {
     "value": "fi",
     "name": {
       "en": "Finland",
-      "uk": "Фінляндія"
+      "uk": "Фінляндія",
+      "fr": "Finlande"
     }
   },
   {
     "value": "fr",
     "name": {
       "en": "France",
-      "uk": "Франція"
+      "uk": "Франція",
+      "fr": "France"
     }
   },
   {
     "value": "ga",
     "name": {
       "en": "Gabon",
-      "uk": "Габон"
+      "uk": "Габон",
+      "fr": "Gabon"
     }
   },
   {
     "value": "gm",
     "name": {
       "en": "Gambia",
-      "uk": "Гамбія"
+      "uk": "Гамбія",
+      "fr": "Gambie"
     }
   },
   {
     "value": "ge",
     "name": {
       "en": "Georgia",
-      "uk": "Грузія"
+      "uk": "Грузія",
+      "fr": "Géorgie"
     }
   },
   {
     "value": "de",
     "name": {
       "en": "Germany",
-      "uk": "Німеччина"
+      "uk": "Німеччина",
+      "fr": "Allemagne"
     }
   },
   {
     "value": "gh",
     "name": {
       "en": "Ghana",
-      "uk": "Гана"
+      "uk": "Гана",
+      "fr": "Ghana"
     }
   },
   {
     "value": "gr",
     "name": {
       "en": "Greece",
-      "uk": "Греція"
+      "uk": "Греція",
+      "fr": "Grèce"
     }
   },
   {
     "value": "gd",
     "name": {
       "en": "Grenada",
-      "uk": "Гренада"
+      "uk": "Гренада",
+      "fr": "Grenade"
     }
   },
   {
     "value": "gt",
     "name": {
       "en": "Guatemala",
-      "uk": "Гватемала"
+      "uk": "Гватемала",
+      "fr": "Guatemala"
     }
   },
   {
     "value": "gn",
     "name": {
       "en": "Guinea",
-      "uk": "Гвінея"
+      "uk": "Гвінея",
+      "fr": "Guinée"
     }
   },
   {
     "value": "gw",
     "name": {
       "en": "Guinea-Bissau",
-      "uk": "Гвінея-Бісау"
+      "uk": "Гвінея-Бісау",
+      "fr": "Guinée-Bissau"
     }
   },
   {
     "value": "gy",
     "name": {
       "en": "Guyana",
-      "uk": "Гаяна"
+      "uk": "Гаяна",
+      "fr": "Guyana"
     }
   },
   {
     "value": "ht",
     "name": {
       "en": "Haiti",
-      "uk": "Гаїті"
+      "uk": "Гаїті",
+      "fr": "Haïti"
     }
   },
   {
     "value": "hn",
     "name": {
       "en": "Honduras",
-      "uk": "Гондурас"
+      "uk": "Гондурас",
+      "fr": "Honduras"
     }
   },
   {
     "value": "hu",
     "name": {
       "en": "Hungary",
-      "uk": "Угорщина"
+      "uk": "Угорщина",
+      "fr": "Hongrie"
     }
   },
   {
     "value": "is",
     "name": {
       "en": "Iceland",
-      "uk": "Ісландія"
+      "uk": "Ісландія",
+      "fr": "Islande"
     }
   },
   {
     "value": "in",
     "name": {
       "en": "India",
-      "uk": "Індія"
+      "uk": "Індія",
+      "fr": "Inde"
     }
   },
   {
     "value": "id",
     "name": {
       "en": "Indonesia",
-      "uk": "Індонезія"
+      "uk": "Індонезія",
+      "fr": "Indonésie"
     }
   },
   {
     "value": "ir",
     "name": {
       "en": "Iran",
-      "uk": "Іран"
+      "uk": "Іран",
+      "fr": "République Islamique D'Iran"
     }
   },
   {
     "value": "iq",
     "name": {
       "en": "Iraq",
-      "uk": "Ірак"
+      "uk": "Ірак",
+      "fr": "Irak"
     }
   },
   {
     "value": "ie",
     "name": {
       "en": "Ireland",
-      "uk": "Ірландія"
+      "uk": "Ірландія",
+      "fr": "Irlande"
     }
   },
   {
     "value": "il",
     "name": {
       "en": "Israel",
-      "uk": "Ізраїль"
+      "uk": "Ізраїль",
+      "fr": "Israël"
     }
   },
   {
     "value": "it",
     "name": {
       "en": "Italy",
-      "uk": "Італія"
+      "uk": "Італія",
+      "fr": "Italie"
     }
   },
   {
     "value": "jm",
     "name": {
       "en": "Jamaica",
-      "uk": "Ямайка"
+      "uk": "Ямайка",
+      "fr": "Jamaïque"
     }
   },
   {
     "value": "jp",
     "name": {
       "en": "Japan",
-      "uk": "Японія"
+      "uk": "Японія",
+      "fr": "Japon"
     }
   },
   {
     "value": "jo",
     "name": {
       "en": "Jordan",
-      "uk": "Йорданія"
+      "uk": "Йорданія",
+      "fr": "Jordanie"
     }
   },
   {
     "value": "kz",
     "name": {
       "en": "Kazakhstan",
-      "uk": "Казахстан"
+      "uk": "Казахстан",
+      "fr": "Kazakhstan"
     }
   },
   {
     "value": "ke",
     "name": {
       "en": "Kenya",
-      "uk": "Кенія"
+      "uk": "Кенія",
+      "fr": "Kenya"
     }
   },
   {
     "value": "ki",
     "name": {
       "en": "Kiribati",
-      "uk": "Кірибаті"
+      "uk": "Кірибаті",
+      "fr": "Kiribati"
     }
   },
   {
     "value": "kp",
     "name": {
       "en": "Democratic People's Republic of Korea",
-      "uk": "Північна Корея"
+      "uk": "Північна Корея",
+      "fr": "République Populaire Démocratique De Corée"
     }
   },
   {
     "value": "kr",
     "name": {
       "en": "Republic of Korea",
-      "uk": "Південна Корея"
+      "uk": "Південна Корея",
+      "fr": "République De Corée"
     }
   },
   {
     "value": "kw",
     "name": {
       "en": "Kuwait",
-      "uk": "Кувейт"
+      "uk": "Кувейт",
+      "fr": "Koweït"
     }
   },
   {
     "value": "kg",
     "name": {
       "en": "Kyrgyzstan",
-      "uk": "Киргизстан"
+      "uk": "Киргизстан",
+      "fr": "Kirghizistan"
     }
   },
   {
     "value": "la",
     "name": {
       "en": "Lao People's Democratic Republic",
-      "uk": "Лаос"
+      "uk": "Лаос",
+      "fr": "République Démocratique Populaire Lao"
     }
   },
   {
     "value": "lv",
     "name": {
       "en": "Latvia",
-      "uk": "Латвія"
+      "uk": "Латвія",
+      "fr": "Lettonie"
     }
   },
   {
     "value": "lb",
     "name": {
       "en": "Lebanon",
-      "uk": "Ліван"
+      "uk": "Ліван",
+      "fr": "Liban"
     }
   },
   {
     "value": "ls",
     "name": {
       "en": "Lesotho",
-      "uk": "Лесото"
+      "uk": "Лесото",
+      "fr": "Lesotho"
     }
   },
   {
     "value": "lr",
     "name": {
       "en": "Liberia",
-      "uk": "Ліберія"
+      "uk": "Ліберія",
+      "fr": "Liberia"
     }
   },
   {
     "value": "ly",
     "name": {
       "en": "Libya",
-      "uk": "Лівія"
+      "uk": "Лівія",
+      "fr": "Libye"
     }
   },
   {
     "value": "li",
     "name": {
       "en": "Liechtenstein",
-      "uk": "Ліхтенштейн"
+      "uk": "Ліхтенштейн",
+      "fr": "Liechtenstein"
     }
   },
   {
     "value": "lt",
     "name": {
       "en": "Lithuania",
-      "uk": "Литва"
+      "uk": "Литва",
+      "fr": "Lituanie"
     }
   },
   {
     "value": "lu",
     "name": {
       "en": "Luxembourg",
-      "uk": "Люксембург"
+      "uk": "Люксембург",
+      "fr": "Luxembourg"
     }
   },
   {
     "value": "mg",
     "name": {
       "en": "Madagascar",
-      "uk": "Мадагаскар"
+      "uk": "Мадагаскар",
+      "fr": "Madagascar"
     }
   },
   {
     "value": "mw",
     "name": {
       "en": "Malawi",
-      "uk": "Малаві"
+      "uk": "Малаві",
+      "fr": "Malawi"
     }
   },
   {
     "value": "my",
     "name": {
       "en": "Malaysia",
-      "uk": "Малайзія"
+      "uk": "Малайзія",
+      "fr": "Malaisie"
     }
   },
   {
     "value": "mv",
     "name": {
       "en": "Maldives",
-      "uk": "Мальдіви"
+      "uk": "Мальдіви",
+      "fr": "Maldives"
     }
   },
   {
     "value": "ml",
     "name": {
       "en": "Mali",
-      "uk": "Малі"
+      "uk": "Малі",
+      "fr": "Mali"
     }
   },
   {
     "value": "mt",
     "name": {
       "en": "Malta",
-      "uk": "Мальта"
+      "uk": "Мальта",
+      "fr": "Malte"
     }
   },
   {
     "value": "mh",
     "name": {
       "en": "Marshall Islands",
-      "uk": "Маршаллові Острови"
+      "uk": "Маршаллові Острови",
+      "fr": "Îles Marshall"
     }
   },
   {
     "value": "mr",
     "name": {
       "en": "Mauritania",
-      "uk": "Мавританія"
+      "uk": "Мавританія",
+      "fr": "Mauritanie"
     }
   },
   {
     "value": "mu",
     "name": {
       "en": "Mauritius",
-      "uk": "Маврикій"
+      "uk": "Маврикій",
+      "fr": "Maurice"
     }
   },
   {
     "value": "mx",
     "name": {
       "en": "Mexico",
-      "uk": "Мексика"
+      "uk": "Мексика",
+      "fr": "Mexique"
     }
   },
   {
     "value": "fm",
     "name": {
       "en": " Federated States of Micronesia",
-      "uk": "Федеративні Штати Мікронезії"
+      "uk": "Федеративні Штати Мікронезії",
+      "fr": "États Fédérés De Micronésie"
     }
   },
   {
     "value": "md",
     "name": {
       "en": "Moldova",
-      "uk": "Молдова"
+      "uk": "Молдова",
+      "fr": "République De Moldavie"
     }
   },
   {
     "value": "mc",
     "name": {
       "en": "Monaco",
-      "uk": "Монако"
+      "uk": "Монако",
+      "fr": "Monaco"
     }
   },
   {
     "value": "mn",
     "name": {
       "en": "Mongolia",
-      "uk": "Монголія"
+      "uk": "Монголія",
+      "fr": "Mongolie"
     }
   },
   {
     "value": "me",
     "name": {
       "en": "Montenegro",
-      "uk": "Чорногорія"
+      "uk": "Чорногорія",
+      "fr": "Monténégro"
     }
   },
   {
     "value": "ma",
     "name": {
       "en": "Morocco",
-      "uk": "Марокко"
+      "uk": "Марокко",
+      "fr": "Maroc"
     }
   },
   {
     "value": "mz",
     "name": {
       "en": "Mozambique",
-      "uk": "Мозамбік"
+      "uk": "Мозамбік",
+      "fr": "Mozambique"
     }
   },
   {
     "value": "mm",
     "name": {
       "en": "Myanmar",
-      "uk": "М'янма"
+      "uk": "М'янма",
+      "fr": "Birmanie"
     }
   },
   {
     "value": "na",
     "name": {
       "en": "Namibia",
-      "uk": "Намібія"
+      "uk": "Намібія",
+      "fr": "Namibie"
     }
   },
   {
     "value": "nr",
     "name": {
       "en": "Nauru",
-      "uk": "Науру"
+      "uk": "Науру",
+      "fr": "Nauru"
     }
   },
   {
     "value": "np",
     "name": {
       "en": "Nepal",
-      "uk": "Непал"
+      "uk": "Непал",
+      "fr": "Népal"
     }
   },
   {
     "value": "nl",
     "name": {
       "en": "Netherlands",
-      "uk": "Нідерланди"
+      "uk": "Нідерланди",
+      "fr": "Pays-Bas"
     }
   },
   {
     "value": "nz",
     "name": {
       "en": "New Zealand",
-      "uk": "Нова Зеландія"
+      "uk": "Нова Зеландія",
+      "fr": "Nouvelle-Zélande"
     }
   },
   {
     "value": "ni",
     "name": {
       "en": "Nicaragua",
-      "uk": "Нікарагуа"
+      "uk": "Нікарагуа",
+      "fr": "Nicaragua"
     }
   },
   {
     "value": "ne",
     "name": {
       "en": "Niger",
-      "uk": "Нігер"
+      "uk": "Нігер",
+      "fr": "Niger"
     }
   },
   {
     "value": "ng",
     "name": {
       "en": "Nigeria",
-      "uk": "Нігерія"
+      "uk": "Нігерія",
+      "fr": "Nigéria"
     }
   },
   {
     "value": "mk",
     "name": {
       "en": "North Macedonia",
-      "uk": "Північна Македонія"
+      "uk": "Північна Македонія",
+      "fr": "Macédoine"
     }
   },
   {
     "value": "no",
     "name": {
       "en": "Norway",
-      "uk": "Норвегія"
+      "uk": "Норвегія",
+      "fr": "Norvège"
     }
   },
   {
     "value": "om",
     "name": {
       "en": "Oman",
-      "uk": "Оман"
+      "uk": "Оман",
+      "fr": "Oman"
     }
   },
   {
     "value": "pk",
     "name": {
       "en": "Pakistan",
-      "uk": "Пакистан"
+      "uk": "Пакистан",
+      "fr": "Pakistan"
     }
   },
   {
     "value": "pw",
     "name": {
       "en": "Palau",
-      "uk": "Палау"
+      "uk": "Палау",
+      "fr": "Palaos"
     }
   },
   {
     "value": "pa",
     "name": {
       "en": "Panama",
-      "uk": "Панама"
+      "uk": "Панама",
+      "fr": "Panama"
     }
   },
   {
     "value": "pg",
     "name": {
       "en": "Papua New Guinea",
-      "uk": "Папуа Нова Гвінея"
+      "uk": "Папуа Нова Гвінея",
+      "fr": "Papouasie-Nouvelle-Guinée"
     }
   },
   {
     "value": "py",
     "name": {
       "en": "Paraguay",
-      "uk": "Парагвай"
+      "uk": "Парагвай",
+      "fr": "Paraguay"
     }
   },
   {
     "value": "pe",
     "name": {
       "en": "Peru",
-      "uk": "Перу"
+      "uk": "Перу",
+      "fr": "Pérou"
     }
   },
   {
     "value": "ph",
     "name": {
       "en": "Philippines",
-      "uk": "Філіппіни"
+      "uk": "Філіппіни",
+      "fr": "Philippines"
     }
   },
   {
     "value": "pl",
     "name": {
       "en": "Poland",
-      "uk": "Польща"
+      "uk": "Польща",
+      "fr": "Pologne"
     }
   },
   {
     "value": "pt",
     "name": {
       "en": "Portugal",
-      "uk": "Португалія"
+      "uk": "Португалія",
+      "fr": "Portugal"
     }
   },
   {
     "value": "qa",
     "name": {
       "en": "Qatar",
-      "uk": "Катар"
+      "uk": "Катар",
+      "fr": "Qatar"
     }
   },
   {
     "value": "ro",
     "name": {
       "en": "Romania",
-      "uk": "Румунія"
+      "uk": "Румунія",
+      "fr": "Roumanie"
     }
   },
   {
     "value": "ru",
     "name": {
       "en": "russia",
-      "uk": "Росія"
+      "uk": "Росія",
+      "fr": "Fédération De Russie"
     }
   },
   {
     "value": "rw",
     "name": {
       "en": "Rwanda",
-      "uk": "Руанда"
+      "uk": "Руанда",
+      "fr": "Rwanda"
     }
   },
   {
     "value": "kn",
     "name": {
       "en": "Saint Kitts and Nevis",
-      "uk": "Сент-Кіттс і Невіс"
+      "uk": "Сент-Кіттс і Невіс",
+      "fr": "Saint-Christophe-et-Niévès"
     }
   },
   {
     "value": "lc",
     "name": {
       "en": "Saint Lucia",
-      "uk": "Сент-Люсія"
+      "uk": "Сент-Люсія",
+      "fr": "Sainte-Lucie"
     }
   },
   {
     "value": "vc",
     "name": {
       "en": "Saint Vincent and the Grenadines",
-      "uk": "Сент-Вінсент і Гренадини"
+      "uk": "Сент-Вінсент і Гренадини",
+      "fr": "Saint-Vincent-Et-Les Grenadines"
     }
   },
   {
     "value": "ws",
     "name": {
       "en": "Samoa",
-      "uk": "Самоа"
+      "uk": "Самоа",
+      "fr": "Samoa"
     }
   },
   {
     "value": "sm",
     "name": {
       "en": "San Marino",
-      "uk": "Сан-Марино"
+      "uk": "Сан-Марино",
+      "fr": "Saint-Marin"
     }
   },
   {
     "value": "st",
     "name": {
       "en": "Sao Tome and Principe",
-      "uk": "Сан-Томе і Принсіпі"
+      "uk": "Сан-Томе і Принсіпі",
+      "fr": "Sao Tomé-Et-Principe"
     }
   },
   {
     "value": "sa",
     "name": {
       "en": "Saudi Arabia",
-      "uk": "Саудівська Аравія"
+      "uk": "Саудівська Аравія",
+      "fr": "Arabie Saoudite"
     }
   },
   {
     "value": "sn",
     "name": {
       "en": "Senegal",
-      "uk": "Сенегал"
+      "uk": "Сенегал",
+      "fr": "Sénégal"
     }
   },
   {
     "value": "rs",
     "name": {
       "en": "Serbia",
-      "uk": "Сербія"
+      "uk": "Сербія",
+      "fr": "Serbie"
     }
   },
   {
     "value": "sc",
     "name": {
       "en": "Seychelles",
-      "uk": "Сейшельські Острови"
+      "uk": "Сейшельські Острови",
+      "fr": "Seychelles"
     }
   },
   {
     "value": "sl",
     "name": {
       "en": "Sierra Leone",
-      "uk": "Сьєрра-Леоне"
+      "uk": "Сьєрра-Леоне",
+      "fr": "Sierra Leone"
     }
   },
   {
     "value": "sg",
     "name": {
       "en": "Singapore",
-      "uk": "Сінгапур"
+      "uk": "Сінгапур",
+      "fr": "Singapour"
     }
   },
   {
     "value": "sk",
     "name": {
       "en": "Slovakia",
-      "uk": "Словаччина"
+      "uk": "Словаччина",
+      "fr": "Slovaquie"
     }
   },
   {
     "value": "si",
     "name": {
       "en": "Slovenia",
-      "uk": "Словенія"
+      "uk": "Словенія",
+      "fr": "Slovénie"
     }
   },
   {
     "value": "sb",
     "name": {
       "en": "Solomon Islands",
-      "uk": "Соломонові Острови"
+      "uk": "Соломонові Острови",
+      "fr": "Îles Salomon"
     }
   },
   {
     "value": "so",
     "name": {
       "en": "Somalia",
-      "uk": "Сомалі"
+      "uk": "Сомалі",
+      "fr": "Somalie"
     }
   },
   {
     "value": "za",
     "name": {
       "en": "South Africa",
-      "uk": "ПАР"
+      "uk": "ПАР",
+      "fr": "Afrique Du Sud"
     }
   },
   {
     "value": "ss",
     "name": {
       "en": "South Sudan",
-      "uk": "Південний Судан"
+      "uk": "Південний Судан",
+      "fr": "Soudan Du Sud"
     }
   },
   {
     "value": "es",
     "name": {
       "en": "Spain",
-      "uk": "Іспанія"
+      "uk": "Іспанія",
+      "fr": "Espagne"
     }
   },
   {
     "value": "lk",
     "name": {
       "en": "Sri Lanka",
-      "uk": "Шрі-Ланка"
+      "uk": "Шрі-Ланка",
+      "fr": "Sri Lanka"
     }
   },
   {
     "value": "sd",
     "name": {
       "en": "Sudan",
-      "uk": "Судан"
+      "uk": "Судан",
+      "fr": "Soudan"
     }
   },
   {
     "value": "sr",
     "name": {
       "en": "Suriname",
-      "uk": "Суринам"
+      "uk": "Суринам",
+      "fr": "Suriname"
     }
   },
   {
     "value": "se",
     "name": {
       "en": "Sweden",
-      "uk": "Швеція"
+      "uk": "Швеція",
+      "fr": "Suède"
     }
   },
   {
     "value": "ch",
     "name": {
       "en": "Switzerland",
-      "uk": "Швейцарія"
+      "uk": "Швейцарія",
+      "fr": "Suisse"
     }
   },
   {
     "value": "sy",
     "name": {
       "en": "Syrian Arab Republic",
-      "uk": "Сирія"
+      "uk": "Сирія",
+      "fr": "République Arabe Syrienne"
     }
   },
   {
     "value": "tj",
     "name": {
       "en": "Tajikistan",
-      "uk": "Таджикистан"
+      "uk": "Таджикистан",
+      "fr": "Tadjikistan"
     }
   },
   {
     "value": "tz",
     "name": {
       "en": "Tanzania",
-      "uk": "Танзанія"
+      "uk": "Танзанія",
+      "fr": "République-Unie De Tanzanie"
     }
   },
   {
     "value": "th",
     "name": {
       "en": "Thailand",
-      "uk": "Таїланд"
+      "uk": "Таїланд",
+      "fr": "Thaïlande"
     }
   },
   {
     "value": "tl",
     "name": {
       "en": "Timor-Leste",
-      "uk": "Східний Тимор"
+      "uk": "Східний Тимор",
+      "fr": "Timor-Leste"
     }
   },
   {
     "value": "tg",
     "name": {
       "en": "Togo",
-      "uk": "Того"
+      "uk": "Того",
+      "fr": "Togo"
     }
   },
   {
     "value": "to",
     "name": {
       "en": "Tonga",
-      "uk": "Тонга"
+      "uk": "Тонга",
+      "fr": "Tonga"
     }
   },
   {
     "value": "tt",
     "name": {
       "en": "Trinidad and Tobago",
-      "uk": "Тринідад і Тобаго"
+      "uk": "Тринідад і Тобаго",
+      "fr": "Trinité-Et-Tobago"
     }
   },
   {
     "value": "tn",
     "name": {
       "en": "Tunisia",
-      "uk": "Туніс"
+      "uk": "Туніс",
+      "fr": "Tunisie"
     }
   },
   {
     "value": "tr",
     "name": {
       "en": "Türkiye",
-      "uk": "Туреччина"
+      "uk": "Туреччина",
+      "fr": "Turquie"
     }
   },
   {
     "value": "tm",
     "name": {
       "en": "Turkmenistan",
-      "uk": "Туркменістан"
+      "uk": "Туркменістан",
+      "fr": "Turkménistan"
     }
   },
   {
     "value": "tv",
     "name": {
       "en": "Tuvalu",
-      "uk": "Тувалу"
+      "uk": "Тувалу",
+      "fr": "Tuvalu"
     }
   },
   {
     "value": "ug",
     "name": {
       "en": "Uganda",
-      "uk": "Уганда"
+      "uk": "Уганда",
+      "fr": "Ouganda"
     }
   },
   {
     "value": "ua",
     "name": {
       "en": "Ukraine",
-      "uk": "Україна"
+      "uk": "Україна",
+      "fr": "Ukraine"
     }
   },
   {
     "value": "ae",
     "name": {
       "en": "United Arab Emirates",
-      "uk": "ОАЕ"
+      "uk": "ОАЕ",
+      "fr": "Émirats Arabes Unis"
     }
   },
   {
     "value": "gb",
     "name": {
       "en": "United Kingdom",
-      "uk": "Велика Британія"
+      "uk": "Велика Британія",
+      "fr": "Royaume-Uni"
     }
   },
   {
     "value": "us",
     "name": {
       "en": "United States of America",
-      "uk": "США"
+      "uk": "США",
+      "fr": "États-Unis"
     }
   },
   {
     "value": "uy",
     "name": {
       "en": "Uruguay",
-      "uk": "Уругвай"
+      "uk": "Уругвай",
+      "fr": "Uruguay"
     }
   },
   {
     "value": "uz",
     "name": {
       "en": "Uzbekistan",
-      "uk": "Узбекистан"
+      "uk": "Узбекистан",
+      "fr": "Ouzbékistan"
     }
   },
   {
     "value": "vu",
     "name": {
       "en": "Vanuatu",
-      "uk": "Вануату"
+      "uk": "Вануату",
+      "fr": "Vanuatu"
     }
   },
   {
     "value": "ve",
     "name": {
       "en": "Venezuela",
-      "uk": "Венесуела"
+      "uk": "Венесуела",
+      "fr": "Venezuela"
     }
   },
   {
     "value": "vn",
     "name": {
       "en": "Viet Nam",
-      "uk": "В'єтнам"
+      "uk": "В'єтнам",
+      "fr": "Viet Nam"
     }
   },
   {
     "value": "ye",
     "name": {
       "en": "Yemen",
-      "uk": "Ємен"
+      "uk": "Ємен",
+      "fr": "Yémen"
     }
   },
   {
     "value": "zm",
     "name": {
       "en": "Zambia",
-      "uk": "Замбія"
+      "uk": "Замбія",
+      "fr": "Zambie"
     }
   },
   {
     "value": "zw",
     "name": {
       "en": "Zimbabwe",
-      "uk": "Зімбабве"
+      "uk": "Зімбабве",
+      "fr": "Zimbabwe"
     }
   }
 ]
