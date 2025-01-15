@@ -22,6 +22,7 @@ export const getStaticProps: GetStaticProps<ScheduleMeetingProps> = async ({ loc
     },
   };
 };
+
 export default function ScheduleMeetingPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
