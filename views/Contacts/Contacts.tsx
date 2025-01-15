@@ -10,7 +10,7 @@ import { AppLayout } from 'layouts';
 import { Hero } from './components/Hero/Hero';
 import { Locations } from './components/Locations/Locations';
 
-const Calendly = dynamic(() => import('components/Calendly/Calendly').then((mod) => mod.Calendly), { ssr: false });
+// const Calendly = dynamic(() => import('components/Calendly/Calendly').then((mod) => mod.Calendly), { ssr: false });
 
 export type ContactsProps = Page<{
   page: ApiPage;
@@ -22,7 +22,7 @@ export const Contacts: React.FC<ContactsProps> = () => (
     <MapProvider>
       <Hero />
       <Locations />
-      <Calendly />
+      {/* <Calendly /> */}
     </MapProvider>
   </AppLayout>
 );

@@ -2,8 +2,8 @@ import { ApiPage } from 'types/api';
 import { Page } from 'types/page';
 
 import { Container } from 'components';
-import { Calendly } from 'components/Calendly/Calendly';
 
+// import { Calendly } from 'components/Calendly/Calendly';
 import { AppLayout } from 'layouts';
 
 export type ScheduleMeetingProps = Page<{
@@ -12,8 +12,6 @@ export type ScheduleMeetingProps = Page<{
 
 export const ScheduleMeeting: React.FC<ScheduleMeetingProps> = () => (
   <AppLayout>
-    <Container>
-      <Calendly />
-    </Container>
+    <Container>{/* <Calendly /> */}</Container>
   </AppLayout>
 );

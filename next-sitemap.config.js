@@ -20,5 +20,9 @@ module.exports = {
       href: process.env.NEXT_PUBLIC_SITE_URL + '/uk',
       hreflang: 'uk',
     },
+    {
+      href: process.env.NEXT_PUBLIC_SITE_URL + '/fr',
+      hreflang: 'fr',
+    },
   ],
 };

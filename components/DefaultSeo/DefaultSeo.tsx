@@ -1,11 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import {
-  DefaultSeo as DefaultSeoComponent,
-  DefaultSeoProps,
-  ImageJsonLd,
-  LocalBusinessJsonLd,
-  OrganizationJsonLd,
-} from 'next-seo';
+import { DefaultSeo as DefaultSeoComponent, DefaultSeoProps, ImageJsonLd, OrganizationJsonLd } from 'next-seo';
 
 import { Namespace, defaultLanguage } from 'configs/i18n';
 
@@ -29,7 +23,10 @@ export const DefaultSeo: React.FC<DefaultSeoProps> = (props) => {
         titleTemplate="Zapal - %s | Unlock Your Tech Future"
         description={t('description')!}
         themeColor={colors.defaultBackgroundColor}
-        languageAlternates={[{ hrefLang: 'uk', href: getAbsoluteUrl('/uk', false) }]}
+        languageAlternates={[
+          { hrefLang: 'uk', href: getAbsoluteUrl('/uk', false) },
+          { hrefLang: 'fr', href: getAbsoluteUrl('/fr', false) },
+        ]}
         openGraph={{
           type: 'website',
           locale: 'en_US',

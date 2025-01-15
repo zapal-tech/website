@@ -1,6 +1,7 @@
 export enum Language {
   English = 'en',
   Ukrainian = 'uk',
+  French = 'fr',
 }
 
 export type LanguageOption = {

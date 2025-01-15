@@ -26,6 +26,12 @@ export const PageSeo: React.FC<PageSeoProps> = ({
 }) => {
   const router = useRouter();
 
+  const localeToISO3166AndISO639 = (locale?: string): string => {
+    if (locale === 'uk') return 'uk_UA';
+    if (locale === 'fr') return 'fr_FR';
+    return 'en_US';
+  };
+
   const getAdditionalMetaTags = (): MetaTag[] | undefined => {
     const tags: MetaTag[] = [];
 
@@ -40,7 +46,7 @@ export const PageSeo: React.FC<PageSeoProps> = ({
       { name: 'og:description', content: description || '' },
       { name: 'og:type', content: 'website' },
       { name: 'og:site_name', content: 'Zapal' },
-      { name: 'og:locale', content: locale === 'uk' ? 'uk_UA' : 'en_US' },
+      { name: 'og:locale', content: localeToISO3166AndISO639(locale) },
     );
 
     if (canonical) tags.push({ name: 'og:url', content: canonical });

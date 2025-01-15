@@ -4,7 +4,7 @@ const I18NextHttpBackend = require('i18next-http-backend/cjs');
 module.exports = {
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'uk'],
+    locales: ['en', 'uk', 'fr'],
   },
   reloadOnPrerender: process.env.NODE_ENV === 'development',
   serializeConfig: false,

@@ -42,12 +42,23 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ className })
         className={clsx(
           styles.LanguageSwitcher__Control,
           i18n.language === Language.Ukrainian && styles['LanguageSwitcher__Control--Active'],
-          styles['LanguageSwitcher__Control--Right'],
         )}
         onClick={() => handleChangeLanguage(Language.Ukrainian)}
         aria-label={`Language name: ${t('uk.name')}, language native name: ${t('uk.nativeName')}`}
       >
         {t('uk.code')}
+      </button>
+
+      <button
+        className={clsx(
+          styles.LanguageSwitcher__Control,
+          i18n.language === Language.French && styles['LanguageSwitcher__Control--Active'],
+          styles['LanguageSwitcher__Control--Right'],
+        )}
+        onClick={() => handleChangeLanguage(Language.French)}
+        aria-label={`Language name: ${t('fr.name')}, language native name: ${t('fr.nativeName')}`}
+      >
+        {t('fr.code')}
       </button>
     </div>
   );

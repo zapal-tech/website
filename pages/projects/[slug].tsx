@@ -30,7 +30,7 @@ export const getStaticProps: GetStaticProps<{ project: ProjectProps }> = async (
   const footer = await getProjectFooter(locale);
 
   const parsedCountry = countries.find((country) => country.value === project?.content.details.country)?.name[
-    locale! as 'en' | 'uk'
+    locale! as 'en' | 'uk' | 'fr'
   ];
   const layoutHtmlString = project?.content.layout.length ? parseProjectLayout(project.content.layout) : null;
 
